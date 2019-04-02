@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Office 2016 激活方法]]></title>
+    <url>%2F2019%2F04%2F02%2FOffice-2016-%E6%BF%80%E6%B4%BB%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[激活方法 下载安装激活工具：链接: https://pan.baidu.com/s/1C3KqB4m7dnm9t2uKoDARHw 提取码: 9r4h Windows 10 中可能会提示说下载的文件中包含病毒，导致下载不成功。这时候只需要在Windows defender中找到刚才那条阻止记录，并将其设置为允许，重新下载文件，就可以下载成功了。 接下来执行压缩包里面的.exe文件，安装到最后，Windows defender又提示说检测到病毒xxx不能执行，安装失败之类的，这时候需要在windows安全中心，选择管理设置，然后关闭实时保护，然后以管理员方式运行压缩包里面的.bat文件，再重新安装刚才那个.exe文件，这时候就可以成功安装了，安装完之后再开启实时保护。 启动软件，点击红色按钮，在打开 office 中的账户，发现已经激活成功了，简直神器！ 参考文章 https://blog.csdn.net/weixin_40941966/article/details/80872533]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Python3: ModuleNotFoundError: No module named 'PIL']]></title>
     <url>%2F2019%2F04%2F02%2FPython3-ModuleNotFoundError-No-module-named-PIL%2F</url>
     <content type="text"><![CDATA[问题使用matplotlib.pyplot模块调用绘图函数时，出现以上错误。 解决方法在控制台中输入如下命令1pip install pillow 即可解决问题]]></content>
