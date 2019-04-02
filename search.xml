@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[常用的正则匹配]]></title>
+    <url>%2F2019%2F04%2F02%2F%E5%B8%B8%E7%94%A8%E7%9A%84%E6%AD%A3%E5%88%99%E5%8C%B9%E9%85%8D%2F</url>
+    <content type="text"><![CDATA[正则表达式由两个部分组成：1/正则表达式主体/修饰符(可选) 其中修饰符主要用到两种： i: ignore 的意思。表示忽略大小写进行匹配。 g: global 的意思。表示匹配整个字符串，否则第一次匹配成功后，不会继续匹配后面的字符串。 常用的特殊字符 特殊字符 含义 * 0个或者 N 个 + 1个或者 N 个 ? 0个或者1个 .等价[^\n\r] 匹配任意字符(除了换行和回车) \ 可以做转义字符也可以和\b等一起使用表示特殊含义 ^ 匹配输入的开始如/^A/匹配一个以字符A开头的字符串 $ 匹配输入的结束如/t$/匹配一个以字符t结尾的字符串 [0-9] 匹配一个数字 \d 同上匹配一个数字 \s 空白字符(空格、制表符、换行符等) \D等价[^0-9] 匹配一个非数字字符 [a-zA-Z] 匹配任何一个大小写字母 \w 匹配一个单字字符(字符、数字、下划线) \W 同上匹配一个非单字字符 [^xyz] 匹配不包含xyz字符的第一个字符 使用正则表达式的常用方法 方法 描述 replace() 查找匹配的字符串，然后用新字符串替代 split() 将原字符串按照正则表达式拆分，将结果存入到一个数组中 使用括号的子字符串匹配 这种情况下，会将匹配的结果存入到一个数组中，也就是会 记忆 匹配得到的结果。 几个例子 eg1 1234var re = /\w+\s/g;var str = "fee fi fo fum";var myarr = str.match(re);console.log(myarr); 输出结果1["fee+空格", "fi+空格", "fo+空格"] eg2(综合性实例) 1234567891011121314151617181920212223// names中不同名字之间有多个空白字符、制表符等不可见字符var names = "Harry Trump ;Fred Barney; Helen Rigby ; Bill Abel ; Chris Hand ";console.log("===========original string==============\n" + names);var pattern = /\s*;\s*/;var namelist = names.split(pattern);// console.log(namelist);// 将匹配到的结果存起来作为$1和$2var newpattern = /(\w+)\s+(\w+)/;newnamelist = [];for (var i = 0, len = namelist.length; i &lt; len; i++) &#123; // 名字颠倒 newnamelist[i] = namelist[i].replace(newpattern, "$2, $1");&#125;console.log(newnamelist);// 按照字母表排序newnamelist.sort();console.log(newnamelist); 需要注意的就是函数split()和replace()的使用。 如果是带有括号的，那么匹配的结果将存放在$1 $2 … $n中]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[Office 2016 激活方法]]></title>
     <url>%2F2019%2F04%2F02%2FOffice-2016-%E6%BF%80%E6%B4%BB%E6%96%B9%E6%B3%95%2F</url>
     <content type="text"><![CDATA[激活方法 下载安装激活工具：链接: https://pan.baidu.com/s/1C3KqB4m7dnm9t2uKoDARHw 提取码: 9r4h Windows 10 中可能会提示说下载的文件中包含病毒，导致下载不成功。这时候只需要在Windows defender中找到刚才那条阻止记录，并将其设置为允许，重新下载文件，就可以下载成功了。 接下来执行压缩包里面的.exe文件，安装到最后，Windows defender又提示说检测到病毒xxx不能执行，安装失败之类的，这时候需要在windows安全中心，选择管理设置，然后关闭实时保护，然后以管理员方式运行压缩包里面的.bat文件，再重新安装刚才那个.exe文件，这时候就可以成功安装了，安装完之后再开启实时保护。 启动软件，点击红色按钮，在打开 office 中的账户，发现已经激活成功了，简直神器！ 参考文章 https://blog.csdn.net/weixin_40941966/article/details/80872533]]></content>
