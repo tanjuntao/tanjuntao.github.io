@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="前言其实在很早之前，曾使用 WordPress 搭建过一个个人博客。当时也是满满的激情，想模仿大佬们学着写技术博客。但是后来由于忙着追求GPA，加上自身懒惰自控力不行，博客就基本放弃更新了。 但是现在已经过上了研究生生活，每天有大把的时间可以由自己来支配，同时接触的东西也越来越多：做项目需要实时的学习一些技术和技巧，需要不断总结下来；各种学术报告会，听完之后需要回去再认真揣摩消化，变成自己的东西，">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-02T06:37:42.785Z">
+<meta property="og:updated_time" content="2019-04-02T06:56:05.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用 Github Pages + Hexo 搭建一个个人博客">
 <meta name="twitter:description" content="前言其实在很早之前，曾使用 WordPress 搭建过一个个人博客。当时也是满满的激情，想模仿大佬们学着写技术博客。但是后来由于忙着追求GPA，加上自身懒惰自控力不行，博客就基本放弃更新了。 但是现在已经过上了研究生生活，每天有大把的时间可以由自己来支配，同时接触的东西也越来越多：做项目需要实时的学习一些技术和技巧，需要不断总结下来；各种学术报告会，听完之后需要回去再认真揣摩消化，变成自己的东西，">
@@ -160,7 +160,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle"></p>
+        <p class="site-subtitle">time and effort</p>
       
   </div>
 
@@ -408,6 +408,12 @@
 <p>其它一些设置，包括<code>头像</code>，<code>新页面</code>，<code>评论系统</code>等，可以参见<a href="https://www.jianshu.com/p/3a05351a37dc" target="_blank" rel="noopener">Hexo的Next主题详细配置</a> 这篇文章，非常详细！</p>
 <h3 id="8-其它"><a href="#8-其它" class="headerlink" title="8.其它"></a>8.其它</h3><p>关于使用 <code>hexo deploy</code>时，如何附带像<code>git commit</code>那样的<code>message</code>，只需要如下命令即可：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy --message &quot;提交的信息内容&quot;</span><br></pre></td></tr></table></figure></p>
 <p>非常方便！</p>
+<h3 id="9-注意事项"><a href="#9-注意事项" class="headerlink" title="9.注意事项"></a>9.注意事项</h3><ul>
+<li>不要修改使用<code>hexo new</code>命令生成的文章标题<ul>
+<li>在编辑<code>hexo new</code>生成的 markdown 文件时，不要动手修改<code>title</code>的值，否则会导致这篇<code>post</code>无法显示在网站上！</li>
+</ul>
+</li>
+</ul>
 <hr>
 <p>这篇文章就先到这里啦~</p>
 <h2 id="主要参考"><a href="#主要参考" class="headerlink" title="主要参考"></a>主要参考</h2><ul>
@@ -567,7 +573,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">2.</span> <span class="nav-text">开始搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前期准备"><span class="nav-number">2.1.</span> <span class="nav-text">1. 前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">2.2.</span> <span class="nav-text">2. 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-构建本地目录"><span class="nav-number">2.3.</span> <span class="nav-text">3. 构建本地目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动"><span class="nav-number">2.4.</span> <span class="nav-text">4. 启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-部署到-Github-Page"><span class="nav-number">2.5.</span> <span class="nav-text">5. 部署到 Github Page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用"><span class="nav-number">2.6.</span> <span class="nav-text">6. 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-修改主题"><span class="nav-number">2.7.</span> <span class="nav-text">7. 修改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-其它"><span class="nav-number">2.8.</span> <span class="nav-text">8.其它</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要参考"><span class="nav-number">3.</span> <span class="nav-text">主要参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始搭建"><span class="nav-number">2.</span> <span class="nav-text">开始搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-前期准备"><span class="nav-number">2.1.</span> <span class="nav-text">1. 前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-安装hexo"><span class="nav-number">2.2.</span> <span class="nav-text">2. 安装hexo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-构建本地目录"><span class="nav-number">2.3.</span> <span class="nav-text">3. 构建本地目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-启动"><span class="nav-number">2.4.</span> <span class="nav-text">4. 启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-部署到-Github-Page"><span class="nav-number">2.5.</span> <span class="nav-text">5. 部署到 Github Page</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#6-使用"><span class="nav-number">2.6.</span> <span class="nav-text">6. 使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#7-修改主题"><span class="nav-number">2.7.</span> <span class="nav-text">7. 修改主题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#8-其它"><span class="nav-number">2.8.</span> <span class="nav-text">8.其它</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#9-注意事项"><span class="nav-number">2.9.</span> <span class="nav-text">9.注意事项</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主要参考"><span class="nav-number">3.</span> <span class="nav-text">主要参考</span></a></li></ol></div>
             
 
           </div>
