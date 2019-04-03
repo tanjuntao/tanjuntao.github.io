@@ -291,6 +291,155 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Linux-系统中常见目录的含义及作用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/Linux-系统中常见目录的含义及作用/" itemprop="url">Linux 系统中常见目录的含义及作用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T16:43:30+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇博客将随着我对 Linux 系统的不断使用和了解而不定期更新。</p>
+<h2 id="常用目录的含义"><a href="#常用目录的含义" class="headerlink" title="常用目录的含义"></a>常用目录的含义</h2><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>含义   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>存放 linux 中常用命令，如<code>cd</code> <code>pwd</code> <code>ls</code>等</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td></td>
+</tr>
+<tr>
+<td>/etc</td>
+<td></td>
+</tr>
+<tr>
+<td>/var</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://blog.sina.com.cn/s/blog_684d52a90102uw30.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_684d52a90102uw30.html</a> </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/安装固态硬盘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -361,47 +510,16 @@
 
       
         
-          
-            <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p><em>以下全是个人的装机经验，没有很认真的写，只是打算做个记录，这样下次如果还需要干这类活时有个参考。不建议follow！！仅供一点参考。</em></p>
+          <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p><em>以下全是个人的装机经验，没有很认真的写，只是打算做个记录，这样下次如果还需要干这类活时有个参考。不建议follow！！仅供一点参考。</em></p>
 <p>笔记本老早就出现各种问题了，觉得应该是系统的问题而不是硬件的问题，于是寻思着重装一下系统。但是心里对重装系统有些抵触，因为会导致很多之前辛苦安装好配置好的软件无法使用。拖了好久，终于买了一块固态硬盘来重装系统…笔记本简直焕发第二春啊！</p>
-<h2 id="1-数据备份"><a href="#1-数据备份" class="headerlink" title="1. 数据备份"></a>1. 数据备份</h2><p>为了避免发生意外情况，建议还是首先把原先硬盘中重要的文件备份一下。所谓备份，就是把一些重要的文件拷贝到另外一块存储介质中，如移动硬盘等，这样重装系统能够放心点。</p>
-<p>其实需要备份的文件感觉不是很多，个人觉得下面这些需要着重备份：</p>
-<ol>
-<li>C盘：<strong>桌面</strong>，<strong>图片</strong>，<strong>视频</strong>。偷懒一点，就把<strong>user</strong>文件夹全部备份一下，因为这个差不多是系统盘中最重要的文件了。</li>
-<li>其它：如果是数据盘，那不用考虑，所有的文件都得备份。如果是软件盘，那么之前一些工程文件目录，如<strong>eclipse</strong>，<strong>webstorm</strong>，<strong>pycharm</strong>等，做好备份。另外<strong>Tim，微信聊天记录</strong>也最好备份一下，这样重装之后可以直接导入这些记录。</li>
-</ol>
-<h2 id="2-制作启动U盘"><a href="#2-制作启动U盘" class="headerlink" title="2. 制作启动U盘"></a>2. 制作启动U盘</h2><p>因为打算把新系统装到 SSD 中，所以需要事先制作一个启动 U 盘，用来安装新系统。</p>
-<ol>
-<li>下载系统<code>iso镜像</code><ul>
-<li>可以使用微软官方的渠道下载，直接搜索<code>windows10镜像下载  微软</code>，然后下载一个工具，让其将Windows操作提供写入到U盘中(<strong>U盘会被格式化，事先备份U盘</strong>)</li>
-<li>也可以使用第三方的镜像，比较推荐的是 <a href="http://www.itellyou.cn" target="_blank" rel="noopener">MSDN我告诉你</a>。找到打算下载的镜像，将完整的<code>ed2k</code>地址复制到迅雷等下载工具中，启动镜像下载。</li>
-</ul>
-</li>
-<li>制作<code>启动U盘</code><ul>
-<li>可以使用<code>UltraISO</code>  <code>rufus</code>等启动U盘制作工具，导入之前下载的<code>iso镜像</code>，就可以轻松完成U盘制作。</li>
-</ul>
-</li>
-</ol>
-<h2 id="3-拆机"><a href="#3-拆机" class="headerlink" title="3. 拆机"></a>3. 拆机</h2><p>拆机过程中不用太担心，小心操作，一般不会带来什么问题的。拆机之前记得先把笔记本电源取下来，防止意外发生。</p>
-<ol>
-<li>将笔记本后盖中所有看得见的螺丝全部拧下来，然后将笔记本后盖和主板分离。这个过程中需要留意一点，因为主板上面有可能有线和后盖通过一个卡口连在一块，所以在取下后盖之前，需要将这个卡口解开，不能直接就分离后盖。</li>
-<li>找到硬盘位。拧下所有的螺丝，将原来的 HDD 取下，装上新的 SSD，按照相反的步骤再装回原位，这样新的固态硬盘就轻松的装好了。</li>
-<li>找到光驱位。拧下所有的螺丝，将原来的 HDD 装入光驱位硬盘托架(<em>需花钱额外购买</em>)，记得一定要将 HDD 装到位，也就是一定要保证接线口是完全缝合的，否则可能在装好新系统后，无法读取到这块 HDD 硬盘。</li>
-<li>将原来光驱的前挡板取下来，装到这块硬盘托架上，这样能够保证托架装上笔记本后，不会明显的凹下去，因为如果使用硬盘托架厂商送的通用挡板，会导致笔记本装好后没有一体性，因为光驱位那里凹下去了，影响美观。</li>
-<li>将后盖装回去(有线的地方先把线接好)，再将所有的螺丝全部拧回去，这样就完成了拆机安装 SSD 的过程。</li>
-</ol>
-<h2 id="4-重装系统到-SSD"><a href="#4-重装系统到-SSD" class="headerlink" title="4. 重装系统到 SSD"></a>4. 重装系统到 SSD</h2><p>目标是将新系统装到 SSD 中，原来的 HDD 作为普通的硬盘使用。</p>
-<ol>
-<li>具体的，笔记本开机后，不断按<code>f2</code>  <code>f8</code>  <code>delete</code>(<em>不同笔记本不同</em>)进入<code>BIOS</code>。找到<code>boot</code>，选择从U盘启动。</li>
-<li>这时候会识别到刚才新装的固态硬盘，会提示是否需要进行分区，因为SSD一般是128G或者256G，感觉没有必要再分区了，整块盘作为一个分区就可以了。然后接下来就是愉悦的安装过程了，这个比较傻瓜，没什么好说的。</li>
-</ol>
-<h2 id="5-可能的问题"><a href="#5-可能的问题" class="headerlink" title="5. 可能的问题"></a>5. 可能的问题</h2><ol>
-<li>新系统中无法使用触控板。可以卸载当前的触控板驱动，然后去笔记本厂商官网，找到当前这款型号笔记本对应的触控板驱动程序，重新安装就可以了。</li>
-<li>读取不到光驱位硬盘。可以搜索一下这个问题，一般会提示让下载一个<code>amd xxx controller</code>，然后打开设备管理器，将驱动程序手动更新一下就可以了。</li>
-<li>原先的光驱挡板不好拆卸。实在不行就暴力拆卸，装到托架上时，用502胶水粘一下。</li>
-</ol>
-
-          
+<h2 id="1-数据备份"><a href="#1-数据备份" class="headerlink" title="1. 数据备份"></a>1. 数据备份</h2>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/安装固态硬盘/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -518,126 +636,23 @@
 
       
         
-          
-            <p>正则表达式由两个部分组成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/正则表达式主体/修饰符(可选)</span><br></pre></td></tr></table></figure></p>
+          <p>正则表达式由两个部分组成：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/正则表达式主体/修饰符(可选)</span><br></pre></td></tr></table></figure></p>
 <p>其中修饰符主要用到两种：</p>
 <ol>
 <li><code>i</code>: <strong>ignore</strong> 的意思。表示忽略大小写进行匹配。</li>
 <li><code>g</code>: <strong>global</strong> 的意思。表示匹配整个字符串，否则第一次匹配成功后，不会继续匹配后面的字符串。</li>
 </ol>
-<p>常用的特殊字符</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">特殊字符</th>
-<th style="text-align:center">含义  </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>*</code></td>
-<td style="text-align:center">0个或者 N 个</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>+</code></td>
-<td style="text-align:center">1个或者 N 个</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>?</code></td>
-<td style="text-align:center">0个或者1个</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>.</code><br>等价<code>[^\n\r]</code></td>
-<td style="text-align:center">匹配任意字符(除了换行和回车)</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\</code></td>
-<td style="text-align:center">可以做转义字符<br>也可以和<code>\b</code>等一起使用表示特殊含义</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>^</code></td>
-<td style="text-align:center">匹配输入的开始<br>如<code>/^A/</code>匹配一个以字符<code>A</code>开头的字符串</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>$</code></td>
-<td style="text-align:center">匹配输入的结束<br>如<code>/t$/</code>匹配一个以字符<code>t</code>结尾的字符串</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>[0-9]</code></td>
-<td style="text-align:center">匹配一个数字</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\d</code></td>
-<td style="text-align:center">同上匹配一个数字</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\s</code></td>
-<td style="text-align:center">空白字符(空格、制表符、换行符等)</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\D</code><br>等价<code>[^0-9]</code></td>
-<td style="text-align:center">匹配一个非数字字符</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>[a-zA-Z]</code></td>
-<td style="text-align:center">匹配任何一个大小写字母</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\w</code></td>
-<td style="text-align:center">匹配一个单字字符(字符、数字、下划线)</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>\W</code></td>
-<td style="text-align:center">同上匹配一个非单字字符</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>[^xyz]</code></td>
-<td style="text-align:center">匹配不包含<code>xyz字符</code>的第一个字符</td>
-</tr>
-</tbody>
-</table>
-<p>使用正则表达式的常用方法</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">方法</th>
-<th style="text-align:center">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>replace()</code></td>
-<td style="text-align:center">查找匹配的字符串，然后用新字符串替代</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>split()</code></td>
-<td style="text-align:center">将原字符串按照正则表达式拆分，将结果存入到一个数组中</td>
-</tr>
-</tbody>
-</table>
-<p>使用括号的子字符串匹配</p>
-<ul>
-<li>这种情况下，会将匹配的结果存入到一个数组中，也就是会 <em>记忆</em> 匹配得到的结果。</li>
-</ul>
-<p><strong>几个例子</strong></p>
-<ul>
-<li>eg1</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> re = <span class="regexp">/\w+\s/g</span>;</span><br><span class="line"><span class="keyword">var</span> str = <span class="string">"fee fi fo fum"</span>;</span><br><span class="line"><span class="keyword">var</span> myarr = str.match(re);</span><br><span class="line"><span class="built_in">console</span>.log(myarr);</span><br></pre></td></tr></table></figure>
-<p>输出结果<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">"fee+空格"</span>, <span class="string">"fi+空格"</span>, <span class="string">"fo+空格"</span>]</span><br></pre></td></tr></table></figure></p>
-<ul>
-<li><p>eg2(综合性实例)</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// names中不同名字之间有多个空白字符、制表符等不可见字符</span></span><br><span class="line"><span class="keyword">var</span> names = <span class="string">"Harry   Trump ;Fred Barney; Helen   Rigby ; Bill  Abel ; Chris     Hand "</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"===========original string==============\n"</span> + names);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> pattern = <span class="regexp">/\s*;\s*/</span>;</span><br><span class="line"><span class="keyword">var</span> namelist = names.split(pattern);</span><br><span class="line"><span class="comment">// console.log(namelist);</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 将匹配到的结果存起来作为$1和$2</span></span><br><span class="line"><span class="keyword">var</span> newpattern = <span class="regexp">/(\w+)\s+(\w+)/</span>;</span><br><span class="line">newnamelist = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>, len = namelist.length; i &lt; len; i++) &#123;</span><br><span class="line">    <span class="comment">// 名字颠倒</span></span><br><span class="line">    newnamelist[i] = namelist[i].replace(newpattern, <span class="string">"$2, $1"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(newnamelist);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 按照字母表排序</span></span><br><span class="line">newnamelist.sort();</span><br><span class="line"><span class="built_in">console</span>.log(newnamelist);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>需要注意的就是函数<code>split()</code>和<code>replace()</code>的使用。</p>
-</li>
-<li>如果是带有括号的，那么匹配的结果将存放在<code>$1</code> <code>$2</code> … <code>$n</code>中</li>
-</ul>
-
-          
+<p>常用的特殊字符<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/04/02/常用的正则匹配/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
@@ -1351,7 +1366,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
