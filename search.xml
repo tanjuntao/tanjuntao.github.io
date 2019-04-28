@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[解决hexo中发布文章后图片无法显示的问题]]></title>
+    <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3hexo%E4%B8%AD%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%90%8E%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-assrt-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[解决pycharm在同目录下import，pycharm会报错，但实际可以正常运行的错误]]></title>
     <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3pycharm%E5%9C%A8%E5%90%8C%E7%9B%AE%E5%BD%95%E4%B8%8Bimport%EF%BC%8Cpycharm%E4%BC%9A%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E5%AE%9E%E9%99%85%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%BF%90%E8%A1%8C%E7%9A%84%E9%94%99%E8%AF%AF%2F</url>
     <content type="text"><![CDATA[1. 问题描述假如我们的目录结构是这样： 项目名称是HelloWorld，在项目主目录下面新建一个文件夹test_dir，接着在HelloWorld/test_dir目录下面新建两个文件: HelloWorld/test_dir/hello1.py和HelloWorld/test_dir/hello2.py。 hello1.py中插入如下代码：1234import hello2 as h2print(h2.hello_world())print(h2.nihao()) hello2.py中插入如下代码：12345def nihao(): return 'nihao'def hello_world(): return 'hello world' 此时，会发现在hello1.py中一直红线提示No module named hello2： 但是如果我们运行hello.py发现是能够正常输出结果的。 2. 解决方法在左侧工程目录树中，选中test_dir，右键，然后选择 Mark directory as，再选择source root，然后就会发现先前的红线错误提示已经没有了。 3. More…如果我们是在当前工程主目录下面新建两个文件HelloWorld/hello1.py和HelloWorld/hello2.py，两个.py文件的代码内容和之前一样，这时候却又不会出现No module named hello2这种错误了。 参考文章 https://www.zhihu.com/question/52880389/answer/134369870]]></content>
