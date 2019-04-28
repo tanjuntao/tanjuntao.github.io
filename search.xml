@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ubuntu下使用virtualenv新建一个python3虚拟环境]]></title>
+    <url>%2F2019%2F04%2F28%2Fubuntu%E4%B8%8B%E4%BD%BF%E7%94%A8virtualenv%E6%96%B0%E5%BB%BA%E4%B8%80%E4%B8%AApython3%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[1. 虚拟环境的意义因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。 虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。 2. 步骤 首先需要安装 virtualenv 1sudo apt-get install python-virtualenv 接着创建 python3 的虚拟环境(ubuntu中默认安装了python2和python3) 1234cd ~/1997tanjuntao/ # 切换到一个目录下面virtualenv -p /usr/bin/python3 py3env # 在当前目录下面创建新目录py3env(目录名可以自定义)，py3env中就是虚拟环境# 如果是新建一个python2环境，可以这样做# virtualenv -p /usr/bin/python2 py2env 接着激活环境 切换到py3env所在目录1cd ~/1997tanjuntao/ source命令激活虚拟环境1source py3env/bin/activate 这时候会发现命令行前面多了一个括号 (py3env) 这个新建的虚拟环境中使用的是python3，默认情况下，没有包含系统python3中安装的包，很干净。 这时候使用pip install安装的第三方包，只存在于这个虚拟环境中，不会影响系统中的python3 退出虚拟环境1deactivate # 一句话 参考文章 https://blog.csdn.net/qingche456/article/details/65465760]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[解决hexo中发布文章后图片无法显示的问题]]></title>
     <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3hexo%E4%B8%AD%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%90%8E%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-assrt-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
