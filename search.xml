@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[pycharm在需要输入命令行参数时如何调试]]></title>
+    <url>%2F2019%2F04%2F30%2Fpycharm%E5%9C%A8%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E6%97%B6%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%2F</url>
+    <content type="text"><![CDATA[1. 前言在 pycharm 中进行调试，一般的做法是：先设置断点，然后开始调试程序。调试过程中选择step over, step into, step out, resume program等操作。 但是当程序需要从命令行中读取参数时，该怎么调试呢？ 如果和之前一样，设置断点，然后开始调试，但在这种做法下，程序没有从命令行中获取到参数；如果在 pycharm 的 teminal中输入 python xxx.py -x xx -y yy -z zz，这种做法会直接运行完程序，无法在断点处停下来。 2. 解决方法在 pycharm 中选择 Run -&gt; edit configurations，然后在parameters中填入需要设置的命令行参数，这时候不需要输入python xxx.py。点击apply然后OK。 然后在代码中就可以直接 debug 了，会在断点处停下来。 参考文章 https://blog.csdn.net/wishchin/article/details/78560725]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[pycharm调试]]></title>
     <url>%2F2019%2F04%2F29%2Fpycharm%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[pycharm中调试功能按钮说明列表 竖排 Resume Program(F9): 运行到下一个断点。 横排 step into(F7)和step into my code(Shift+Alt+F7之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。 参考文章 pycharm调试功能]]></content>
