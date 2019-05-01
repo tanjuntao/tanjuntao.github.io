@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一些Python语法]]></title>
+    <url>%2F2019%2F05%2F01%2F%E4%B8%80%E4%BA%9BPython%E8%AF%AD%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[关键字 globalglobal关键字主要目的是为了在函数中使用全局变量。1234567891011121314count = 10def modify_count(): temp_count = 20 print('local variable: ', temp_count) global count print('global variable: ', count) count = 100 print('after modified: ', count) returnprint('before modify_count(): ', count)modify_count()print('after modify_count(): ', count) 输入结果：1234567before modify_count(): 10local variable: 20global variable: 10after modified: 100after modify_count(): 100Process finished with exit code 0 从代码中可以看到，，如果要在函数modify_count()中使用全局变量count，那么需要使用global关键字修饰。同时，函数内部对count的修改，将影响到函数外面count的值。 if __name__ == &#39;__main__&#39; 说明因为在 Python 中，一个.py文件就是一个模块，模块中一般写了很多函数供其他模块使用。但我们需要测试模块中函数的正确性，这时候就需要用到 if __name__ == &#39;__main__&#39;. __name__是每个模块的一个属性名，如果我们需要在当前模块中编写测试代码，一般情况下，我们是将测试代码放在 if __name__ == &#39;__main__&#39;这条判断语句下面，因为如果是直接运行当前模块，那么__name__的值就是__main__，条件判断下面的测试代码将会被执行。 如果有另外一个模块module_2.py引用了当前模块module_1.py,那么当我们运行module_2.py时，module_1.py中的__name__的值将变成module_2，即引用了module_1这个模块的模块名。那这时module_1中的if判断将不满足，也就不会执行测试代码，module_2也就只是导入了module_1中的函数，符合我们的期望。]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[pycharm在需要输入命令行参数时如何调试]]></title>
     <url>%2F2019%2F04%2F30%2Fpycharm%E5%9C%A8%E9%9C%80%E8%A6%81%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%8F%82%E6%95%B0%E6%97%B6%E5%A6%82%E4%BD%95%E8%B0%83%E8%AF%95%2F</url>
     <content type="text"><![CDATA[1. 前言在 pycharm 中进行调试，一般的做法是：先设置断点，然后开始调试程序。调试过程中选择step over, step into, step out, resume program等操作。 但是当程序需要从命令行中读取参数时，该怎么调试呢？ 如果和之前一样，设置断点，然后开始调试，但在这种做法下，程序没有从命令行中获取到参数；如果在 pycharm 的 teminal中输入 python xxx.py -x xx -y yy -z zz，这种做法会直接运行完程序，无法在断点处停下来。 2. 解决方法在 pycharm 中选择 Run -&gt; edit configurations，然后在parameters中填入需要设置的命令行参数，这时候不需要输入python xxx.py。点击apply然后OK。 然后在代码中就可以直接 debug 了，会在断点处停下来。 参考文章 https://blog.csdn.net/wishchin/article/details/78560725]]></content>
