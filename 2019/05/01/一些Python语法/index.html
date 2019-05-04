@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="python,">
 
 
 
@@ -80,13 +80,14 @@
 
 
 <meta name="description" content="关键字 globalglobal关键字主要目的是为了在函数中使用全局变量。1234567891011121314count = 10def modify_count():    temp_count = 20    print(&apos;local variable: &apos;, temp_count)    global count    print(&apos;global variable: &apos;, count)">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一些Python语法">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/一些Python语法/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="关键字 globalglobal关键字主要目的是为了在函数中使用全局变量。1234567891011121314count = 10def modify_count():    temp_count = 20    print(&apos;local variable: &apos;, temp_count)    global count    print(&apos;global variable: &apos;, count)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-01T03:08:05.460Z">
+<meta property="og:updated_time" content="2019-05-04T12:30:19.086Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="一些Python语法">
 <meta name="twitter:description" content="关键字 globalglobal关键字主要目的是为了在函数中使用全局变量。1234567891011121314count = 10def modify_count():    temp_count = 20    print(&apos;local variable: &apos;, temp_count)    global count    print(&apos;global variable: &apos;, count)">
@@ -363,10 +364,18 @@
       
         <h2 id="关键字-global"><a href="#关键字-global" class="headerlink" title="关键字 global"></a>关键字 <code>global</code></h2><p><code>global</code>关键字主要目的是为了在函数中使用全局变量。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modify_count</span><span class="params">()</span>:</span></span><br><span class="line">    temp_count = <span class="number">20</span></span><br><span class="line">    print(<span class="string">'local variable: '</span>, temp_count)</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    print(<span class="string">'global variable: '</span>, count)</span><br><span class="line">    count = <span class="number">100</span></span><br><span class="line">    print(<span class="string">'after modified: '</span>, count)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'before modify_count(): '</span>, count)</span><br><span class="line">modify_count()</span><br><span class="line">print(<span class="string">'after modify_count(): '</span>, count)</span><br></pre></td></tr></table></figure></p>
 <p>输入结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">before modify_count():  10</span><br><span class="line">local variable:  20</span><br><span class="line">global variable:  10</span><br><span class="line">after modified:  100</span><br><span class="line">after modify_count():  100</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></p>
+<a id="more"></a>
 <p>从代码中可以看到，，如果要在函数<code>modify_count()</code>中使用全局变量<code>count</code>，那么需要使用<code>global</code>关键字修饰。<br>同时，函数内部对<code>count</code>的修改，将影响到函数外面<code>count</code>的值。</p>
 <h2 id="if-name-39-main-39-说明"><a href="#if-name-39-main-39-说明" class="headerlink" title="if __name__ == &#39;__main__&#39; 说明"></a><code>if __name__ == &#39;__main__&#39;</code> 说明</h2><p>因为在 Python 中，一个<code>.py</code>文件就是一个模块，模块中一般写了很多函数供其他模块使用。但我们需要测试模块中函数的正确性，这时候就需要用到 <code>if __name__ == &#39;__main__&#39;</code>.</p>
 <p><code>__name__</code>是每个模块的一个属性名，如果我们需要在当前模块中编写测试代码，一般情况下，我们是将测试代码放在 <code>if __name__ == &#39;__main__&#39;</code>这条判断语句下面，因为如果是直接运行当前模块，那么<code>__name__</code>的值就是<code>__main__</code>，条件判断下面的测试代码将会被执行。</p>
 <p>如果有另外一个模块<code>module_2.py</code>引用了当前模块<code>module_1.py</code>,那么当我们运行<code>module_2.py</code>时，<code>module_1.py</code>中的<code>__name__</code>的值将变成<code>module_2</code>，即引用了<code>module_1</code>这个模块的模块名。那这时<code>module_1</code>中的<code>if判断</code>将不满足，也就不会执行测试代码，<code>module_2</code>也就只是导入了<code>module_1</code>中的函数，符合我们的期望。</p>
+<h2 id="np-random-seed-说明"><a href="#np-random-seed-说明" class="headerlink" title="np.random.seed()说明"></a><code>np.random.seed()</code>说明</h2><p><code>seed(int)</code> 接收一个整数做为生成随机数的算法的参数。如果接收到的整数值相同，那么产生的随机数也相同。</p>
+<p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">num = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> num &lt; <span class="number">5</span>:</span><br><span class="line">    np.random.seed(<span class="number">5</span>)</span><br><span class="line">    print(np.random.random())</span><br><span class="line">    num += <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0.22199317108973948</span><br><span class="line">0.22199317108973948</span><br><span class="line">0.22199317108973948</span><br><span class="line">0.22199317108973948</span><br><span class="line">0.22199317108973948</span><br></pre></td></tr></table></figure></p>
+<p>但是设置的<code>seed()</code>的值只生效一次，下次使用<code>random()</code>函数如果不是上次的<code>seed()</code>值，那么将会产生不同的随机数。</p>
+<p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">num = <span class="number">0</span></span><br><span class="line">np.random.seed(<span class="number">5</span>)</span><br><span class="line"><span class="keyword">while</span> num &lt; <span class="number">5</span>:</span><br><span class="line">    print(np.random.random())</span><br><span class="line">    num += <span class="number">1</span></span><br></pre></td></tr></table></figure></p>
+<p>输出结果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0.22199317108973948</span><br><span class="line">0.8707323061773764</span><br><span class="line">0.20671915533942642</span><br><span class="line">0.9186109079379216</span><br><span class="line">0.48841118879482914</span><br></pre></td></tr></table></figure></p>
+<p>从结果可以看到，第一次输出的<code>random()</code>值，由于和上面代码一样设置了<code>seed(5)</code>，所以第一行结果相同；但是后面4次循环由于没有继续设置<code>seed()</code>，因而产生的随机数不同。</p>
 
       
     </div>
@@ -381,6 +390,12 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
       
 
       
@@ -495,7 +510,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -528,7 +543,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字-global"><span class="nav-number">1.</span> <span class="nav-text">关键字 global</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-name-39-main-39-说明"><span class="nav-number">2.</span> <span class="nav-text">if __name__ == &#39;__main__&#39; 说明</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#关键字-global"><span class="nav-number">1.</span> <span class="nav-text">关键字 global</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#if-name-39-main-39-说明"><span class="nav-number">2.</span> <span class="nav-text">if __name__ == &#39;__main__&#39; 说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#np-random-seed-说明"><span class="nav-number">3.</span> <span class="nav-text">np.random.seed()说明</span></a></li></ol></div>
             
 
           </div>
