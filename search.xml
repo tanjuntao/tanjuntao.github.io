@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[佛祖.py]]></title>
+    <url>%2F2019%2F05%2F04%2F%E4%BD%9B%E7%A5%96-py%2F</url>
+    <content type="text"><![CDATA[皮一下哈哈… 代码123456789101112131415161718192021222324252627282930print(" _ooOoo_ ")print(" o8888888o ")print(" 88 . 88 ")print(" (| -_- |) ")print(" O\\ = /O ")print(" ____/`---'\\____ ")print(" . ' \\| |// `. ")print(" / \\||| : |||// \\ ")print(" / _||||| -:- |||||- \\ ")print(" | | \\\\\\ - /// | | ")print(" | \\_| ''\\---/'' | | ")print(" \\ .-\\__ `-` ___/-. / ")print(" ___`. .' /--.--\\ `. . __ ")print(" ."" '&lt; `.___\\_&lt;|&gt;_/___.' &gt;'"". ")print(" | | : `- \\`.;`\\ _ /`;.`/ - ` : | | ")print(" \\ \\ `-. \\_ __\\ /__ _/ .-` / / ")print(" ======`-.____`-.___\\_____/___.-`____.-'====== ")print(" `=---=' ")print(" ")print(" ............................................. ")print(" 佛祖镇楼 BUG辟易 ")print(" 佛曰: ")print(" 写字楼里写字间，写字间里程序员； ")print(" 程序人员写程序，又拿程序换酒钱。 ")print(" 酒醒只在网上坐，酒醉还来网下眠； ")print(" 酒醉酒醒日复日，网上网下年复年。 ")print(" 但愿老死电脑间，不愿鞠躬老板前； ")print(" 奔驰宝马贵者趣，公交自行程序员。 ")print(" 别人笑我忒疯癫，我笑自己命太贱； ")print(" 不见满街漂亮妹，哪个归得程序员？") 打印效果：]]></content>
+  </entry>
+  <entry>
+    <title><![CDATA[写出pythonic的代码]]></title>
+    <url>%2F2019%2F05%2F04%2F%E5%86%99%E5%87%BApythonic%E7%9A%84%E4%BB%A3%E7%A0%81%2F</url>
+    <content type="text"><![CDATA[列表遍历Pythonic1234names = ['juntao', 'xiaojun', 'mingming', 'haohao']# 查找名字列表中带有字母'm'的名字m_name = [name for name in names if 'm' in name]print(m_name) 不要用循环写！12345m_name = []for name in names: if 'm' in name: m_name.append(name)print(m_name) 字典遍历Pythonic1234exam_detail = &#123;'juntao': 44, 'xiaojun': 88, 'mingming': 99, 'haohao': 22&#125;# 找出及格的学生及其分数score_greater_than_60 = &#123;k: v for k, v in exam_detail.items() if v &gt;= 60&#125;print(score_greater_than_60) 不要这样写！12345score_greater_than_60 = &#123;&#125;for k, v in exam_detail.items(): if v &gt;= 60: score_greater_than_60[k] = vprint(score_greater_than_60) 参考文章 一些 pythonic 的代码实例：https://github.com/mikeckennedy/write-pythonic-code-demos https://blog.csdn.net/g8433373/article/details/80709116]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[一些Python语法]]></title>
     <url>%2F2019%2F05%2F01%2F%E4%B8%80%E4%BA%9BPython%E8%AF%AD%E6%B3%95%2F</url>
     <content type="text"><![CDATA[关键字 globalglobal关键字主要目的是为了在函数中使用全局变量。1234567891011121314count = 10def modify_count(): temp_count = 20 print('local variable: ', temp_count) global count print('global variable: ', count) count = 100 print('after modified: ', count) returnprint('before modify_count(): ', count)modify_count()print('after modify_count(): ', count) 输入结果：1234567before modify_count(): 10local variable: 20global variable: 10after modified: 100after modify_count(): 100Process finished with exit code 0 从代码中可以看到，，如果要在函数modify_count()中使用全局变量count，那么需要使用global关键字修饰。同时，函数内部对count的修改，将影响到函数外面count的值。 if __name__ == &#39;__main__&#39; 说明因为在 Python 中，一个.py文件就是一个模块，模块中一般写了很多函数供其他模块使用。但我们需要测试模块中函数的正确性，这时候就需要用到 if __name__ == &#39;__main__&#39;. __name__是每个模块的一个属性名，如果我们需要在当前模块中编写测试代码，一般情况下，我们是将测试代码放在 if __name__ == &#39;__main__&#39;这条判断语句下面，因为如果是直接运行当前模块，那么__name__的值就是__main__，条件判断下面的测试代码将会被执行。 如果有另外一个模块module_2.py引用了当前模块module_1.py,那么当我们运行module_2.py时，module_1.py中的__name__的值将变成module_2，即引用了module_1这个模块的模块名。那这时module_1中的if判断将不满足，也就不会执行测试代码，module_2也就只是导入了module_1中的函数，符合我们的期望。]]></content>
