@@ -291,6 +291,133 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/HelloWorld-of-Keras/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/17/HelloWorld-of-Keras/" itemprop="url">HelloWorld of Keras</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-05-17T20:28:51+08:00">
+                2019-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="mnist-cnn"><a href="#mnist-cnn" class="headerlink" title="mnist_cnn"></a><code>mnist_cnn</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># "Hello World" of Keras in image classification task</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function  <span class="comment"># 在Python2的代码中可以使用Python3的print函数，即需要加上括号</span></span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential  <span class="comment"># 序列模型，可以封装各种网络层: 卷积层、池化层、全连接层、dropout等</span></span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Dropout, Flatten</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D</span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K  <span class="comment"># Keras是一个高层API，后端使用TensorFlow或者Theano</span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">12</span>  <span class="comment"># 12个epoch足够训练好模型</span></span><br><span class="line"></span><br><span class="line">img_rows, img_cols = <span class="number">28</span>, <span class="number">28</span>  <span class="comment"># mnist dataset中image的大小</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果第一次跑，会通过url方式从amazon下载mnist.npz；如果已经下载过了，那么直接加载本地mnist.npz</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据不同的后端，将图片转换为不同的格式，TensorFlow是channel_last</span></span><br><span class="line"><span class="keyword">if</span> K.image_data_format() == <span class="string">'channels_first'</span>:</span><br><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="number">0</span>], <span class="number">1</span>, img_rows, img_cols)  <span class="comment"># 通道为1</span></span><br><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="number">0</span>], <span class="number">1</span>, img_rows, img_cols)</span><br><span class="line">    input_shape = (<span class="number">1</span>, img_rows, img_cols)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="number">0</span>], img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="number">0</span>], img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line">    input_shape = (img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将每个pixel的类型从integer转为float32，使计算更加精确</span></span><br><span class="line">x_train = x_train.astype(<span class="string">'float32'</span>)</span><br><span class="line">x_test = x_test.astype(<span class="string">'float32'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将0-255范围的pixel值转化到0-1</span></span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果后端是TensorFlow</span></span><br><span class="line">print(<span class="string">'x_train shape:'</span>, x_train.shape)     <span class="comment"># 输出(60000, 28, 28, 1)</span></span><br><span class="line">print(x_train.shape[<span class="number">0</span>], <span class="string">'train samples'</span>)   <span class="comment"># 输出60000</span></span><br><span class="line">print(x_test.shape[<span class="number">0</span>], <span class="string">'test samples'</span>)     <span class="comment"># 输出10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个y_train或者y_test本来是一个整数表示每一类，现转换为one-hot encoding</span></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化一个序列模型</span></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="comment"># Conv1</span></span><br><span class="line">model.add(Conv2D(<span class="number">32</span>, kernel_size=(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">                 activation=<span class="string">'relu'</span>,</span><br><span class="line">                 input_shape=input_shape))</span><br><span class="line"><span class="comment"># Conv2</span></span><br><span class="line">model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># Pool1</span></span><br><span class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line"><span class="comment"># 将maxpooling后的64个activation map 全部拉伸为一个向量</span></span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line"><span class="comment"># 用softmax函数将logits转为每个类别的概率</span></span><br><span class="line">model.add(Dense(<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置损失函数，优化器，度量标准</span></span><br><span class="line">model.compile(loss=keras.losses.categorical_crossentropy,</span><br><span class="line">              optimizer=keras.optimizers.Adadelta(),</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line"><span class="comment"># verbose=1 展示详细的训练过程</span></span><br><span class="line"><span class="comment"># verbose=0 只显示最后结果，不展示过程</span></span><br><span class="line"><span class="comment"># verbose=2 每个epoch输出一条信息，不展示详细的训练过程</span></span><br><span class="line"><span class="comment"># validation_data会在每个每个epoch结束后计算当前模型的准确率，validation_data不参与训练</span></span><br><span class="line">model.fit(x_train, y_train,</span><br><span class="line">          batch_size=batch_size,</span><br><span class="line">          epochs=epochs,</span><br><span class="line">          verbose=<span class="number">2</span>,</span><br><span class="line">          validation_data=(x_test, y_test))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在测试集上测试模型效果</span></span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line">print(<span class="string">'Test loss:'</span>, score[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Test Accuracy:'</span>, score[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>训练过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">x_train shape: (60000, 28, 28, 1)</span><br><span class="line">60000 train samples</span><br><span class="line">10000 test samples</span><br><span class="line">Train on 60000 samples, validate on 10000 samples</span><br><span class="line"></span><br><span class="line">Epoch 1/12</span><br><span class="line"> - 248s - loss: 0.2778 - acc: 0.9140 - val_loss: 0.0612 - val_acc: 0.9800</span><br><span class="line">Epoch 2/12</span><br><span class="line"> - 219s - loss: 0.0982 - acc: 0.9708 - val_loss: 0.0433 - val_acc: 0.9857</span><br><span class="line">Epoch 3/12</span><br><span class="line"> - 212s - loss: 0.0766 - acc: 0.9776 - val_loss: 0.0354 - val_acc: 0.9876</span><br><span class="line">Epoch 4/12</span><br><span class="line"> - 226s - loss: 0.0653 - acc: 0.9806 - val_loss: 0.0342 - val_acc: 0.9879</span><br><span class="line">Epoch 5/12</span><br><span class="line"> - 221s - loss: 0.0573 - acc: 0.9828 - val_loss: 0.0307 - val_acc: 0.9896</span><br><span class="line">Epoch 6/12</span><br><span class="line"> - 230s - loss: 0.0539 - acc: 0.9834 - val_loss: 0.0286 - val_acc: 0.9907</span><br><span class="line">Epoch 7/12</span><br><span class="line"> - 224s - loss: 0.0490 - acc: 0.9850 - val_loss: 0.0280 - val_acc: 0.9901</span><br><span class="line">Epoch 8/12</span><br><span class="line"> - 229s - loss: 0.0475 - acc: 0.9856 - val_loss: 0.0300 - val_acc: 0.9904</span><br><span class="line">Epoch 9/12</span><br><span class="line"> - 249s - loss: 0.0465 - acc: 0.9862 - val_loss: 0.0286 - val_acc: 0.9906</span><br><span class="line">Epoch 10/12</span><br><span class="line"> - 257s - loss: 0.0423 - acc: 0.9866 - val_loss: 0.0261 - val_acc: 0.9910</span><br><span class="line">Epoch 11/12</span><br><span class="line"> - 243s - loss: 0.0393 - acc: 0.9883 - val_loss: 0.0313 - val_acc: 0.9903</span><br><span class="line">Epoch 12/12</span><br><span class="line"> - 277s - loss: 0.0413 - acc: 0.9877 - val_loss: 0.0266 - val_acc: 0.9907</span><br><span class="line">Test loss: 0.026646837043244158</span><br><span class="line">Test Accuracy: 0.9907</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></p>
+<p>如果是第一次运行，会从 <a href="https://s3.amazonaws.com/img-datasets/mnist.npz" target="_blank" rel="noopener">https://s3.amazonaws.com/img-datasets/mnist.npz</a> 下载数据集，Windows会存放在<code>c://Users//&lt;User name&gt;//.keras/datasets</code>下面；Linux会存放在<code>home/.keras/datasets</code>下面。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>Keras Model API: <a href="https://keras.io/models/model/" target="_blank" rel="noopener">https://keras.io/models/model/</a></li>
+<li>keras 官方代码实例： <a href="https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py" target="_blank" rel="noopener">https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py</a></li>
+<li><a href="https://www.cnblogs.com/lfri/p/10485597.html" target="_blank" rel="noopener">https://www.cnblogs.com/lfri/p/10485597.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/李学龙老师在2017届本科生毕业典礼上的讲话/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1444,209 +1571,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/论论文笔记-Manipulating-Machine-Learning-Poisoning-Attacks-and-Countermeasures-for-Regression-Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/18/论论文笔记-Manipulating-Machine-Learning-Poisoning-Attacks-and-Countermeasures-for-Regression-Learning/" itemprop="url">论论文笔记: Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T19:42:12+08:00">
-                2019-04-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章发表于 2018 年，是第一篇针对线性回归模型提出投毒攻击方法的论文，实验证明：这种<code>gradient-based</code>的攻击方法效果很好；同时这篇文章里面也提出了一种防御方法：<code>TRIM</code>，实验结果也证明其防御效果很好。</p>
-<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
-<li>第一篇针对<code>linear regression</code>进行<code>poisoning attack</code>的论文，之前的论文都是针对<code>classification</code>的模型</li>
-<li>改造了一个原本针对分类问题进行投毒攻击的模型，将其应用在回归问题中，将攻击结果作为一个<code>baseline</code></li>
-<li>提出了一种基于<em>数据集统计特征</em>的攻击方法，只需要掌握有限的信息即可完成攻击</li>
-<li>提出了防御算法<code>TRIM</code>,能够抵御众多的攻击，效果比传统的<code>robust statistic</code>好</li>
-</ol>
-<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="Linear-Regression-Model"><a href="#Linear-Regression-Model" class="headerlink" title="Linear Regression Model"></a>Linear Regression Model</h2><p>传统的线性回归模型：<br>$$<br>\mathcal{L}\left(\mathcal{D}<em>{\mathrm{tr}}, \boldsymbol{\theta}\right)=\underbrace{\frac{1}{n} \sum</em>{i=1}^{n}\left(f\left(\boldsymbol{x}<em>{i}, \boldsymbol{\theta}\right)-y</em>{i}\right)^{2}}<em>{\operatorname{MSE}\left(\mathcal{D}</em>{\text { tr }}, \boldsymbol{\theta}\right)}+\lambda \Omega(\boldsymbol{w})<br>$$</p>
-<p>根据$\Omega(w)$的不同，linear regression 可以分为下面<strong>4种</strong></p>
-<table>
-<thead>
-<tr>
-<th>类型</th>
-<th>$\Omega(w)$      </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Ordinary Least Square(OLS)</td>
-<td>$\Omega(w) = 0$</td>
-</tr>
-<tr>
-<td>Ridge</td>
-<td>$\Omega(\boldsymbol{w})=\frac{1}{2}\</td>
-<td>\boldsymbol{w}\</td>
-<td>_{2}^{2}$</td>
-</tr>
-<tr>
-<td>LASSO</td>
-<td>$\Omega(\boldsymbol{w}) = \</td>
-<td>{w}_1\</td>
-<td>$</td>
-</tr>
-<tr>
-<td>Elastic-Net Regression</td>
-<td>$\Omega(w) = \rho\</td>
-<td>w_1\</td>
-<td>+ (1-\rho)\frac{1}{2}\</td>
-<td>w_2^2\</td>
-<td>$ </td>
-</tr>
-</tbody>
-</table>
-<h2 id="Adversarial-Model"><a href="#Adversarial-Model" class="headerlink" title="Adversarial Model"></a>Adversarial Model</h2><p>这里定义<em>敌手模型</em>。</p>
-<p>敌手模型主要是用来对潜在用户进行分析建模，例如：假设攻击者掌握了多少知识、攻击者的目标是什么、攻击者的攻击策略是什么等。具体的可以从下面<strong>4个维度</strong>来对潜在的攻击者进行建模：</p>
-<table>
-<thead>
-<tr>
-<th>维度</th>
-<th>描述   </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Adversary Goal</td>
-<td>一般包含两种:<code>availability attack</code> &amp; <code>integrity attack</code>.前者主要目的是使整个模型的可用性降低，后者主要是使模型在针对特定样本做 inference 时，准确率降低</td>
-</tr>
-<tr>
-<td>Adversary Knowledge</td>
-<td>一般包含两种：<code>white-box</code> &amp; <code>black-box</code>. 对于前者，假设攻击者知晓：traning data &amp; learning algorithm &amp; loss function &amp; model parameters；对于后者，假设攻击者只知晓：learning algorithm &amp; loss function。<em>但是这篇文章中，作者通过产生替代数据，同样可以得到 model parameters.</em></td>
-</tr>
-<tr>
-<td>Adversary Capability</td>
-<td>攻击者的能力，一般定义为其能往数据集中插入多少 poisoning samples. $n:original \ samples$, $p :poisoning \ samples$, $N = n + p:\  total \ smaples$, 定义<strong>poisoning rate $\alpha = p/n$</strong></td>
-</tr>
-<tr>
-<td>Adversary Strategy</td>
-<td>$\begin{array}{rl}{\arg \max <em>{\mathcal{D}</em>{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}<em>{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}</em>{p}^{\star} \in \arg \min <em>{\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}</em>{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}$ 攻击者的目标主要是优化上面的目标函数：即如何插入 poisoning samples 来使得在 $D’$上的 loss 值最大.</td>
-</tr>
-</tbody>
-</table>
-<h2 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h2><p>攻击者的目标函数：<br>$$<br>\begin{array}{rl}{\arg \max <em>{\mathcal{D}</em>{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}<em>{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}</em>{p}^{\star} \in \arg \min <em>{\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}</em>{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}<br>$$</p>
-<p><em>注： 目标函数 $W$一般用 validation set 上面的 loss 来表示。loss 越大，表名攻击效果越好。对于 linear regression, loss function = Mean Square Error(MSE)</em></p>
-<p>那么该插入什么样的 poisoning sample 才能使目标函数 $W$ 的值最大呢？</p>
-<p>答案是：考虑<strong>梯度</strong>，考虑$W$对$D_p$的梯度。有了这个梯度，我们就能使用<strong>gradient ascent</strong>方法来更新$D_p$，直到最后$W$收敛，我们可以得到最佳的$D_p$.</p>
-<p>但是这个优化问题是一个<code>Bi-level</code>问题，即约束条件本身也是一个优化问题，解决这种问题通常情况下是<code>NP-hard</code>.因为$x_c$和$W$并不是显示相关，而是通过$\theta$间接相关，因此作者通过<code>chain rule</code>来计算所需要的梯度   $\nabla_{\boldsymbol{x}_{c}} \mathcal{W}$:</p>
-<p>$$<br>\nabla_{\boldsymbol{x}<em>{c}} \mathcal{W}=\nabla</em>{\boldsymbol{x}<em>{c}} \boldsymbol{\theta}\left(\boldsymbol{x}</em>{c}\right)^{\top} \cdot \nabla_{\boldsymbol{\theta}} \mathcal{W}<br>$$</p>
-<p><em>注：$x_c$表示 poisoning sample 的 features</em></p>
-<p><strong>1. 首先求解公式的第二项  $\nabla_{\theta} \mathcal{W}$</strong></p>
-<p>第二项比较好计算，因为在线性回归问题中，目标函数表示的是在 validation set 上计算到的 loss：</p>
-<p>$$<br>\mathcal{W}<em>{\mathrm{val}}\left(\mathcal{D}</em>{\mathrm{val}}, \boldsymbol{\theta}\right)=\frac{1}{m} \sum_{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}^{\prime}, \boldsymbol{\theta}\right)-y</em>{j}^{\prime}\right)^{2}<br>$$</p>
-<p>对这个函数求对$\theta$的偏导：<br>$$<br>\nabla_{\boldsymbol{\theta}} \mathcal{W}<em>{\mathrm{val}}=\left[ \begin{array}{c}{\nabla</em>{\boldsymbol{w}} \mathcal{W}<em>{\mathrm{val}}} \ {\nabla</em>{b} \mathcal{W}<em>{\mathrm{val}}}\end{array}\right]=\left[ \begin{array}{c}{\frac{2}{m} \sum</em>{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}\right)-y</em>{j}\right) \boldsymbol{x}<em>{j}} \ {\frac{2}{m} \sum</em>{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}\right)-y</em>{j}\right)}\end{array}\right]<br>$$</p>
-<p>至此，公式第二项偏导数计算完毕，下面计算第一项。</p>
-<p><strong>2. 求解公式第二项  $\nabla_{\boldsymbol{x}<em>{c}} \boldsymbol{\theta}\left(\boldsymbol{x}</em>{c}\right)^{\top}$</strong></p>
-<h2 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h2><h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1699,7 +1623,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
