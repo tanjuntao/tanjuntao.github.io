@@ -79,13 +79,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
+<meta name="description" content="需求背景win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。 壁纸文件存放的目录是1C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets 上面18856是我电脑上的账户名，只需要修改为你自己的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python中如何批量修改文件后缀名">
+<meta property="og:url" content="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="需求背景win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。 壁纸文件存放的目录是1C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets 上面18856是我电脑上的账户名，只需要修改为你自己的">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-05T02:18:33.548Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
+<meta name="twitter:title" content="python中如何批量修改文件后缀名">
+<meta name="twitter:description" content="需求背景win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。 壁纸文件存放的目录是1C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets 上面18856是我电脑上的账户名，只需要修改为你自己的">
 
 
 
@@ -115,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/python/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
 
 
 
 
 
-  <title>Tag: python | 个人博客</title>
+  <title>python中如何批量修改文件后缀名 | 个人博客</title>
   
 
 
@@ -140,7 +144,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,52 +280,157 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>python<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/05/01/一些Python语法/" itemprop="url">
-              
-                <span itemprop="name">一些Python语法</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">python中如何批量修改文件后缀名</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-05-01T10:57:34+08:00" content="2019-05-01">
-          05-01
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-05T10:02:02+08:00">
+                2019-07-05
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。</p>
+<p>壁纸文件存放的目录是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets</span><br></pre></td></tr></table></figure></p>
+<p>上面<code>18856</code>是我电脑上的账户名，只需要修改为你自己的账户名即可，其它的所有分级目录都相同。</p>
+<p>切换到噶目录下后，发现所有文件都没有后缀名，不能直接用图片查看器打开，需要一个个修改后缀名为<code>.jpg</code>格式，但是手工是在是太麻烦，因此想着用Python批量修改。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用<code>os.path</code>里面几个常用的API可以实现需求。</p>
+<p><strong>代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">path_input = sys.argv[<span class="number">1</span>]</span><br><span class="line">ext_input = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">components = path_input.split(<span class="string">'\\'</span>)</span><br><span class="line">path_new = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将原始单斜杠'\'转为双斜杠'\\'</span></span><br><span class="line"><span class="keyword">for</span> idx, item <span class="keyword">in</span> enumerate(components):</span><br><span class="line">    <span class="keyword">if</span> idx != (len(components) - <span class="number">1</span>):</span><br><span class="line">        path_new += item + <span class="string">'\\\\'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path_new += item</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(path_new)</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(path_new)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">	<span class="comment"># 分隔文件名和后缀名</span></span><br><span class="line">    fullname = os.path.splitext(file)</span><br><span class="line">    newname = fullname[<span class="number">0</span>] + ext_input</span><br><span class="line">    os.rename(path_new + <span class="string">'\\\\'</span> + file, path_new + <span class="string">'\\\\'</span> + newname)</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行</strong><br>从命令行中运行，需要附带两个参数：</p>
+<ol>
+<li>原文件所在的目录，将windows中文件资源管理器上的路径拷贝过来；</li>
+<li>目标后缀名，如<code>.jpg</code></li>
+</ol>
+<p><strong>运行示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python batch_rename.py C:\Users\18856\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\As</span><br><span class="line">sets .jpg</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://www.runoob.com/python/att-string-split.html" target="_blank" rel="noopener">https://www.runoob.com/python/att-string-split.html</a></li>
+<li><a href="https://www.cnblogs.com/wuxie1989/p/5623435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuxie1989/p/5623435.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_40449300/article/details/83184928" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40449300/article/details/83184928</a></li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/02/安装jupyter-notebook和修改字体/" rel="next" title="安装jupyter notebook和修改字体">
+                <i class="fa fa-chevron-left"></i> 安装jupyter notebook和修改字体
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -329,6 +438,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -349,8 +462,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -403,6 +525,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#需求背景"><span class="nav-number">1.</span> <span class="nav-text">需求背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -545,6 +683,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
