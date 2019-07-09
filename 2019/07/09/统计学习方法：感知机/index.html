@@ -79,13 +79,21 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/06/index.html">
+<meta name="description" content="注：代码和运行结果都是从jupyter notebook中导出的 导入所需要的第三方库12345import pandas as pdimport numpy as npfrom sklearn.datasets import load_irisimport matplotlib.pyplot as plt%matplotlib inline 导入数据（iris数据集是sklearn中自带的数据集">
+<meta property="og:type" content="article">
+<meta property="og:title" content="统计学习方法：感知机">
+<meta property="og:url" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="注：代码和运行结果都是从jupyter notebook中导出的 导入所需要的第三方库12345import pandas as pdimport numpy as npfrom sklearn.datasets import load_irisimport matplotlib.pyplot as plt%matplotlib inline 导入数据（iris数据集是sklearn中自带的数据集">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_2_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_6_1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_8_1.png">
+<meta property="og:updated_time" content="2019-07-09T09:19:47.921Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
+<meta name="twitter:title" content="统计学习方法：感知机">
+<meta name="twitter:description" content="注：代码和运行结果都是从jupyter notebook中导出的 导入所需要的第三方库12345import pandas as pdimport numpy as npfrom sklearn.datasets import load_irisimport matplotlib.pyplot as plt%matplotlib inline 导入数据（iris数据集是sklearn中自带的数据集">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_2_1.png">
 
 
 
@@ -115,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/06/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/09/统计学习方法：感知机/">
 
 
 
 
 
-  <title>Archive | 个人博客</title>
+  <title>统计学习方法：感知机 | 个人博客</title>
   
 
 
@@ -140,7 +148,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -276,72 +284,168 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
-
-      <span class="archive-page-counter">
-        
-        
-        
-          
-        
-        Um..! 24 posts in total. Keep on posting.
-      </span>
-
-      
-
-        
-        
-        
-
-        
-          
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/统计学习方法：感知机/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/06/04/如何删除github仓库中某个文件或者文件夹/" itemprop="url">
-              
-                <span itemprop="name">如何删除github仓库中某个文件或者文件夹</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">统计学习方法：感知机</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-06-04T15:15:50+08:00" content="2019-06-04">
-          06-04
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-09T17:11:09+08:00">
+                2019-07-09
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
 
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+      
 
+      
+        <p><em>注：代码和运行结果都是从jupyter notebook中导出的</em></p>
+<p>导入所需要的第三方库<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure></p>
+<p>导入数据（iris数据集是sklearn中自带的数据集）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load data</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line">df.label.value_counts()</span><br></pre></td></tr></table></figure></p>
+<pre><code>2    50
+1    50
+0    50
+Name: label, dtype: int64
+</code></pre><p>选取两个特征<code>sepal length</code>和<code>sepal width</code>，绘制散点图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(df[:<span class="number">50</span>][<span class="string">'sepal length'</span>], df[:<span class="number">50</span>][<span class="string">'sepal width'</span>], label=<span class="string">'0'</span>)</span><br><span class="line">plt.scatter(df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal length'</span>], df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal width'</span>], label=<span class="string">'1'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'sepal length'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'sepal width'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17e936160&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_2_1.png" alt="png"></p>
+<p>数据处理：将pandas类型数据转换为<code>np.array</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = np.array(df.iloc[:<span class="number">100</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>]])</span><br><span class="line">X, y = data[:, :<span class="number">-1</span>], data[:, <span class="number">-1</span>]</span><br><span class="line">y = np.array([<span class="number">1</span> <span class="keyword">if</span> i == <span class="number">1.</span> <span class="keyword">else</span> <span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> y])</span><br></pre></td></tr></table></figure></p>
+<p>定义模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.w = np.ones(len(data[<span class="number">0</span>])<span class="number">-1</span>, dtype=np.float32)</span><br><span class="line">        self.b = <span class="number">0</span></span><br><span class="line">        self.l_rate = <span class="number">0.1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">linear_func</span><span class="params">(self, w, b, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.dot(x, w) + b</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X_train, y_train)</span>:</span></span><br><span class="line">        finished = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> finished:</span><br><span class="line">            wrong_count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> range(len(X_train)):</span><br><span class="line">                <span class="keyword">if</span> y_train[d] * self.linear_func(self.w, self.b, X_train[d]) &lt;= <span class="number">0</span>:</span><br><span class="line">                    self.w = self.w + self.l_rate * y_train[d] * X_train[d]</span><br><span class="line">                    self.b = self.b + self.l_rate * y_train[d]</span><br><span class="line">                    wrong_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> wrong_count == <span class="number">0</span>:</span><br><span class="line">                finished = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"perceptron model"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">perceptron = Model()</span><br><span class="line">perceptron.fit(X, y)</span><br><span class="line">print(perceptron.w)</span><br><span class="line">print(perceptron.b)</span><br></pre></td></tr></table></figure>
+<pre><code>[  7.8 -10. ]
+-12.099999999999973
+</code></pre><p>使用自己训练的模型做二分类<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.linspace(<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>)</span><br><span class="line">y_ = -(perceptron.w[<span class="number">0</span>] * x_points + perceptron.b) / perceptron.w[<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17ecb4d68&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_6_1.png" alt="png"></p>
+<p>使用sklearn中自带的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron</span><br><span class="line">clf = Perceptron(fit_intercept=<span class="literal">False</span>, max_iter=<span class="number">1000</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">print(clf.coef_)</span><br><span class="line">print(clf.intercept_)</span><br></pre></td></tr></table></figure></p>
+<pre><code>[[  74.6 -127.2]]
+[0.]
+
+
+c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: FutureWarning: max_iter and tol parameters have been added in Perceptron in 0.19. If max_iter is set but tol is left unset, the default value for tol in 0.19 and 0.20 will be None (which is equivalent to -infinity, so it has no effect) but will change in 0.21 to 1e-3. Specify tol to silence this warning.
+  FutureWarning)
+</code></pre><p>绘制sklearn训练得到的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.arange(<span class="number">4</span>, <span class="number">8</span>)</span><br><span class="line">y_ = -(clf.coef_[<span class="number">0</span>][<span class="number">0</span>] * x_points + clf.intercept_) / clf.coef_[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17f046278&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_8_1.png" alt="png"></p>
+
+      
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/05/python中如何批量修改文件后缀名/" rel="next" title="python中如何批量修改文件后缀名">
+                <i class="fa fa-chevron-left"></i> python中如何批量修改文件后缀名
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -349,6 +453,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -565,6 +673,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
