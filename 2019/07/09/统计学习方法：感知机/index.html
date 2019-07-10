@@ -89,7 +89,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_2_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_6_1.png">
 <meta property="og:image" content="http://yoursite.com/2019/07/09/统计学习方法：感知机/output_8_1.png">
-<meta property="og:updated_time" content="2019-07-09T09:19:47.921Z">
+<meta property="og:updated_time" content="2019-07-09T10:54:57.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="统计学习方法：感知机">
 <meta name="twitter:description" content="注：代码和运行结果都是从jupyter notebook中导出的 导入所需要的第三方库12345import pandas as pdimport numpy as npfrom sklearn.datasets import load_irisimport matplotlib.pyplot as plt%matplotlib inline 导入数据（iris数据集是sklearn中自带的数据集">
@@ -393,6 +393,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
 </code></pre><p>绘制sklearn训练得到的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.arange(<span class="number">4</span>, <span class="number">8</span>)</span><br><span class="line">y_ = -(clf.coef_[<span class="number">0</span>][<span class="number">0</span>] * x_points + clf.intercept_) / clf.coef_[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
 <pre><code>&lt;matplotlib.legend.Legend at 0x1b17f046278&gt;
 </code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_8_1.png" alt="png"></p>
+<p>C:\Python36\Lib\site-packages\sklearn\datasets\data</p>
 
       
     </div>
@@ -426,6 +427,10 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" rel="prev" title="论文阅读笔记：Intriguing Properties of Neural Network">
+                论文阅读笔记：Intriguing Properties of Neural Network <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -495,7 +500,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
