@@ -79,17 +79,32 @@
 
 
 
-<meta name="description" content="1. 虚拟环境的意义因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。 虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。 2. 步骤 首先需要安装 virtualen">
+<meta name="description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ubuntu下使用virtualenv新建一个python3虚拟环境">
-<meta property="og:url" content="http://yoursite.com/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/index.html">
+<meta property="og:title" content="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">
+<meta property="og:url" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="1. 虚拟环境的意义因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。 虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。 2. 步骤 首先需要安装 virtualen">
+<meta property="og:description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-28T09:13:30.968Z">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/3.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/4.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/5.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/6.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/7.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/8.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/9.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/10.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/11.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/12.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/13.png">
+<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/14.png">
+<meta property="og:updated_time" content="2019-07-27T13:40:17.339Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ubuntu下使用virtualenv新建一个python3虚拟环境">
-<meta name="twitter:description" content="1. 虚拟环境的意义因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。 虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。 2. 步骤 首先需要安装 virtualen">
+<meta name="twitter:title" content="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">
+<meta name="twitter:description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
+<meta name="twitter:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
 
 
 
@@ -119,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
 
 
 
 
 
-  <title>ubuntu下使用virtualenv新建一个python3虚拟环境 | 个人博客</title>
+  <title>论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks | 个人博客</title>
   
 
 
@@ -294,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jun Tao">
@@ -311,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ubuntu下使用virtualenv新建一个python3虚拟环境</h1>
+          <h1 class="post-title" itemprop="name headline">论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks</h1>
         
 
         <div class="post-meta">
@@ -323,8 +338,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-28T16:53:51+08:00">
-                2019-04-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-27T20:26:04+08:00">
+                2019-07-27
               </time>
             
 
@@ -361,30 +376,84 @@
       
 
       
-        <h2 id="1-虚拟环境的意义"><a href="#1-虚拟环境的意义" class="headerlink" title="1. 虚拟环境的意义"></a>1. 虚拟环境的意义</h2><p>因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。</p>
-<p>虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。</p>
-<h2 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2. 步骤"></a>2. 步骤</h2><ul>
-<li><p>首先需要安装 <code>virtualenv</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接着创建 python3 的虚拟环境(ubuntu中默认安装了python2和python3)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/1997tanjuntao/   # 切换到一个目录下面</span><br><span class="line">virtualenv -p /usr/bin/python3 py3env  # 在当前目录下面创建新目录py3env(目录名可以自定义)，py3env中就是虚拟环境</span><br><span class="line"># 如果是新建一个python2环境，可以这样做</span><br><span class="line"># virtualenv -p /usr/bin/python2 py2env</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接着激活环境</p>
-</li>
+        <p>寻找对抗样本的过程就是最优化下面的目标函数：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png" alt></p>
+<p>其中<code>k</code>表示分类器，<code>r</code>表示添加的扰动，<code>delta</code>文中表示的含义是分类器在<code>x</code>这个样本点处的<code>robustness</code>，其实就是扰动的<code>L-2 norm</code>。</p>
+<p>分类器在整个数据集上的<code>robustness</code>计算公式如下：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png" alt></p>
+<p>从公式中可以看出，如果添加的扰动越小，计算到的<code>ro</code>值就越小，相应的根据文中的定义，分类器的<code>robustness</code>就越好。</p>
+<p>本文中的主要贡献：<br><a id="more"></a></p>
+<ol>
+<li>提出了一种新的计算对抗样本的方法<code>DeepFool</code></li>
+<li>从实验中验证了：新的攻击算法所添加的扰动更小，同时计算对抗样本所消耗的时间更少</li>
+<li>实验中说明了：如果使用不恰当的算法（FGSM算法）来验证分类器的鲁棒性，那么很可能会过分的评估分类器的<code>robustness</code>。</li>
+</ol>
+<h2 id="攻击算法细节"><a href="#攻击算法细节" class="headerlink" title="攻击算法细节"></a>攻击算法细节</h2><ul>
+<li>二元分类 and 线性分类器</li>
 </ul>
-<p>切换到<code>py3env</code>所在目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/1997tanjuntao/</span><br></pre></td></tr></table></figure></p>
-<p><code>source</code>命令激活虚拟环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source py3env/bin/activate</span><br></pre></td></tr></table></figure></p>
-<p>这时候会发现命令行前面多了一个括号 <strong>(py3env)</strong></p>
-<p>这个新建的虚拟环境中使用的是<code>python3</code>，默认情况下，没有包含系统<code>python3</code>中安装的包，很干净。</p>
-<p>这时候使用<code>pip install</code>安装的第三方包，只存在于这个虚拟环境中，不会影响系统中的<code>python3</code></p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/3.png" alt></p>
+<p>这是最简单的一种情况。我们有一个线性分类器，那么可以得到一个超平面将两个类别却分开来。</p>
+<p>现在X属于其中一个类别，也就是在直线（或者超平面）的一侧，想要添加扰动使分类器将其分类为另一个类别，那么只需要将X更新到直线（或者超平面）另外一侧就可以了。</p>
+<p>现在优化算法的约束条件是最小扰动，那么就只需要找到X到直线（超平面）的最短距离，使X加上这个距离后转换到直线另外一侧，那么就算是找到了对抗样本，同时也就找到了最小的扰动<code>r</code>(投影距离)。</p>
+<p>这时候处理起来就很简单了，只需要使用一次距离公式即可：</p>
+<p>分类器：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/4.png" alt></p>
+<p>投影距离：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/5.png" alt></p>
 <ul>
-<li>退出虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate   # 一句话</span><br></pre></td></tr></table></figure>
-</li>
+<li>二元分类 and 非线性分类器</li>
 </ul>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://blog.csdn.net/qingche456/article/details/65465760" target="_blank" rel="noopener">https://blog.csdn.net/qingche456/article/details/65465760</a></li>
+<p>现在考虑一种更为普遍的setting。分类器的决策边界是非线性的。</p>
+<p>这种情况等价于：寻找X到曲线的最短距离，然后将X加上这个最短距离，即可导致X转移到决策边界的另外一侧，从而被错误分类。</p>
+<p>但是直接找这个投影点是不好找的。我们需要用到一种迭代的算法。下面简单描叙一下如何寻找一个点到一个曲线（或者是高维空间中的曲面）的最短距离。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">假设当前是第 i 次迭代</span><br><span class="line">我们在Xi这点对分类器使用一阶泰勒展开，我们将会得到一条直线（或者一个超平面）</span><br><span class="line">将Xi投影到这条直线上，我们找到了下一次迭代的X(i+1)，同时我们将这次迭代添加的扰动向量记为ri</span><br><span class="line">接着我们再在X(i+1)这点使用同样的方法，寻找下一次迭代的点X(i+2)，同时计算r(i+1)</span><br><span class="line"></span><br><span class="line">我们的算法一直迭代，知道找到的X落在分类器的决策边界上，算法终止。</span><br><span class="line"></span><br><span class="line">输出：将每一次迭代过程中产生的ri（是一个向量）全部累计起来（向量加法），得到最终的扰动r。</span><br></pre></td></tr></table></figure>
+<p><em>注：最后找到的扰动只能保证我们能将X改变到决策边界上，所以我们还需要在r的基础上乘上一个微小的系数，保证能越过决策边界。</em></p>
+<ul>
+<li>多元分类 and 线性分类器</li>
 </ul>
+<p>现在考虑多元分类情况下如何产生对抗样本，首先还是从简单的线性分类器开始考虑。</p>
+<p>多元分类情形下，W是一个矩阵，每一行对应着其中一个类别的权重，通过<code>W * X + b</code>，我们最后得到的是一个<code>score value</code>，是一个向量，其中每一维代表每一个类别的评分。最后分类的标准就是找评分值最大的那个类别。所以我们寻找对抗样本，只需要找到一个类别<code>k</code>，使这个类别的评分值比X原来类别的评分值高，那么就可以达到对抗样本攻击的目的。</p>
+<p>形式化的描述：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/6.png" alt></p>
+<p>现在我们定义另外一个函数</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/7.png" alt></p>
+<p>因为每一个<code>F_k(x)</code>都是线性的，所以这个函数也是线性的，所以存在一个超平面。超平面的一侧函数值大于0，另外一侧小于0.</p>
+<p>所以我们只需要添加扰动使这个函数值符号改变，那么我们就找到了一种产生对抗样本的方法。</p>
+<p>因为假如现在的样本点X0（正确类别是4，这样说明了上面公式被减掉的那一项是F4(x))，带到函数中值小于0，表面当前类别4的评分值大于第k类的评分值。但是如果现在上述函数的函数值变为正号，说明第k类的评分值大于第4类，所以分类器这时候已经错误分类为第k类了，那么添加的扰动就是X0到这个函数的超平面的投影距离。</p>
+<p>但是这个距离可能不是最小的，所以我们需要遍历所有类别k，找到最小的那个投影距离作为最后的扰动距离。</p>
+<p>寻找这个类别k的公式</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/8.png" alt></p>
+<p>最后的最小扰动公式</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/9.png" alt></p>
+<ul>
+<li>多元分类 and 非线性分类器</li>
+</ul>
+<p>同前面二元分类问题相似，我们使用的仍然是一阶泰勒展开的思路。</p>
+<p>前面的公式是<code>F_k(x) - F_4(x) = 0</code>，现在这两个函数都是非线性函数，我们在Xi这点分别使用一阶泰勒展开，可以得到下面公式：</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/10.png" alt></p>
+<p>这个公式表示的是被分类器分类为正确类别的空间。我们找投影点的思路和前面二元分类相似，也是一个不断迭代的过程。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">我们在迭代的每一步都会使用一阶泰勒展开，将非线性的函数转为线性函数</span><br><span class="line">然后将Xi投影到这个线性函数所决定的超平面上，得到X(i+1)，同时计算投影距离r(i)</span><br><span class="line">然后不断这样一个泰勒展开-&gt;投影-&gt;泰勒展开-&gt;投影的过程，知道最后上述公式的函数值符号发生变化</span><br></pre></td></tr></table></figure>
+<p>当然，为了找到最小的扰动，我们需要针对所有的类别，都运用上面的算法，最后取扰动最小的那个。</p>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/11.png" alt></p>
+<p>从图中可以看出</p>
+<ul>
+<li>DeepFool所添加的扰动较[4][FGSM]和[18][L-BFGS]都要小（ro值越小，表明添加的扰动越小，参见ro的定义函数）</li>
+<li>DeepFool产生对抗样本的时间很短</li>
+</ul>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/12.png" alt></p>
+<p>上图是模型多迭代训练5个epoch，模型的鲁棒性的变化情况，可以看出：</p>
+<ul>
+<li>如果使用原来的干净样本，模型鲁棒性基本没有变化</li>
+<li>如果使用DeepFool产生的对抗样本（后5个epoch都是在这对抗样本上训练的），那么模型在1个epoch后的鲁棒性就大大提升</li>
+<li>使用FGSM产生的对抗样本做训练，<strong>模型的鲁棒性反而会下降！！！</strong></li>
+</ul>
+<p>然后作者们对这个奇怪的现象又做了另外一个实验。</p>
+<p>他们将Deepfool产生的扰动放大，然后再使模型在这个放大的样本上训练，看训练后模型的鲁棒性怎么变化，结果如下图</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/13.png" alt></p>
+<p>如果只是deepfool产生的对抗样本，那么可以增加模型的鲁棒性；但是如果这个扰动太大了，反而会使模型鲁棒性降低，<strong>这就说明了FGSM算法产生的扰动很大，不是最小的扰动</strong></p>
+<p>然后作者们还做了一个实验，说明使用正确的方法（扰动更小的攻击方法）更能说明模型的鲁棒性，而使用那些扰动大的方法来评估模型的鲁棒性，往往会过分评估</p>
+<p>作者首先是使用FGSM产生对抗样本，然后在这个样本上多训练了5个epoch。接着使用Deepfool在新的模型（更加的鲁棒）上产生对抗样本，计算ro的值，如蓝线所示；同时使用FGSM再重新生成对抗样本，同样也计算ro值，如红色点线所示。可以看到，后者明显过分估计了模型的鲁棒性，实际上行模型并没有其估计的那么鲁棒。</p>
+<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/14.png" alt></p>
 
       
     </div>
@@ -409,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/解决hexo中发布文章后图片无法显示的问题/" rel="next" title="解决hexo中发布文章后图片无法显示的问题">
-                <i class="fa fa-chevron-left"></i> 解决hexo中发布文章后图片无法显示的问题
+              <a href="/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/" rel="next" title="论文阅读笔记：Explaining and Harnessing Adversarial Examples">
+                <i class="fa fa-chevron-left"></i> 论文阅读笔记：Explaining and Harnessing Adversarial Examples
               </a>
             
           </div>
@@ -418,10 +487,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/29/pycharm调试/" rel="prev" title="pycharm调试">
-                pycharm调试 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -546,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-虚拟环境的意义"><span class="nav-number">1.</span> <span class="nav-text">1. 虚拟环境的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-步骤"><span class="nav-number">2.</span> <span class="nav-text">2. 步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#攻击算法细节"><span class="nav-number">1.</span> <span class="nav-text">攻击算法细节</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实验结果"><span class="nav-number">2.</span> <span class="nav-text">实验结果</span></a></li></ol></div>
             
 
           </div>
