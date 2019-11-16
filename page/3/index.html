@@ -291,6 +291,481 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/18/论论文笔记-Manipulating-Machine-Learning-Poisoning-Attacks-and-Countermeasures-for-Regression-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/18/论论文笔记-Manipulating-Machine-Learning-Poisoning-Attacks-and-Countermeasures-for-Regression-Learning/" itemprop="url">论论文笔记: Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-18T19:42:12+08:00">
+                2019-04-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇文章发表于 2018 年，是第一篇针对线性回归模型提出投毒攻击方法的论文，实验证明：这种<code>gradient-based</code>的攻击方法效果很好；同时这篇文章里面也提出了一种防御方法：<code>TRIM</code>，实验结果也证明其防御效果很好。</p>
+<h1 id="主要贡献"><a href="#主要贡献" class="headerlink" title="主要贡献"></a>主要贡献</h1><ol>
+<li>第一篇针对<code>linear regression</code>进行<code>poisoning attack</code>的论文，之前的论文都是针对<code>classification</code>的模型</li>
+<li>改造了一个原本针对分类问题进行投毒攻击的模型，将其应用在回归问题中，将攻击结果作为一个<code>baseline</code></li>
+<li>提出了一种基于<em>数据集统计特征</em>的攻击方法，只需要掌握有限的信息即可完成攻击</li>
+<li>提出了防御算法<code>TRIM</code>,能够抵御众多的攻击，效果比传统的<code>robust statistic</code>好</li>
+</ol>
+<h1 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h1><h2 id="Linear-Regression-Model"><a href="#Linear-Regression-Model" class="headerlink" title="Linear Regression Model"></a>Linear Regression Model</h2><p>传统的线性回归模型：<br>$$<br>\mathcal{L}\left(\mathcal{D}<em>{\mathrm{tr}}, \boldsymbol{\theta}\right)=\underbrace{\frac{1}{n} \sum</em>{i=1}^{n}\left(f\left(\boldsymbol{x}<em>{i}, \boldsymbol{\theta}\right)-y</em>{i}\right)^{2}}<em>{\operatorname{MSE}\left(\mathcal{D}</em>{\text { tr }}, \boldsymbol{\theta}\right)}+\lambda \Omega(\boldsymbol{w})<br>$$</p>
+<p>根据$\Omega(w)$的不同，linear regression 可以分为下面<strong>4种</strong></p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>$\Omega(w)$      </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ordinary Least Square(OLS)</td>
+<td>$\Omega(w) = 0$</td>
+</tr>
+<tr>
+<td>Ridge</td>
+<td>$\Omega(\boldsymbol{w})=\frac{1}{2}\</td>
+<td>\boldsymbol{w}\</td>
+<td>_{2}^{2}$</td>
+</tr>
+<tr>
+<td>LASSO</td>
+<td>$\Omega(\boldsymbol{w}) = \</td>
+<td>{w}_1\</td>
+<td>$</td>
+</tr>
+<tr>
+<td>Elastic-Net Regression</td>
+<td>$\Omega(w) = \rho\</td>
+<td>w_1\</td>
+<td>+ (1-\rho)\frac{1}{2}\</td>
+<td>w_2^2\</td>
+<td>$ </td>
+</tr>
+</tbody>
+</table>
+<h2 id="Adversarial-Model"><a href="#Adversarial-Model" class="headerlink" title="Adversarial Model"></a>Adversarial Model</h2><p>这里定义<em>敌手模型</em>。</p>
+<p>敌手模型主要是用来对潜在用户进行分析建模，例如：假设攻击者掌握了多少知识、攻击者的目标是什么、攻击者的攻击策略是什么等。具体的可以从下面<strong>4个维度</strong>来对潜在的攻击者进行建模：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>描述   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Adversary Goal</td>
+<td>一般包含两种:<code>availability attack</code> &amp; <code>integrity attack</code>.前者主要目的是使整个模型的可用性降低，后者主要是使模型在针对特定样本做 inference 时，准确率降低</td>
+</tr>
+<tr>
+<td>Adversary Knowledge</td>
+<td>一般包含两种：<code>white-box</code> &amp; <code>black-box</code>. 对于前者，假设攻击者知晓：traning data &amp; learning algorithm &amp; loss function &amp; model parameters；对于后者，假设攻击者只知晓：learning algorithm &amp; loss function。<em>但是这篇文章中，作者通过产生替代数据，同样可以得到 model parameters.</em></td>
+</tr>
+<tr>
+<td>Adversary Capability</td>
+<td>攻击者的能力，一般定义为其能往数据集中插入多少 poisoning samples. $n:original \ samples$, $p :poisoning \ samples$, $N = n + p:\  total \ smaples$, 定义<strong>poisoning rate $\alpha = p/n$</strong></td>
+</tr>
+<tr>
+<td>Adversary Strategy</td>
+<td>$\begin{array}{rl}{\arg \max <em>{\mathcal{D}</em>{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}<em>{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}</em>{p}^{\star} \in \arg \min <em>{\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}</em>{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}$ 攻击者的目标主要是优化上面的目标函数：即如何插入 poisoning samples 来使得在 $D’$上的 loss 值最大.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h2><p>攻击者的目标函数：<br>$$<br>\begin{array}{rl}{\arg \max <em>{\mathcal{D}</em>{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}<em>{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}</em>{p}^{\star} \in \arg \min <em>{\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}</em>{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}<br>$$</p>
+<p><em>注： 目标函数 $W$一般用 validation set 上面的 loss 来表示。loss 越大，表名攻击效果越好。对于 linear regression, loss function = Mean Square Error(MSE)</em></p>
+<p>那么该插入什么样的 poisoning sample 才能使目标函数 $W$ 的值最大呢？</p>
+<p>答案是：考虑<strong>梯度</strong>，考虑$W$对$D_p$的梯度。有了这个梯度，我们就能使用<strong>gradient ascent</strong>方法来更新$D_p$，直到最后$W$收敛，我们可以得到最佳的$D_p$.</p>
+<p>但是这个优化问题是一个<code>Bi-level</code>问题，即约束条件本身也是一个优化问题，解决这种问题通常情况下是<code>NP-hard</code>.因为$x_c$和$W$并不是显示相关，而是通过$\theta$间接相关，因此作者通过<code>chain rule</code>来计算所需要的梯度   $\nabla_{\boldsymbol{x}_{c}} \mathcal{W}$:</p>
+<p>$$<br>\nabla_{\boldsymbol{x}<em>{c}} \mathcal{W}=\nabla</em>{\boldsymbol{x}<em>{c}} \boldsymbol{\theta}\left(\boldsymbol{x}</em>{c}\right)^{\top} \cdot \nabla_{\boldsymbol{\theta}} \mathcal{W}<br>$$</p>
+<p><em>注：$x_c$表示 poisoning sample 的 features</em></p>
+<p><strong>1. 首先求解公式的第二项  $\nabla_{\theta} \mathcal{W}$</strong></p>
+<p>第二项比较好计算，因为在线性回归问题中，目标函数表示的是在 validation set 上计算到的 loss：</p>
+<p>$$<br>\mathcal{W}<em>{\mathrm{val}}\left(\mathcal{D}</em>{\mathrm{val}}, \boldsymbol{\theta}\right)=\frac{1}{m} \sum_{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}^{\prime}, \boldsymbol{\theta}\right)-y</em>{j}^{\prime}\right)^{2}<br>$$</p>
+<p>对这个函数求对$\theta$的偏导：<br>$$<br>\nabla_{\boldsymbol{\theta}} \mathcal{W}<em>{\mathrm{val}}=\left[ \begin{array}{c}{\nabla</em>{\boldsymbol{w}} \mathcal{W}<em>{\mathrm{val}}} \ {\nabla</em>{b} \mathcal{W}<em>{\mathrm{val}}}\end{array}\right]=\left[ \begin{array}{c}{\frac{2}{m} \sum</em>{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}\right)-y</em>{j}\right) \boldsymbol{x}<em>{j}} \ {\frac{2}{m} \sum</em>{j=1}^{m}\left(f\left(\boldsymbol{x}<em>{j}\right)-y</em>{j}\right)}\end{array}\right]<br>$$</p>
+<p>至此，公式第二项偏导数计算完毕，下面计算第一项。</p>
+<p><strong>2. 求解公式第二项  $\nabla_{\boldsymbol{x}<em>{c}} \boldsymbol{\theta}\left(\boldsymbol{x}</em>{c}\right)^{\top}$</strong></p>
+<h2 id="防御方法"><a href="#防御方法" class="headerlink" title="防御方法"></a>防御方法</h2><h1 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h1>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/10/SSH公钥方式登录原理以及对称加密和非对称加密知识点总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/10/SSH公钥方式登录原理以及对称加密和非对称加密知识点总结/" itemprop="url">SSH公钥方式登录原理以及对称加密和非对称加密知识点总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-10T10:14:39+08:00">
+                2019-04-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>先占坑，后面需要学习这块的内容，用博客记录下来，加深理解！</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://blog.csdn.net/csm201314/article/details/78453579" target="_blank" rel="noopener">https://blog.csdn.net/csm201314/article/details/78453579</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Linux-系统中常见目录的含义及作用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/02/Linux-系统中常见目录的含义及作用/" itemprop="url">Linux 系统中常见目录的含义及作用</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-02T16:43:30+08:00">
+                2019-04-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>这篇博客将随着我对 Linux 系统的不断使用和了解而不定期更新。</p>
+<h2 id="常用目录的含义"><a href="#常用目录的含义" class="headerlink" title="常用目录的含义"></a>常用目录的含义</h2><table>
+<thead>
+<tr>
+<th>目录</th>
+<th>含义   </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>/bin</td>
+<td>存放 linux 中常用命令，如<code>cd</code> <code>pwd</code> <code>ls</code>等</td>
+</tr>
+<tr>
+<td>/lib</td>
+<td></td>
+</tr>
+<tr>
+<td>/etc</td>
+<td></td>
+</tr>
+<tr>
+<td>/var</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="http://blog.sina.com.cn/s/blog_684d52a90102uw30.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_684d52a90102uw30.html</a> </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/安装固态硬盘/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1221,7 +1696,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

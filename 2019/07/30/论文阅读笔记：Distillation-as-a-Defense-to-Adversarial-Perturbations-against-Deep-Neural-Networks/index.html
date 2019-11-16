@@ -79,20 +79,17 @@
 
 
 
-<meta name="description" content="pycharm中调试功能按钮说明列表 竖排   Resume Program(F9): 运行到下一个断点。  横排   step into(F7)和step into my code(Shift+Alt+F7之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。  参考文章  pycharm调试功能">
+<meta name="description" content="总览这篇文章发表在 S&amp;amp;P 2016 上，是对抗样本领域中较早的一种系统性的防御方法，即defensive distillation(防御蒸馏)。因为先前的防御方法大多是经验性的，如对抗训练等等，都是从结果上证明了其防御有效，但没有从原理层次详细的分析防御之所以成功的原因。在本文中，作者观察在两个简单的识别MNIST和CIFAR10的模型上的实验结果，证实了defensive distil">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pycharm调试">
-<meta property="og:url" content="http://yoursite.com/2019/04/29/pycharm调试/index.html">
+<meta property="og:title" content="论文阅读笔记：Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks">
+<meta property="og:url" content="http://yoursite.com/2019/07/30/论文阅读笔记：Distillation-as-a-Defense-to-Adversarial-Perturbations-against-Deep-Neural-Networks/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="pycharm中调试功能按钮说明列表 竖排   Resume Program(F9): 运行到下一个断点。  横排   step into(F7)和step into my code(Shift+Alt+F7之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。  参考文章  pycharm调试功能">
+<meta property="og:description" content="总览这篇文章发表在 S&amp;amp;P 2016 上，是对抗样本领域中较早的一种系统性的防御方法，即defensive distillation(防御蒸馏)。因为先前的防御方法大多是经验性的，如对抗训练等等，都是从结果上证明了其防御有效，但没有从原理层次详细的分析防御之所以成功的原因。在本文中，作者观察在两个简单的识别MNIST和CIFAR10的模型上的实验结果，证实了defensive distil">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2019/04/29/pycharm调试/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/04/29/pycharm调试/2.jpg">
-<meta property="og:updated_time" content="2019-04-29T00:21:32.225Z">
+<meta property="og:updated_time" content="2019-08-14T04:35:06.520Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="pycharm调试">
-<meta name="twitter:description" content="pycharm中调试功能按钮说明列表 竖排   Resume Program(F9): 运行到下一个断点。  横排   step into(F7)和step into my code(Shift+Alt+F7之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。  参考文章  pycharm调试功能">
-<meta name="twitter:image" content="http://yoursite.com/2019/04/29/pycharm调试/1.png">
+<meta name="twitter:title" content="论文阅读笔记：Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks">
+<meta name="twitter:description" content="总览这篇文章发表在 S&amp;amp;P 2016 上，是对抗样本领域中较早的一种系统性的防御方法，即defensive distillation(防御蒸馏)。因为先前的防御方法大多是经验性的，如对抗训练等等，都是从结果上证明了其防御有效，但没有从原理层次详细的分析防御之所以成功的原因。在本文中，作者观察在两个简单的识别MNIST和CIFAR10的模型上的实验结果，证实了defensive distil">
 
 
 
@@ -122,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/29/pycharm调试/">
+  <link rel="canonical" href="http://yoursite.com/2019/07/30/论文阅读笔记：Distillation-as-a-Defense-to-Adversarial-Perturbations-against-Deep-Neural-Networks/">
 
 
 
 
 
-  <title>pycharm调试 | 个人博客</title>
+  <title>论文阅读笔记：Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks | 个人博客</title>
   
 
 
@@ -297,7 +294,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/pycharm调试/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/30/论文阅读笔记：Distillation-as-a-Defense-to-Adversarial-Perturbations-against-Deep-Neural-Networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jun Tao">
@@ -314,7 +311,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">pycharm调试</h1>
+          <h1 class="post-title" itemprop="name headline">论文阅读笔记：Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks</h1>
         
 
         <div class="post-meta">
@@ -326,8 +323,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-29T08:09:28+08:00">
-                2019-04-29
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T19:05:04+08:00">
+                2019-07-30
               </time>
             
 
@@ -364,21 +361,7 @@
       
 
       
-        <p>pycharm中调试功能按钮说明列表</p>
-<p><strong>竖排</strong></p>
-<p><img src="/2019/04/29/pycharm调试/1.png" alt></p>
-<ul>
-<li><code>Resume Program(F9)</code>: 运行到下一个断点。</li>
-</ul>
-<p><strong>横排</strong></p>
-<p><img src="/2019/04/29/pycharm调试/2.jpg" alt></p>
-<ul>
-<li><code>step into(F7)</code>和<code>step into my code(Shift+Alt+F7</code>之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。</li>
-</ul>
-<p>参考文章</p>
-<ul>
-<li><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1556496966&amp;ver=1575&amp;signature=eiBK728JRESOP-0TVthbEh8MsNdngaiQSl-Piq2yPI2a9Y2kzAoP3pZWhmoFYSw7z3KYfGvPtxl48dYqjwyjkfZNLPdvkh-lZ6KL8yP-iMnYvDhpcnFu576RXcZszlbh&amp;new=1" target="_blank" rel="noopener">pycharm调试功能</a></li>
-</ul>
+        <h2 id="总览"><a href="#总览" class="headerlink" title="总览"></a>总览</h2><p>这篇文章发表在 <code>S&amp;P 2016</code> 上，是对抗样本领域中较早的一种系统性的防御方法，即<code>defensive distillation(防御蒸馏)</code>。因为先前的防御方法大多是经验性的，如对抗训练等等，都是从结果上证明了其防御有效，但没有从原理层次详细的分析防御之所以成功的原因。在本文中，作者观察在两个简单的识别MNIST和CIFAR10的模型上的实验结果，证实了defensive distillation方法的有效性，但这个方法在后来的文章中，也就是<code>S&amp;P 2017 CW attack</code>，被证实是无效的防御。</p>
 
       
     </div>
@@ -403,8 +386,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/" rel="next" title="ubuntu下使用virtualenv新建一个python3虚拟环境">
-                <i class="fa fa-chevron-left"></i> ubuntu下使用virtualenv新建一个python3虚拟环境
+              <a href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" rel="next" title="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">
+                <i class="fa fa-chevron-left"></i> 论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks
               </a>
             
           </div>
@@ -413,8 +396,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/30/pycharm在需要输入命令行参数时如何调试/" rel="prev" title="pycharm在需要输入命令行参数时如何调试">
-                pycharm在需要输入命令行参数时如何调试 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/10/07/关于贝叶斯公式的几种理解/" rel="prev" title="关于贝叶斯公式的几种理解">
+                关于贝叶斯公式的几种理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -467,8 +450,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -521,6 +513,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#总览"><span class="nav-number">1.</span> <span class="nav-text">总览</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
