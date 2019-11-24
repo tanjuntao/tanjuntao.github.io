@@ -291,6 +291,284 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="url">论文阅读笔记：A survey on Adversarial Machine Learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-24T21:30:17+08:00">
+                2019-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇简短的综述论文主要介绍了什么是<code>Adversarial Machine Learning</code>，列出了<code>AML</code>的几种常见分类。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Definition of adversarial machine learning</p>
+<blockquote>
+<p>machine learning in the presence of an adversary.</p>
+</blockquote>
+<p>All kinds of attacks can be categorized in three main types:</p>
+<ol>
+<li><strong>poisoning attacks</strong>: trying to poison the training of test dat</li>
+<li><strong>detection attacks</strong>: with the objective of evading detection </li>
+<li><strong>model extraction attacks</strong>: with the objective of replicating the model</li>
+</ol>
+<p>当然，这三种分类方法只是作何自己做的一个分类，实际上还可以有不同的分类方法，需要做的就是理解每一种分分类的划分依据是什么就可以了，不需要刻意去记住有那几种分类。</p>
+<p>当然，还有一种分类是将攻击者和防御者建模成一个<strong>博弈问题</strong>。</p>
+<blockquote>
+<p>It is worth to mention another much different aspect of research in adversarial machine learning which models the model-attacker worlds as a game and defines different moves for each side of the game.<br>By such definition, a <code>min-max algorithm</code> can be used to determine best moves for each side and fide possible <strong>equilibriums</strong> of the game.</p>
+</blockquote>
+<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><p>这一小节列举出了目前在<code>AML</code>领域中几种常见的攻击方法。</p>
+<p><strong>A. Model Extraction Attacks</strong></p>
+<p>这种攻击方法一般在<code>machine learning as a service</code>的场景中。即云服务商只会给用户提供一个查询的API接口，但是每次查询是需要收费的。</p>
+<p>这时候攻击者就希望能不能找到一个和目标模型表现近似的模型，从而避免向云服务商付费。</p>
+<p>这种攻击可以大致分为下面3类：</p>
+<ol>
+<li>eqution-solving model extraction attacks<br>在逻辑回归等简单模型中适用，原理主要是解方程组。</li>
+<li>path finding attacks<br>一般用在决策树模型中。</li>
+<li>membership queries attacks<br>判定一个给定的数据点事会否在原始数据集中。</li>
+</ol>
+<p><strong>B. Adversarial Examples</strong></p>
+<p>这个不需要过多解释了，现在的文章实在是太多了。</p>
+<p>需要介绍的是在论文[1]中，作者提出了既能够欺骗人眼也能够欺骗机器的对抗样本。</p>
+<p>对抗样本目前最需要解决的问题是防御问题，尤其时针对迁移性攻击的防御。</p>
+<p><strong>C. Data Poisoning Attacks</strong></p>
+<p>这种攻击适用于攻击者不能直接接触到训练数据，但训练过程是<code>online training</code> or <code>adaptive training</code>，即训练过程中需要不断加入新的训练数据。</p>
+<p>这种攻击在SVM中很容易成功，因为<strong>svm做分类最主要就是support vectors在起作用</strong>。</p>
+<p><strong>D. Model Evasion Attacks</strong></p>
+<p>这种攻击和对抗样本攻击很像，是在模型做inference阶段的攻击。但是因为做<code>spam detection</code> or <code>malware detection</code>在机器学习中很重要，所以这种攻击就被单独拎出来了。</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
+<li>这篇文章中没有介绍道data inversion attack，即能够推导出原始训练数据近似的攻击。</li>
+<li>AML的防御还是一个需要不断深入研究的领域。</li>
+</ul>
+<p>[1] [论文11]</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/论文阅读笔记：Federated-Learning-Challenges-Methods-and-Future-Directions/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/23/论文阅读笔记：Federated-Learning-Challenges-Methods-and-Future-Directions/" itemprop="url">论文阅读笔记：Federated Learning:Challenges, Methods and Future Directions</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-23T14:56:56+08:00">
+                2019-11-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/下载网络视频/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1340,276 +1618,6 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="url">python中如何批量修改文件后缀名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-05T10:02:02+08:00">
-                2019-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。</p>
-<p>壁纸文件存放的目录是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets</span><br></pre></td></tr></table></figure></p>
-<p>上面<code>18856</code>是我电脑上的账户名，只需要修改为你自己的账户名即可，其它的所有分级目录都相同。</p>
-<p>切换到噶目录下后，发现所有文件都没有后缀名，不能直接用图片查看器打开，需要一个个修改后缀名为<code>.jpg</code>格式，但是手工是在是太麻烦，因此想着用Python批量修改。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用<code>os.path</code>里面几个常用的API可以实现需求。</p>
-<p><strong>代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">path_input = sys.argv[<span class="number">1</span>]</span><br><span class="line">ext_input = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">components = path_input.split(<span class="string">'\\'</span>)</span><br><span class="line">path_new = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将原始单斜杠'\'转为双斜杠'\\'</span></span><br><span class="line"><span class="keyword">for</span> idx, item <span class="keyword">in</span> enumerate(components):</span><br><span class="line">    <span class="keyword">if</span> idx != (len(components) - <span class="number">1</span>):</span><br><span class="line">        path_new += item + <span class="string">'\\\\'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path_new += item</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(path_new)</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(path_new)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">	<span class="comment"># 分隔文件名和后缀名</span></span><br><span class="line">    fullname = os.path.splitext(file)</span><br><span class="line">    newname = fullname[<span class="number">0</span>] + ext_input</span><br><span class="line">    os.rename(path_new + <span class="string">'\\\\'</span> + file, path_new + <span class="string">'\\\\'</span> + newname)</span><br></pre></td></tr></table></figure></p>
-<p><strong>运行</strong><br>从命令行中运行，需要附带两个参数：</p>
-<ol>
-<li>原文件所在的目录，将windows中文件资源管理器上的路径拷贝过来；</li>
-<li>目标后缀名，如<code>.jpg</code></li>
-</ol>
-<p><strong>运行示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python batch_rename.py C:\Users\18856\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\As</span><br><span class="line">sets .jpg</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://www.runoob.com/python/att-string-split.html" target="_blank" rel="noopener">https://www.runoob.com/python/att-string-split.html</a></li>
-<li><a href="https://www.cnblogs.com/wuxie1989/p/5623435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuxie1989/p/5623435.html</a></li>
-<li><a href="https://blog.csdn.net/weixin_40449300/article/details/83184928" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40449300/article/details/83184928</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/安装jupyter-notebook和修改字体/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/02/安装jupyter-notebook和修改字体/" itemprop="url">安装jupyter notebook和修改字体</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-02T11:09:11+08:00">
-                2019-07-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="安装-jupyter-notebook"><a href="#安装-jupyter-notebook" class="headerlink" title="安装 jupyter notebook"></a>安装 jupyter notebook</h2><p>jupyter notebook 有两种方式安装：一种是通过 Anaconda，Anaconda里面已经集成了jupyter notebook；另一种是通过<code>pip install</code>安装，本文中我采用的是第二种安装方法。</p>
-<p>我Windows系统中只安装了Python3，因此控制台中输入<code>python</code>就指向Python3，如果系统中Python2和Python3共存，那么在控制台中可能需要输入<code>python3</code>，因为官方建议在Python3下面安装jupyter notebook。</p>
-<p>在控制台中输入下面命令安装jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install jupyter</span><br></pre></td></tr></table></figure></p>
-<p>安装需要花一定时间，等成功之后，在控制台输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
-<p>启动jupyter notebook。然后选择一个目录，点击<code>new</code>就可以新建Python文件了。</p>
-<h2 id="配置-jupyter-notebook-主题和字体"><a href="#配置-jupyter-notebook-主题和字体" class="headerlink" title="配置 jupyter notebook 主题和字体"></a>配置 jupyter notebook 主题和字体</h2><p>这里首先需要安装一个第三方包<a href="https://github.com/dunovank/jupyter-themes" target="_blank" rel="noopener">jupyter-themes</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterthemes</span><br></pre></td></tr></table></figure></p>
-<p>github仓库中有每个参数（包括主题、字体、字体大小等）的详细介绍和如何配置，如果有需要可以耐心研究研究。</p>
-<p>下面这个配置可以比较好的满足需求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t oceans16 -f fira -fs 13 -cellw 90% -ofs 11 -dfs 11 -T</span><br></pre></td></tr></table></figure></p>
-<p>直接在控制台中输入上述命令，接着重新启动jupyter notebook就可以更新设置了。</p>
-<p>最后的效果是这样的：</p>
-<p><img src="/2019/07/02/安装jupyter-notebook和修改字体/效果.png" alt="配置效果"></p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://blog.csdn.net/qq_30565883/article/details/79444750" target="_blank" rel="noopener">https://blog.csdn.net/qq_30565883/article/details/79444750</a></li>
-<li><a href="https://jupyter.org/install.html" target="_blank" rel="noopener">https://jupyter.org/install.html</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1662,7 +1670,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
