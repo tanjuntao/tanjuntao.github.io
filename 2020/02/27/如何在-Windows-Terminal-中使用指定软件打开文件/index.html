@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="背景我们知道在 Linux 系统下可以使用 vim 或者 vi 等命令，直接打开一个文本文件。但是 windows 下面没有 vim 和 vi，那么如何在终端中直接打开一个 markdown 文本文件呢？因为有时候有些文件目录很深，如果去资源管理器中寻找文件再打开，将会显得很繁琐，如果能在命令行中直接打开，将会提高效率很多。 需求尝试在 windows terminal 中实现类似下面的功能: 1">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-02-27T10:24:45.793Z">
+<meta property="og:updated_time" content="2020-02-27T11:12:00.833Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="如何在 Windows Terminal 中使用指定软件打开文件">
 <meta name="twitter:description" content="背景我们知道在 Linux 系统下可以使用 vim 或者 vi 等命令，直接打开一个文本文件。但是 windows 下面没有 vim 和 vi，那么如何在终端中直接打开一个 markdown 文本文件呢？因为有时候有些文件目录很深，如果去资源管理器中寻找文件再打开，将会显得很繁琐，如果能在命令行中直接打开，将会提高效率很多。 需求尝试在 windows terminal 中实现类似下面的功能: 1">
@@ -366,14 +366,19 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typora xxx.md</span><br></pre></td></tr></table></figure>
 <p>可以在命令行中直接打开一个 markdown 文件，但是因为默认安装的 Typora 没有提供这个命令，所以我尝试将 Typora 安装目录中的 <code>typora.exe</code> 文件添加到 <code>Path</code> 环境变量中。</p>
 <p>添加完后重启 windows terminal，重新输入上述命令，但是不能打开 <code>xxx.md</code> 文件，只是新建了一个空白的 markdown 文件。</p>
+<a id="more"></a> 
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>使用 <code>explorer.exe</code> 。</p>
 <p>前提是需要在系统中设置：默认使用 <code>typora</code> 来打开 <code>*.md</code> 的文件。</p>
 <p>此时输入：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explorer.exe xxx.md</span><br></pre></td></tr></table></figure>
 <p>就能顺利使用 typora 来打开 <code>xxx.md</code> 文件。</p>
+<p> <code>start</code> 命令也能实现相同的效果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start xxx.md  # 将会使用系统默认程序打开 xxx.md 文件</span><br></pre></td></tr></table></figure>
 <h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>如果想在 windows terminal 中打开资源管理器，该怎么办呢？</p>
 <p>只需要执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">explorer.exe . # '.'表示当前目录</span><br></pre></td></tr></table></figure>
+<p><code>start</code> 命令也能实现相同功能：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">start . # 打开当前文件的资源管理器</span><br></pre></td></tr></table></figure>
 
       
     </div>

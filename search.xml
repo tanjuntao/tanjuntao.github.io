@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[如何在 Windows Terminal 中使用指定软件打开文件]]></title>
     <url>%2F2020%2F02%2F27%2F%E5%A6%82%E4%BD%95%E5%9C%A8-Windows-Terminal-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%AE%9A%E8%BD%AF%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%2F</url>
-    <content type="text"><![CDATA[背景我们知道在 Linux 系统下可以使用 vim 或者 vi 等命令，直接打开一个文本文件。但是 windows 下面没有 vim 和 vi，那么如何在终端中直接打开一个 markdown 文本文件呢？因为有时候有些文件目录很深，如果去资源管理器中寻找文件再打开，将会显得很繁琐，如果能在命令行中直接打开，将会提高效率很多。 需求尝试在 windows terminal 中实现类似下面的功能: 1typora xxx.md 可以在命令行中直接打开一个 markdown 文件，但是因为默认安装的 Typora 没有提供这个命令，所以我尝试将 Typora 安装目录中的 typora.exe 文件添加到 Path 环境变量中。 添加完后重启 windows terminal，重新输入上述命令，但是不能打开 xxx.md 文件，只是新建了一个空白的 markdown 文件。 解决方案使用 explorer.exe 。 前提是需要在系统中设置：默认使用 typora 来打开 *.md 的文件。 此时输入： 1explorer.exe xxx.md 就能顺利使用 typora 来打开 xxx.md 文件。 扩展如果想在 windows terminal 中打开资源管理器，该怎么办呢？ 只需要执行： 1explorer.exe . # '.'表示当前目录]]></content>
+    <content type="text"><![CDATA[背景我们知道在 Linux 系统下可以使用 vim 或者 vi 等命令，直接打开一个文本文件。但是 windows 下面没有 vim 和 vi，那么如何在终端中直接打开一个 markdown 文本文件呢？因为有时候有些文件目录很深，如果去资源管理器中寻找文件再打开，将会显得很繁琐，如果能在命令行中直接打开，将会提高效率很多。 需求尝试在 windows terminal 中实现类似下面的功能: 1typora xxx.md 可以在命令行中直接打开一个 markdown 文件，但是因为默认安装的 Typora 没有提供这个命令，所以我尝试将 Typora 安装目录中的 typora.exe 文件添加到 Path 环境变量中。 添加完后重启 windows terminal，重新输入上述命令，但是不能打开 xxx.md 文件，只是新建了一个空白的 markdown 文件。 解决方案使用 explorer.exe 。 前提是需要在系统中设置：默认使用 typora 来打开 *.md 的文件。 此时输入： 1explorer.exe xxx.md 就能顺利使用 typora 来打开 xxx.md 文件。 start 命令也能实现相同的效果： 1start xxx.md # 将会使用系统默认程序打开 xxx.md 文件 扩展如果想在 windows terminal 中打开资源管理器，该怎么办呢？ 只需要执行： 1explorer.exe . # '.'表示当前目录 start 命令也能实现相同功能： 1start . # 打开当前文件的资源管理器]]></content>
   </entry>
   <entry>
     <title><![CDATA[Linux 学习记录: find 命令]]></title>
