@@ -311,284 +311,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/下载网络视频/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/17/下载网络视频/" itemprop="url">下载网络视频</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-17T10:48:09+08:00">
-                2019-11-17
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇文章介绍几种下载网页视频的方法。</p>
-<h3 id="方法1：第三方下载工具you-get"><a href="#方法1：第三方下载工具you-get" class="headerlink" title="方法1：第三方下载工具you-get"></a>方法1：第三方下载工具<code>you-get</code></h3><p><code>you-get</code>是一个第三方的Python包，用户只需要安装这个包，然后就可以直接在命令行中下载视频，非常便捷。</p>
-<ol>
-<li><p><strong>step1</strong><br>没有安装Python3的需要先在电脑上安装Python3。接着使用<code>pip3</code>命令安装you-get。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade you-get # 确保安装最新版本</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>step2</strong><br>打开命令行，切换到想要保存视频文件的目录中，在浏览器地址栏中拷贝视频的播放地址，接着输入命令</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-<p> 这种方式下载默认的视频格式文件，如果想要下载不同格式、不同清晰度的视频文件，可以加上<code>-i</code>参数：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get -i &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-<p> 观察控制台的输出，然后选择自己想要下载的格式文件对应额下载命令，再重新执行一遍you-get命令，此时不用再带上<code>-i</code>命令：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get &lt;每种格式文件对应的下载参数&gt; &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><code>you-get</code>目前支持很多网站的下载，如<code>youtube</code>  <code>bilibili</code>  <code>优酷</code>  <code>腾讯视频</code> 等等。</p>
-<h3 id="方法2：直接在网页中找到视频文件原地址"><a href="#方法2：直接在网页中找到视频文件原地址" class="headerlink" title="方法2：直接在网页中找到视频文件原地址"></a>方法2：直接在网页中找到视频文件原地址</h3><p>这种方式能成功的前提是网站的开发者并没有对视频文件做很好的保护，因为一般的大厂为了防止视频被下载，都会对视频文件的地址做保护。</p>
-<p>下面介绍这种简单的下载方式。</p>
-<ol>
-<li>在视频对应网页中右键<code>检查</code>或者直接<code>F12</code>打开网页调试页面。</li>
-<li>点击调试面板最左上角的<code>箭头</code>，然后将鼠标移到网页中，点击视频文件所在的区域，然后就能在<code>element</code>中找到对应的<code>video</code>标签，<code>src</code>属性中地址就是视频文件的原地址了，一般是<code>.mp4</code>格式的。</li>
-<li>在新标签中打开地址，在新标签中<strong>直接将视频另存为</strong>就能下载了。</li>
-</ol>
-<h3 id="方法3：使用插件-下载工具下载M3u8格式视频文件"><a href="#方法3：使用插件-下载工具下载M3u8格式视频文件" class="headerlink" title="方法3：使用插件+下载工具下载M3u8格式视频文件"></a>方法3：使用插件+下载工具下载<code>M3u8</code>格式视频文件</h3><p>前面说了，一般的网站都会对视频源文件做保护，不能直接找到文件的原地址。常见的做法就是修改<code>video</code>标签的<code>src</code>属性为<code>blob:https://xxxxx</code>，这时候如果在新标签中打开这个地址，什么东西都找不到。</p>
-<p>那么这种情况下怎么下载到原视频文件呢？</p>
-<p><a href="https://blog.csdn.net/Angry_Mills/article/details/82705595" target="_blank" rel="noopener">这篇文章</a> 中详细分析了<code>blog:http</code>的原理：网页中的视频文件被切分为了一个个小的<code>ts</code>格式的视频片段，这么做的原因，一方面是方便无缝切换视频清晰，另一方面是为了防止视频被下载。</p>
-<p>但是尽管找到了<code>ts</code>格式的视频片段，但是也不能一个个的下载下来啊，太繁琐了。</p>
-<p>于是有人做了<code>Meu8</code>这种受保护的视频格式文件的下载工具，具体可以follow<a href="https://blog.csdn.net/Bumphy/article/details/82865889" target="_blank" rel="noopener">这篇文章</a></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/Bumphy/article/details/82865889" target="_blank" rel="noopener">https://blog.csdn.net/Bumphy/article/details/82865889</a></li>
-<li><a href="https://blog.csdn.net/xingyun89114/article/details/80699527" target="_blank" rel="noopener">https://blog.csdn.net/xingyun89114/article/details/80699527</a></li>
-<li><a href="https://blog.csdn.net/Angry_Mills/article/details/82705595" target="_blank" rel="noopener">https://blog.csdn.net/Angry_Mills/article/details/82705595</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/11/信息熵/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/11/信息熵/" itemprop="url">信息熵</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T22:22:20+08:00">
-                2019-11-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇文章简单地总结一下信息熵。</p>
-<h3 id="概率和编码长度"><a href="#概率和编码长度" class="headerlink" title="概率和编码长度"></a>概率和编码长度</h3><p>首先假设我们有离散型随机变量 <em>X</em>，<em>X</em> 总共有n个取值，每种取值的概率为p(x)。</p>
-<p>假如X有4种可能的取值，每种取值的概率都相同，那么我们需要用2个二进制位来编码每种可能的取值。相应的，如果X有16个取值，那么需要用4个二进制位来编码。</p>
-<p>但是如果每种取值发生的概率并不是相同的呢？例如，其中某个取值出现的概率明显要高于其他取值，如果这时候还是用相同的编码长度来编码每种可能的取值，就会造成一种浪费。一个直觉的方法是将概率大的取值分配较短的编码，概率小的取值分配稍微长的编码长度，这样使得整体的编码长度达到最短。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/11/信息熵/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/10/07/关于贝叶斯公式的几种理解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -945,11 +667,954 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/" itemprop="url">论文阅读笔记：Explaining and Harnessing Adversarial Examples</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T17:00:32+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" itemprop="url">论文阅读笔记：Intriguing Properties of Neural Network</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T10:00:30+08:00">
+                2019-07-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>对抗样本（adversarial examples）的开山之作。</p>
+<p>文中主要提到了神经网络两个比较奇怪的性质：</p>
+<ol>
+<li>神经网络中携带语义信息的不是某单个神经元，而是整个网络所表示的空间。</li>
+<li>给样本添加一些轻微的扰动，会导致神经网络模型错误分类，这些样本就称为对抗样本。</li>
+</ol>
+<p>这里对第一个性质做简单的说明。</p>
+<p>首先，作者们通过观察某个隐层中某个特定神经元对什么样的输入图片会产生最大的激活值，以此来确定这个神经元对什么样的特征是最敏感的，从而确定这个神经元包含什么样的语义信息。这个想法是可行的并且前面（2014年之前）已经有这方面的研究了。实验结果就发现：单个神经元确实能够表示某种语义信息。接着作者们又做了另外一个实验：选择隐层所表示的空间中的一个随机方向（就是基向量的随机线性组合，是隐层中单个神经元所无法表示的方向），然后用同样的方法使其激活值最大。实验结果发现，同单个神经元一样，这个随机的方向也能表示某种确切的语义信息，从而说明了这个随机方向也可以表示某种特征。</p>
+<p>所以最后得到的结论就是：<strong>神经网络某个隐藏层中携带语义信息的并不是单个神经元，而是这个隐层所表示的整个空间。</strong></p>
+<p>文中提出来的几个假设：</p>
+<blockquote>
+<ol>
+<li>it is assumend that is possible for the output unit to assign non-significant(and, presumaby, non-epsilon)probabilities to regions of the input space that contain no training examples in their vicinity.</li>
+<li>the adversarial examples represent low-probability(high-dimensional)”pockets” in the manifold, which are hard to efficiently find by simply randomly sampling the input around a given example.</li>
+</ol>
+</blockquote>
+<p>那么作者们是如何找到对抗样本的呢？</p>
+<p>寻找对抗样本的过程，其实是一个不断优化的过程：一方面我们希望添加的扰动尽可能小，因为如果是较大的扰动，任何state-of-the-art的模型都会错误分类，就算是人眼也可能识别不了，这和对抗样本问题的研究初衷不一样，我们想知道的是为什么神经网络在面对这些人眼不可分辨的图片时，会给出巨大的错误结果。另一方面，我们希望对抗样本能被错误分类到另一个其它类别，从损失函数的角度看，就是想让其越大越好，于是作者们给出了下面的优化目标函数：</p>
+<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/1.png" alt></p>
+<p>其中<code>x</code>是原始图片，<code>r</code>是添加的扰动，<code>f</code>是分类器，<code>l</code>是目标类别（同<code>x</code>正确的类别不同）。我们希望<code>r</code>越小越好，同时使对抗样本<code>x + r</code>被错误分类到一个指定类别<code>l</code>下，同时还需要生成的<code>x + r</code>的值在<code>[0,1]</code>之间（保证是一张合法的图片）。</p>
+<p>直接解这个问题不容易，因此作者转换了一种思路，从损失函数的角度找最优的<code>r</code>:</p>
+<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/2.png" alt></p>
+<p>简单看看损失函数：一方面我们需要<code>r</code>的某种范式越小越好，另一方面我们希望<code>loss(x+r, l)</code>越小越好，因为这样表明<code>x+r</code>分类成类别<code>l</code>的概率越大。所以我们的目标是最小化上述公式，用到的方法是<strong>box-constrained L-BFGS</strong>.</p>
+<p>最后，作者们通过实验发现了几个重要的现象：</p>
+<ul>
+<li>对于论文中提到的所有网络结构（non-convolutional network, AlexNet, QuocNet），都能用上述方法生成对抗样本；</li>
+<li>对抗样本具有跨模型的泛化能力：在A模型上产生的对抗样本，有很大一部分在B模型（和A模型结构相同，超参数不同）上也有效（也能是B模型错误分类）</li>
+<li>对抗样本具有跨数据集的泛化能力：在D1数据集训练得到的模型上产生的对抗样本，在D2数据集训练得到的模型上也有效，D1和D2属于不同的子集，两个模型是结构完全不同的模型。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/统计学习方法：感知机/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/09/统计学习方法：感知机/" itemprop="url">统计学习方法：感知机</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T17:11:09+08:00">
+                2019-07-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>注：代码和运行结果都是从jupyter notebook中导出的</em></p>
+<p>导入所需要的第三方库<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure></p>
+<p>导入数据（iris数据集是sklearn中自带的数据集）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load data</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line">df.label.value_counts()</span><br></pre></td></tr></table></figure></p>
+<pre><code>2    50
+1    50
+0    50
+Name: label, dtype: int64
+</code></pre><p>选取两个特征<code>sepal length</code>和<code>sepal width</code>，绘制散点图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(df[:<span class="number">50</span>][<span class="string">'sepal length'</span>], df[:<span class="number">50</span>][<span class="string">'sepal width'</span>], label=<span class="string">'0'</span>)</span><br><span class="line">plt.scatter(df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal length'</span>], df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal width'</span>], label=<span class="string">'1'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'sepal length'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'sepal width'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17e936160&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_2_1.png" alt="png"></p>
+<p>数据处理：将pandas类型数据转换为<code>np.array</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = np.array(df.iloc[:<span class="number">100</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>]])</span><br><span class="line">X, y = data[:, :<span class="number">-1</span>], data[:, <span class="number">-1</span>]</span><br><span class="line">y = np.array([<span class="number">1</span> <span class="keyword">if</span> i == <span class="number">1.</span> <span class="keyword">else</span> <span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> y])</span><br></pre></td></tr></table></figure></p>
+<p>定义模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.w = np.ones(len(data[<span class="number">0</span>])<span class="number">-1</span>, dtype=np.float32)</span><br><span class="line">        self.b = <span class="number">0</span></span><br><span class="line">        self.l_rate = <span class="number">0.1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">linear_func</span><span class="params">(self, w, b, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.dot(x, w) + b</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X_train, y_train)</span>:</span></span><br><span class="line">        finished = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> finished:</span><br><span class="line">            wrong_count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> range(len(X_train)):</span><br><span class="line">                <span class="keyword">if</span> y_train[d] * self.linear_func(self.w, self.b, X_train[d]) &lt;= <span class="number">0</span>:</span><br><span class="line">                    self.w = self.w + self.l_rate * y_train[d] * X_train[d]</span><br><span class="line">                    self.b = self.b + self.l_rate * y_train[d]</span><br><span class="line">                    wrong_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> wrong_count == <span class="number">0</span>:</span><br><span class="line">                finished = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"perceptron model"</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">perceptron = Model()</span><br><span class="line">perceptron.fit(X, y)</span><br><span class="line">print(perceptron.w)</span><br><span class="line">print(perceptron.b)</span><br></pre></td></tr></table></figure>
+<pre><code>[  7.8 -10. ]
+-12.099999999999973
+</code></pre><p>使用自己训练的模型做二分类<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.linspace(<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>)</span><br><span class="line">y_ = -(perceptron.w[<span class="number">0</span>] * x_points + perceptron.b) / perceptron.w[<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17ecb4d68&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_6_1.png" alt="png"></p>
+<p>使用sklearn中自带的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron</span><br><span class="line">clf = Perceptron(fit_intercept=<span class="literal">False</span>, max_iter=<span class="number">1000</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">print(clf.coef_)</span><br><span class="line">print(clf.intercept_)</span><br></pre></td></tr></table></figure></p>
+<pre><code>[[  74.6 -127.2]]
+[0.]
+
+
+c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: FutureWarning: max_iter and tol parameters have been added in Perceptron in 0.19. If max_iter is set but tol is left unset, the default value for tol in 0.19 and 0.20 will be None (which is equivalent to -infinity, so it has no effect) but will change in 0.21 to 1e-3. Specify tol to silence this warning.
+  FutureWarning)
+</code></pre><p>绘制sklearn训练得到的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.arange(<span class="number">4</span>, <span class="number">8</span>)</span><br><span class="line">y_ = -(clf.coef_[<span class="number">0</span>][<span class="number">0</span>] * x_points + clf.intercept_) / clf.coef_[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
+<pre><code>&lt;matplotlib.legend.Legend at 0x1b17f046278&gt;
+</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_8_1.png" alt="png"></p>
+<p>C:\Python36\Lib\site-packages\sklearn\datasets\data</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="url">python中如何批量修改文件后缀名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T10:02:02+08:00">
+                2019-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。</p>
+<p>壁纸文件存放的目录是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets</span><br></pre></td></tr></table></figure></p>
+<p>上面<code>18856</code>是我电脑上的账户名，只需要修改为你自己的账户名即可，其它的所有分级目录都相同。</p>
+<p>切换到噶目录下后，发现所有文件都没有后缀名，不能直接用图片查看器打开，需要一个个修改后缀名为<code>.jpg</code>格式，但是手工是在是太麻烦，因此想着用Python批量修改。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用<code>os.path</code>里面几个常用的API可以实现需求。</p>
+<p><strong>代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">path_input = sys.argv[<span class="number">1</span>]</span><br><span class="line">ext_input = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">components = path_input.split(<span class="string">'\\'</span>)</span><br><span class="line">path_new = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将原始单斜杠'\'转为双斜杠'\\'</span></span><br><span class="line"><span class="keyword">for</span> idx, item <span class="keyword">in</span> enumerate(components):</span><br><span class="line">    <span class="keyword">if</span> idx != (len(components) - <span class="number">1</span>):</span><br><span class="line">        path_new += item + <span class="string">'\\\\'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path_new += item</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(path_new)</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(path_new)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">	<span class="comment"># 分隔文件名和后缀名</span></span><br><span class="line">    fullname = os.path.splitext(file)</span><br><span class="line">    newname = fullname[<span class="number">0</span>] + ext_input</span><br><span class="line">    os.rename(path_new + <span class="string">'\\\\'</span> + file, path_new + <span class="string">'\\\\'</span> + newname)</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行</strong><br>从命令行中运行，需要附带两个参数：</p>
+<ol>
+<li>原文件所在的目录，将windows中文件资源管理器上的路径拷贝过来；</li>
+<li>目标后缀名，如<code>.jpg</code></li>
+</ol>
+<p><strong>运行示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python batch_rename.py C:\Users\18856\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\As</span><br><span class="line">sets .jpg</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://www.runoob.com/python/att-string-split.html" target="_blank" rel="noopener">https://www.runoob.com/python/att-string-split.html</a></li>
+<li><a href="https://www.cnblogs.com/wuxie1989/p/5623435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuxie1989/p/5623435.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_40449300/article/details/83184928" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40449300/article/details/83184928</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/安装jupyter-notebook和修改字体/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/02/安装jupyter-notebook和修改字体/" itemprop="url">安装jupyter notebook和修改字体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T11:09:11+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装-jupyter-notebook"><a href="#安装-jupyter-notebook" class="headerlink" title="安装 jupyter notebook"></a>安装 jupyter notebook</h2><p>jupyter notebook 有两种方式安装：一种是通过 Anaconda，Anaconda里面已经集成了jupyter notebook；另一种是通过<code>pip install</code>安装，本文中我采用的是第二种安装方法。</p>
+<p>我Windows系统中只安装了Python3，因此控制台中输入<code>python</code>就指向Python3，如果系统中Python2和Python3共存，那么在控制台中可能需要输入<code>python3</code>，因为官方建议在Python3下面安装jupyter notebook。</p>
+<p>在控制台中输入下面命令安装jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install jupyter</span><br></pre></td></tr></table></figure></p>
+<p>安装需要花一定时间，等成功之后，在控制台输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
+<p>启动jupyter notebook。然后选择一个目录，点击<code>new</code>就可以新建Python文件了。</p>
+<h2 id="配置-jupyter-notebook-主题和字体"><a href="#配置-jupyter-notebook-主题和字体" class="headerlink" title="配置 jupyter notebook 主题和字体"></a>配置 jupyter notebook 主题和字体</h2><p>这里首先需要安装一个第三方包<a href="https://github.com/dunovank/jupyter-themes" target="_blank" rel="noopener">jupyter-themes</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterthemes</span><br></pre></td></tr></table></figure></p>
+<p>github仓库中有每个参数（包括主题、字体、字体大小等）的详细介绍和如何配置，如果有需要可以耐心研究研究。</p>
+<p>下面这个配置可以比较好的满足需求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t oceans16 -f fira -fs 13 -cellw 90% -ofs 11 -dfs 11 -T</span><br></pre></td></tr></table></figure></p>
+<p>直接在控制台中输入上述命令，接着重新启动jupyter notebook就可以更新设置了。</p>
+<p>最后的效果是这样的：</p>
+<p><img src="/2019/07/02/安装jupyter-notebook和修改字体/效果.png" alt="配置效果"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://blog.csdn.net/qq_30565883/article/details/79444750" target="_blank" rel="noopener">https://blog.csdn.net/qq_30565883/article/details/79444750</a></li>
+<li><a href="https://jupyter.org/install.html" target="_blank" rel="noopener">https://jupyter.org/install.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/如何删除github仓库中某个文件或者文件夹/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/04/如何删除github仓库中某个文件或者文件夹/" itemprop="url">如何删除github仓库中某个文件或者文件夹</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-04T15:15:50+08:00">
+                2019-06-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="从远处clone仓库到本地"><a href="#从远处clone仓库到本地" class="headerlink" title="从远处clone仓库到本地"></a>从远处clone仓库到本地</h2><p>在本地任意找一个文件夹，鼠标右键打开<code>git bash</code>，将远程仓库<code>clone</code>到此文件夹下面。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;仓库的git地址&gt;</span><br></pre></td></tr></table></figure></p>
+<p>进入到仓库目录中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &lt;仓库名&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除文件夹"><a href="#删除文件夹" class="headerlink" title="删除文件夹"></a>删除文件夹</h2><p>如果文件夹名称是单独的英文单词，不带有空格，那么输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r &lt;文件夹名&gt;</span><br></pre></td></tr></table></figure></p>
+<p>如果文件夹名称是中文名或者带有多个英文单词但是使用空格分隔，那么输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r &apos;&lt;文件夹名&gt;&apos;  # 同前面的区别是多了单引号，可以使用tab补全文件夹名称</span><br></pre></td></tr></table></figure></p>
+<h2 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h2><p>如果只是删除某个特定文件的话：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;文件名全程&gt;  # 包含文件名+后缀</span><br></pre></td></tr></table></figure></p>
+<p>如果需要批量删除某类后缀名的文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm *.&lt;后缀名&gt; # e.g. git rm *.md</span><br></pre></td></tr></table></figure></p>
+<h2 id="将修改提交到远程仓库"><a href="#将修改提交到远程仓库" class="headerlink" title="将修改提交到远程仓库"></a>将修改提交到远程仓库</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add *</span><br><span class="line">git commit -m &quot;输入提示信息&quot;</span><br><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
+<p>搞定！</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/17/HelloWorld-of-Keras/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/17/HelloWorld-of-Keras/" itemprop="url">HelloWorld of Keras</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-17T20:28:51+08:00">
+                2019-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="mnist-cnn"><a href="#mnist-cnn" class="headerlink" title="mnist_cnn"></a><code>mnist_cnn</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># "Hello World" of Keras in image classification task</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> print_function  <span class="comment"># 在Python2的代码中可以使用Python3的print函数，即需要加上括号</span></span><br><span class="line"><span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential  <span class="comment"># 序列模型，可以封装各种网络层: 卷积层、池化层、全连接层、dropout等</span></span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Dropout, Flatten</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Conv2D, MaxPooling2D</span><br><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K  <span class="comment"># Keras是一个高层API，后端使用TensorFlow或者Theano</span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">128</span></span><br><span class="line">num_classes = <span class="number">10</span></span><br><span class="line">epochs = <span class="number">12</span>  <span class="comment"># 12个epoch足够训练好模型</span></span><br><span class="line"></span><br><span class="line">img_rows, img_cols = <span class="number">28</span>, <span class="number">28</span>  <span class="comment"># mnist dataset中image的大小</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果第一次跑，会通过url方式从amazon下载mnist.npz；如果已经下载过了，那么直接加载本地mnist.npz</span></span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 根据不同的后端，将图片转换为不同的格式，TensorFlow是channel_last</span></span><br><span class="line"><span class="keyword">if</span> K.image_data_format() == <span class="string">'channels_first'</span>:</span><br><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="number">0</span>], <span class="number">1</span>, img_rows, img_cols)  <span class="comment"># 通道为1</span></span><br><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="number">0</span>], <span class="number">1</span>, img_rows, img_cols)</span><br><span class="line">    input_shape = (<span class="number">1</span>, img_rows, img_cols)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    x_train = x_train.reshape(x_train.shape[<span class="number">0</span>], img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line">    x_test = x_test.reshape(x_test.shape[<span class="number">0</span>], img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line">    input_shape = (img_rows, img_cols, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将每个pixel的类型从integer转为float32，使除法计算更加精确</span></span><br><span class="line">x_train = x_train.astype(<span class="string">'float32'</span>)</span><br><span class="line">x_test = x_test.astype(<span class="string">'float32'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将0-255范围的pixel值转化到0-1</span></span><br><span class="line">x_train /= <span class="number">255</span></span><br><span class="line">x_test /= <span class="number">255</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 如果后端是TensorFlow</span></span><br><span class="line">print(<span class="string">'x_train shape:'</span>, x_train.shape)     <span class="comment"># 输出(60000, 28, 28, 1)</span></span><br><span class="line">print(x_train.shape[<span class="number">0</span>], <span class="string">'train samples'</span>)   <span class="comment"># 输出60000</span></span><br><span class="line">print(x_test.shape[<span class="number">0</span>], <span class="string">'test samples'</span>)     <span class="comment"># 输出10000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 每个y_train或者y_test本来是一个整数表示每一类，现转换为one-hot encoding</span></span><br><span class="line">y_train = keras.utils.to_categorical(y_train, num_classes)</span><br><span class="line">y_test = keras.utils.to_categorical(y_test, num_classes)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例化一个序列模型</span></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="comment"># Conv1</span></span><br><span class="line">model.add(Conv2D(<span class="number">32</span>, kernel_size=(<span class="number">3</span>, <span class="number">3</span>),</span><br><span class="line">                 activation=<span class="string">'relu'</span>,</span><br><span class="line">                 input_shape=input_shape))</span><br><span class="line"><span class="comment"># Conv2</span></span><br><span class="line">model.add(Conv2D(<span class="number">64</span>, (<span class="number">3</span>, <span class="number">3</span>), activation=<span class="string">'relu'</span>))</span><br><span class="line"><span class="comment"># Pool1</span></span><br><span class="line">model.add(MaxPooling2D(pool_size=(<span class="number">2</span>, <span class="number">2</span>)))</span><br><span class="line">model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line"><span class="comment"># 将maxpooling后的64个activation map 全部拉伸为一个向量</span></span><br><span class="line">model.add(Flatten())</span><br><span class="line">model.add(Dense(<span class="number">128</span>, activation=<span class="string">'relu'</span>))</span><br><span class="line">model.add(Dropout(<span class="number">0.5</span>))</span><br><span class="line"><span class="comment"># 用softmax函数将logits转为每个类别的概率</span></span><br><span class="line">model.add(Dense(<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置损失函数，优化器，度量标准</span></span><br><span class="line">model.compile(loss=keras.losses.categorical_crossentropy,</span><br><span class="line">              optimizer=keras.optimizers.Adadelta(),</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line"><span class="comment"># verbose=1 展示详细的训练过程</span></span><br><span class="line"><span class="comment"># verbose=0 只显示最后结果，不展示过程</span></span><br><span class="line"><span class="comment"># verbose=2 每个epoch输出一条信息，不展示详细的训练过程</span></span><br><span class="line"><span class="comment"># validation_data会在每个每个epoch结束后计算当前模型的准确率，validation_data不参与训练</span></span><br><span class="line">model.fit(x_train, y_train,</span><br><span class="line">          batch_size=batch_size,</span><br><span class="line">          epochs=epochs,</span><br><span class="line">          verbose=<span class="number">2</span>,</span><br><span class="line">          validation_data=(x_test, y_test))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在测试集上测试模型效果</span></span><br><span class="line">score = model.evaluate(x_test, y_test, verbose=<span class="number">0</span>)</span><br><span class="line">print(<span class="string">'Test loss:'</span>, score[<span class="number">0</span>])</span><br><span class="line">print(<span class="string">'Test Accuracy:'</span>, score[<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<p>训练过程<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">x_train shape: (60000, 28, 28, 1)</span><br><span class="line">60000 train samples</span><br><span class="line">10000 test samples</span><br><span class="line">Train on 60000 samples, validate on 10000 samples</span><br><span class="line"></span><br><span class="line">Epoch 1/12</span><br><span class="line"> - 248s - loss: 0.2778 - acc: 0.9140 - val_loss: 0.0612 - val_acc: 0.9800</span><br><span class="line">Epoch 2/12</span><br><span class="line"> - 219s - loss: 0.0982 - acc: 0.9708 - val_loss: 0.0433 - val_acc: 0.9857</span><br><span class="line">Epoch 3/12</span><br><span class="line"> - 212s - loss: 0.0766 - acc: 0.9776 - val_loss: 0.0354 - val_acc: 0.9876</span><br><span class="line">Epoch 4/12</span><br><span class="line"> - 226s - loss: 0.0653 - acc: 0.9806 - val_loss: 0.0342 - val_acc: 0.9879</span><br><span class="line">Epoch 5/12</span><br><span class="line"> - 221s - loss: 0.0573 - acc: 0.9828 - val_loss: 0.0307 - val_acc: 0.9896</span><br><span class="line">Epoch 6/12</span><br><span class="line"> - 230s - loss: 0.0539 - acc: 0.9834 - val_loss: 0.0286 - val_acc: 0.9907</span><br><span class="line">Epoch 7/12</span><br><span class="line"> - 224s - loss: 0.0490 - acc: 0.9850 - val_loss: 0.0280 - val_acc: 0.9901</span><br><span class="line">Epoch 8/12</span><br><span class="line"> - 229s - loss: 0.0475 - acc: 0.9856 - val_loss: 0.0300 - val_acc: 0.9904</span><br><span class="line">Epoch 9/12</span><br><span class="line"> - 249s - loss: 0.0465 - acc: 0.9862 - val_loss: 0.0286 - val_acc: 0.9906</span><br><span class="line">Epoch 10/12</span><br><span class="line"> - 257s - loss: 0.0423 - acc: 0.9866 - val_loss: 0.0261 - val_acc: 0.9910</span><br><span class="line">Epoch 11/12</span><br><span class="line"> - 243s - loss: 0.0393 - acc: 0.9883 - val_loss: 0.0313 - val_acc: 0.9903</span><br><span class="line">Epoch 12/12</span><br><span class="line"> - 277s - loss: 0.0413 - acc: 0.9877 - val_loss: 0.0266 - val_acc: 0.9907</span><br><span class="line">Test loss: 0.026646837043244158</span><br><span class="line">Test Accuracy: 0.9907</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></p>
+<p>如果是第一次运行，会从 <a href="https://s3.amazonaws.com/img-datasets/mnist.npz" target="_blank" rel="noopener">https://s3.amazonaws.com/img-datasets/mnist.npz</a> 下载数据集，Windows会存放在<code>c://Users//&lt;User name&gt;//.keras/datasets</code>下面；Linux会存放在<code>home/.keras/datasets</code>下面。</p>
+<h2 id="cifar10-cnn-py"><a href="#cifar10-cnn-py" class="headerlink" title="cifar10_cnn.py"></a><code>cifar10_cnn.py</code></h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>训练过程</p>
+<pre><code>
+</code></pre><h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><ul>
+<li>Keras Model API: <a href="https://keras.io/models/model/" target="_blank" rel="noopener">https://keras.io/models/model/</a></li>
+<li><code>mnist_cnn.py</code>: <a href="https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py" target="_blank" rel="noopener">https://github.com/keras-team/keras/blob/master/examples/mnist_cnn.py</a></li>
+<li><code>cifar10_cnn.py</code>: <a href="https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py" target="_blank" rel="noopener">https://github.com/keras-team/keras/blob/master/examples/cifar10_cnn.py</a></li>
+<li><a href="https://www.cnblogs.com/lfri/p/10485597.html" target="_blank" rel="noopener">https://www.cnblogs.com/lfri/p/10485597.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -997,7 +1662,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">39</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1019,7 +1684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

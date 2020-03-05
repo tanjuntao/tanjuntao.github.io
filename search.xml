@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux学习记录:查看文件和文件夹大小]]></title>
+    <url>%2F2020%2F03%2F05%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E5%92%8C%E6%96%87%E4%BB%B6%E5%A4%B9%E5%A4%A7%E5%B0%8F%2F</url>
+    <content type="text"><![CDATA[总结一下在 Linux 下面如何查看 文件 和 文件夹 的大小。为了方便理解和描述，我们的工作目录是 /datapool/workspace/tanjuntao/ ，所有的命令均在这个目录下面执行。 需求 1：如何查看 tanjuntao 下所有目录的大小，不显示子目录的大小命令： 1du -h --max-depth=1 . # . 就表示当前目录，-h 表示 -human-readable，以 M、G 等方式显示大小 结果： 123456789101112131415161718192021222324252627282930313233343536user@DataServer:/datapool/workspace/tanjuntao$ du -h --max-depth=1 .188K ./trash1.5G ./WaveMsNet449M ./FL-ESC105.7G ./FL-SVHN236M ./pytorch-playground1.7G ./ESC-50-master30M ./stat_learn_project648M ./pytorch-classification109M ./vanilla_machine_learning648M ./ml_fl172M ./Federated-Learning-PyTorch5.8G ./py3env211M ./data5.0M ./foolbox1.7G ./adversarial-robustness-toolbox43M ./archive2.4G ./WaveMsNet-master4.2G ./FL-Test66G ./FL-Cifar101.5G ./pytorch-svhn932M ./Environmental-Sound-Classification115M ./python254M ./CBIR384M ./pytorch-cifar1.1G ./FL-Influence189K ./federated-learning427G ./LearnML2.8G ./leaf4.0K ./.vscode8.0K ./test92K ./learn_git2.3G ./EvadeML-Zoo196M ./AdvBox114M ./Defensive-Distillation530G . 注意最后一行，表示当前 tanjuntao 目录的大小是 530G。 如果我们还需要进一步查看 ./FL-Cifar10 目录下那些目录比较大，可以继续使用： 1du -h --max-depth=1 ./FL-Cifar10 需求 2：如何只查看某个特定目录的大小比方说我们想要查看 tanjuntao 这个目录的总大小，我们可以使用需求1 中提到的命令，最后找输出中的最后一行，就可以得到 tanjuntao 目录的总大小。但我们还有更简单的方式。 命令： 1du -h --max-depth=0 . 结果： 12user@DataServer:/datapool/workspace/tanjuntao$ du -h --max-depth=0 .530G 也可以利用 -s 参数： 1du -sh . # -s 表示 -summarize 结果： 12user@DataServer:/datapool/workspace/tanjuntao$ du -sh .530G . 需求 3： 如何查看某个特定文件的大小如果我们需要查看 tanjuntao 目录下 master.zip 文件的大小，可以这么做。 命令： 1du -h ./master.zip 结果： 12user@DataServer:/datapool/workspace/tanjuntao$ du -h ./master.zip616M ./master.zip 除了使用 du 命令，还可以使用 ls 。 命令： 1ls -lh ./master.zip # -h 表示 -human-readable 结果： 12user@DataServer:/datapool/workspace/tanjuntao$ ls -lh ./master.zip-rw-rw-r-- 1 user user 616M Jan 31 20:31 ./master.zip 其中第五列就是文件大小。 需求 4： 如何查看当前目录下所有目录以及子目录的大小如果我们需要查看 tanjuntao 目录下面所有目录的大小，包括子目录，可以这么做。 命令： 1du -h . # 输出结果中只有目录，没有文件 需求 5： 如何查看某个目录下所有文件的大小假如我们需要查看 tanjuntao/data 目录下所有文件的大小（输出结果中没有目录，只有文件），可以这么做。 命令： 1du -ah ./data # 输出结果中只有文件，没有目录 结果： 12345678910111213141516171819user@DataServer:/datapool/workspace/tanjuntao$ du -ah ./data59K ./data/raw/train-labels-idx1-ubyte45M ./data/raw/train-images-idx3-ubyte9.5K ./data/raw/t10k-labels-idx1-ubyte7.5M ./data/raw/t10k-images-idx3-ubyte53M ./data/raw59K ./data/mnist/raw/train-labels-idx1-ubyte45M ./data/mnist/raw/train-images-idx3-ubyte9.5K ./data/mnist/raw/t10k-labels-idx1-ubyte7.5M ./data/mnist/raw/t10k-images-idx3-ubyte53M ./data/mnist/raw7.6M ./data/mnist/processed/test.pt46M ./data/mnist/processed/training.pt53M ./data/mnist/processed106M ./data/mnist7.6M ./data/processed/test.pt46M ./data/processed/training.pt53M ./data/processed211M ./data 需求 6：如何查看整个系统磁盘使用情况命令： 1df -h 结果： 1234567891011user@DataServer:/datapool/workspace/tanjuntao$ df -hFilesystem Size Used Avail Use% Mounted onudev 32G 0 32G 0% /devtmpfs 6.3G 562M 5.7G 9% /run/dev/sda2 438G 40G 376G 10% /tmpfs 32G 0 32G 0% /dev/shmtmpfs 5.0M 0 5.0M 0% /run/locktmpfs 32G 0 32G 0% /sys/fs/cgroup/dev/sda1 511M 3.4M 508M 1% /boot/efinone 1.1P 32T 1.1P 3% /datapooltmpfs 6.3G 0 6.3G 0% /run/user/2001 References https://blog.csdn.net/ouyang_peng/article/details/10414499 https://blog.csdn.net/xiongyangg/article/details/54809810]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>du</tag>
+        <tag>df</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 学习记录： wget 和 curl]]></title>
+    <url>%2F2020%2F02%2F28%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A-wget-%E5%92%8C-curl%2F</url>
+    <content type="text"><![CDATA[http://einverne.github.io/post/2017/12/curl-usage.html 查找 linux 命令的网站 https://man.linuxde.net/ https://www.zhihu.com/question/19598302 https://www.cnblogs.com/activecode/p/9446762.html]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>wget</tag>
+        <tag>curl</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[hexo 中如何控制首页/归档页/tag页中显示的文章数]]></title>
+    <url>%2F2020%2F02%2F28%2Fhexo-%E4%B8%AD%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E9%A6%96%E9%A1%B5-%E5%BD%92%E6%A1%A3%E9%A1%B5-tag%E9%A1%B5%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[0. 背景References Hexo博客修改Archive页面显示文章数量 Hexo程序archive页面数量设置]]></content>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何在 Windows Terminal 中使用指定软件打开文件]]></title>
     <url>%2F2020%2F02%2F27%2F%E5%A6%82%E4%BD%95%E5%9C%A8-Windows-Terminal-%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8C%87%E5%AE%9A%E8%BD%AF%E4%BB%B6%E6%89%93%E5%BC%80%E6%96%87%E4%BB%B6%2F</url>
     <content type="text"><![CDATA[背景我们知道在 Linux 系统下可以使用 vim 或者 vi 等命令，直接打开一个文本文件。但是 windows 下面没有 vim 和 vi，那么如何在终端中直接打开一个 markdown 文本文件呢？因为有时候有些文件目录很深，如果去资源管理器中寻找文件再打开，将会显得很繁琐，如果能在命令行中直接打开，将会提高效率很多。 需求尝试在 windows terminal 中实现类似下面的功能: 1typora xxx.md 可以在命令行中直接打开一个 markdown 文件，但是因为默认安装的 Typora 没有提供这个命令，所以我尝试将 Typora 安装目录中的 typora.exe 文件添加到 Path 环境变量中。 添加完后重启 windows terminal，重新输入上述命令，但是不能打开 xxx.md 文件，只是新建了一个空白的 markdown 文件。 解决方案使用 explorer.exe 。 前提是需要在系统中设置：默认使用 typora 来打开 *.md 的文件。 此时输入： 1explorer.exe xxx.md 就能顺利使用 typora 来打开 xxx.md 文件。 start 命令也能实现相同的效果： 1start xxx.md # 将会使用系统默认程序打开 xxx.md 文件 扩展如果想在 windows terminal 中打开资源管理器，该怎么办呢？ 只需要执行： 1explorer.exe . # '.'表示当前目录 start 命令也能实现相同功能： 1start . # 打开当前文件的资源管理器]]></content>
