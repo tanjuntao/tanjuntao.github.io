@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="alias,.bashrc,.bash_aliases,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/archives/2019/07/index.html">
+<meta name="description" content="这篇文章来记录下如何在 linux 中使用 alias 自定义一条删除备份命令。 1. 需求背景平时我们基本上都使用 rm 命令来删除不需要的文件，但是这个命令还是挺危险的，如果因为不小心删除了一些非常重要的文件，那基本上是恢复不会来了，因为我自己前些天就因为按 tab 的时候没注意补全的信息，直接就回车了……删除了一个很重要的代码源文件。 后面开始查找如何在 linux 下面回复删除的文件。尝试">
+<meta name="keywords" content="alias,.bashrc,.bash_aliases">
+<meta property="og:type" content="article">
+<meta property="og:title" content="利用 alias 自定义一个删除备份命令">
+<meta property="og:url" content="http://yoursite.com/2020/03/06/利用-alias-自定义一个删除备份命令/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="这篇文章来记录下如何在 linux 中使用 alias 自定义一条删除备份命令。 1. 需求背景平时我们基本上都使用 rm 命令来删除不需要的文件，但是这个命令还是挺危险的，如果因为不小心删除了一些非常重要的文件，那基本上是恢复不会来了，因为我自己前些天就因为按 tab 的时候没注意补全的信息，直接就回车了……删除了一个很重要的代码源文件。 后面开始查找如何在 linux 下面回复删除的文件。尝试">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-06T10:07:05.043Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
+<meta name="twitter:title" content="利用 alias 自定义一个删除备份命令">
+<meta name="twitter:description" content="这篇文章来记录下如何在 linux 中使用 alias 自定义一条删除备份命令。 1. 需求背景平时我们基本上都使用 rm 命令来删除不需要的文件，但是这个命令还是挺危险的，如果因为不小心删除了一些非常重要的文件，那基本上是恢复不会来了，因为我自己前些天就因为按 tab 的时候没注意补全的信息，直接就回车了……删除了一个很重要的代码源文件。 后面开始查找如何在 linux 下面回复删除的文件。尝试">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2019/07/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/06/利用-alias-自定义一个删除备份命令/">
 
 
 
 
 
-  <title>归档 | 个人博客</title>
+  <title>利用 alias 自定义一个删除备份命令 | 个人博客</title>
   
 
 
@@ -140,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,281 +301,227 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
 
-      <span class="archive-page-counter">
-        
-        
-         
-        
-        OK! 目前共计 42 篇日志。 继续努力。
-      </span>
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/利用-alias-自定义一个删除备份命令/">
 
-      
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
 
         
         
+          <h1 class="post-title" itemprop="name headline">利用 alias 自定义一个删除备份命令</h1>
         
 
-        
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-06T16:07:28+08:00">
+                2020-03-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/30/论文阅读笔记：Distillation-as-a-Defense-to-Adversarial-Perturbations-against-Deep-Neural-Networks/" itemprop="url">
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
               
-                <span itemprop="name">论文阅读笔记：Distillation as a Defense to Adversarial Perturbations against Deep Neural Networks</span>
+                <span class="post-meta-item-text">分类于</span>
               
-            </a>
-        
-      </h2>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-30T19:05:04+08:00" content="2019-07-30">
-          07-30
-        </time>
-      </div>
+                
+                
+              
+            </span>
+          
 
-    </header>
-  </article>
+          
+            
+          
 
+          
+          
 
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" itemprop="url">
-              
-                <span itemprop="name">论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-27T20:26:04+08:00" content="2019-07-27">
-          07-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/" itemprop="url">
-              
-                <span itemprop="name">论文阅读笔记：Explaining and Harnessing Adversarial Examples</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-15T17:00:32+08:00" content="2019-07-15">
-          07-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>这篇文章来记录下如何在 linux 中使用 <code>alias</code> 自定义一条删除备份命令。</p>
+<h3 id="1-需求背景"><a href="#1-需求背景" class="headerlink" title="1. 需求背景"></a>1. 需求背景</h3><p>平时我们基本上都使用 <code>rm</code> 命令来删除不需要的文件，但是这个命令还是挺危险的，如果因为不小心删除了一些非常重要的文件，那基本上是恢复不会来了，因为我自己前些天就因为按 <code>tab</code> 的时候没注意补全的信息，直接就回车了……删除了一个很重要的代码源文件。</p>
+<p>后面开始查找如何在 linux 下面回复删除的文件。尝试了网上介绍的一些方法，发现仍然不行，遂放弃……</p>
+<p>于是就想：linux 中能不能像 windows 下面一样，如果不是强制删除文件，那么这些被删除的文件首先是存放在 <code>回收站</code> 的，除非人为清空回收站，否则这些被“删除”的文件没有被真正删除。</p>
+<p>于是开始搜寻资料，最后发现可以使用 <code>alias</code> 来实现这个需求。</p>
+<a id="more"></a>
+<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2. 具体实现"></a>2. 具体实现</h3><h4 id="2-1-bashrc-相关背景"><a href="#2-1-bashrc-相关背景" class="headerlink" title="2.1 .bashrc 相关背景"></a>2.1 <code>.bashrc</code> 相关背景</h4><p>先简单介绍下 <code>.bashrc</code> 文件的相关背景。</p>
+<p><code>.bashrc</code> 存放在 home 目录下面。<code>.</code> 开头的文件表示为了防止文件被意外修改，而默认不显示。使用 <code>ls</code> 命令是不显示这个文件的，只有使用 <code>ll</code> 才看得到。</p>
+<p><code>.bashrc</code> 相当于配置文件，<code>bash shell</code> 每次启动时都会首先读取 <code>.bashrc</code> 文件，完成配置更新。</p>
+<h4 id="2-2-alias-相关背景"><a href="#2-2-alias-相关背景" class="headerlink" title="2.2  alias 相关背景"></a>2.2  <code>alias</code> 相关背景</h4><p>这里先解释下，<code>alias</code> 的功能是提供命令简写，举个例子，在 <code>.bashrc</code> 文件中有下面几行代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alias ll='ls -alF'</span><br><span class="line">alias la='ls -A'</span><br><span class="line">alias l='ls -CF'</span><br></pre></td></tr></table></figure>
+<p>这里的 <code>ll</code> 就是命令 <code>ls -alF</code> 的一个别名，起到的效果是一样的。（注意等号 <code>=</code> 两边不能有空格）</p>
+<p>如果要查看系统中共有多少条简写命令，可以使用：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias -p</span><br></pre></td></tr></table></figure>
+<p>结果如下，这是我系统中目前所有的 <code>alias</code>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ alias -p</span><br><span class="line">alias alert='notify-send --urgency=low -i "$([ $? = 0 ] &amp;&amp; echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&amp;|]\s*alert$//'\'')"'</span><br><span class="line">alias egrep='egrep --color=auto'</span><br><span class="line">alias fgrep='fgrep --color=auto'</span><br><span class="line">alias grep='grep --color=auto'</span><br><span class="line">alias l='ls -CF'</span><br><span class="line">alias la='ls -A'</span><br><span class="line">alias ll='ls -alF'</span><br><span class="line">alias ls='ls --color=auto'</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-将所有的自定义命令放在-bash-aliases-文件里"><a href="#2-3-将所有的自定义命令放在-bash-aliases-文件里" class="headerlink" title="2.3 将所有的自定义命令放在 .bash_aliases 文件里"></a>2.3 将所有的自定义命令放在 <code>.bash_aliases</code> 文件里</h4><p>这里需要解释下为什么文件名为 <code>.bash_aliases</code>。用 vim 打开 <code>.bashrc</code> ，里面有一段这样的代码：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">if [ -f ~/.bash_aliases ]; then  # 表示如果在 home 目录下面存在 .bash_aliases 文件</span><br><span class="line">	. ~/.bash_aliases  # 那么执行这个文件。. 表示执行</span><br><span class="line">fi</span><br></pre></td></tr></table></figure>
+<p>一个比较推荐的方法是：将所有的自定义命令统一存放在 <code>.bash_aliases</code> 里。当然，如果直接把 <code>alias</code> 语句放在 <code>.bashrc</code> 里也能实现相应功能，只不过这种做法不推荐。</p>
+<p>默认情况下，home 目录下是没有 <code>.bash_aliases</code> 文件的，我们需要自己用 <code>touch</code> 新建一个。</p>
+<p>我们首先添加一个 <code>ws</code> 命令，方便我们在任何目录下，只需要输入 <code>ws</code> 就能回到 workspace 目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alias ws='cd ~/workspace'</span><br></pre></td></tr></table></figure>
+<p>保存退出后 <code>ws</code> 命令还不能马上生效，我们还需要执行（先切换到 home 目录下）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
+<p>现在我们就能在任意目录下使用 <code>ws</code> 这个命令了。</p>
+<p>有了上面的实践之后，我们已经知道 <code>alias</code> 的原理了。接下来我们新建一个 <code>del</code> 命令，是一个 “假删除” 的命令：即并不真正删除文件，而是将文件移动到一个特定位置。</p>
+<p>vim 打开 <code>.bash_aliases</code> 文件，在文件尾部添加如下代码（所有的等号两边不能有空格）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function delete_and_back_file() &#123;</span><br><span class="line">    date=`date +%Y%m%d`</span><br><span class="line">    path=`pwd $1`</span><br><span class="line">    output_path=~/backup/$date</span><br><span class="line">    mkdir -p $&#123;output_path&#125;/</span><br><span class="line">    mv $path/$1 $&#123;output_path&#125;/$1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">alias del='delete_and_back_file'</span><br></pre></td></tr></table></figure>
+<p>下面解释下上面的代码。</p>
+<p>因为我们想要实现的 <code>del</code> 命令其实是一个 <em>移动文件</em>  的命令，这就涉及到 <code>源目录</code> 和 <code>目标目录</code>，我们的</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">del ./xxx.txt</span><br></pre></td></tr></table></figure>
+<p>等价于：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mv ./xxx.txt &lt;目标目录&gt;</span><br></pre></td></tr></table></figure>
+<p>上述命令中，我们需要给定一个参数，即 <code>xxx.txt</code> ，表示想要删除的文件名。因为每次需要删除的文件都不同，等价于一个变量，我们不好直接使用 <code>alias</code> 来简写，这时候就需要使用函数。</p>
+<ul>
+<li>代码第四行：<code>output_path</code> 表示我们想要把文件移动到哪个 <code>目标目录</code> 下，可以自定义；</li>
+<li>代码第五行：<code>mkdir -p</code> 表示递归新建目录。举个例子，加入我们需要在 home 目录基础上新建 <code>~/dir1/dir2</code> 目录：<ul>
+<li>如果直接使用 <code>mkdir ~/dir1/dir2</code> 是执行不了的；</li>
+<li>这时候就需要使用 <code>-p</code> 参数，表示递归建立目录；</li>
+<li>即首先新建 <code>dir1</code> 目录，然后在 <code>dir1</code> 下面再新建 <code>dir2</code> 目录。</li>
+</ul>
+</li>
+<li>代码第九行：将这个函数名赋值给我们的自定义命令 <code>del</code> （如果我们将自定义命令命名为 <code>rm</code>，那么会覆盖掉系统中的 <code>rm</code> 命令，这时候如果需要调用系统命令，需要使用 <code>\</code> 进行转义，即输入 <code>\rm</code> ）。</li>
+</ul>
+<p>最后，我们在执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source .bashrc</span><br></pre></td></tr></table></figure>
+<p>至此，我们就可以在任意目录下面调用 <code>del</code> 命令了。它不会真正的删除文件，只是将文件移动 <code>.bash_aliases</code> 中指定的目录下。</p>
+<h3 id="3-Drawbacks"><a href="#3-Drawbacks" class="headerlink" title="3. Drawbacks"></a>3. Drawbacks</h3><p>目前的主要缺陷是 <code>del</code> 后只能跟一个文件名，无法一次性删除多个文件，无法使用 <code>-r</code> 删除一个文件夹。</p>
+<p>不过这些实现起来应该不难，只需要修改 <code>del_and_back_file</code> 函数即可。等 shell 更加熟练后，可以来实现这个需求。</p>
+<h3 id="4-References"><a href="#4-References" class="headerlink" title="4. References"></a>4. References</h3><ul>
+<li><a href="https://askubuntu.com/questions/1414/how-to-create-a-permanent-alias" target="_blank" rel="noopener">https://askubuntu.com/questions/1414/how-to-create-a-permanent-alias</a></li>
+<li><a href="https://www.jianshu.com/p/16c3e2305bd8" target="_blank" rel="noopener">https://www.jianshu.com/p/16c3e2305bd8</a></li>
+<li><a href="https://blog.csdn.net/chy555chy/article/details/88549924" target="_blank" rel="noopener">https://blog.csdn.net/chy555chy/article/details/88549924</a></li>
+<li><a href="https://blog.csdn.net/gloriaied/article/details/80669390" target="_blank" rel="noopener">https://blog.csdn.net/gloriaied/article/details/80669390</a></li>
+</ul>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" itemprop="url">
-              
-                <span itemprop="name">论文阅读笔记：Intriguing Properties of Neural Network</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-10T10:00:30+08:00" content="2019-07-10">
-          07-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/09/统计学习方法：感知机/" itemprop="url">
-              
-                <span itemprop="name">统计学习方法：感知机</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-09T17:11:09+08:00" content="2019-07-09">
-          07-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="url">
-              
-                <span itemprop="name">python中如何批量修改文件后缀名</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-05T10:02:02+08:00" content="2019-07-05">
-          07-05
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/02/安装jupyter-notebook和修改字体/" itemprop="url">
-              
-                <span itemprop="name">安装jupyter notebook和修改字体</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-02T11:09:11+08:00" content="2019-07-02">
-          07-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/alias/" rel="tag"># alias</a>
+          
+            <a href="/tags/bashrc/" rel="tag"># .bashrc</a>
+          
+            <a href="/tags/bash-aliases/" rel="tag"># .bash_aliases</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/06/ssh-config-配置文件/" rel="next" title="ssh config 配置文件">
+                <i class="fa fa-chevron-left"></i> ssh config 配置文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -578,6 +529,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -598,8 +553,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -661,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-需求背景"><span class="nav-text">1. 需求背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-具体实现"><span class="nav-text">2. 具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-bashrc-相关背景"><span class="nav-text">2.1 .bashrc 相关背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-alias-相关背景"><span class="nav-text">2.2  alias 相关背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-将所有的自定义命令放在-bash-aliases-文件里"><span class="nav-text">2.3 将所有的自定义命令放在 .bash_aliases 文件里</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-Drawbacks"><span class="nav-text">3. Drawbacks</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-References"><span class="nav-text">4. References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -814,6 +794,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
