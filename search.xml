@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ssh config 配置文件]]></title>
+    <url>%2F2020%2F03%2F06%2Fssh-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[这篇文章讲一下 ssh 中的 config 配置文件。 config 文件一般在 ~/.ssh/ 或者 C://Users//&lt;username&gt;//.ssh 目录下面，没有后缀名。如果在上述目录中找不到 config 文件，那么可以新建一个。 背景需求我们使用 ssh 登录服务器时，一般做法是： 1ssh example@example.com -p xxxx 然后再输入登录密码。 如果需要登录到不同的服务器，并且每个服务器的登录名、地址、端口号、登录密码都不同的话，那么记忆起来就会显得繁琐，那有没有一种办法可以不用输入密码登录，直接输入服务器的一个别名就可以登录的呢？答案是有的。 第一种比较容易想到的方法是建立一些脚本文件，在脚本里面将 ssh 登录需要的各种参数命令都预先写好，然后将该脚本加入到环境变量中，这样方便在任何地方都能调用。具体的实现方法可以 参考这篇 上面方法有一个缺陷就是，每次登录还是需要输入密码。 还有一种更加简单的方式，那就是使用 config 配置文件。 具体实现加入我们需要登录的服务器是 example.com， 登录用户名是 example，登录端口是 2222（ssh 默认登录端口是 22），那么我们可以在 config 文件中加入这些： 1234Host my_server HostName example.com User example Port 2222 几个字段的解释如下： Host：就是你设置的服务器别名，可以是任意自己方便记忆的名字； HostName： 服务器的实际地址，可以是 IP 地址，也可以是域名地址； User ：ssh 登录名； Port：端口号。如果是默认端口号 22，那此字段可以省略。 现在，你可以直接在终端中： 1ssh my_server 来登录服务器了。但是每次登陆还是需要输入密码。 那怎么配置来实现免密登录呢？答案是将本机的公钥存放到服务器上。 将本机中的 id_rsa.pub 公钥文件（windows 系统在 C://Users//&lt;username&gt;//.ssh 目录下，本地终端先切换到此目录下）传到服务器上任意位置，这里传到服务器 home 目录下： 1scp id_rsa.pub my_server:~ # 这里就可以直接使用 my_server 了 接着将 id_rsa.pub 中的公钥复制到服务器上的 authorized_keys 文件中。同样，如果服务器 ~/.ssh 目录下没有此文件，那么新建一个。 可以用 cat 命令的输出重定向来实现。服务器首先切换到 home 目录下。 1cat id_rsa.pub &gt;&gt; .ssh/authorized_keys 最后还需要将 ssh 服务重启一下： 1/etc/init.d/ssh restart 回车后需要输入服务器的密码完成认证。 至此，就大功告成。现在只需要在本地终端中输入： 1ssh my_server 就能够免密登录到自己的服务器了。 References https://www.cnblogs.com/zhonghuasong/p/7236989.html https://www.cnblogs.com/piperck/p/6188984.html https://blog.csdn.net/ky1in93/article/details/83093981]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ssh</tag>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[如何格式化 64G 以上的 U盘/SD卡为 FAT32 文件系统格式]]></title>
     <url>%2F2020%2F03%2F05%2F%E5%A6%82%E4%BD%95%E6%A0%BC%E5%BC%8F%E5%8C%96-64G-%E4%BB%A5%E4%B8%8A%E7%9A%84-U%E7%9B%98-SD%E5%8D%A1%E4%B8%BA-FAT32-%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E6%A0%BC%E5%BC%8F%2F</url>
     <content type="text"><![CDATA[背景需求从网上购买的闪迪的 64G SD卡，准备插入小米摄像机里用来存储历史视频。但是插入之后，显示存储卡的格式不支持，SD卡是 NTFS 文件系统格式，但是小米摄像机需要 FAT32 格式。 遂准备 SD卡读卡器，插入 windows10 系统中，在资源管理器中通过鼠标右键选择“格式化”选项进行格式化。 但是 windows 系统中只能将 32G 以及 32G 容量以下的 U盘/SD卡 格式化为 FAT32 格式，但是对于 64G及以上的，无法完成格式化。于是只能寻求第三方软件。 解决方法发现一款很好的工具：DiskGenius 使用方法很简单，下载安装包，默认安装后，选择需要格式的盘符（选择插入的 SD卡），点击上方选项栏中的【格式化】按钮，选择 FAT32 格式就可以了。 Reference http://www.diskgenius.cn/download.php https://blog.csdn.net/b6_g9/article/details/52076285?depth_1-utm_source=distribute.pc_relevant.none-task&amp;utm_source=distribute.pc_relevant.none-task]]></content>
