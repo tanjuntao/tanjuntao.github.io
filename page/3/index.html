@@ -311,6 +311,142 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="url">python中如何批量修改文件后缀名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T10:02:02+08:00">
+                2019-07-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。</p>
+<p>壁纸文件存放的目录是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets</span><br></pre></td></tr></table></figure></p>
+<p>上面<code>18856</code>是我电脑上的账户名，只需要修改为你自己的账户名即可，其它的所有分级目录都相同。</p>
+<p>切换到噶目录下后，发现所有文件都没有后缀名，不能直接用图片查看器打开，需要一个个修改后缀名为<code>.jpg</code>格式，但是手工是在是太麻烦，因此想着用Python批量修改。</p>
+<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用<code>os.path</code>里面几个常用的API可以实现需求。</p>
+<p><strong>代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">path_input = sys.argv[<span class="number">1</span>]</span><br><span class="line">ext_input = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">components = path_input.split(<span class="string">'\\'</span>)</span><br><span class="line">path_new = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将原始单斜杠'\'转为双斜杠'\\'</span></span><br><span class="line"><span class="keyword">for</span> idx, item <span class="keyword">in</span> enumerate(components):</span><br><span class="line">    <span class="keyword">if</span> idx != (len(components) - <span class="number">1</span>):</span><br><span class="line">        path_new += item + <span class="string">'\\\\'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path_new += item</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(path_new)</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(path_new)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">	<span class="comment"># 分隔文件名和后缀名</span></span><br><span class="line">    fullname = os.path.splitext(file)</span><br><span class="line">    newname = fullname[<span class="number">0</span>] + ext_input</span><br><span class="line">    os.rename(path_new + <span class="string">'\\\\'</span> + file, path_new + <span class="string">'\\\\'</span> + newname)</span><br></pre></td></tr></table></figure></p>
+<p><strong>运行</strong><br>从命令行中运行，需要附带两个参数：</p>
+<ol>
+<li>原文件所在的目录，将windows中文件资源管理器上的路径拷贝过来；</li>
+<li>目标后缀名，如<code>.jpg</code></li>
+</ol>
+<p><strong>运行示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python batch_rename.py C:\Users\18856\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\As</span><br><span class="line">sets .jpg</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://www.runoob.com/python/att-string-split.html" target="_blank" rel="noopener">https://www.runoob.com/python/att-string-split.html</a></li>
+<li><a href="https://www.cnblogs.com/wuxie1989/p/5623435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuxie1989/p/5623435.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_40449300/article/details/83184928" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40449300/article/details/83184928</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/安装jupyter-notebook和修改字体/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1459,149 +1595,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/28/ubuntu下使用virtualenv新建一个python3虚拟环境/" itemprop="url">ubuntu下使用virtualenv新建一个python3虚拟环境</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T16:53:51+08:00">
-                2019-04-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-虚拟环境的意义"><a href="#1-虚拟环境的意义" class="headerlink" title="1. 虚拟环境的意义"></a>1. 虚拟环境的意义</h2><p>因为不同的应用需要的环境可能是不同的，比方说A和B程序都需要用到第三方库C，但是A只能在C(version=1.0)下面运行，B只能在C(version=2.0)下面运行，这时要想同时运行A和B程序就会存在问题。</p>
-<p>虚拟环境提供的好处就是，可以将不同应用程序所需要的环境隔离开来，每个程序有一套属于自己专属的环境，程序之间不会相互干扰。</p>
-<h2 id="2-步骤"><a href="#2-步骤" class="headerlink" title="2. 步骤"></a>2. 步骤</h2><ul>
-<li><p>首先需要安装 <code>virtualenv</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install python-virtualenv</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接着创建 python3 的虚拟环境(ubuntu中默认安装了python2和python3)</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ~/1997tanjuntao/   # 切换到一个目录下面</span><br><span class="line">virtualenv -p /usr/bin/python3 py3env  # 在当前目录下面创建新目录py3env(目录名可以自定义)，py3env中就是虚拟环境</span><br><span class="line"># 如果是新建一个python2环境，可以这样做</span><br><span class="line"># virtualenv -p /usr/bin/python2 py2env</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>接着激活环境</p>
-</li>
-</ul>
-<p>切换到<code>py3env</code>所在目录<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~/1997tanjuntao/</span><br></pre></td></tr></table></figure></p>
-<p><code>source</code>命令激活虚拟环境<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source py3env/bin/activate</span><br></pre></td></tr></table></figure></p>
-<p>这时候会发现命令行前面多了一个括号 <strong>(py3env)</strong></p>
-<p>这个新建的虚拟环境中使用的是<code>python3</code>，默认情况下，没有包含系统<code>python3</code>中安装的包，很干净。</p>
-<p>这时候使用<code>pip install</code>安装的第三方包，只存在于这个虚拟环境中，不会影响系统中的<code>python3</code></p>
-<ul>
-<li>退出虚拟环境<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate   # 一句话</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://blog.csdn.net/qingche456/article/details/65465760" target="_blank" rel="noopener">https://blog.csdn.net/qingche456/article/details/65465760</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1654,7 +1647,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1676,7 +1669,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,chmod,权限,777,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="这篇文章介绍几种下载网页视频的方法。 方法1：第三方下载工具you-getyou-get是一个第三方的Python包，用户只需要安装这个包，然后就可以直接在命令行中下载视频，非常便捷。  step1没有安装Python3的需要先在电脑上安装Python3。接着使用pip3命令安装you-get。  1pip3 install --upgrade you-get # 确保安装最新版本  step2打">
+<meta name="description" content="这篇文章记录下 Linux 中如何使用 chmod 命令修改文件以及目录的权限，也就是读/写/执行 的权限。 1. 背景需求有时候我们使用 scp 向服务器传输文件时，会提示说 permission denied 。这是因为我们对于需要上传到的目标目录没有 写 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。 另外一次经历，是之前需要">
+<meta name="keywords" content="Linux,chmod,权限,777">
 <meta property="og:type" content="article">
-<meta property="og:title" content="下载网络视频">
-<meta property="og:url" content="http://yoursite.com/2019/11/17/下载网络视频/index.html">
+<meta property="og:title" content="Linux学习记录：chmod 修改权限">
+<meta property="og:url" content="http://yoursite.com/2020/03/07/Linux学习记录：chmod-修改权限/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="这篇文章介绍几种下载网页视频的方法。 方法1：第三方下载工具you-getyou-get是一个第三方的Python包，用户只需要安装这个包，然后就可以直接在命令行中下载视频，非常便捷。  step1没有安装Python3的需要先在电脑上安装Python3。接着使用pip3命令安装you-get。  1pip3 install --upgrade you-get # 确保安装最新版本  step2打">
+<meta property="og:description" content="这篇文章记录下 Linux 中如何使用 chmod 命令修改文件以及目录的权限，也就是读/写/执行 的权限。 1. 背景需求有时候我们使用 scp 向服务器传输文件时，会提示说 permission denied 。这是因为我们对于需要上传到的目标目录没有 写 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。 另外一次经历，是之前需要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-11-17T03:12:54.773Z">
+<meta property="og:updated_time" content="2020-03-07T03:33:01.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="下载网络视频">
-<meta name="twitter:description" content="这篇文章介绍几种下载网页视频的方法。 方法1：第三方下载工具you-getyou-get是一个第三方的Python包，用户只需要安装这个包，然后就可以直接在命令行中下载视频，非常便捷。  step1没有安装Python3的需要先在电脑上安装Python3。接着使用pip3命令安装you-get。  1pip3 install --upgrade you-get # 确保安装最新版本  step2打">
+<meta name="twitter:title" content="Linux学习记录：chmod 修改权限">
+<meta name="twitter:description" content="这篇文章记录下 Linux 中如何使用 chmod 命令修改文件以及目录的权限，也就是读/写/执行 的权限。 1. 背景需求有时候我们使用 scp 向服务器传输文件时，会提示说 permission denied 。这是因为我们对于需要上传到的目标目录没有 写 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。 另外一次经历，是之前需要">
 
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/17/下载网络视频/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/07/Linux学习记录：chmod-修改权限/">
 
 
 
 
 
-  <title>下载网络视频 | 个人博客</title>
+  <title>Linux学习记录：chmod 修改权限 | 个人博客</title>
   
 
 
@@ -314,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/17/下载网络视频/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Linux学习记录：chmod-修改权限/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jun Tao">
@@ -331,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">下载网络视频</h1>
+          <h1 class="post-title" itemprop="name headline">Linux学习记录：chmod 修改权限</h1>
         
 
         <div class="post-meta">
@@ -343,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-17T10:48:09+08:00">
-                2019-11-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T10:29:53+08:00">
+                2020-03-07
               </time>
             
 
@@ -353,6 +354,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -381,37 +404,51 @@
       
 
       
-        <p>这篇文章介绍几种下载网页视频的方法。</p>
-<h3 id="方法1：第三方下载工具you-get"><a href="#方法1：第三方下载工具you-get" class="headerlink" title="方法1：第三方下载工具you-get"></a>方法1：第三方下载工具<code>you-get</code></h3><p><code>you-get</code>是一个第三方的Python包，用户只需要安装这个包，然后就可以直接在命令行中下载视频，非常便捷。</p>
-<ol>
-<li><p><strong>step1</strong><br>没有安装Python3的需要先在电脑上安装Python3。接着使用<code>pip3</code>命令安装you-get。</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install --upgrade you-get # 确保安装最新版本</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>step2</strong><br>打开命令行，切换到想要保存视频文件的目录中，在浏览器地址栏中拷贝视频的播放地址，接着输入命令</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-<p> 这种方式下载默认的视频格式文件，如果想要下载不同格式、不同清晰度的视频文件，可以加上<code>-i</code>参数：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get -i &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-<p> 观察控制台的输出，然后选择自己想要下载的格式文件对应额下载命令，再重新执行一遍you-get命令，此时不用再带上<code>-i</code>命令：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">you-get &lt;每种格式文件对应的下载参数&gt; &lt;视频地址&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><code>you-get</code>目前支持很多网站的下载，如<code>youtube</code>  <code>bilibili</code>  <code>优酷</code>  <code>腾讯视频</code> 等等。</p>
-<h3 id="方法2：直接在网页中找到视频文件原地址"><a href="#方法2：直接在网页中找到视频文件原地址" class="headerlink" title="方法2：直接在网页中找到视频文件原地址"></a>方法2：直接在网页中找到视频文件原地址</h3><p>这种方式能成功的前提是网站的开发者并没有对视频文件做很好的保护，因为一般的大厂为了防止视频被下载，都会对视频文件的地址做保护。</p>
-<p>下面介绍这种简单的下载方式。</p>
-<ol>
-<li>在视频对应网页中右键<code>检查</code>或者直接<code>F12</code>打开网页调试页面。</li>
-<li>点击调试面板最左上角的<code>箭头</code>，然后将鼠标移到网页中，点击视频文件所在的区域，然后就能在<code>element</code>中找到对应的<code>video</code>标签，<code>src</code>属性中地址就是视频文件的原地址了，一般是<code>.mp4</code>格式的。</li>
-<li>在新标签中打开地址，在新标签中<strong>直接将视频另存为</strong>就能下载了。</li>
-</ol>
-<h3 id="方法3：使用插件-下载工具下载M3u8格式视频文件"><a href="#方法3：使用插件-下载工具下载M3u8格式视频文件" class="headerlink" title="方法3：使用插件+下载工具下载M3u8格式视频文件"></a>方法3：使用插件+下载工具下载<code>M3u8</code>格式视频文件</h3><p>前面说了，一般的网站都会对视频源文件做保护，不能直接找到文件的原地址。常见的做法就是修改<code>video</code>标签的<code>src</code>属性为<code>blob:https://xxxxx</code>，这时候如果在新标签中打开这个地址，什么东西都找不到。</p>
-<p>那么这种情况下怎么下载到原视频文件呢？</p>
-<p><a href="https://blog.csdn.net/Angry_Mills/article/details/82705595" target="_blank" rel="noopener">这篇文章</a> 中详细分析了<code>blog:http</code>的原理：网页中的视频文件被切分为了一个个小的<code>ts</code>格式的视频片段，这么做的原因，一方面是方便无缝切换视频清晰，另一方面是为了防止视频被下载。</p>
-<p>但是尽管找到了<code>ts</code>格式的视频片段，但是也不能一个个的下载下来啊，太繁琐了。</p>
-<p>于是有人做了<code>Meu8</code>这种受保护的视频格式文件的下载工具，具体可以follow<a href="https://blog.csdn.net/Bumphy/article/details/82865889" target="_blank" rel="noopener">这篇文章</a></p>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
-<li><a href="https://blog.csdn.net/Bumphy/article/details/82865889" target="_blank" rel="noopener">https://blog.csdn.net/Bumphy/article/details/82865889</a></li>
-<li><a href="https://blog.csdn.net/xingyun89114/article/details/80699527" target="_blank" rel="noopener">https://blog.csdn.net/xingyun89114/article/details/80699527</a></li>
-<li><a href="https://blog.csdn.net/Angry_Mills/article/details/82705595" target="_blank" rel="noopener">https://blog.csdn.net/Angry_Mills/article/details/82705595</a></li>
+        <p>这篇文章记录下 Linux 中如何使用 <code>chmod</code> 命令修改文件以及目录的权限，也就是<code>读/写/执行</code> 的权限。</p>
+<h3 id="1-背景需求"><a href="#1-背景需求" class="headerlink" title="1. 背景需求"></a>1. 背景需求</h3><p>有时候我们使用 <code>scp</code> 向服务器传输文件时，会提示说 <code>permission denied</code> 。这是因为我们对于需要上传到的目标目录没有 <strong>写</strong> 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。</p>
+<p>另外一次经历，是之前需要将自己在 windows 中的 <code>rsa keys</code> 传到另外一台 Linux 机器上，这样能实现 <code>rsa keys</code> 的复用，也方便自己在另一台 Linux 机器上能正常向 github 提交代码。</p>
+<p>但是，当我们使用 <code>cp</code> 命令将 windows 上的 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 直接拷贝到 <code>~/.ssh</code> 目录下，然后使用 ssh 时，会提示说 <code>私钥的安全性不够，很容易被访问到</code>。这时候就需要修改私钥文件和公钥文件的权限，以满足要求。</p>
+<p>具体需要执行下面两条语句：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br><span class="line">chmod 644 id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>这两条命令有什么含义，继续往后看。</p>
+<h3 id="2-chmod-命令的使用"><a href="#2-chmod-命令的使用" class="headerlink" title="2. chmod 命令的使用"></a>2. <code>chmod</code> 命令的使用</h3><p>Linux 中我们可以通过 <code>ll</code> 命令来查看文件和目录的权限。这里需要提一下，Linux 中并没有提供 <code>ll</code> 命令，这个命令是通过 <code>alias</code> 实现的。<code>alias</code> 的使用可以参考我上一篇博客：<a href="https://tanjuntao.github.io/2020/03/06/%E5%88%A9%E7%94%A8-alias-%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E5%88%A0%E9%99%A4%E5%A4%87%E4%BB%BD%E5%91%BD%E4%BB%A4/" target="_blank" rel="noopener">利用 alias 自定义一个删除备份命令</a></p>
+<p>以我自己的服务器 home 目录为例，当我直接输入 <code>ll</code> 命令时，结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ ll</span><br><span class="line">total 64</span><br><span class="line">drwxr-xr-x 7 ubuntu ubuntu 4096 Mar  7 10:30 ./</span><br><span class="line">drwxr-xr-x 3 root   root   4096 Aug  8  2018 ../</span><br><span class="line">drwxrwxr-x 3 ubuntu ubuntu 4096 Mar  6 16:01 backup/</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu  233 Mar  6 16:01 .bash_aliases</span><br><span class="line">-rw------- 1 ubuntu ubuntu 3560 Mar  7 10:31 .bash_history</span><br><span class="line">-rw-r--r-- 1 ubuntu ubuntu  220 Aug  8  2018 .bash_logout</span><br><span class="line">-rw-r--r-- 1 ubuntu ubuntu 3773 May 29  2019 .bashrc</span><br><span class="line">drwx------ 2 ubuntu ubuntu 4096 Aug  9  2018 .cache/</span><br><span class="line">drwx------ 3 ubuntu ubuntu 4096 Aug  9  2018 .gnupg/</span><br><span class="line">drwxr-xr-x 2 root   root   4096 Mar  6 08:29 .pip/</span><br><span class="line">-rw-r--r-- 1 ubuntu ubuntu  807 Aug  8  2018 .profile</span><br><span class="line">-rw-r--r-- 1 root   root     73 Mar  6 08:29 .pydistutils.cfg</span><br><span class="line">drwx------ 2 ubuntu ubuntu 4096 Mar  6 10:39 .ssh/</span><br><span class="line">-rw-r--r-- 1 ubuntu ubuntu    0 Aug  9  2018 .sudo_as_admin_successful</span><br><span class="line">-rwxrwxrwx 1 ubuntu ubuntu   43 Mar  6 15:27 test_bash.sh*</span><br><span class="line">-rw------- 1 ubuntu ubuntu 8010 Mar  7 10:30 .viminfo</span><br></pre></td></tr></table></figure>
+<p>我们也可以单独查看某个文件或目录的权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ll test_bash.sh</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ ll test_bash.sh</span><br><span class="line">-rwxrwxrwx 1 ubuntu ubuntu 43 Mar  6 15:27 test_bash.sh*</span><br></pre></td></tr></table></figure>
+<p>输出的第一列 <code>-rwxrwxrwx</code> 就表示文件或目录的权限，下面详细解释。</p>
+<p>第一位表示文件的类型：</p>
+<ul>
+<li><code>-</code> ：表示普通文件；</li>
+<li><code>d</code> ：表示目录，即 <code>directory</code>。</li>
+</ul>
+<p>后面的 9 位按照 <code>属主</code> / <code>组用户(group)</code> / <code>其它用户</code> 的顺序排列权限，每种用户的权限占据 3 位。</p>
+<p>其中：</p>
+<ul>
+<li><code>r</code> 表示可 <code>read</code>，用二进制表示为 <code>0100</code>，即权限数值为 <code>4</code>；</li>
+<li><code>w</code> 表示可 <code>write</code>，用二进制表示为 <code>0010</code>，即权限数值为 <code>2</code>；</li>
+<li><code>x</code> 表示可 <code>execute</code>，用二进制表示为 <code>0001</code>，即权限数值为 <code>1</code>。</li>
+</ul>
+<p>如果某个位置为 <code>-</code> 表示该用户不具有此权限。以 <code>drwxr-xr-x</code> 为例：</p>
+<ul>
+<li>第一个 <code>rwx</code> 表示 <code>属主</code> 具有 read/write/execute 权限；</li>
+<li>第二个 <code>r-x</code> 表示 <code>组用户</code> 具有 read/execute 权限，但是没有 write 权限；</li>
+<li>第三个 <code>r-x</code> 表示 <code>其它用户</code> 具有 read/execute 权限，但是没有 write 权限。</li>
+</ul>
+<p><code>drwxr-xr-x</code> 也可以用二进制来表示，即 <code>0111-0101-0101</code>，转换为十六进制即 <code>755</code>。<code>755</code> 和 <code>drwxr-xr-x</code> 表示同样的意思。</p>
+<p>搞清楚了上面的解释，那么当我们需要将一个文件 <code>test.txt</code> 的权限设置成：属主可以 read/write，组用户和其他用户都只能 read 时（用二进制表示为 <code>0110-0100-0100</code>），我们可以这么做：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 644 test.txt</span><br></pre></td></tr></table></figure>
+<p>最后，让我们再回过头来看背景需求部分介绍的 <code>rsa keys</code> 的权限问题：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br><span class="line">chmod 644 id_rsa.pub</span><br></pre></td></tr></table></figure>
+<ul>
+<li>第一行表示将私钥文件 <code>id_rsa</code> 设置为属主可 read/write，组用户和其他用户都不能 read/write/execute，这符合私钥文件的要求，即只有属主能访问到，属主之外的用户都无法访问；</li>
+<li>第二行表示将公钥文件 <code>id_rsa.pub</code> 设置为属主可 read/write，组用户和其他用户都能 read。这也符合要求，即属主之外的用户可以利用属主的公钥来加密。</li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><a href="https://blog.csdn.net/haydenwang8287/article/details/1753883" target="_blank" rel="noopener">https://blog.csdn.net/haydenwang8287/article/details/1753883</a></li>
+<li><a href="https://blog.csdn.net/pythonw/article/details/80263428" target="_blank" rel="noopener">https://blog.csdn.net/pythonw/article/details/80263428</a></li>
 </ul>
 
       
@@ -428,6 +465,18 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/chmod/" rel="tag"># chmod</a>
+          
+            <a href="/tags/权限/" rel="tag"># 权限</a>
+          
+            <a href="/tags/777/" rel="tag"># 777</a>
+          
+        </div>
+      
 
       
       
@@ -437,8 +486,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/11/信息熵/" rel="next" title="信息熵">
-                <i class="fa fa-chevron-left"></i> 信息熵
+              <a href="/2020/03/06/利用-alias-自定义一个删除备份命令/" rel="next" title="利用 alias 自定义一个删除备份命令">
+                <i class="fa fa-chevron-left"></i> 利用 alias 自定义一个删除备份命令
               </a>
             
           </div>
@@ -446,10 +495,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/11/23/论文阅读笔记：Federated-Learning-Challenges-Methods-and-Future-Directions/" rel="prev" title="论文阅读笔记：Federated Learning:Challenges, Methods and Future Directions">
-                论文阅读笔记：Federated Learning:Challenges, Methods and Future Directions <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -583,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法1：第三方下载工具you-get"><span class="nav-text">方法1：第三方下载工具you-get</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法2：直接在网页中找到视频文件原地址"><span class="nav-text">方法2：直接在网页中找到视频文件原地址</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法3：使用插件-下载工具下载M3u8格式视频文件"><span class="nav-text">方法3：使用插件+下载工具下载M3u8格式视频文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-背景需求"><span class="nav-text">1. 背景需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-chmod-命令的使用"><span class="nav-text">2. chmod 命令的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
             
 
           </div>
