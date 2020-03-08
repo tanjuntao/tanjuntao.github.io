@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="http://einverne.github.io/post/2017/12/curl-usage.html 查找 linux 命令的网站 https://man.linuxde.net/ https://www.zhihu.com/question/19598302 https://www.cnblogs.com/activecode/p/9446762.html">
+<meta name="description" content="之前一直在用 wget 下载文件，最近又使用 curl 来提交 POST 请求，于是在这里将两者的主要用法以及区别总结下。 1. 二者比较 wget 主要用来下载文件，且速度较快，支持断点续传是其很大的优点； curl 也可以用来下载文件，但其功能不仅仅只有这些。curl 还可以用来向 web 提交表单信息。curl 可以理解成一个命令行版本的浏览器，只不过它对返回的 html 页面不做渲染。">
 <meta name="keywords" content="Linux,wget,curl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习记录： wget 和 curl">
 <meta property="og:url" content="http://yoursite.com/2020/02/28/Linux-学习记录：-wget-和-curl/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="http://einverne.github.io/post/2017/12/curl-usage.html 查找 linux 命令的网站 https://man.linuxde.net/ https://www.zhihu.com/question/19598302 https://www.cnblogs.com/activecode/p/9446762.html">
+<meta property="og:description" content="之前一直在用 wget 下载文件，最近又使用 curl 来提交 POST 请求，于是在这里将两者的主要用法以及区别总结下。 1. 二者比较 wget 主要用来下载文件，且速度较快，支持断点续传是其很大的优点； curl 也可以用来下载文件，但其功能不仅仅只有这些。curl 还可以用来向 web 提交表单信息。curl 可以理解成一个命令行版本的浏览器，只不过它对返回的 html 页面不做渲染。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-28T11:56:17.427Z">
+<meta property="og:updated_time" content="2020-03-08T09:37:20.208Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录： wget 和 curl">
-<meta name="twitter:description" content="http://einverne.github.io/post/2017/12/curl-usage.html 查找 linux 命令的网站 https://man.linuxde.net/ https://www.zhihu.com/question/19598302 https://www.cnblogs.com/activecode/p/9446762.html">
+<meta name="twitter:description" content="之前一直在用 wget 下载文件，最近又使用 curl 来提交 POST 请求，于是在这里将两者的主要用法以及区别总结下。 1. 二者比较 wget 主要用来下载文件，且速度较快，支持断点续传是其很大的优点； curl 也可以用来下载文件，但其功能不仅仅只有这些。curl 还可以用来向 web 提交表单信息。curl 可以理解成一个命令行版本的浏览器，只不过它对返回的 html 页面不做渲染。">
 
 
 
@@ -404,11 +404,30 @@
       
 
       
-        <p><a href="http://einverne.github.io/post/2017/12/curl-usage.html" target="_blank" rel="noopener">http://einverne.github.io/post/2017/12/curl-usage.html</a></p>
-<p>查找 linux 命令的网站</p>
-<p><a href="https://man.linuxde.net/" target="_blank" rel="noopener">https://man.linuxde.net/</a></p>
-<p><a href="https://www.zhihu.com/question/19598302" target="_blank" rel="noopener">https://www.zhihu.com/question/19598302</a></p>
-<p><a href="https://www.cnblogs.com/activecode/p/9446762.html" target="_blank" rel="noopener">https://www.cnblogs.com/activecode/p/9446762.html</a></p>
+        <p>之前一直在用 <code>wget</code> 下载文件，最近又使用 <code>curl</code> 来提交 <code>POST</code> 请求，于是在这里将两者的主要用法以及区别总结下。</p>
+<h3 id="1-二者比较"><a href="#1-二者比较" class="headerlink" title="1. 二者比较"></a>1. 二者比较</h3><ul>
+<li><code>wget</code> 主要用来下载文件，且速度较快，支持断点续传是其很大的优点；</li>
+<li><code>curl</code> 也可以用来下载文件，但其功能不仅仅只有这些。<code>curl</code> 还可以用来向 web 提交表单信息。<code>curl</code> 可以理解成一个命令行版本的浏览器，只不过它对返回的 html 页面不做渲染。</li>
+</ul>
+<h3 id="2-主要用法"><a href="#2-主要用法" class="headerlink" title="2. 主要用法"></a>2. 主要用法</h3><p>这里我们以下载 B 站的 <a href="https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg" target="_blank" rel="noopener">一张壁纸</a> 为例。</p>
+<h4 id="2-1-下载文件"><a href="#2-1-下载文件" class="headerlink" title="2.1 下载文件"></a>2.1 下载文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> wget 后直接跟文件地址</span><br><span class="line">wget https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> curl 需要使用参数，注意是大写字母 O，不是数字 0</span><br><span class="line">curl -O https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h4 id="2-2-下载文件然后重命名"><a href="#2-2-下载文件然后重命名" class="headerlink" title="2.2 下载文件然后重命名"></a>2.2 下载文件然后重命名</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> wget 后需要跟参数，注意是大写字母 O</span><br><span class="line">wget -O wget_bizhi.jpg https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> curl 反过来了，跟的参数是小写字母 o</span><br><span class="line">curl -o curl_bizhi.jpg https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-断点续传"><a href="#2-3-断点续传" class="headerlink" title="2.3 断点续传"></a>2.3 断点续传</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget -c https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 注意参数顺序是：-,大写字母C，空格，-，空格，-，大写字母O</span><br><span class="line">curl -C - -O https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br></pre></td></tr></table></figure>
+<h4 id="2-4-POST-提交请求"><a href="#2-4-POST-提交请求" class="headerlink" title="2.4 POST 提交请求"></a>2.4 <code>POST</code> 提交请求</h4><p><code>curl</code> 还能提交一个 <code>POST</code> 请求，下面是一个向第三方 API 提交请求的例子：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl --location --request POST 'http://134.175.73.113:8080/member/login' \</span><br><span class="line">--header 'Content-Type: application/json' \</span><br><span class="line">--data-raw '&#123;</span><br><span class="line">    "account": "15768092082",</span><br><span class="line">    "password": "123456"</span><br><span class="line">&#125;'</span><br></pre></td></tr></table></figure>
+<p><code>curl</code> 命令还有很多其他的高级用法，具体可以参考下面这两篇博客：</p>
+<ol>
+<li><p><a href="https://geekflare.com/curl-command-usage-with-example/" target="_blank" rel="noopener">11 cURL command usage with real-time example</a> </p>
+</li>
+<li><p><a href="https://www.tecmint.com/linux-curl-command-examples/" target="_blank" rel="noopener">15 Tips on how to use ‘curl’ command in Linux</a> </p>
+</li>
+</ol>
+<h3 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h3><ul>
+<li><a href="https://www.cnblogs.com/activecode/p/9446762.html" target="_blank" rel="noopener">https://www.cnblogs.com/activecode/p/9446762.html</a></li>
+<li><a href="https://blog.csdn.net/IT_hejinrong/article/details/79361095" target="_blank" rel="noopener">https://blog.csdn.net/IT_hejinrong/article/details/79361095</a></li>
+<li><a href="https://www.zhihu.com/question/19598302" target="_blank" rel="noopener">https://www.zhihu.com/question/19598302</a></li>
+</ul>
 
       
     </div>
@@ -507,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -570,6 +598,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-二者比较"><span class="nav-text">1. 二者比较</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-主要用法"><span class="nav-text">2. 主要用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-下载文件"><span class="nav-text">2.1 下载文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-下载文件然后重命名"><span class="nav-text">2.2 下载文件然后重命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-断点续传"><span class="nav-text">2.3 断点续传</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-POST-提交请求"><span class="nav-text">2.4 POST 提交请求</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-References"><span class="nav-text">3. References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
