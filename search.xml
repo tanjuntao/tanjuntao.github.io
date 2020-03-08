@@ -9,9 +9,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -23,8 +23,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>chmod</tag>
         <tag>权限</tag>
+        <tag>chmod</tag>
         <tag>777</tag>
       </tags>
   </entry>
