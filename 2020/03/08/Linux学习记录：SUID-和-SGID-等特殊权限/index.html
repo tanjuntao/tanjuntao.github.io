@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,SUID,SGID,权限,">
 
 
 
@@ -79,13 +79,18 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/page/5/index.html">
+<meta name="description" content="1. 引言在上一篇文章 Linux学习记录：chmod 修改权限 中，我们已经介绍了 Linux 中是如何控制文件以及目录的权限的。 这篇文章中我们再来介绍几种特殊的权限，即 SUID 、SGID 和 SBIT。 2. 相关背景从前面的介绍我们已经知道，使用 ll 命令来查看文件或者目录权限时，第一列一共有 10 个字符长度，我们从右往左编号，即 9876543210，其中：  9 共 1 位表示">
+<meta name="keywords" content="Linux,SUID,SGID,权限">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux学习记录：SUID 和 SGID 等特殊权限">
+<meta property="og:url" content="http://yoursite.com/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="1. 引言在上一篇文章 Linux学习记录：chmod 修改权限 中，我们已经介绍了 Linux 中是如何控制文件以及目录的权限的。 这篇文章中我们再来介绍几种特殊的权限，即 SUID 、SGID 和 SBIT。 2. 相关背景从前面的介绍我们已经知道，使用 ll 命令来查看文件或者目录权限时，第一列一共有 10 个字符长度，我们从右往左编号，即 9876543210，其中：  9 共 1 位表示">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-03-08T07:02:59.551Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
+<meta name="twitter:title" content="Linux学习记录：SUID 和 SGID 等特殊权限">
+<meta name="twitter:description" content="1. 引言在上一篇文章 Linux学习记录：chmod 修改权限 中，我们已经介绍了 Linux 中是如何控制文件以及目录的权限的。 这篇文章中我们再来介绍几种特殊的权限，即 SUID 、SGID 和 SBIT。 2. 相关背景从前面的介绍我们已经知道，使用 ll 命令来查看文件或者目录权限时，第一列一共有 10 个字符长度，我们从右往左编号，即 9876543210，其中：  9 共 1 位表示">
 
 
 
@@ -115,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/page/5/">
+  <link rel="canonical" href="http://yoursite.com/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/">
 
 
 
 
 
-  <title>个人博客</title>
+  <title>Linux学习记录：SUID 和 SGID 等特殊权限 | 个人博客</title>
   
 
 
@@ -140,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -296,9 +300,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -311,7 +315,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/Python3-ModuleNotFoundError-No-module-named-PIL/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jun Tao">
@@ -328,9 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/Python3-ModuleNotFoundError-No-module-named-PIL/" itemprop="url">Python3: ModuleNotFoundError: No module named  'PIL'</a></h1>
+          <h1 class="post-title" itemprop="name headline">Linux学习记录：SUID 和 SGID 等特殊权限</h1>
         
 
         <div class="post-meta">
@@ -342,8 +344,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T14:48:10+08:00">
-                2019-04-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T11:59:32+08:00">
+                2020-03-08
               </time>
             
 
@@ -352,6 +354,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -380,14 +404,65 @@
       
 
       
-        
-          
-            <h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>使用<code>matplotlib.pyplot</code>模块调用绘图函数时，出现以上错误。</p>
-<h3 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h3><p>在控制台中输入如下命令<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install pillow</span><br></pre></td></tr></table></figure></p>
-<p>即可解决问题</p>
+        <h3 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h3><p>在上一篇文章 <a href="https://tanjuntao.github.io/2020/03/07/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Achmod-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/" target="_blank" rel="noopener">Linux学习记录：chmod 修改权限</a> 中，我们已经介绍了 Linux 中是如何控制文件以及目录的权限的。</p>
+<p>这篇文章中我们再来介绍几种特殊的权限，即 <code>SUID</code> 、<code>SGID</code> 和 <code>SBIT</code>。</p>
+<h3 id="2-相关背景"><a href="#2-相关背景" class="headerlink" title="2. 相关背景"></a>2. 相关背景</h3><p>从前面的介绍我们已经知道，使用 <code>ll</code> 命令来查看文件或者目录权限时，第一列一共有 10 个字符长度，我们从右往左编号，即 <code>9876543210</code>，其中：</p>
+<ul>
+<li><code>9</code> 共 1 位表示标识位：标识当前的文件类型。如 <code>d</code> 表示目录，<code>-</code> 表示普通文件；</li>
+<li><code>876</code> 共 3 位表示 <code>属主</code> 的权限；</li>
+<li><code>543</code> 共 3 位表示 <code>组用户</code> 的权限；</li>
+<li><code>210</code> 共 3 位表示 <code>其他用户</code> 的权限。</li>
+</ul>
+<p>如果一个文件 <code>test.txt</code> 的权限为 <code>-rwxrwxrwx</code>，用二进制表示为 <code>111-111-111</code>，用八进制表示则为 <code>777</code>，所以我们经常会看到这种：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 test.txt</span><br></pre></td></tr></table></figure>
+<p>意思就是 <code>属主</code> 、<code>组用户</code>、<code>其他用户</code> 都能 read/write/execute 该文件。</p>
+<p>其实 Linux 还有 3 个比特位来表示 <code>SUID</code> 、<code>SGID</code> 和 <code>SBIT</code> 等特殊权限。</p>
+<a id="more"></a>
+<h3 id="3-具体介绍"><a href="#3-具体介绍" class="headerlink" title="3. 具体介绍"></a>3. 具体介绍</h3><p>Linux 表示文件或者目录的权限，总共用了 12 个比特位。其中最低的 9 位，即前面相关背景部分介绍的，用来表示 3 类不同用户的 read/write/execute 权限的。最高的 3 位，从高往低数，分别表示 <code>SUID</code> 权限、<code>SGID</code> 权限和 <code>SBIT</code> 权限。</p>
+<p>举个例子：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">11 10 9 8 7 6 5 4 3 2 1 0</span><br><span class="line">1  0  0 1 1 1 1 0 0 1 0 0</span><br></pre></td></tr></table></figure>
+<p>第一行表示二进制串的位置编号，从 0 开始。第二行表示是否具有对应位的权限，<code>0</code> 代表不具有，<code>1</code> 代表具有。</p>
+<p>上述例子的意思是：该文件 <code>属主</code> 能够 read/write/execute，<code>组用户</code> 和 <code>其他用户</code> 只能够 read。同时该文件还具有 <code>SUID</code> 权限。</p>
+<p>下面就来具体解释下什么是 <code>SUID</code> 、<code>SGID</code> 和 <code>SBIT</code> 权限。</p>
+<h4 id="3-1-SUID-权限"><a href="#3-1-SUID-权限" class="headerlink" title="3.1 SUID 权限"></a>3.1 <code>SUID</code> 权限</h4><p><code>SUID</code> 表示 <code>Set User IDentification</code> 。只能用来控制：是否让某种文件具有 <code>SUID</code> 权限，不能用来控制目录。</p>
+<p>当一个文件 <code>example</code> 被设置了 <code>SUID</code> 权限时，那么除了 <code>属主</code> 之外的所有用户，在执行 <code>example</code> 时，都将获得 <code>属主</code> 的权限。</p>
+<p>举个例子。<code>example</code> 一开始的权限是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x</span><br></pre></td></tr></table></figure>
+<p>我们给 <code>example</code> 设置 <code>SUID</code> 权限后，变成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwsr-xr-x</span><br></pre></td></tr></table></figure>
+<p>注意 <code>属主</code> 权限的 execute 位现在是 <code>s</code> 而不是 <code>x</code>，这是因为设置了 <code>SUID</code> 的原因。</p>
+<p>此时，<code>组用户</code> 和 <code>其他用户</code> 在执行 <code>example</code> 程序时，就会获得 write 权限。而在设置 <code>SUID</code> 之前，这两类用户是不具备 write 权限的。</p>
+<p>那么我们该怎么来设置这个 <code>SUID</code> 权限呢？还记得我们前面介绍的 12 位二进制位吗？我们只需要将最高位设置为 <code>1</code>，用八进制表示即 <code>4755</code> 。</p>
+<p>原来我们是这么设置 <code>example</code> 的权限的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 755 example</span><br></pre></td></tr></table></figure>
+<p>现在我们这么设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 4755 example</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-SGID-权限"><a href="#3-2-SGID-权限" class="headerlink" title="3.2 SGID 权限"></a>3.2 <code>SGID</code> 权限</h4><p><code>SGID</code> 的道理和 <code>SUID</code> 相似，只不过 <code>SGID</code> 不仅可以用来控制文件权限，还能控制目录的权限。</p>
+<p>还是使用之前的例子。我们的 <code>example</code> 文件一开始的权限是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-xr-x</span><br></pre></td></tr></table></figure>
+<p>当我们给 <code>example</code> 设置 <code>SGID</code> 权限后，变成：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-rwxr-sr-x</span><br></pre></td></tr></table></figure>
+<p>注意 <code>组用户</code> 权限的 execute 位现在是 <code>s</code> 而不是 <code>x</code>，这是因为设置了 <code>SGID</code> 的原因。</p>
+<p>此时，<code>组用户</code>(不包括 <code>其他用户</code>) 在执行 <code>example</code> 程序时，就会获得 write 权限。而在设置 <code>SGID</code> 之前，<code>组用户</code> 是不具备 write 权限的。</p>
+<p>设置 <code>SGID</code> 权限也很简单，只需要将次高位的二进制设置为 <code>1</code> 即可。所以此时 <code>example</code> 文件的权限值用八进制表示为 <code>2755</code> 。</p>
+<p>所以可以这么设置：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 2755 example</span><br></pre></td></tr></table></figure>
+<p>那如果我们想要同时设置 <code>SUID</code> 和 <code>SGID</code> 权限该怎么办呢？想必你也很清楚了，只需要这么做：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 6755 example</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-SBIT-权限"><a href="#3-2-SBIT-权限" class="headerlink" title="3.2 SBIT 权限"></a>3.2 <code>SBIT</code> 权限</h4><p><code>SBIT</code> 只能用来控制目录的权限，不能用来控制文件。</p>
+<p>如果一个目录被设置了 <code>SBIT</code> 权限，表示任何一个在此目录下可以新建文件的用户，该文件只有该用户自身、或者是 <code>root用户</code> 可以删除，除此之外的用户都无权删除。</p>
+<p>举个例子，我们看 <code>/tmp</code> 目录的权限：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -ld /tmp</span><br></pre></td></tr></table></figure>
+<p>结果：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tan@DESKTOP-OPQIR8V:/mnt/c/Users/tanjuntao$ ll -ld /tmp</span><br><span class="line">drwxrwxrwt 1 root root 512 Mar  8 13:52 /tmp/</span><br></pre></td></tr></table></figure>
+<p>注意 <code>其它用户</code> 权限的 execute 位现在是 <code>t</code> 而不是 <code>x</code>，这是因为设置了 <code>SBIT</code> 的原因。</p>
+<p>即所有用户都能在 <code>/tmp</code> 目录下新建文件或目录，但只有该用户自身或者 <code>root用户</code> 能够删除这些文件。</p>
+<h3 id="4-References"><a href="#4-References" class="headerlink" title="4. References"></a>4. References</h3><ul>
+<li><a href="https://blog.csdn.net/xiaocainiaoshangxiao/article/details/17378611" target="_blank" rel="noopener">https://blog.csdn.net/xiaocainiaoshangxiao/article/details/17378611</a></li>
+<li><a href="https://my.oschina.net/junn/blog/169381" target="_blank" rel="noopener">https://my.oschina.net/junn/blog/169381</a></li>
+<li><a href="https://www.tecmint.com/how-to-find-files-with-suid-and-sgid-permissions-in-linux/" target="_blank" rel="noopener">https://www.tecmint.com/how-to-find-files-with-suid-and-sgid-permissions-in-linux/</a></li>
+</ul>
 
-          
-        
       
     </div>
     
@@ -402,395 +477,42 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/使用-Github-Pages-Hexo-搭建一个个人博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/使用-Github-Pages-Hexo-搭建一个个人博客/" itemprop="url">使用 Github Pages + Hexo 搭建一个个人博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T12:10:31+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            
+            <a href="/tags/SUID/" rel="tag"># SUID</a>
           
-
+            <a href="/tags/SGID/" rel="tag"># SGID</a>
           
+            <a href="/tags/权限/" rel="tag"># 权限</a>
           
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>其实在很早之前，曾使用 WordPress 搭建过一个个人博客。当时也是满满的激情，想模仿大佬们学着写技术博客。但是后来由于忙着追求GPA，加上自身懒惰自控力不行，博客就基本放弃更新了。</p>
-<p>但是现在已经过上了研究生生活，每天有大把的时间可以由自己来支配，同时接触的东西也越来越多：做项目需要实时的学习一些技术和技巧，需要不断总结下来；各种学术报告会，听完之后需要回去再认真揣摩消化，变成自己的东西，这也需要总结下来。虽然之前也零零散散的做了一些笔记，但是组织松散不方便查找，遂考虑重新开通个人博客，将平常生活中的所学所思都记录下来，做技术和科研的积淀，争取能够厚积薄发！</p>
-<h2 id="开始搭建"><a href="#开始搭建" class="headerlink" title="开始搭建"></a>开始搭建</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/02/使用-Github-Pages-Hexo-搭建一个个人博客/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/07/Linux学习记录：chmod-修改权限/" rel="next" title="Linux学习记录：chmod 修改权限">
+                <i class="fa fa-chevron-left"></i> Linux学习记录：chmod 修改权限
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/01/测试博文/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/01/测试博文/" itemprop="url">测试博文</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-01T10:10:31+08:00">
-                2019-04-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="二级标题：测试markdown语法的支持情况"><a href="#二级标题：测试markdown语法的支持情况" class="headerlink" title="二级标题：测试markdown语法的支持情况"></a>二级标题：测试markdown语法的支持情况</h2><ol>
-<li>有序列表</li>
-<li>有序列表</li>
-</ol>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/01/测试博文/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/31/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/31/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-31T20:54:00+08:00">
-                2019-03-31
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -800,14 +522,11 @@
   </article>
 
 
-    
-  </section>
 
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
-
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -815,6 +534,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -835,8 +558,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -898,6 +630,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-引言"><span class="nav-text">1. 引言</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-相关背景"><span class="nav-text">2. 相关背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-具体介绍"><span class="nav-text">3. 具体介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1-SUID-权限"><span class="nav-text">3.1 SUID 权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-SGID-权限"><span class="nav-text">3.2 SGID 权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-2-SBIT-权限"><span class="nav-text">3.2 SBIT 权限</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-References"><span class="nav-text">4. References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1051,6 +799,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
