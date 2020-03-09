@@ -1322,7 +1322,7 @@
 <li><code>curl</code> 也可以用来下载文件，但其功能不仅仅只有这些。<code>curl</code> 还可以用来向 web 提交表单信息。<code>curl</code> 可以理解成一个命令行版本的浏览器，只不过它对返回的 html 页面不做渲染。</li>
 </ul>
 <h3 id="2-主要用法"><a href="#2-主要用法" class="headerlink" title="2. 主要用法"></a>2. 主要用法</h3><p>这里我们以下载 B 站的 <a href="https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg" target="_blank" rel="noopener">一张壁纸</a> 为例。</p>
-<h4 id="2-1-下载文件"><a href="#2-1-下载文件" class="headerlink" title="2.1 下载文件"></a>2.1 下载文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> wget 后直接跟文件地址</span></span><br><span class="line">wget https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> curl 需要使用参数，注意是大写字母 O，不是数字 0</span></span><br><span class="line">curl -O https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br></pre></td></tr></table></figure>
+<h4 id="2-1-下载文件"><a href="#2-1-下载文件" class="headerlink" title="2.1 下载文件"></a>2.1 下载文件</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> wget 后直接跟文件地址</span><br><span class="line">wget https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> curl 需要使用参数，注意是大写字母 O，不是数字 0</span><br><span class="line">curl -O https://i0.hdslb.com/bfs/album/323911edd18663c49ed1bdb7d3c02dfcac25c4ce.jpg</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2020/02/28/Linux-学习记录：-wget-和-curl/#more" rel="contents">
@@ -1468,8 +1468,7 @@
 
       
         
-          
-            <p>因为此刻是在回忆之前所做的一些配置，所以修改之前的配置，具体值是多少，现在已经记不起来了，但还能记得清做了哪些实际修改。</p>
+          <p>因为此刻是在回忆之前所做的一些配置，所以修改之前的配置，具体值是多少，现在已经记不起来了，但还能记得清做了哪些实际修改。</p>
 <h3 id="1-需求背景"><a href="#1-需求背景" class="headerlink" title="1. 需求背景"></a>1. 需求背景</h3><p>hexo 默认情况下，在 <code>archive页</code> 、<code>tag页</code> 是有分页的，也就是一个页面下只能显示有限篇文章，如果需要继续浏览其他的文章，就得进入下一个分页查看，有时候这对我们来说非常不方便，因为我们可能并不需要做分页，只希望一个页面下就能展示所有的文章。但是 hexo 中还没有地方能够做这个配置，需要单独装 <code>插件</code> 才可以。</p>
 <p><code>首页</code> 在默认情况下，也是多少篇文章就会分页，具体是多少已经不记得了，但是 <code>首页</code> 显示的文章数是可以在配置文件中设置的。</p>
 <p>下面具体来介绍下该怎么设置每种页面下，显示的文章数。</p>
@@ -1479,19 +1478,13 @@
 <li><code>主题配置文件</code>：我装的主题是 <code>NexT</code>，相应的主题文件就在 <code>./themes/next/_config.yml</code> 下面，是用来对该主题进行配置的，如 <code>导航栏</code> 、<code>页脚样式</code> 等等。</li>
 </ul>
 <p><strong>我们的配置全程只需要用到 <code>系统配置文件</code>。</strong></p>
-<h3 id="2-2-开始配置"><a href="#2-2-开始配置" class="headerlink" title="2.2 开始配置"></a>2.2 开始配置</h3><p>我们打开 <code>系统配置文件</code>，搜索关键字 <code>per_page</code>，看到对应的 <code>index_generator</code> 了吗，这一块就是用来设置 <code>首页</code> 文章该怎么显示的。<code>per_page</code> 后面就是 <code>首页</code> 显示的文章数量，这里我设置为 <code>10</code> （注意英文冒号 <code>:</code> 后面有一个空格）:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">index_generator:</span><br><span class="line">  path: <span class="string">''</span></span><br><span class="line">  per_page: <span class="number">10</span></span><br><span class="line">  order_by: -date</span><br></pre></td></tr></table></figure>
-<p>要修改 <code>archive页</code> 和 <code>tag页</code> 显示的文章数量，我们需要安装两个插件，前提是电脑上已经提前装好了 <code>npm</code>，下面命令可以在任意目录下面执行：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br></pre></td></tr></table></figure>
-<p>安装完之后，我们需要在刚才的 <code>index_generator</code> 下面添加两个字段，具体如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line"><span class="meta">  #</span> 0表示不分页，全部显示</span><br><span class="line">  per_page: 0  </span><br><span class="line"> </span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 0</span><br></pre></td></tr></table></figure>
-<p>同样，<code>per_page</code> 用于控制页面显示多少篇文章。<code>0</code> 表示不分页，所有文章全部显示。</p>
-<h3 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h3><ol>
-<li><a href="https://gaomf.cn/2016/03/03/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9Archive%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%95%B0%E9%87%8F/" target="_blank" rel="noopener">Hexo博客修改Archive页面显示文章数量</a></li>
-<li><a href="http://www.yuzhewo.com/2015/11/21/Hexo%E7%A8%8B%E5%BA%8Farchive%E9%A1%B5%E9%9D%A2%E6%95%B0%E9%87%8F%E8%AE%BE%E7%BD%AE/" target="_blank" rel="noopener">Hexo程序archive页面数量设置</a></li>
-</ol>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
