@@ -50,8 +50,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>ssh</tag>
         <tag>配置</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -95,9 +95,17 @@
   <entry>
     <title><![CDATA[hexo 中如何控制首页/归档页/tag页中显示的文章数]]></title>
     <url>%2F2020%2F02%2F28%2Fhexo-%E4%B8%AD%E5%A6%82%E4%BD%95%E6%8E%A7%E5%88%B6%E9%A6%96%E9%A1%B5-%E5%BD%92%E6%A1%A3%E9%A1%B5-tag%E9%A1%B5%E4%B8%AD%E6%98%BE%E7%A4%BA%E7%9A%84%E6%96%87%E7%AB%A0%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[0. 背景References Hexo博客修改Archive页面显示文章数量 Hexo程序archive页面数量设置]]></content>
+    <content type="text"><![CDATA[因为此刻是在回忆之前所做的一些配置，所以修改之前的配置，具体值是多少，现在已经记不起来了，但还能记得清做了哪些实际修改。 1. 需求背景hexo 默认情况下，在 archive页 、tag页 是有分页的，也就是一个页面下只能显示有限篇文章，如果需要继续浏览其他的文章，就得进入下一个分页查看，有时候这对我们来说非常不方便，因为我们可能并不需要做分页，只希望一个页面下就能展示所有的文章。但是 hexo 中还没有地方能够做这个配置，需要单独装 插件 才可以。 首页 在默认情况下，也是多少篇文章就会分页，具体是多少已经不记得了，但是 首页 显示的文章数是可以在配置文件中设置的。 下面具体来介绍下该怎么设置每种页面下，显示的文章数。 2. 具体实现2.1 配置文件hexo 中的配置文件分为两种（我们用 ./ 来表示博客系统的根目录）： 系统配置文件：在 ./_config.yml 下，是用来对整个 hexo 博客系统进行配置的，如 博客title 、博客author 等等； 主题配置文件：我装的主题是 NexT，相应的主题文件就在 ./themes/next/_config.yml 下面，是用来对该主题进行配置的，如 导航栏 、页脚样式 等等。 我们的配置全程只需要用到 系统配置文件。 2.2 开始配置我们打开 系统配置文件，搜索关键字 per_page，看到对应的 index_generator 了吗，这一块就是用来设置 首页 文章该怎么显示的。per_page 后面就是 首页 显示的文章数量，这里我设置为 10 （注意英文冒号 : 后面有一个空格）: 1234index_generator: path: '' per_page: 10 order_by: -date 要修改 archive页 和 tag页 显示的文章数量，我们需要安装两个插件，前提是电脑上已经提前装好了 npm，下面命令可以在任意目录下面执行： 12npm install hexo-generator-archive --savenpm install hexo-generator-tag --save 安装完之后，我们需要在刚才的 index_generator 下面添加两个字段，具体如下： 123456archive_generator: # 0表示不分页，全部显示 per_page: 0 tag_generator: per_page: 0 同样，per_page 用于控制页面显示多少篇文章。0 表示不分页，所有文章全部显示。 3. References Hexo博客修改Archive页面显示文章数量 Hexo程序archive页面数量设置]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
       <tags>
         <tag>hexo</tag>
+        <tag>配置</tag>
+        <tag>index_generator</tag>
+        <tag>archive_generator</tag>
+        <tag>tag_generator</tag>
+        <tag>per_page</tag>
       </tags>
   </entry>
   <entry>
