@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="这篇文章讲一下 ssh 中的 config 配置文件。 config 文件一般在 ~/.ssh/ 或者 C://Users//&amp;lt;username&amp;gt;//.ssh 目录下面，没有后缀名。如果在上述目录中找不到 config 文件，那么可以新建一个。 背景需求我们使用 ssh 登录服务器时，一般做法是： 1ssh example@example.com -p xxxx 然后再输入登录密码。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-06T04:21:52.093Z">
+<meta property="og:updated_time" content="2020-03-14T03:09:56.898Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ssh config 配置文件">
 <meta name="twitter:description" content="这篇文章讲一下 ssh 中的 config 配置文件。 config 文件一般在 ~/.ssh/ 或者 C://Users//&amp;lt;username&amp;gt;//.ssh 目录下面，没有后缀名。如果在上述目录中找不到 config 文件，那么可以新建一个。 背景需求我们使用 ssh 登录服务器时，一般做法是： 1ssh example@example.com -p xxxx 然后再输入登录密码。">
@@ -430,7 +430,7 @@
 <p>将本机中的 <code>id_rsa.pub</code> 公钥文件（windows 系统在 <code>C://Users//&lt;username&gt;//.ssh</code> 目录下，本地终端先切换到此目录下）传到服务器上任意位置，这里传到服务器 home 目录下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp id_rsa.pub my_server:~  # 这里就可以直接使用 my_server 了</span><br></pre></td></tr></table></figure>
 <p>接着将 <code>id_rsa.pub</code> 中的公钥复制到服务器上的 <code>authorized_keys</code> 文件中。同样，如果服务器 <code>~/.ssh</code> 目录下没有此文件，那么新建一个。</p>
-<p>可以用 <code>cat</code> 命令的输出重定向来实现。服务器首先切换到 home 目录下。</p>
+<p>可以利用 <code>cat</code> 命令以及 Linux 中的输出重定向 <code>&gt;&gt;</code> 来实现。服务器首先切换到 home 目录下。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 <p>最后还需要将 ssh 服务重启一下：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/ssh restart</span><br></pre></td></tr></table></figure>
@@ -568,7 +568,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +590,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

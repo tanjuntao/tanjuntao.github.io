@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="find 命令如何忽略大小写查找： 1find -iname &quot;*visio*&quot; 主要需要注意的地方是，find 命令没有 -i  参数，不能这么写： 1find -i -name &quot;*visio*&quot; 这样写是错误的，参考这篇文章；  ​    https://blog.csdn.net/yanlaifan/article/details/52797155  Referenceshttps://w">
 <meta name="keywords" content="Linux,find">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习记录: find 命令">
 <meta property="og:url" content="http://yoursite.com/2020/02/27/Linux-学习记录-find-命令/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="find 命令如何忽略大小写查找： 1find -iname &quot;*visio*&quot; 主要需要注意的地方是，find 命令没有 -i  参数，不能这么写： 1find -i -name &quot;*visio*&quot; 这样写是错误的，参考这篇文章；  ​    https://blog.csdn.net/yanlaifan/article/details/52797155  Referenceshttps://w">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-28T11:51:12.860Z">
+<meta property="og:updated_time" content="2020-03-12T06:14:33.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录: find 命令">
+<meta name="twitter:description" content="find 命令如何忽略大小写查找： 1find -iname &quot;*visio*&quot; 主要需要注意的地方是，find 命令没有 -i  参数，不能这么写： 1find -i -name &quot;*visio*&quot; 这样写是错误的，参考这篇文章；  ​    https://blog.csdn.net/yanlaifan/article/details/52797155  Referenceshttps://w">
 
 
 
@@ -401,7 +404,17 @@
       
 
       
-        
+        <p>find 命令如何忽略大小写查找：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -iname "*visio*"</span><br></pre></td></tr></table></figure>
+<p>主要需要注意的地方是，find 命令没有 <code>-i</code>  参数，不能这么写：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -i -name "*visio*"</span><br></pre></td></tr></table></figure>
+<p>这样写是错误的，参考这篇文章；</p>
+<ul>
+<li>​    <a href="https://blog.csdn.net/yanlaifan/article/details/52797155" target="_blank" rel="noopener">https://blog.csdn.net/yanlaifan/article/details/52797155</a></li>
+</ul>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a href="https://www.cnblogs.com/chyingp/p/linux-command-find.html" target="_blank" rel="noopener">https://www.cnblogs.com/chyingp/p/linux-command-find.html</a></p>
+<p><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></p>
+
       
     </div>
     
@@ -497,8 +510,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -515,7 +537,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">45</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -537,7 +559,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -560,6 +582,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#References"><span class="nav-text">References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
