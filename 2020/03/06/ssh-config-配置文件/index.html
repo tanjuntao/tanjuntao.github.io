@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,配置,ssh,">
+  <meta name="keywords" content="Linux,ssh,配置,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="这篇文章讲一下 ssh 中的 config 配置文件。 config 文件一般在 ~/.ssh/ 或者 C://Users//&amp;lt;username&amp;gt;//.ssh 目录下面，没有后缀名。如果在上述目录中找不到 config 文件，那么可以新建一个。 背景需求我们使用 ssh 登录服务器时，一般做法是： 1ssh example@example.com -p xxxx 然后再输入登录密码。">
-<meta name="keywords" content="Linux,配置,ssh">
+<meta name="keywords" content="Linux,ssh,配置">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ssh config 配置文件">
 <meta property="og:url" content="http://yoursite.com/2020/03/06/ssh-config-配置文件/index.html">
@@ -472,9 +472,9 @@
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/配置/" rel="tag"># 配置</a>
-          
             <a href="/tags/ssh/" rel="tag"># ssh</a>
+          
+            <a href="/tags/配置/" rel="tag"># 配置</a>
           
         </div>
       
@@ -849,12 +849,12 @@
     });
     new Valine({
         el: '#comments' ,
-        verify: false,
-        notify: false,
+        verify: true,
+        notify: true,
         appId: 'NYYr3SxR7TURlhSE3JCifmeF-gzGzoHsz',
         appKey: 'hrNAkAiXcvCvPdAaVEzSpOP0',
-        placeholder: 'Just go go',
-        avatar:'mm',
+        placeholder: '有问题就留个言吧，最好附上您的邮箱，方便回复^_^',
+        avatar:'monsterid',
         guest_info:guest,
         pageSize:'10' || 10,
     });

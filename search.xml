@@ -65,8 +65,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>配置</tag>
         <tag>ssh</tag>
+        <tag>配置</tag>
       </tags>
   </entry>
   <entry>
@@ -115,8 +115,8 @@
         <category>配置</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>配置</tag>
+        <tag>hexo</tag>
         <tag>index_generator</tag>
         <tag>archive_generator</tag>
         <tag>tag_generator</tag>
