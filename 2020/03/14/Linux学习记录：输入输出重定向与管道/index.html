@@ -380,6 +380,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/14/Linux学习记录：输入输出重定向与管道/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/Linux学习记录：输入输出重定向与管道/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -416,7 +426,7 @@
 <a id="more"></a>
 <ul>
 <li><p>当我们使用 <code>cat</code> 命令创建一个新文件 <code>testfile</code> 时，如下所示，我们的键盘就作为标准输入，将键入的内容输入到文件 <code>testfile</code> 中；</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">cat testfile</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hello</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> world </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">  // 按下 ctrl+D 结束此次输入</span></span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat testfile</span><br><span class="line"><span class="meta">&gt;</span> hello</span><br><span class="line"><span class="meta">&gt;</span> world </span><br><span class="line"><span class="meta">&gt;</span>  // 按下 ctrl+D 结束此次输入</span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当我们使用 <code>cat</code> 命令输出文件内容时，是一种标准输出，文件的内容都将输出到屏幕上；</p>
 </li>
@@ -860,6 +870,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'NYYr3SxR7TURlhSE3JCifmeF-gzGzoHsz',
+        appKey: 'hrNAkAiXcvCvPdAaVEzSpOP0',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
