@@ -357,16 +357,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/05/python中如何批量修改文件后缀名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -476,6 +466,7 @@
   
     <div class="comments" id="comments">
     </div>
+	
   
 
 
@@ -783,27 +774,25 @@
 
 
 
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
-  
-  <script type="text/javascript">
-    var GUEST = ['nick','mail','link'];
-    var guest = 'nick,mail,link';
-    guest = guest.split(',').filter(item=>{
-      return GUEST.indexOf(item)>-1;
-    });
-    new Valine({
-        el: '#comments' ,
-        verify: true,
-        notify: true,
-        appId: 'NYYr3SxR7TURlhSE3JCifmeF-gzGzoHsz',
-        appKey: 'hrNAkAiXcvCvPdAaVEzSpOP0',
-        placeholder: '有问题就留个言吧，最好附上您的邮箱，方便回复^_^',
-        avatar:'monsterid',
-        guest_info:guest,
-        pageSize:'10' || 10,
-    });
-  </script>
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '977d0838c4c7f1923e24',
+          clientSecret: '3b8583841c232bbe6551919c145ac6b524245114',
+          repo: 'tanjuntao.github.io',
+          owner: 'tanjuntao',
+          admin: ['tanjuntao'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+
 
 
 
