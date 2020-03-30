@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux学习记录:ps命令以及和grep配合使用]]></title>
+    <url>%2F2020%2F03%2F29%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ps%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E5%92%8Cgrep%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ps</tag>
+        <tag>grep</tag>
+        <tag>进程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux学习记录：输入输出重定向与管道]]></title>
     <url>%2F2020%2F03%2F14%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E9%87%8D%E5%AE%9A%E5%90%91%E4%B8%8E%E7%AE%A1%E9%81%93%2F</url>
     <content type="text"><![CDATA[这篇文章来总结下 Linux 中的输入输出重定向功能，以及如何使用管道命令。 1. 背景需求有时候我们使用find 命令查找文件或目录时，会碰到 Permission denied 这样的错误输出信息。但是这些错误信息并不是我们想要的，我们只需要那些符合查询条件的输出，这种情况下该怎么办呢？输入输出重定向可以帮我们将错误信息和正确信息区分开来。 2. 输入输出重定向Linux 中的输入输出分为下面 3 种： 标准输入（standard input）：简称为 stdin，用数字 0 来做标记，一般用 键盘 作为我们的标准输入； 标准输出（standard output）：简称为 stdout，用数字 1 来做标记，一般用 屏幕 作为我们的标准输出； 标准错误输出（standard error output）：简称为 stderr，用数字 2 来标记，一般也用 屏幕 作为标准输出。 举几个例子： 当我们使用 cat 命令创建一个新文件 testfile 时，如下所示，我们的键盘就作为标准输入，将键入的内容输入到文件 testfile 中； 12345$cat testfile&gt; hello&gt; world &gt; // 按下 ctrl+D 结束此次输入$ 当我们使用 cat 命令输出文件内容时，是一种标准输出，文件的内容都将输出到屏幕上； 当我们使用 ll hello_world.c 命令来查看文件信息，但这个文件并不存在时，就会报错，错误信息会输出到屏幕上，是一种标准错误输出。 输入输出重定向的意思，是将原本从键盘获取的输入，重定向由某个文件输入；将原本输出到屏幕的信息，重定向出处到某个文件。 这里需要介绍几种输入输出符号所表示的含义： &lt; : 重定向标准输入，后面跟某个文件名，表示从该文件中获取输入； &gt; : 以覆盖的方式重定向标准输出，后面跟某个文件名，表示将信息输出到该文件中，会覆盖掉文件原有的内容； &gt;&gt; : 以追加的方式重定向标准输出，后面跟某个文件名，表示将信息输出到该文件中，但不会覆盖原有内容，而是追加在文件尾部； 2&gt; : 以覆盖的方式重定向标准错误输出，后面跟某个文件名，表示将错误信息输出到该文件中，会覆盖掉文件原有的内容； 2&gt;&gt; : 以追加的方式重定向标准错误输出，后面跟某个文件名，表示将错误信息输出到该文件中，但不会覆盖原有内容，而是追加在文件尾部。 讲了那么多还是觉得有点抽象，下面来看几个具体的例子。 之前的文章 ssh config 配置文件 中我们介绍了如何添加 isa_key.pub 到 authorized_keys 中，就用到了标准输出重定向，而且是以追加到文件尾部的方式添加的： 1cat isa_key.pub &gt;&gt; .ssh/authorized_keys 另一个例子。 我们使用 find 命令在 /home 目录下查找后缀名是 .c 的文件，我们想将查询到的结果保存到文件 result.txt 中，可以这么做： 1find /home -name "*.c" &gt;&gt; result.txt 这种情况下，屏幕上还是会将 Permission denied 的错误信息打印出来。如果想将这一部分错误信息保存到文件 error.txt 中，可以这么做： 1find /home -name "*.c" &gt;&gt; result.txt 2&gt;&gt; error.txt 那如果进一步，我们想要将正确的和错误的信息都同意保存到文件 result.txt 中呢？可以这么做： 1find /home -name "*.c" &gt;&gt; result.txt 2&gt;&gt;&amp;1 这个特殊语法记住就可以了。 最后，如果我们不想将正确信息和错误信息保存到文件，但又不希望错误信息输出到屏幕中干扰我们阅读，那可以使用 /dev/null。 我们可以将错误的信息都输出到 /dev/null，这个就相当于一个黑洞，输出给它的信息都会被其 “吃掉”： 1find /home -name "*.c" 2&gt; /dev/null 3. 管道命令管道命令的思想和输出重定向很像，即：将原本要输出到屏幕的内容导向到另外一个地方，输出重定向是导向到文件，管道命令是导向到另外一个命令，将上一个命令的输出，做为下一个命令的输入。 管道命令用符号 | 表示（shift + \），常见的形式如下： 1command1 | command2 | command3 即 command1 的标准输出作为 command2 的标准输入，然后 command2 的标准输出作为 command3 的标准输入。 *注：管道命令只能处理标准输出 stdout，并不能处理标准错误输出 stderr；并且，下一个命令必须能接收标准输入 stdin，像 ls、mv、cp 这类命令就不能作为管道命令。 使用 cut 和 grep 命令来演示下如何使用。 3.1 cut 命令本来我们使用 echo ${PATH} 的输出是这样的（每个环境变量之间用 : 间隔）： 1/home/ubuntu/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin 如果我们需要取出 第 4 个 环境变量，可以使用 cut 命令： 1echo $&#123;PATH&#125; | cut -d ':' -f 4 结果： 12ubuntu@VM-0-14-ubuntu:~/.ssh$ echo $&#123;PATH&#125; | cut -d ':' -f 4/usr/sbin cut 命令是一行一行的方式进行扫描的，其有两个重要参数： -d : 分隔符。如上例中用 : 作为一行字符串的分隔符； -f : 表示分隔后的字符串数组中，取第几个。注意这里下标是从 1 开始的。 3.2 grep 命令grep 命令也和 cut 命令一样，一行一行的分析字符串。本质上是一个搜索命令，当找到目标字符子串时，输出一整行。 下面看例子。 输入 last 命令可以查看最近的登录信息，结果如下： 12345678910ubuntu pts/0 223.104.36.169 Wed Mar 25 12:08 still logged inubuntu pts/0 223.104.35.123 Tue Mar 24 20:01 - 22:51 (02:50)ubuntu pts/0 117.136.101.13 Sun Mar 22 08:57 - 09:00 (00:02)ubuntu pts/0 117.136.117.165 Sat Mar 21 21:37 - 23:49 (02:11)ubuntu pts/2 117.136.101.154 Sun Mar 15 21:20 - 23:37 (02:17)ubuntu pts/0 117.136.101.154 Sun Mar 15 20:33 - 22:46 (02:12)ubuntu pts/3 223.104.18.117 Sat Mar 14 14:44 - 14:45 (00:00)ubuntu pts/0 223.104.18.117 Sat Mar 14 11:01 - 13:15 (02:13)...... 我们想找到登录用户是 reboot 的那些行，可以这么做： 1last | grep 'reboot' 结果： 123ubuntu@VM-0-14-ubuntu:~/.ssh$ last | grep 'reboot'reboot system boot 4.15.0-54-generi Fri Mar 6 08:49 still runningreboot system boot 4.15.0-54-generi Fri Mar 6 08:40 - 08:48 (00:08) 如上所述，能找到 2 行记录。如果进一步的，我们只想要用户名的信息（当然只是为了说明，实际肯定没人这么干），可以继续使用 cut 命令： 123ubuntu@VM-0-14-ubuntu:~$ last | grep 'reboot' | cut -d ' ' -f 1rebootreboot 4. References 《鸟哥的 Linux 私房菜》10.5 和 10.6 小节 https://einverne.github.io/post/2017/03/shell-io-redirect.html]]></content>
@@ -24,9 +38,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -38,8 +52,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>chmod</tag>
         <tag>权限</tag>
+        <tag>chmod</tag>
         <tag>777</tag>
       </tags>
   </entry>
