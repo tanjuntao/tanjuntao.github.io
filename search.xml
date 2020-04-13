@@ -1,6 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Google 高级搜索]]></title>
+    <url>%2F2020%2F04%2F10%2FGoogle-%E9%AB%98%E7%BA%A7%E6%90%9C%E7%B4%A2%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下 Google 一些高级搜索方法。 1. 背景需求2. 高级搜索技巧3. References]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
+      <tags>
+        <tag>Google</tag>
+        <tag>搜索</tag>
+        <tag>高级搜索</tag>
+        <tag>size</tag>
+        <tag>intitle</tag>
+        <tag>intext</tag>
+        <tag>通配符</tag>
+        <tag>搜索引擎</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[摩斯电码与布莱叶盲文]]></title>
+    <url>%2F2020%2F04%2F06%2F%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81%E4%B8%8E%E5%B8%83%E8%8E%B1%E5%8F%B6%E7%9B%B2%E6%96%87%2F</url>
+    <content type="text"><![CDATA[在 intitle 或者是 intext 中，是可以使用双引号来完全匹配的，使用通配符时不能使用空格 如果没有用双引号，又是可以使用空格的 如果不用 intitle 和 intext 的话，使用双引号来完全匹配，又是可以在通配符前后加上空格的]]></content>
+      <categories>
+        <category>计算机</category>
+      </categories>
+      <tags>
+        <tag>摩斯电码</tag>
+        <tag>布莱叶盲文</tag>
+        <tag>编码的奥秘</tag>
+        <tag>编码</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux学习记录:ps命令以及和grep配合使用]]></title>
     <url>%2F2020%2F03%2F29%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-ps%E5%91%BD%E4%BB%A4%E4%BB%A5%E5%8F%8A%E5%92%8Cgrep%E9%85%8D%E5%90%88%E4%BD%BF%E7%94%A8%2F</url>
     <content type="text"><![CDATA[这篇文章来总结下 Linux 中 ps 命令的常见使用方法，以及如何配合 grep 命令来查找特定的进程。 1. 需求背景在多人共用 GPU 的服务器上，我们经常使用 nvidia-smi 命令来查看当前 GPU 的占用情况，该命令会列出在哪块 GPU 上有进程在运行，以及该进程的 PID 。下面是一个例子： 123456+-----------------------------------------------------------------------------+| Processes: GPU Memory || GPU PID Type Process name Usage ||=============================================================================|| 1 22244 C python3 7719MiB |+-----------------------------------------------------------------------------+ 光知道进程的 PID 还不够，有时候我们还想知道这个进程相关的 user 、start time 、CMD 等相关信息，这时候就需要用到 ps 命令和 grep 命令了。 2. ps 命令常见使用方法ps 命令的全称是 process status，就是进程状态的意思。 ps 命令是一个相当古老的命令，后面可以跟一大堆参数，这篇文章不打算罗列所有的参数，只考虑几个很常见的参数，以及这些参数的某种组合。 常见的参数主要有： -a : 不和当前登录终端相关的进程； -u : 有效的使用者相关的进程（不太懂）； -x : 通常与 -a 参数一块使用，做详细的输出； -f : 将所有和进程相关的信息都列出，做一个更加完整的输出； -e : 显示所有的进程，和 -A 参数等价； -A : 显示所有的进程，和 -e 参数等价。 一些常见的参数组合使用情形如下。 2.1 ps -aux命令： 1ps -aux 输出结果（截取其中一部分）： 1234567USER PID %CPU %MEM VSZ RSS TTY STAT START TIME COMMANDroot 1 0.0 0.0 119968 5212 ? Ss Jan12 27:04 /sbin/initroot 2 0.0 0.0 0 0 ? S Jan12 0:03 [kthreadd]root 3 0.0 0.0 0 0 ? S Jan12 1:21 [ksoftirqd/0]root 5 0.0 0.0 0 0 ? S&lt; Jan12 0:00 [kworker/0:0H]root 8 0.1 0.0 0 0 ? S Jan12 177:36 [rcu_sched]root 9 0.0 0.0 0 0 ? S Jan12 0:00 [rcu_bh] 解释下各个字段的含义。 USER : 很好理解，进程对应的用户名； PID : 很好理解，进程号（process ID）； %CPU : CPU 的使用率； %MEM : 内存的使用率； VSZ ：使用的虚拟内存大小（virtual size），不重要； TTY : 登录者的终端机位置，不重要； STAT : 进程的状态； START : 进程开始运行的时间； TIME : 此进程实际花费 CPU 的运行时间，不是系统时间； COMMAND : 触发该进程的指令。 该命令默认情况下是按照 PID 升序排列的，有时候我们可能希望其按照 CPU 或者按照内存降序排列，可以按照下面的方法做。 按照 CPU 降序排列： 1ps -aux --sort -pcpu 按照内存使用降序排列： 1ps -aux --sort -pmem 2.2 ps -ef命令： 1ps -ef 输出结果（截取其中一部分）： 1234567UID PID PPID C STIME TTY TIME CMDroot 1 0 0 Jan12 ? 00:27:04 /sbin/initroot 2 0 0 Jan12 ? 00:00:03 [kthreadd]root 3 2 0 Jan12 ? 00:01:21 [ksoftirqd/0]root 5 2 0 Jan12 ? 00:00:00 [kworker/0:0H]root 8 2 0 Jan12 ? 02:57:37 [rcu_sched]root 9 2 0 Jan12 ? 00:00:00 [rcu_bh] 这个命令的输出信息和 ps -aux 其实很像，都能列出当前系统中的所有进程。各个字段的含义如下： UID : 很好理解，进程对应的用户名； PID : 进程编号； PPID : 父进程编号（parent PID） C : 使用 CPU 的百分比； STIME : 进程开始运行的时间； TTY : 登录者的终端机位置，不重要； TIME : 此进程实际花费 CPU 的运行时间，不是系统时间； CMD : 触发该进程的指令。 2.3 查找某个特定用户的进程比方说我们系统中有 ubuntu 、root 等多个用户，我只想看 ubuntu 这个用户的进程，可以这样做： 1ps -u ubuntu 输出结果： 123456789 PID TTY TIME CMD PID TTY TIME CMD11193 ? 00:00:00 systemd11194 ? 00:00:00 (sd-pam)12676 ? 00:00:00 sshd12677 pts/0 00:00:00 bash18631 pts/0 00:00:00 ps18632 pts/0 00:00:00 less20491 ? 00:00:13 tmux: server32357 pts/1 00:00:00 bash 各个字段的意思和前面介绍的一致。 2.4 配合管道命令ps 命令的输出结果往往很长，我们可以通过管道，将输出结果导向 less 、more 命令，方便查看： 1ps -aux | less 1ps -ef | more 当然，如果需要将结果保存到文件，可以使用 输出重定向 功能： 1ps -aux &gt;&gt; process.txt # 将结果追加到 process.txt 文件中 最强大的还是配合 grep 命令一块使用。 举个例子，我们需要查找进程列表中和 ssh 相关的进程，那就可以这么做： 1ps -aux | grep ssh 输出结果（关键字 ssh 会被标红）： 123456789101112user@DataServer:~$ ps -ef | grep sshroot 344 2945 0 16:45 ? 00:00:00 sshd: user [priv]user 392 344 0 16:45 ? 00:00:00 sshd: user@nottyuser 393 392 0 16:45 ? 00:00:00 /usr/lib/openssh/sftp-serverroot 2945 1 0 Jan12 ? 00:00:53 /usr/sbin/sshd -Droot 5099 2945 0 17:45 ? 00:00:00 sshd: user [priv]user 5147 5099 0 17:45 ? 00:00:00 sshd: user@nottyuser 5148 5147 0 17:45 ? 00:00:00 /usr/lib/openssh/sftp-serverroot 5434 2945 0 17:52 ? 00:00:00 sshd: user [priv]user 5482 5434 0 17:52 ? 00:00:00 sshd: user@pts/20user 5506 5483 0 17:52 pts/20 00:00:00 ssh s4.linkeservers.mluser 5511 40663 0 17:52 pts/19 00:00:00 grep --color=auto ssh 另外一个例子，如需求背景部分介绍的，我们使用 nvidia-smi 命令知晓了进程的 PID，那么我们就可以去抓取这个进程更详细的信息： 1ps -aux | grep 22244 # 22244 是改进程的 PID 输出结果： 12345user@02-P100:~$ ps -aux | grep 22244root 22244 115 2.1 32012712 2755640 pts/0 Rl 17:44 14:32 python3 ./pytorch/train.py train --config_path=/TANet/pointpillars_with_TANet/second/configs/pointpillars/ped_cycle/xyres_16.proto --model_dir=/TANet/pointpillars_with_TANet/ped_calib_PSA_CBAM --fusion_weight 1 --image_weight 0 --lidar_weight 0user 22893 0.0 0.0 14680 936 pts/1 S+ 17:57 0:00 grep --color=auto 22244 3. References 《鸟哥的 Linux 私房菜》16.3 节《进程管理》； https://linux.cn/article-4743-1.html https://www.cnblogs.com/freinds/p/8074651.html https://www.cnblogs.com/peida/archive/2012/12/19/2824418.html https://www.jianshu.com/p/cba22cce2f97]]></content>
@@ -79,8 +111,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>配置</tag>
         <tag>ssh</tag>
+        <tag>配置</tag>
       </tags>
   </entry>
   <entry>
@@ -129,8 +161,8 @@
         <category>配置</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>配置</tag>
+        <tag>hexo</tag>
         <tag>index_generator</tag>
         <tag>archive_generator</tag>
         <tag>tag_generator</tag>
@@ -283,7 +315,7 @@
   <entry>
     <title><![CDATA[解决hexo中发布文章后图片无法显示的问题]]></title>
     <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3hexo%E4%B8%AD%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%90%8E%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-assrt-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
+    <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-asset-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
   </entry>
   <entry>
     <title><![CDATA[解决pycharm在同目录下import，pycharm会报错，但实际可以正常运行的错误]]></title>
