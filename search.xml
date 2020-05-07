@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[version 大全]]></title>
+    <url>%2F2020%2F05%2F07%2Fversion-%E5%A4%A7%E5%85%A8%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下一些常用的 系统 或者 软件 如何查看其版本号，方便后续查阅。 Windows 系统在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&gt;verMicrosoft Windows [版本 10.0.18363.778] Python 版本在 windows 的 CMD 或者 Linux 的命令行中输入： 1python --version 输出： 12C:\Users\tanjuntao&gt;python --versionPython 3.6.3 MySQL 版本当我们登录到 MySQL 时，会有提示信息输出，可以找到 Server Version 关键字，后面就是我们 MySQL 的版本号。 还有另外一种查看版本号的方法。先登录 MySQL，然后输入： 1mysql&gt; select version(); 输出： 1234567mysql&gt; select version();+-----------+| version() |+-----------+| 8.0.11 |+-----------+1 row in set (0.00 sec)]]></content>
+      <categories>
+        <category>杂</category>
+      </categories>
+      <tags>
+        <tag>version</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Python print() 函数常见用法总结]]></title>
     <url>%2F2020%2F05%2F02%2FPython-print-%E5%87%BD%E6%95%B0%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[参考下面这篇文章，写的非常非常好，非常全面。 https://realpython.com/python-print/#toc]]></content>
