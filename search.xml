@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 学习记录：tree 显示树形目录结构]]></title>
+    <url>%2F2020%2F05%2F13%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Atree-%E6%98%BE%E7%A4%BA%E6%A0%91%E5%BD%A2%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下 Linux 和 Windows 中 tree 命令的常用使用方法。 1. 背景有时候在进行工程项目展示时，需要提供目录结构，这时候最方便的一种展示形式是 树形结构 ，tree 命令就是帮助我们实现这个功能的。 2. 使用方法2.1 在 Windows 上使用Windows 上 tree 命令的参数很少，使用起来较为简单。 主要有两个参数（大小写不敏感），注意不是 -f / -a 的格式： /f : 显示当前目录下所有的文件，包括目录名和文件名； /a : 只显示当前目录下的所有目录名，即：当前目录的子目录、子目录的子目录…….，不会显示任何一个目录中的文件名。注：这里的 /a 参数不是 /all 的意思。 下面来看具体的例子。 首先利用 tree /f 查看当前目录下的所有文件，同时列出目录名： 123456789101112131415161718192021PS C:\Users\tanjuntao\Desktop\组会&gt; tree /f文件夹 PATH 列表卷序列号为 004F-9E97C:.│ api第二版本规划-2019.3.4.pptx│ API组科研讨论_1.28.pptx│ Juntao Tan 0924.pptx│ Juntao Tan 1119.pptx│ 恶意样本攻击和防御.pptx│ 檀俊滔-2019-1-26.pptx│ 檀俊滔-聂挺-答辩保存-保存----保存.pptx│ 第二版本规划-2019.3.4.pptx│├─2018-4-17-论文组会│ juntaotan-poisoning attacks against regression learning- slides.pptx│ 讲稿.docx│└─算法-丁虎 Aggarwal2009_Chapter_AdaptiveSamplingForK-MeansClus.pdf kechen.pdf prob_inequalities.pdf 如果我们使用 tree /a，那么将只会显示目录名： 123456PS C:\Users\tanjuntao\Desktop\组会&gt; tree /a文件夹 PATH 列表卷序列号为 004F-9E97C:.+---2018-4-17-论文组会\---算法-丁虎 2.2 在 Linux 上使用Linux 上 tree 命令的参数比 Windows 上要多，使用起来稍微麻烦一点。 主要的参数有（区分大小写）： -f : 显示当前目录（包括各个子目录）的所有文件； -d : 显示当前目录（包括各个子目录）的所有目录名； -L : 后面需要跟一个数字 num，用来控制目录的深度。例如 num = 1，那么表示仅仅显示当前目录（不包括任何子目录）下的文件名额目录名。 前面两个参数的使用方法较为简单，不再赘述。下面演示下 -L 参数的具体使用。 输入： 1tree -L 1 #目录层数是 1，即当前目录下的所有文件名和目录名 输出： 12345678user@DataServer:/datapool/workspace/tanjuntao/data$ tree -L 1.├── cifar├── mnist├── processed└── raw4 directories, 0 files 将 num 的值改为 2： 输入： 1tree -L 2 #目录层数为 2 输出： 123456789101112131415161718user@DataServer:/datapool/workspace/tanjuntao/data$ tree -L 2.├── cifar│ └── MNIST├── mnist│ ├── MNIST│ ├── processed│ └── raw├── processed│ ├── test.pt│ └── training.pt└── raw ├── t10k-images-idx3-ubyte ├── t10k-labels-idx1-ubyte ├── train-images-idx3-ubyte └── train-labels-idx1-ubyte8 directories, 6 files References Microsoft Docs : tree Linux tree 命令]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>tree</tag>
+        <tag>目录结构</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[version 大全]]></title>
     <url>%2F2020%2F05%2F07%2Fversion-%E5%A4%A7%E5%85%A8%2F</url>
-    <content type="text"><![CDATA[这篇文章总结下一些常用的 系统 或者 软件 如何查看其版本号，方便后续查阅。 Windows 系统在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&gt;verMicrosoft Windows [版本 10.0.18363.778] Python 版本在 windows 的 CMD 或者 Linux 的命令行中输入： 1python --version 输出： 12C:\Users\tanjuntao&gt;python --versionPython 3.6.3 MySQL 版本当我们登录到 MySQL 时，会有提示信息输出，可以找到 Server Version 关键字，后面就是我们 MySQL 的版本号。 还有另外一种查看版本号的方法。先登录 MySQL，然后输入： 1mysql&gt; select version(); 输出： 1234567mysql&gt; select version();+-----------+| version() |+-----------+| 8.0.11 |+-----------+1 row in set (0.00 sec)]]></content>
+    <content type="text"><![CDATA[这篇文章总结下一些常用的 系统 或者 软件 如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&gt;verMicrosoft Windows [版本 10.0.18363.778] Python 版本在 windows 的 CMD 或者 Linux 的命令行中输入： 1python --version 输出： 12C:\Users\tanjuntao&gt;python --versionPython 3.6.3 MySQL 版本当我们登录到 MySQL 时，会有提示信息输出，可以找到 Server Version 关键字，后面就是我们 MySQL 的版本号。 还有另外一种查看版本号的方法。先登录 MySQL，然后输入： 1mysql&gt; select version(); 输出： 1234567mysql&gt; select version();+-----------+| version() |+-----------+| 8.0.11 |+-----------+1 row in set (0.00 sec) npm 版本前提是 npm 已经加入到系统环境变量中，我们只需要在命令行中输入： 1npm -v 输出： 12PS C:\Users\tanjuntao&gt; npm -v6.4.1 pip 版本输入： 1pip --version 输出： 12user@DataServer:~$ pip --versionpip 19.1.1 from /home/user/.local/lib/python3.5/site-packages/pip (python 3.5) conda 版本输入： 1conda --version 输出： 12user@DataServer:~$ conda --versionconda 4.5.11]]></content>
       <categories>
         <category>杂</category>
       </categories>
@@ -19,10 +31,10 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>重定向</tag>
         <tag>python</tag>
         <tag>print</tag>
         <tag>f-string</tag>
+        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
@@ -95,10 +107,10 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+        <tag>重定向</tag>
         <tag>标准输入</tag>
         <tag>标准输出</tag>
         <tag>管道</tag>
-        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
@@ -110,9 +122,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
-        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -124,8 +136,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>chmod</tag>
+        <tag>权限</tag>
         <tag>777</tag>
       </tags>
   </entry>

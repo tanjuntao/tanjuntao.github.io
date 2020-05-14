@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 Windows 系统在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
+<meta name="description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
 <meta name="keywords" content="version">
 <meta property="og:type" content="article">
 <meta property="og:title" content="version 大全">
 <meta property="og:url" content="http://yoursite.com/2020/05/07/version-大全/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 Windows 系统在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
+<meta property="og:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-07T15:21:50.863Z">
+<meta property="og:updated_time" content="2020-05-14T02:41:06.686Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="version 大全">
-<meta name="twitter:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 Windows 系统在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
+<meta name="twitter:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
 
 
 
@@ -415,7 +415,8 @@
 
       
         <p>这篇文章总结下一些常用的 <em>系统</em>  或者 <em>软件</em>  如何查看其版本号，方便后续查阅。</p>
-<h4 id="Windows-系统"><a href="#Windows-系统" class="headerlink" title="Windows 系统"></a>Windows 系统</h4><p>在 CMD 中输入：</p>
+<p>注：<em>如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。</em></p>
+<h4 id="Windows-系统版本"><a href="#Windows-系统版本" class="headerlink" title="Windows 系统版本"></a>Windows 系统版本</h4><p>在 CMD 中输入：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ver</span><br></pre></td></tr></table></figure>
 <p>我的笔记本是 win10 系统，输出为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\tanjuntao&gt;ver</span><br><span class="line"></span><br><span class="line">Microsoft Windows [版本 10.0.18363.778]</span><br></pre></td></tr></table></figure>
@@ -429,6 +430,18 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select version();</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select version();</span><br><span class="line">+-----------+</span><br><span class="line">| version() |</span><br><span class="line">+-----------+</span><br><span class="line">| 8.0.11    |</span><br><span class="line">+-----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
+<h4 id="npm-版本"><a href="#npm-版本" class="headerlink" title="npm 版本"></a><code>npm</code> 版本</h4><p>前提是 <code>npm</code> 已经加入到系统环境变量中，我们只需要在命令行中输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm -v</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao&gt; npm -v</span><br><span class="line">6.4.1</span><br></pre></td></tr></table></figure>
+<h4 id="pip-版本"><a href="#pip-版本" class="headerlink" title="pip 版本"></a><code>pip</code> 版本</h4><p>输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip --version</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user@DataServer:~$ pip --version</span><br><span class="line">pip 19.1.1 from /home/user/.local/lib/python3.5/site-packages/pip (python 3.5)</span><br></pre></td></tr></table></figure>
+<h4 id="conda-版本"><a href="#conda-版本" class="headerlink" title="conda 版本"></a><code>conda</code> 版本</h4><p>输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">conda --version</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">user@DataServer:~$ conda --version</span><br><span class="line">conda 4.5.11</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -468,6 +481,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/13/Linux-学习记录：tree-显示树形目录结构/" rel="prev" title="Linux 学习记录：tree 显示树形目录结构">
+                Linux 学习记录：tree 显示树形目录结构 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -550,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">51</span>
+                  <span class="site-state-item-count">52</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +589,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">59</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -605,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统"><span class="nav-text">Windows 系统</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统版本"><span class="nav-text">Windows 系统版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-版本"><span class="nav-text">npm 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-版本"><span class="nav-text">pip 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-版本"><span class="nav-text">conda 版本</span></a></li></ol></div>
             
 
           </div>
