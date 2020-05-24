@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="这篇文章总结下 Linux 和 Windows 中 tree 命令的常用使用方法。 1. 背景有时候在进行工程项目展示时，需要提供目录结构，这时候最方便的一种展示形式是 树形结构 ，tree 命令就是帮助我们实现这个功能的。 2. 使用方法2.1 在 Windows 上使用Windows 上 tree 命令的参数很少，使用起来较为简单。 主要有两个参数（大小写不敏感），注意不是 -f / -a 的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-14T03:19:38.009Z">
+<meta property="og:updated_time" content="2020-05-14T03:26:33.456Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录：tree 显示树形目录结构">
 <meta name="twitter:description" content="这篇文章总结下 Linux 和 Windows 中 tree 命令的常用使用方法。 1. 背景有时候在进行工程项目展示时，需要提供目录结构，这时候最方便的一种展示形式是 树形结构 ，tree 命令就是帮助我们实现这个功能的。 2. 使用方法2.1 在 Windows 上使用Windows 上 tree 命令的参数很少，使用起来较为简单。 主要有两个参数（大小写不敏感），注意不是 -f / -a 的">
@@ -425,9 +425,9 @@
 <p>下面来看具体的例子。</p>
 <a id="more"></a>
 <p>首先利用 <code>tree /f</code> 查看当前目录下的所有文件，同时列出目录名：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao\Desktop\组会&gt; tree /f</span><br><span class="line">文件夹 PATH 列表</span><br><span class="line">卷序列号为 <span class="number">004</span>F-<span class="number">9</span>E97</span><br><span class="line">C:.</span><br><span class="line">│  api第二版本规划-<span class="number">2019.3</span>.<span class="number">4</span>.pptx</span><br><span class="line">│  API组科研讨论_1.<span class="number">28</span>.pptx</span><br><span class="line">│  Juntao Tan <span class="number">0924</span>.pptx</span><br><span class="line">│  Juntao Tan <span class="number">1119</span>.pptx</span><br><span class="line">│  恶意样本攻击和防御.pptx</span><br><span class="line">│  檀俊滔-<span class="number">2019</span>-<span class="number">1</span>-<span class="number">26</span>.pptx</span><br><span class="line">│  檀俊滔-聂挺-答辩保存-保存----保存.pptx</span><br><span class="line">│  第二版本规划-<span class="number">2019.3</span>.<span class="number">4</span>.pptx</span><br><span class="line">│</span><br><span class="line">├─<span class="number">2018</span>-<span class="number">4</span>-<span class="number">17</span>-论文组会</span><br><span class="line">│      juntaotan-poisoning attacks against regression learning- slides.pptx</span><br><span class="line">│      讲稿.docx</span><br><span class="line">│</span><br><span class="line">└─算法-丁虎</span><br><span class="line">        Aggarwal2009_Chapter_AdaptiveSamplingForK-MeansClus.pdf</span><br><span class="line">        kechen.pdf</span><br><span class="line">        prob_inequalities.pdf</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao\Desktop\组会&gt; tree /f</span><br><span class="line">文件夹 PATH 列表</span><br><span class="line">卷序列号为 <span class="number">004</span>F-<span class="number">9</span>E97</span><br><span class="line">C:.</span><br><span class="line">│  api第二版本规划-<span class="number">2019.3</span>.<span class="number">4</span>.pptx</span><br><span class="line">│  API组科研讨论_1.<span class="number">28</span>.pptx</span><br><span class="line">│  <span class="number">0924</span>.pptx</span><br><span class="line">│  <span class="number">1119</span>.pptx</span><br><span class="line">│  恶意样本攻击和防御.pptx</span><br><span class="line">│  <span class="number">2019</span>-<span class="number">1</span>-<span class="number">26</span>.pptx</span><br><span class="line">│  保存----保存.pptx</span><br><span class="line">│  第二版本规划-<span class="number">2019.3</span>.<span class="number">4</span>.pptx</span><br><span class="line">│</span><br><span class="line">├─<span class="number">2018</span>-<span class="number">4</span>-<span class="number">17</span>-论文组会</span><br><span class="line">│      juntaotan-poisoning attacks against regression learning- slides.pptx</span><br><span class="line">│      讲稿.docx</span><br><span class="line">│</span><br><span class="line">└─算法</span><br><span class="line">        Aggarwal2009_Chapter_AdaptiveSamplingForK-MeansClus.pdf</span><br><span class="line">        kechen.pdf</span><br><span class="line">        prob_inequalities.pdf</span><br></pre></td></tr></table></figure>
 <p>如果我们使用 <code>tree /a</code>，那么将只会显示目录名：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao\Desktop\组会&gt; tree /a</span><br><span class="line">文件夹 PATH 列表</span><br><span class="line">卷序列号为 <span class="number">004</span>F-<span class="number">9</span>E97</span><br><span class="line">C:.</span><br><span class="line">+---<span class="number">2018</span>-<span class="number">4</span>-<span class="number">17</span>-论文组会</span><br><span class="line">\---算法-丁虎</span><br></pre></td></tr></table></figure>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao\Desktop\组会&gt; tree /a</span><br><span class="line">文件夹 PATH 列表</span><br><span class="line">卷序列号为 <span class="number">004</span>F-<span class="number">9</span>E97</span><br><span class="line">C:.</span><br><span class="line">+---<span class="number">2018</span>-<span class="number">4</span>-<span class="number">17</span>-论文组会</span><br><span class="line">\---算法</span><br></pre></td></tr></table></figure>
 <h4 id="2-2-在-Linux-上使用"><a href="#2-2-在-Linux-上使用" class="headerlink" title="2.2 在 Linux 上使用"></a>2.2 在 Linux 上使用</h4><p>Linux 上 <code>tree</code> 命令的参数比 Windows 上要多，使用起来稍微麻烦一点。</p>
 <p>主要的参数有（区分大小写）：</p>
 <ul>
@@ -490,6 +490,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/23/Linux-学习记录：su-和-sudo/" rel="prev" title="Linux 学习记录：su 和 sudo">
+                Linux 学习记录：su 和 sudo <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -572,7 +576,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -594,7 +598,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

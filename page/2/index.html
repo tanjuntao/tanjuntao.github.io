@@ -311,6 +311,168 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Linux学习记录：chmod-修改权限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/07/Linux学习记录：chmod-修改权限/" itemprop="url">Linux学习记录：chmod 修改权限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T10:29:53+08:00">
+                2020-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/07/Linux学习记录：chmod-修改权限/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/07/Linux学习记录：chmod-修改权限/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章记录下 Linux 中如何使用 <code>chmod</code> 命令修改文件以及目录的权限，也就是<code>读/写/执行</code> 的权限。</p>
+<h3 id="1-背景需求"><a href="#1-背景需求" class="headerlink" title="1. 背景需求"></a>1. 背景需求</h3><p>有时候我们使用 <code>scp</code> 向服务器传输文件时，会提示说 <code>permission denied</code> 。这是因为我们对于需要上传到的目标目录没有 <strong>写</strong> 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。</p>
+<p>另外一次经历，是之前需要将自己在 windows 中的 <code>rsa keys</code> 传到另外一台 Linux 机器上，这样能实现 <code>rsa keys</code> 的复用，也方便自己在另一台 Linux 机器上能正常向 github 提交代码。</p>
+<p>但是，当我们使用 <code>cp</code> 命令将 windows 上的 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 直接拷贝到 <code>~/.ssh</code> 目录下，然后使用 ssh 时，会提示说 <code>私钥的安全性不够，很容易被访问到</code>。这时候就需要修改私钥文件和公钥文件的权限，以满足要求。</p>
+<p>具体需要执行下面两条语句：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br><span class="line">chmod 644 id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>这两条命令有什么含义，继续往后看。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/07/Linux学习记录：chmod-修改权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/利用-alias-自定义一个删除备份命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1796,175 +1958,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="url">论文阅读笔记：A survey on Adversarial Machine Learning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-24T21:30:17+08:00">
-                2019-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇简短的综述论文主要介绍了什么是<code>Adversarial Machine Learning</code>，列出了<code>AML</code>的几种常见分类。</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Definition of adversarial machine learning</p>
-<blockquote>
-<p>machine learning in the presence of an adversary.</p>
-</blockquote>
-<p>All kinds of attacks can be categorized in three main types:</p>
-<ol>
-<li><strong>poisoning attacks</strong>: trying to poison the training of test dat</li>
-<li><strong>detection attacks</strong>: with the objective of evading detection </li>
-<li><strong>model extraction attacks</strong>: with the objective of replicating the model</li>
-</ol>
-<p>当然，这三种分类方法只是作何自己做的一个分类，实际上还可以有不同的分类方法，需要做的就是理解每一种分分类的划分依据是什么就可以了，不需要刻意去记住有那几种分类。</p>
-<p>当然，还有一种分类是将攻击者和防御者建模成一个<strong>博弈问题</strong>。</p>
-<blockquote>
-<p>It is worth to mention another much different aspect of research in adversarial machine learning which models the model-attacker worlds as a game and defines different moves for each side of the game.<br>By such definition, a <code>min-max algorithm</code> can be used to determine best moves for each side and fide possible <strong>equilibriums</strong> of the game.</p>
-</blockquote>
-<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><p>这一小节列举出了目前在<code>AML</code>领域中几种常见的攻击方法。</p>
-<p><strong>A. Model Extraction Attacks</strong></p>
-<p>这种攻击方法一般在<code>machine learning as a service</code>的场景中。即云服务商只会给用户提供一个查询的API接口，但是每次查询是需要收费的。</p>
-<p>这时候攻击者就希望能不能找到一个和目标模型表现近似的模型，从而避免向云服务商付费。</p>
-<p>这种攻击可以大致分为下面3类：</p>
-<ol>
-<li>eqution-solving model extraction attacks<br>在逻辑回归等简单模型中适用，原理主要是解方程组。</li>
-<li>path finding attacks<br>一般用在决策树模型中。</li>
-<li>membership queries attacks<br>判定一个给定的数据点事会否在原始数据集中。</li>
-</ol>
-<p><strong>B. Adversarial Examples</strong></p>
-<p>这个不需要过多解释了，现在的文章实在是太多了。</p>
-<p>需要介绍的是在论文[1]中，作者提出了既能够欺骗人眼也能够欺骗机器的对抗样本。</p>
-<p>对抗样本目前最需要解决的问题是防御问题，尤其时针对迁移性攻击的防御。</p>
-<p><strong>C. Data Poisoning Attacks</strong></p>
-<p>这种攻击适用于攻击者不能直接接触到训练数据，但训练过程是<code>online training</code> or <code>adaptive training</code>，即训练过程中需要不断加入新的训练数据。</p>
-<p>这种攻击在SVM中很容易成功，因为<strong>svm做分类最主要就是support vectors在起作用</strong>。</p>
-<p><strong>D. Model Evasion Attacks</strong></p>
-<p>这种攻击和对抗样本攻击很像，是在模型做inference阶段的攻击。但是因为做<code>spam detection</code> or <code>malware detection</code>在机器学习中很重要，所以这种攻击就被单独拎出来了。</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
-<li>这篇文章中没有介绍道data inversion attack，即能够推导出原始训练数据近似的攻击。</li>
-<li>AML的防御还是一个需要不断深入研究的领域。</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] Elsayed, G.F., Shankar, S., Cheung, B.Papernot, N., Kurakin, A., Goodfellow, I. and Sohl-Dickstein, J., 2018. Adversarial Examples that Fool both Human and Computer Vision. arXiv preprint arXiv:1802.08195</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2017,7 +2010,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2039,7 +2032,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">59</span>
+                  <span class="site-state-item-count">61</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
