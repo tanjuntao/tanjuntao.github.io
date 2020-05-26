@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 学习记录：统计文件和目录的个数]]></title>
+    <url>%2F2020%2F05%2F26%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E4%B8%AA%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下 Linux 下如何统计某个目录下面总共有多少个文件或文件夹。 1. 背景平时在 Linux 下工作，我们可能经常会碰到这种场景，即需要统计某个目录下总共有多少个文件，或者多少个子文件夹。这时候，熟练的使用一些命令将会有助于你开展工作。 注：下问的命令需要有足够权限执行，否则碰到有些文件不能读取（权限不足）的情况，将会造成统计出错。 2. 使用 ls 和 wc 命令ls 命令有一个参数是 -l ，表示列举出文件的详细信息： 12345ubuntu@VM-0-14-ubuntu:~$ ls -ltotal 1825244-rw-rw-r-- 1 ubuntu ubuntu 237412642 Mar 31 11:47 3-24.mp4-rw-rw-r-- 1 ubuntu ubuntu 242636679 Mar 24 11:41 3-31.mp4-rw-rw-r-- 1 ubuntu ubuntu 64569543 Apr 14 10:16 4-14-1.mp4 注意输出行的第一个字段，以 -rw-rw-r-- 为例。从左往右数第一位，表示 文件类型 ，后面每 3 位是一组，分别表示 属主、组用户、其它用户 的权限，可以参考之前的博文：Linux学习记录：SUID 和 SGID 等特殊权限 下面解释下第一位（表示文件类型）的含义： - : 表示普通文件； d : 表示目录； l : 表示链接文件 …… 解释完 ls -l 命令后，我们还需要知道 wc 命令的使用方法。 wc 命令用来统计信息，如统计一个文件有多少行、有多少个字符等。常用的一个参数是 -l，用来统计有多少行。 知道了这些以后，我们就能看懂下面的命令了。 ① 统计一个文件夹下有多少个文件，不包括子文件夹里的。 1ls -l | grep "^-" | wc -l grep &quot;^-&quot; 表示抓取行首以字符 - 开头的行，其中 ^ 表示从行首开始的第一个字符。 ② 统计一个文件夹下有多少个文件夹，不包括子文件夹。 1ls -l | grep "^d" | wc -l grep &quot;^d&quot; 表示抓取行首以字符 d 开头的行。 ③ 统计一个文件夹下有多少个文件，包括子文件夹里的。 1ls -lR | grep "^-" | wc -l 其中 ls 命令的 -R 参数表示递归，即：会遍历左右的子文件夹。 ④ 统计一个文件夹下有多少个文件夹，包括子文件夹 1ls -lR | grep "^d" | wc -l 3. 使用 find 命令和 wc 命令当然，要递归遍历所有的子文件夹的话，find 命令也是一个不错的选择，因为 find 在默认情况下（不加 -maxdepth 参数），是会遍历所有的子文件夹的。find 的使用方法可以参考之前的文章：Linux 学习记录: find 命令 下面来看使用方法。 1find . -type f | wc -l 上述命令会遍历当前文件夹及其子文件夹，统计所有文件类型为 f （普通文件）的个数。 同样道理，我们设置文件类型为 d，就能统计所有子文件及的个数： 1find . -type d | wc -l 当然，也可以只统计当前目录，不深入其子目录统计。 统计文件数： 1find . -maxdepth 1 -type f | wc -l 统计目录数： 1find . -maxdepth 1 -type d | wc -l 4. References How To Count Files in Directory on Linux linux命令看文件或文件夹个数]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>find</tag>
+        <tag>grep</tag>
+        <tag>wc</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux 学习记录：jq 处理 json]]></title>
     <url>%2F2020%2F05%2F25%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Ajq-%E5%A4%84%E7%90%86-json%2F</url>
     <content type="text"><![CDATA[这篇文章总结下 Linux 下如何在 shell 中利用 jq 处理 json 数据。 1. 背景最近项目上需要利用政府数据做些分析，但是深圳市政府提供的 API，请求的数据都是分页的，通过 curl 每次只能请求一部分数据，但是我们的应用需要利用所有的数据，所以得将每次请求的 分片数据 整合起来。 又因为 API 返回的数据是 json 格式的，所以得需要在 shell 中处理 json。 于是想起了之前在 Github 上遇到的项目：the art of command line，里面介绍到了一个工具 jq，专门用来在 shell 里面处理 json 数据。于是专门学习了下其使用方法，在这篇文章中作个总结。 2. jq 的使用方法2.1 准备工作 这里我用深圳市政府提供的 个体工商户基本信息 来做演示。 请求这个 API 需要三个参数： page : 返回的数据在第几个分页； rows : 当前这个分页下面包含多少条数据记录 appKey : 你自己的 appKey ，这个需要注册用户后才能获取到。 我们首先看直接在 shell 中用 GET 方式请求数据会得到什么。 输入： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; 输出： 1&#123;"total":2464687,"data":[&#123;"OPLOC":"深圳市宝安区福永街道兴围社区兴业一路27号第一层101号铺","ENTTYPE":"9510","REGORG":"440306","REGSTATE_CN":"吊销，未注销","NAME":"汤福祥","REGORG_CN":"宝安局","OPSCOPE":"公话（在授权范围内经营公用电话业务）。","REGSTATE":"2","COMPFORM_CN":"个人经营","REGNO":"440306803535369","APPRDATE":"2007-11-26","COMPFORM":"1","ESTDATE":"2007-11-26","TRANAME":"深圳市宝安区福永福家公话亭"&#125;,&#123;"OPLOC":"深圳市福田区南园街道南园路埔尾新村28号103","ENTTYPE":"9510","REGORG":"440304","REGSTATE_CN":"存续（在营、开业、在册）","NAME":"周玉红","REGORG_CN":"福田局","OPSCOPE":"化妆品、日用品的批发与零售^","REGSTATE":"1","COMPFORM_CN":"个人经营","REGNO":"440304816709149","APPRDATE":"2016-09-20","COMPFORM":"1","ESTDATE":"2016-09-20","TRANAME":"深圳市福田区安颜化妆品商行"&#125;,&#123;"OPLOC":"深圳市坪山新区坑梓老坑社区西坑新大道12号101","ENTTYPE":"9510","REGORG":"440310","REGSTATE_CN":"吊销，未注销","NAME":"伍群红","REGORG_CN":"坪山局","OPSCOPE":"美容（不含医学美容）（《卫生许可证》有效期至2015年12月25日）。","REGSTATE":"2","COMPFORM_CN":"个人经营","REGNO":"440309807694281","APPRDATE":"2011-12-30","COMPFORM":"1","ESTDATE":"2011-12-30","TRANAME":"深圳市坪山新区爱妍坊美容中心"&#125;],"page":1,"rows":3&#125; 可以看到服务器上返回的 json 数据是很杂乱的，没有我们熟悉的 json 格式。这时候 jq 就可以派上用场了。 2.2 . 用法jq 最简单的用法使用 . 来美化输出。 还是之前的例子，我们在命令尾部通过管道 | 将 GET 获取到的 json 数据传递给 jq 。 输入： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.' # 注意 jq 后面跟的表达式一定要用引号包裹住 输出： 123456789101112131415161718192021222324&#123; "total": 2464687, "data": [ &#123; "OPLOC": "深圳市宝安区福永街道兴围社区兴业一路27号第一层101号铺", "ENTTYPE": "9510", "REGORG": "440306", "REGSTATE_CN": "吊销，未注销", "NAME": "汤福祥", "REGORG_CN": "宝安局", "OPSCOPE": "公话（在授权范围内经营公用电话业务）。", "REGSTATE": "2", "COMPFORM_CN": "个人经营", "REGNO": "440306803535369", "APPRDATE": "2007-11-26", "COMPFORM": "1", "ESTDATE": "2007-11-26", "TRANAME": "深圳市宝安区福永福家公话亭" &#125;, # 省略...... ], "page": 1, "rows": 3&#125; 可以看到，输出的 json 已经是 well-formatted 的了，这是我们想要看到的。 2.2 获取数组中的元素上述返回的 json 数据中，&quot;data&quot; 字段是一个数组。 如果我们需要获取 &quot;data&quot; 字段第一个元素的值，可以这么做： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.data[0]' 输出： 12345678910111213141516&#123; "OPLOC": "深圳市宝安区福永街道兴围社区兴业一路27号第一层101号铺", "ENTTYPE": "9510", "REGORG": "440306", "REGSTATE_CN": "吊销，未注销", "NAME": "汤福祥", "REGORG_CN": "宝安局", "OPSCOPE": "公话（在授权范围内经营公用电话业务）。", "REGSTATE": "2", "COMPFORM_CN": "个人经营", "REGNO": "440306803535369", "APPRDATE": "2007-11-26", "COMPFORM": "1", "ESTDATE": "2007-11-26", "TRANAME": "深圳市宝安区福永福家公话亭"&#125; 如果想要获取数组中所有元素怎们办呢？ 输入： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.data[]' 输出： 1234567891011121314151617181920212223&#123; "OPLOC": "深圳市宝安区福永街道兴围社区兴业一路27号第一层101号铺", "ENTTYPE": "9510", "REGORG": "440306", "REGSTATE_CN": "吊销，未注销", "NAME": "汤福祥", "REGORG_CN": "宝安局", "OPSCOPE": "公话（在授权范围内经营公用电话业务）。", "REGSTATE": "2", "COMPFORM_CN": "个人经营", "REGNO": "440306803535369", "APPRDATE": "2007-11-26", "COMPFORM": "1", "ESTDATE": "2007-11-26", "TRANAME": "深圳市宝安区福永福家公话亭"&#125;&#123; "OPLOC": "深圳市福田区南园街道南园路埔尾新村28号103", "ENTTYPE": "9510", "REGORG": "440304", "REGSTATE_CN": "存续（在营、开业、在册）", "NAME": "周玉红",# 省略...... 需要注意的是，这种方式返回的数据是单独的 {} 组成的，是一条条独立的数据，并不是一个数组。 如果我们需要这些离散的数据组合成一个数组，可以这么做： 输入： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '[.data[]]' 输出： 12345678910111213141516171819[ &#123; "OPLOC": "深圳市宝安区福永街道兴围社区兴业一路27号第一层101号铺", "ENTTYPE": "9510", "REGORG": "440306", "REGSTATE_CN": "吊销，未注销", "NAME": "汤福祥", "REGORG_CN": "宝安局", "OPSCOPE": "公话（在授权范围内经营公用电话业务）。", "REGSTATE": "2", "COMPFORM_CN": "个人经营", "REGNO": "440306803535369", "APPRDATE": "2007-11-26", "COMPFORM": "1", "ESTDATE": "2007-11-26", "TRANAME": "深圳市宝安区福永福家公话亭" &#125;,# 省略....] 可以看到 {} 最外面已经包裹了一层 []，说明现在是一个数组。 2.3 获取某些特定的字段值有些应用场景下，我们可能只需要利用返回的 json 中某个或某几个特定的 key。 拿上面返回的 json 数据为例，我们只需要 &quot;data&quot; 属性下面的 &quot;NAME&quot; 和 &quot;REGNO&quot; 两个属性，我们可以这么做： 输入： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.data[] | &#123;NAME: .NAME, REGNO: .REGNO&#125;' 输出： 123456789101112&#123; "NAME": "汤福祥", "REGNO": "440306803535369"&#125;&#123; "NAME": "周玉红", "REGNO": "440304816709149"&#125;&#123; "NAME": "伍群红", "REGNO": "440309807694281"&#125; 同样，如果想要返回的数据组装成一个数组，可以在最外层包裹一个 [] : 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '[.data[] | &#123;NAME: .NAME, REGNO: .REGNO&#125;]' 同样，如果只需要 &quot;data&quot; 属性的第一个元素的 &quot;NAME&quot; 和 &quot;REGNO&quot; 属性，只需要将 data[] 换成 data[0] 即可： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.data[0] | &#123;NAME: .NAME, REGNO: .REGNO&#125;' 2.4 返回的字段重命名我们也可以将自己想要获取的字段的名字进行重命名： 还是用上面的例子做示范：我们想要将原字段名 &quot;NAME&quot; 改成 &quot;my_name&quot; ，将 &quot;REGNO&quot; 改成 &quot;my_regno&quot;，可以这么做： 1ubuntu@VM-0-14-ubuntu:~$ curl https://opendata.sz.gov.cn/api/29200_01303570/1/service.xhtml?page=1\&amp;rows=3\&amp;appKey=&lt;填用户自己的 appKey&gt; | jq '.data[] | &#123;my_name: .NAME, myregno: .REGNO&#125;' 输出： 123456789101112&#123; "my_name": "汤福祥", "my_regno": "440306803535369"&#125;&#123; "my_name": "周玉红", "my_regno": "440304816709149"&#125;&#123; "my_name": "伍群红", "my_regno": "440309807694281"&#125; 可以看到，返回的字段名已经变成我们自定义的名称了。 3. References jq official tutorials 给力的linux命令–jq简易教程 the-art-of-command-line]]></content>
@@ -57,10 +71,10 @@
         <category>Python</category>
       </categories>
       <tags>
+        <tag>重定向</tag>
         <tag>python</tag>
         <tag>print</tag>
         <tag>f-string</tag>
-        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
@@ -119,8 +133,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>ps</tag>
         <tag>grep</tag>
+        <tag>ps</tag>
         <tag>进程</tag>
       </tags>
   </entry>
@@ -133,10 +147,10 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>重定向</tag>
         <tag>标准输入</tag>
         <tag>标准输出</tag>
         <tag>管道</tag>
+        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
