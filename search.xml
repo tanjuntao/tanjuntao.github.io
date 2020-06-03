@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux 学习记录：grep 命令使用方法]]></title>
+    <url>%2F2020%2F05%2F29%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Agrep-%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[https://www.tecmint.com/12-practical-examples-of-linux-grep-command/ https://www.geeksforgeeks.org/grep-command-in-unixlinux/]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>grep</tag>
+        <tag>正则表达式</tag>
+        <tag>搜索</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Linux 学习记录：统计文件和目录的个数]]></title>
     <url>%2F2020%2F05%2F26%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A%E7%BB%9F%E8%AE%A1%E6%96%87%E4%BB%B6%E5%92%8C%E7%9B%AE%E5%BD%95%E7%9A%84%E4%B8%AA%E6%95%B0%2F</url>
     <content type="text"><![CDATA[这篇文章总结下 Linux 下如何统计某个目录下面总共有多少个文件或文件夹。 1. 背景平时在 Linux 下工作，我们可能经常会碰到这种场景，即需要统计某个目录下总共有多少个文件，或者多少个子文件夹。这时候，熟练的使用一些命令将会有助于你开展工作。 注：下问的命令需要有足够权限执行，否则碰到有些文件不能读取（权限不足）的情况，将会造成统计出错。 2. 使用 ls 和 wc 命令ls 命令有一个参数是 -l ，表示列举出文件的详细信息： 12345ubuntu@VM-0-14-ubuntu:~$ ls -ltotal 1825244-rw-rw-r-- 1 ubuntu ubuntu 237412642 Mar 31 11:47 3-24.mp4-rw-rw-r-- 1 ubuntu ubuntu 242636679 Mar 24 11:41 3-31.mp4-rw-rw-r-- 1 ubuntu ubuntu 64569543 Apr 14 10:16 4-14-1.mp4 注意输出行的第一个字段，以 -rw-rw-r-- 为例。从左往右数第一位，表示 文件类型 ，后面每 3 位是一组，分别表示 属主、组用户、其它用户 的权限，可以参考之前的博文：Linux学习记录：SUID 和 SGID 等特殊权限 下面解释下第一位（表示文件类型）的含义： - : 表示普通文件； d : 表示目录； l : 表示链接文件 …… 解释完 ls -l 命令后，我们还需要知道 wc 命令的使用方法。 wc 命令用来统计信息，如统计一个文件有多少行、有多少个字符等。常用的一个参数是 -l，用来统计有多少行。 知道了这些以后，我们就能看懂下面的命令了。 ① 统计一个文件夹下有多少个文件，不包括子文件夹里的。 1ls -l | grep "^-" | wc -l grep &quot;^-&quot; 表示抓取行首以字符 - 开头的行，其中 ^ 表示从行首开始的第一个字符。 ② 统计一个文件夹下有多少个文件夹，不包括子文件夹。 1ls -l | grep "^d" | wc -l grep &quot;^d&quot; 表示抓取行首以字符 d 开头的行。 ③ 统计一个文件夹下有多少个文件，包括子文件夹里的。 1ls -lR | grep "^-" | wc -l 其中 ls 命令的 -R 参数表示递归，即：会遍历左右的子文件夹。 ④ 统计一个文件夹下有多少个文件夹，包括子文件夹 1ls -lR | grep "^d" | wc -l 3. 使用 find 命令和 wc 命令当然，要递归遍历所有的子文件夹的话，find 命令也是一个不错的选择，因为 find 在默认情况下（不加 -maxdepth 参数），是会遍历所有的子文件夹的。find 的使用方法可以参考之前的文章：Linux 学习记录: find 命令 下面来看使用方法。 1find . -type f | wc -l 上述命令会遍历当前文件夹及其子文件夹，统计所有文件类型为 f （普通文件）的个数。 同样道理，我们设置文件类型为 d，就能统计所有子文件及的个数： 1find . -type d | wc -l 当然，也可以只统计当前目录，不深入其子目录统计。 统计文件数： 1find . -maxdepth 1 -type f | wc -l 统计目录数： 1find . -maxdepth 1 -type d | wc -l 4. References How To Count Files in Directory on Linux linux命令看文件或文件夹个数]]></content>
@@ -9,8 +23,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>find</tag>
         <tag>grep</tag>
+        <tag>find</tag>
         <tag>wc</tag>
       </tags>
   </entry>
@@ -100,8 +114,8 @@
         <category>杂</category>
       </categories>
       <tags>
-        <tag>Google</tag>
         <tag>搜索</tag>
+        <tag>Google</tag>
         <tag>高级搜索</tag>
         <tag>size</tag>
         <tag>intitle</tag>
@@ -162,9 +176,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -176,8 +190,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>chmod</tag>
         <tag>权限</tag>
+        <tag>chmod</tag>
         <tag>777</tag>
       </tags>
   </entry>
