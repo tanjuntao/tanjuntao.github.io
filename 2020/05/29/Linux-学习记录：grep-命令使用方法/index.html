@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="https://www.tecmint.com/12-practical-examples-of-linux-grep-command/ https://www.geeksforgeeks.org/grep-command-in-unixlinux/">
+<meta name="description" content="这篇文章总结下 grep 命令的常用方法。 1. 需求背景平时在使用 Linux 过程中，总会遇到需要搜索某个字符串的场景：  搜索某个字符串是否出现在指定文件中； 利用管道重定向，搜索 ls 、cat 等命令的输出中是否包含某个字符串； 递归搜索某个工程目录下的所有文件中，是否包含某个字符串。  grep 无疑是很好用且功能强大的工具之一。 2. 使用方法grep 的搜索是按行进行的，即：每次扫">
 <meta name="keywords" content="Linux,grep,正则表达式,搜索">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习记录：grep 命令使用方法">
 <meta property="og:url" content="http://yoursite.com/2020/05/29/Linux-学习记录：grep-命令使用方法/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="https://www.tecmint.com/12-practical-examples-of-linux-grep-command/ https://www.geeksforgeeks.org/grep-command-in-unixlinux/">
+<meta property="og:description" content="这篇文章总结下 grep 命令的常用方法。 1. 需求背景平时在使用 Linux 过程中，总会遇到需要搜索某个字符串的场景：  搜索某个字符串是否出现在指定文件中； 利用管道重定向，搜索 ls 、cat 等命令的输出中是否包含某个字符串； 递归搜索某个工程目录下的所有文件中，是否包含某个字符串。  grep 无疑是很好用且功能强大的工具之一。 2. 使用方法grep 的搜索是按行进行的，即：每次扫">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-29T02:34:35.750Z">
+<meta property="og:updated_time" content="2020-06-05T02:13:31.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录：grep 命令使用方法">
-<meta name="twitter:description" content="https://www.tecmint.com/12-practical-examples-of-linux-grep-command/ https://www.geeksforgeeks.org/grep-command-in-unixlinux/">
+<meta name="twitter:description" content="这篇文章总结下 grep 命令的常用方法。 1. 需求背景平时在使用 Linux 过程中，总会遇到需要搜索某个字符串的场景：  搜索某个字符串是否出现在指定文件中； 利用管道重定向，搜索 ls 、cat 等命令的输出中是否包含某个字符串； 递归搜索某个工程目录下的所有文件中，是否包含某个字符串。  grep 无疑是很好用且功能强大的工具之一。 2. 使用方法grep 的搜索是按行进行的，即：每次扫">
 
 
 
@@ -414,8 +414,58 @@
       
 
       
-        <p><a href="https://www.tecmint.com/12-practical-examples-of-linux-grep-command/" target="_blank" rel="noopener">https://www.tecmint.com/12-practical-examples-of-linux-grep-command/</a></p>
-<p><a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/" target="_blank" rel="noopener">https://www.geeksforgeeks.org/grep-command-in-unixlinux/</a></p>
+        <p>这篇文章总结下 <code>grep</code> 命令的常用方法。</p>
+<h3 id="1-需求背景"><a href="#1-需求背景" class="headerlink" title="1. 需求背景"></a>1. 需求背景</h3><p>平时在使用 Linux 过程中，总会遇到需要<strong>搜索</strong>某个字符串的场景：</p>
+<ul>
+<li>搜索某个字符串是否出现在指定文件中；</li>
+<li>利用管道重定向，搜索 <code>ls</code> 、<code>cat</code> 等命令的输出中是否包含某个字符串；</li>
+<li>递归搜索某个工程目录下的所有文件中，是否包含某个字符串。</li>
+</ul>
+<p><code>grep</code> 无疑是很好用且功能强大的工具之一。</p>
+<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2. 使用方法"></a>2. 使用方法</h3><p><code>grep</code> 的搜索是按行进行的，即：每次扫描一行，如果该行中包含指定的字符串，那么该行会被输出。</p>
+<a id="more"></a>
+<h4 id="2-1-基本用法"><a href="#2-1-基本用法" class="headerlink" title="2.1 基本用法"></a>2.1 基本用法</h4><p><code>grep</code> 最基本的用法如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep &lt;搜索字符串&gt; &lt;搜索的目标文件&gt;</span><br></pre></td></tr></table></figure>
+<p>举个例子：我们要搜索 <code>hello_world.c</code> 文件中是否包含 <code>hello</code> 这个字符串，可以这么做：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep 'hello' hello_world.txt</span><br></pre></td></tr></table></figure>
+<p>我们也可以利用输出重定向和管道完成这件事情：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat hello_world.c | grep 'hello'</span><br></pre></td></tr></table></figure>
+<p>*注 1：<code>grep</code> 后面跟的 <code>&lt;搜索字符串&gt;</code> 可以加单引号 <code>&#39;&#39;</code>，也可以加双引号 <code>&quot;&quot;</code>，也可以什么都不加。当然还是建议使用引号将其包住，这样能方便命令的阅读。</p>
+<p>*注 2：现在的 shell 基本都包含了 <code>alias grep=&#39;grep --color=auto&#39;</code> 可以通过 <code>alias -p</code> 查看。所以在使用 <code>grep</code> 搜索时，不需要带上 <code>--color=auto</code> 参数，搜索匹配到的关键字还是会用不同颜色显示出来。</p>
+<p>*注 3：<code>grep</code> 命令对搜索字符串的大小写敏感。</p>
+<h4 id="2-2-i-参数"><a href="#2-2-i-参数" class="headerlink" title="2.2 -i 参数"></a>2.2 <code>-i</code> 参数</h4><p><code>-i</code> 参数里面的 <code>i</code> 表示英文单词 ignore，意思是搜索时忽略大小写，因为 <code>grep</code> 本身对大小写是敏感的。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -i 'hello' hello_world.txt</span><br></pre></td></tr></table></figure>
+<p>那么，<code>hello_world.txt</code> 文件中所有的 <code>hello</code> 、<code>HELLO</code>、<code>HeLLo</code> 等均会被检索出来。</p>
+<h4 id="2-3-v-参数"><a href="#2-3-v-参数" class="headerlink" title="2.3 -v 参数"></a>2.3 <code>-v</code> 参数</h4><p><code>-v</code> 参数表示 <code>反向搜索</code>，意思是：将那些<strong>不包含</strong> <code>&lt;搜索字符串&gt;</code> 的行输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -v 'hello' hello_world.txt</span><br></pre></td></tr></table></figure>
+<p>那么，<code>hello_world.txt</code> 文件中不包含 <code>hello</code> 字符串的行将会被输出。</p>
+<h4 id="2-4-n-参数"><a href="#2-4-n-参数" class="headerlink" title="2.4 -n 参数"></a>2.4 <code>-n</code> 参数</h4><p><code>-n</code> 参数会将满足 <code>&lt;搜索字符串&gt;</code> 的行对应的行数也输出来：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n 'hello' hello_world.txt</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ grep -n 'hello' hello_world.txt</span><br><span class="line">3:hello world from China</span><br><span class="line">12:hello, world.</span><br></pre></td></tr></table></figure>
+<p>从输出结果中我们可以看到，包含 <code>hello</code> 的行有第 3 行和 第 12 行。</p>
+<h4 id="2-5-A-和-B-参数"><a href="#2-5-A-和-B-参数" class="headerlink" title="2.5 -A 和 -B 参数"></a>2.5 <code>-A</code> 和 <code>-B</code> 参数</h4><p><code>-A</code> 里面的 <code>A</code> 表示 After，<code>-B</code> 里面的 <code>B</code> 表示 Before。两个参数后面需要跟一个数字，表示我现在不仅要输出满足 <code>&lt;搜索字符串&gt;</code> 的那行，我还要将其前面和后面多少行也输出。</p>
+<p>举个例子容易理解一些：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -n -A 2 -B 3 'hello' hello_world.txt</span><br></pre></td></tr></table></figure>
+<p>上面的命令是说：我现在不仅输出包含 <code>hello</code> 的行，我还要将其前面（<code>-B</code> 参数）的 3 行、其后面的（<code>-A</code> 参数）的 3 行输出来。</p>
+<h4 id="2-6-r-参数"><a href="#2-6-r-参数" class="headerlink" title="2.6 -r 参数"></a>2.6 <code>-r</code> 参数</h4><p>Linux 里面很多命令后面的 <code>-r</code> 参数大多表示递归的意思，<code>grep</code> 也是。</p>
+<p><code>grep</code> 后面加上 <code>-r</code> 参数，表示要搜索一个目录下面的所有文件（包括子目录里面的文件）是否包含 <code>&lt;搜索字符串&gt;</code> 。</p>
+<p>看下面的例子：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep -r -i 'cnnmnist' .</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">user@DataServer:/datapool/workspace/tanjuntao/FL-Influence$ grep -r -i 'cnnmnist' .</span><br><span class="line">./models/Nets.py:class CNNMnist(nn.Module):</span><br><span class="line">./models/Nets.py:        super(CNNMnist, self).__init__()</span><br><span class="line">Binary file ./models/__pycache__/Nets.cpython-35.pyc matches</span><br><span class="line">Binary file ./models/__pycache__/noisylabel.cpython-35.pyc matches</span><br><span class="line">./fedlearning.py:from models.Nets import CNNMnist, CNNCifar</span><br><span class="line">./fedlearning.py:        net=CNNMnist().to(args.device)</span><br><span class="line">./fedlearning.py:        net = CNNMnist().to(args.device)</span><br><span class="line">./print_model_arch.py:from models.Nets import CNNMnist, CNNCifar, ResNet18</span><br><span class="line">./fedinfluence_rka.py:from models.Nets import CNNMnist, CNNCifar</span><br><span class="line">./fedinfluence_rka.py:        model = CNNMnist().to(args.device)</span><br><span class="line">./fedinfluence_rka.py:        model = CNNMnist().to(args.device)</span><br><span class="line">./fedinfluence.py:from models.Nets import CNNMnist, CNNCifar</span><br><span class="line">./fedinfluence.py:        model=CNNMnist().to(args.device)</span><br><span class="line">./fedinfluence.py:        model=CNNMnist().to(args.device)</span><br></pre></td></tr></table></figure>
+<p>可以看到，当前目录（包含子目录里面的文件）中包含 <code>cnnmnist</code> 字符串的文件均被检索出来了。</p>
+<h4 id="2-7-lt-搜索字符串-gt-为正则表达式"><a href="#2-7-lt-搜索字符串-gt-为正则表达式" class="headerlink" title="2.7 &lt;搜索字符串&gt; 为正则表达式"></a>2.7 <code>&lt;搜索字符串&gt;</code> 为正则表达式</h4><p><code>grep</code> 最强大的功能还是配合正则表达式一起使用，这篇文章不准备详细介绍，后面会单独写一篇介绍 bash shell 里面正则表达式的使用方法，以及如何配合 <code>grep</code> 、<code>awk</code> 等文本处理程序一起使用。</p>
+<h3 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h3><ul>
+<li><p><a href="https://www.tecmint.com/12-practical-examples-of-linux-grep-command/" target="_blank" rel="noopener">12 Practical Examples of Linux grep Command</a></p>
+</li>
+<li><p>《鸟哥的 Linux 私房菜》10.6.1 节 &amp; 11.2.2 节</p>
+</li>
+<li><p><a href="https://www.geeksforgeeks.org/grep-command-in-unixlinux/" target="_blank" rel="noopener">grep command in Unix/Linux</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/sanss2012/article/details/79377568?utm_medium=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase&amp;depth_1-utm_source=distribute.pc_relevant.none-task-blog-BlogCommendFromMachineLearnPai2-2.nonecase" target="_blank" rel="noopener">使用grep指令在当前目录下所有文件中搜索指定文本</a></p>
+</li>
+</ul>
 
       
     </div>
@@ -516,8 +566,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -579,6 +638,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-需求背景"><span class="nav-text">1. 需求背景</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用方法"><span class="nav-text">2. 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-基本用法"><span class="nav-text">2.1 基本用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-i-参数"><span class="nav-text">2.2 -i 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-v-参数"><span class="nav-text">2.3 -v 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-n-参数"><span class="nav-text">2.4 -n 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-A-和-B-参数"><span class="nav-text">2.5 -A 和 -B 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-6-r-参数"><span class="nav-text">2.6 -r 参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-7-lt-搜索字符串-gt-为正则表达式"><span class="nav-text">2.7 &lt;搜索字符串&gt; 为正则表达式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-References"><span class="nav-text">3. References</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
