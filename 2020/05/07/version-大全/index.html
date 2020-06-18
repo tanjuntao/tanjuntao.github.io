@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-25T00:27:18.216Z">
+<meta property="og:updated_time" content="2020-06-18T15:02:54.909Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="version 大全">
 <meta name="twitter:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
@@ -446,6 +446,21 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PS C:\Users\tanjuntao&gt; node  -v  </span><br><span class="line">v10.13.0</span><br></pre></td></tr></table></figure>
+<h4 id="ubuntu-版本"><a href="#ubuntu-版本" class="headerlink" title="ubuntu 版本"></a>ubuntu 版本</h4><p>输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsb_release -a</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user@DataServer:~$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 16.04.5 LTS</span><br><span class="line">Release:        16.04</span><br><span class="line">Codename:       xenial</span><br></pre></td></tr></table></figure>
+<p>从输出结果中可以看到，该服务器中安装的 ubuntu 版本是 <code>16.04 LTS</code>，发行版本代号是 <code>xenial</code>。</p>
+<p>我们看另一个版本是 <code>18.04 LTS</code> 的 ubuntu：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">tan@DESKTOP-OPQIR8V:/mnt/c/Users/tanjuntao$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 18.04.4 LTS</span><br><span class="line">Release:        18.04</span><br><span class="line">Codename:       bionic</span><br></pre></td></tr></table></figure>
+<p>从输出结果中我们可以知道，该版本的发行代号是 <code>bionic</code>。</p>
+<h4 id="使用-apt-查看某个软件包版本"><a href="#使用-apt-查看某个软件包版本" class="headerlink" title="使用 apt 查看某个软件包版本"></a>使用 <code>apt</code> 查看某个软件包版本</h4><p>输入：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt show &lt;包名&gt;</span><br></pre></td></tr></table></figure>
+<p>这里以查看 <code>tmux</code> 的版本为例；</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt show tmux</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tan@DESKTOP-OPQIR8V:/mnt/c/Users/tanjuntao$ apt show tmux</span><br><span class="line">Package: tmux</span><br><span class="line">Version: 2.6-3ubuntu0.2</span><br><span class="line">Priority: optional</span><br><span class="line">Section: admin</span><br><span class="line">Origin: Ubuntu</span><br><span class="line">Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;</span><br><span class="line">Original-Maintainer: Romain Francoise &lt;rfrancoise@debian.org&gt;</span><br><span class="line">Bugs: https://bugs.launchpad.net/ubuntu/+filebug</span><br><span class="line">Installed-Size: 647 kB</span><br><span class="line">......</span><br><span class="line">&lt;Content Omitted&gt;</span><br></pre></td></tr></table></figure>
+<p>从输出的结果的 <code>Version</code> 字段可以知道软件包的版本。</p>
 
       
     </div>
@@ -626,7 +641,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统版本"><span class="nav-text">Windows 系统版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-版本"><span class="nav-text">npm 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-版本"><span class="nav-text">pip 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-版本"><span class="nav-text">conda 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-js-版本"><span class="nav-text">node.js 版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统版本"><span class="nav-text">Windows 系统版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-版本"><span class="nav-text">npm 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-版本"><span class="nav-text">pip 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-版本"><span class="nav-text">conda 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-js-版本"><span class="nav-text">node.js 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntu-版本"><span class="nav-text">ubuntu 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-apt-查看某个软件包版本"><span class="nav-text">使用 apt 查看某个软件包版本</span></a></li></ol></div>
             
 
           </div>
