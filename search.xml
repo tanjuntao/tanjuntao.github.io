@@ -94,7 +94,7 @@
   <entry>
     <title><![CDATA[P/NP/NP-Complete/NP-Hard 问题的理解]]></title>
     <url>%2F2020%2F04%2F30%2FP-NP-NP-Complete-NP-Hard-%E9%97%AE%E9%A2%98%E7%9A%84%E7%90%86%E8%A7%A3%2F</url>
-    <content type="text"><![CDATA[注意 YouTube 视频下面一个搞笑的段子 一定需要说明清楚：NP 问题面对的都是 decision problems，但是 NP-Hard 问题面对的可能不是简单的 decision problems，所以说 NP-hard 问题一般会更难。 只要 NPC 中的任何一个问题被解决了，那么所有的 NP 问题都将在多项式时间内解决掉。 NP 问题是包含 P 类问题的。 NP 问题中还要一些问题，不知道它们能不能在多项式时间内得到 solution，但是 NP 问题一定能在多项式时间内去 verify 这个 solution 是不是正确的。]]></content>
+    <content type="text"><![CDATA[几种问题的定义如下： 问题类型 多项式时间可解 多项式时间可验证解的正确性 P YES YES NP uncertain YES NP-Complete uncertain YES NP-Hard uncertain or NO YES or NO 咋一看觉得 NP 问题和 NP-Complete 问题是一样的，两者的共同点都是： 依据目前的研究进展，还无法断定这两类问题能否在多项式时间内可解； 都可以在多项式时间内验证一个解是否正确。 其实，从集合的角度看，NP-Complete 类问题是 NP 类问题的一个子集，即：所有 NP-Complete 的问题都是 NP 问题，但不是所有的 NP 问题都是 NP-Complete 的。 NP-Complete 问题的完整定义是：所有的 NP 类问题都可以在 多项式时间 内 归约 到这个问题，那么这个问题就是 NP-Complete 的。 ======待续====== 下面一张 韦恩图 表示了上面几种问题之间的关系： 注意 YouTube 视频下面一个搞笑的段子 一定需要说明清楚：NP 问题面对的都是 decision problems，但是 NP-Hard 问题面对的可能不是简单的 decision problems，所以说 NP-hard 问题一般会更难。 只要 NPC 中的任何一个问题被解决了，那么所有的 NP 问题都将在多项式时间内解决掉。 NP 问题是包含 P 类问题的。 NP 问题中还要一些问题，不知道它们能不能在多项式时间内得到 solution，但是 NP 问题一定能在多项式时间内去 verify 这个 solution 是不是正确的。]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -103,7 +103,7 @@
         <tag>NP</tag>
         <tag>NPC</tag>
         <tag>NP-Hard</tag>
-        <tag>computation complexity</tag>
+        <tag>computational complexity</tag>
       </tags>
   </entry>
   <entry>

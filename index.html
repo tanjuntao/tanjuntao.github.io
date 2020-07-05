@@ -1534,7 +1534,49 @@
       
         
           
-            <p>注意 YouTube 视频下面一个搞笑的段子</p>
+            <p>几种问题的定义如下：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">问题类型</th>
+<th style="text-align:center">多项式时间可解</th>
+<th style="text-align:center">多项式时间可验证解的正确性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>P</strong></td>
+<td style="text-align:center">YES</td>
+<td style="text-align:center">YES</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>NP</strong></td>
+<td style="text-align:center">uncertain</td>
+<td style="text-align:center">YES</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>NP-Complete</strong></td>
+<td style="text-align:center">uncertain</td>
+<td style="text-align:center">YES</td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>NP-Hard</strong></td>
+<td style="text-align:center">uncertain or NO</td>
+<td style="text-align:center">YES or NO</td>
+</tr>
+</tbody>
+</table>
+<p>咋一看觉得 <code>NP</code> 问题和 <code>NP-Complete</code> 问题是一样的，两者的共同点都是：</p>
+<ul>
+<li>依据目前的研究进展，还无法断定这两类问题能否在多项式时间内可解；</li>
+<li>都可以在多项式时间内验证一个解是否正确。</li>
+</ul>
+<p>其实，从集合的角度看，<code>NP-Complete</code> 类问题是 <code>NP</code> 类问题的一个子集，即：所有 <code>NP-Complete</code> 的问题都是 <code>NP</code> 问题，但不是所有的 <code>NP</code> 问题都是 <code>NP-Complete</code> 的。</p>
+<p><code>NP-Complete</code> 问题的完整定义是：所有的 <code>NP</code> 类问题都可以在 <em>多项式时间</em> 内 <em>归约</em> 到这个问题，那么这个问题就是 <code>NP-Complete</code> 的。</p>
+<p>======待续======</p>
+<p>下面一张 <code>韦恩图</code> 表示了上面几种问题之间的关系：</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/P_np_np-complete_np-hard.svg" alt></p>
+<p>注意 YouTube 视频下面一个搞笑的段子</p>
 <p>一定需要说明清楚：NP 问题面对的都是 decision problems，但是 NP-Hard 问题面对的可能不是简单的 decision problems，所以说 NP-hard 问题一般会更难。</p>
 <p>只要 NPC 中的任何一个问题被解决了，那么所有的 NP 问题都将在多项式时间内解决掉。</p>
 <p>NP 问题是包含 P 类问题的。</p>
@@ -1964,7 +2006,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
