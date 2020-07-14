@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Linux,重定向,标准输入,标准输出,管道,">
+  <meta name="keywords" content="Linux,标准输入,标准输出,管道,重定向,">
 
 
 
@@ -80,7 +80,7 @@
 
 
 <meta name="description" content="这篇文章来总结下 Linux 中的输入输出重定向功能，以及如何使用管道命令。 1. 背景需求有时候我们使用find 命令查找文件或目录时，会碰到 Permission denied 这样的错误输出信息。但是这些错误信息并不是我们想要的，我们只需要那些符合查询条件的输出，这种情况下该怎么办呢？输入输出重定向可以帮我们将错误信息和正确信息区分开来。 2. 输入输出重定向Linux 中的输入输出分为下面">
-<meta name="keywords" content="Linux,重定向,标准输入,标准输出,管道">
+<meta name="keywords" content="Linux,标准输入,标准输出,管道,重定向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习记录：输入输出重定向与管道">
 <meta property="og:url" content="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/index.html">
@@ -426,7 +426,7 @@
 <a id="more"></a>
 <ul>
 <li><p>当我们使用 <code>cat</code> 命令创建一个新文件 <code>testfile</code> 时，如下所示，我们的键盘就作为标准输入，将键入的内容输入到文件 <code>testfile</code> 中；</p>
-  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash">cat testfile</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> hello</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> world </span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash">  // 按下 ctrl+D 结束此次输入</span></span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+  <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span>cat testfile</span><br><span class="line"><span class="meta">&gt;</span> hello</span><br><span class="line"><span class="meta">&gt;</span> world </span><br><span class="line"><span class="meta">&gt;</span>  // 按下 ctrl+D 结束此次输入</span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当我们使用 <code>cat</code> 命令输出文件内容时，是一种标准输出，文件的内容都将输出到屏幕上；</p>
 </li>
@@ -505,13 +505,13 @@
           
             <a href="/tags/Linux/" rel="tag"># Linux</a>
           
-            <a href="/tags/重定向/" rel="tag"># 重定向</a>
-          
             <a href="/tags/标准输入/" rel="tag"># 标准输入</a>
           
             <a href="/tags/标准输出/" rel="tag"># 标准输出</a>
           
             <a href="/tags/管道/" rel="tag"># 管道</a>
+          
+            <a href="/tags/重定向/" rel="tag"># 重定向</a>
           
         </div>
       
@@ -619,7 +619,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -641,7 +641,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

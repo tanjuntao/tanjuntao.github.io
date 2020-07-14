@@ -311,6 +311,143 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/04/写出pythonic的代码/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/04/写出pythonic的代码/" itemprop="url">写出pythonic的代码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T08:03:10+08:00">
+                2019-05-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/05/04/写出pythonic的代码/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/05/04/写出pythonic的代码/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="列表遍历"><a href="#列表遍历" class="headerlink" title="列表遍历"></a>列表遍历</h2><p>Pythonic<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">'juntao'</span>, <span class="string">'xiaojun'</span>, <span class="string">'mingming'</span>, <span class="string">'haohao'</span>]</span><br><span class="line"><span class="comment"># 查找名字列表中带有字母'm'的名字</span></span><br><span class="line">m_name = [name <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> <span class="string">'m'</span> <span class="keyword">in</span> name]</span><br><span class="line">print(m_name)</span><br></pre></td></tr></table></figure></p>
+<p>不要用循环写！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m_name = []</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'m'</span> <span class="keyword">in</span> name:</span><br><span class="line">        m_name.append(name)</span><br><span class="line">print(m_name)</span><br></pre></td></tr></table></figure></p>
+<h2 id="字典遍历"><a href="#字典遍历" class="headerlink" title="字典遍历"></a>字典遍历</h2><p>Pythonic<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exam_detail = &#123;<span class="string">'juntao'</span>: <span class="number">44</span>, <span class="string">'xiaojun'</span>: <span class="number">88</span>, <span class="string">'mingming'</span>: <span class="number">99</span>, <span class="string">'haohao'</span>: <span class="number">22</span>&#125;</span><br><span class="line"><span class="comment"># 找出及格的学生及其分数</span></span><br><span class="line">score_greater_than_60 = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> exam_detail.items() <span class="keyword">if</span> v &gt;= <span class="number">60</span>&#125;</span><br><span class="line">print(score_greater_than_60)</span><br></pre></td></tr></table></figure></p>
+<p>不要这样写！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">score_greater_than_60 = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> exam_detail.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt;= <span class="number">60</span>:</span><br><span class="line">        score_greater_than_60[k] = v</span><br><span class="line">print(score_greater_than_60)</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li>一些 pythonic 的代码实例：<a href="https://github.com/mikeckennedy/write-pythonic-code-demos" target="_blank" rel="noopener">https://github.com/mikeckennedy/write-pythonic-code-demos</a></li>
+<li><a href="https://blog.csdn.net/g8433373/article/details/80709116" target="_blank" rel="noopener">https://blog.csdn.net/g8433373/article/details/80709116</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/一些Python语法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1648,142 +1785,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/02/安装固态硬盘/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/02/安装固态硬盘/" itemprop="url">安装固态硬盘</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-02T15:23:52+08:00">
-                2019-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/02/安装固态硬盘/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/02/安装固态硬盘/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="0-前言"><a href="#0-前言" class="headerlink" title="0.前言"></a>0.前言</h2><p><em>以下全是个人的装机经验，没有很认真的写，只是打算做个记录，这样下次如果还需要干这类活时有个参考。不建议follow！！仅供一点参考。</em></p>
-<p>笔记本老早就出现各种问题了，觉得应该是系统的问题而不是硬件的问题，于是寻思着重装一下系统。但是心里对重装系统有些抵触，因为会导致很多之前辛苦安装好配置好的软件无法使用。拖了好久，终于买了一块固态硬盘来重装系统…笔记本简直焕发第二春啊！</p>
-<h2 id="1-数据备份"><a href="#1-数据备份" class="headerlink" title="1. 数据备份"></a>1. 数据备份</h2>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/04/02/安装固态硬盘/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1836,7 +1837,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">56</span>
+                  <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1858,7 +1859,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
