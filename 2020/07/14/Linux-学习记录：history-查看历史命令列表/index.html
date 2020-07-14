@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="history 命令能够查询到我们之前在 bash 里面输入的指令历史，这些指令一般存放在 HOME 目录下的 .bash_history 文件里，这个文件里面存放多少条指令记录，与环境变量 $HISTSIZE 有关，一般在 Ubuntu 等发行版中，这个值是 1000 。 history 命令的工作方式是这样的：当我们登录到 Linux 主机后，bash 首先会读取 .bash_history">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-07-14T11:37:22.626Z">
+<meta property="og:updated_time" content="2020-07-14T11:41:57.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录：history 查看历史命令列表">
 <meta name="twitter:description" content="history 命令能够查询到我们之前在 bash 里面输入的指令历史，这些指令一般存放在 HOME 目录下的 .bash_history 文件里，这个文件里面存放多少条指令记录，与环境变量 $HISTSIZE 有关，一般在 Ubuntu 等发行版中，这个值是 1000 。 history 命令的工作方式是这样的：当我们登录到 Linux 主机后，bash 首先会读取 .bash_history">
@@ -419,6 +419,7 @@
 <p>我们在本次登录下所输入的所有命令，在我们退出之前是不会被写入到 <code>.bash_history</code> 文件的，也就是说，只有我们推出本次登录，这次登录里所输入的所有指令才会被写入到该文件。在我们没退出登录之前，<code>.bash_history</code> 文件的内容是不会变动的。</p>
 <p>但是，我们在登录过程中所输入的所有指令，使用 <code>history</code> 命令是能够查看到的，因为这些命令都存在内存当中，而不是从文件中读取到的。</p>
 <p>下面举个例子具体说明下。</p>
+<a id="more"></a>
 <p>首先，我们登录到 Linux，查看 <code>.bash_history</code> 最后 5 条记录（对应最近的 5 条指令）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat ~/.bash_history | tail -n 5</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
