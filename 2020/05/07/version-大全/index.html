@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="个人博客">
 <meta property="og:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-06-18T15:02:54.909Z">
+<meta property="og:updated_time" content="2020-08-22T08:57:24.843Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="version 大全">
 <meta name="twitter:description" content="这篇文章总结下一些常用的 系统  或者 软件  如何查看其版本号，方便后续查阅。 注：如果没有特殊说明，输入的命令在 Windows 下和 Linux 下都有效。 Windows 系统版本在 CMD 中输入： 1ver 我的笔记本是 win10 系统，输出为： 123C:\Users\tanjuntao&amp;gt;verMicrosoft Windows [版本 10.0.18363.778]">
@@ -461,6 +461,19 @@
 <p>输出：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">tan@DESKTOP-OPQIR8V:/mnt/c/Users/tanjuntao$ apt show tmux</span><br><span class="line">Package: tmux</span><br><span class="line">Version: 2.6-3ubuntu0.2</span><br><span class="line">Priority: optional</span><br><span class="line">Section: admin</span><br><span class="line">Origin: Ubuntu</span><br><span class="line">Maintainer: Ubuntu Developers &lt;ubuntu-devel-discuss@lists.ubuntu.com&gt;</span><br><span class="line">Original-Maintainer: Romain Francoise &lt;rfrancoise@debian.org&gt;</span><br><span class="line">Bugs: https://bugs.launchpad.net/ubuntu/+filebug</span><br><span class="line">Installed-Size: 647 kB</span><br><span class="line">......</span><br><span class="line">&lt;Content Omitted&gt;</span><br></pre></td></tr></table></figure>
 <p>从输出的结果的 <code>Version</code> 字段可以知道软件包的版本。</p>
+<h4 id="Linux-内核版本"><a href="#Linux-内核版本" class="headerlink" title="Linux 内核版本"></a>Linux 内核版本</h4><p>有两种方式可以查看内核版本号。</p>
+<ol>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /proc/version</span><br></pre></td></tr></table></figure>
+<p> 输出：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tan@tjt1024:/mnt/c/Users/tanjuntao$ cat /proc/version</span><br><span class="line">Linux version 4.4.0-18362-Microsoft (Microsoft@Microsoft.com) (gcc version 5.4.0 (GCC) ) #836-Microsoft Mon May 05 16:04:00 PST 2020</span><br></pre></td></tr></table></figure>
+</li>
+<li><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uname -a</span><br></pre></td></tr></table></figure>
+<p> 输出：</p>
+ <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Linux tjt1024 4.4.0-18362-Microsoft #836-Microsoft Mon May 05 16:04:00 PST 2020 x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="Google-Chrome-版本"><a href="#Google-Chrome-版本" class="headerlink" title="Google Chrome 版本"></a>Google Chrome 版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> google-chrome --version</span></span><br></pre></td></tr></table></figure>
+<h4 id="Firefox-版本"><a href="#Firefox-版本" class="headerlink" title="Firefox 版本"></a>Firefox 版本</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> firefox --version</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -586,7 +599,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">57</span>
+                  <span class="site-state-item-count">58</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -608,7 +621,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">69</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -641,7 +654,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统版本"><span class="nav-text">Windows 系统版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-版本"><span class="nav-text">npm 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-版本"><span class="nav-text">pip 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-版本"><span class="nav-text">conda 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-js-版本"><span class="nav-text">node.js 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntu-版本"><span class="nav-text">ubuntu 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-apt-查看某个软件包版本"><span class="nav-text">使用 apt 查看某个软件包版本</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Windows-系统版本"><span class="nav-text">Windows 系统版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-版本"><span class="nav-text">Python 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#MySQL-版本"><span class="nav-text">MySQL 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#npm-版本"><span class="nav-text">npm 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pip-版本"><span class="nav-text">pip 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#conda-版本"><span class="nav-text">conda 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#node-js-版本"><span class="nav-text">node.js 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ubuntu-版本"><span class="nav-text">ubuntu 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#使用-apt-查看某个软件包版本"><span class="nav-text">使用 apt 查看某个软件包版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux-内核版本"><span class="nav-text">Linux 内核版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Google-Chrome-版本"><span class="nav-text">Google Chrome 版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Firefox-版本"><span class="nav-text">Firefox 版本</span></a></li></ol></div>
             
 
           </div>
