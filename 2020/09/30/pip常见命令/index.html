@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,python,pip,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="pip 常见命令使用总结12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 li">
+<meta name="description" content="12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 list --outdate">
+<meta name="keywords" content="Linux,python,pip">
 <meta property="og:type" content="article">
-<meta property="og:title" content="个人博客">
+<meta property="og:title" content="pip常见命令">
 <meta property="og:url" content="http://yoursite.com/2020/09/30/pip常见命令/index.html">
 <meta property="og:site_name" content="个人博客">
-<meta property="og:description" content="pip 常见命令使用总结12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 li">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 list --outdate">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-09-30T03:11:17.759Z">
+<meta property="og:updated_time" content="2020-09-30T03:20:46.402Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="个人博客">
-<meta name="twitter:description" content="pip 常见命令使用总结12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 li">
+<meta name="twitter:title" content="pip常见命令">
+<meta name="twitter:description" content="12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &amp;lt;package_name&amp;gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 list --outdate">
 
 
 
@@ -125,7 +126,7 @@
 
 
 
-  <title> | 个人博客</title>
+  <title>pip常见命令 | 个人博客</title>
   
 
 
@@ -331,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">pip常见命令</h1>
         
 
         <div class="post-meta">
@@ -343,7 +344,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:09:32+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:19:22+08:00">
                 2020-09-30
               </time>
             
@@ -353,6 +354,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -391,7 +414,7 @@
       
 
       
-        <h2 id="pip-常见命令使用总结"><a href="#pip-常见命令使用总结" class="headerlink" title="pip 常见命令使用总结"></a>pip 常见命令使用总结</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
 <p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
 <p>pip 国内的一些镜像：</p>
 <ul>
@@ -415,6 +438,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+            <a href="/tags/pip/" rel="tag"># pip</a>
+          
+        </div>
+      
 
       
       
@@ -424,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/08/26/Git-常用命令记录/" rel="next" title="Git 常用命令记录">
-                <i class="fa fa-chevron-left"></i> Git 常用命令记录
+              <a href="/2020/09/30/SSH远程执行命令/" rel="next" title="SSH远程执行命令">
+                <i class="fa fa-chevron-left"></i> SSH远程执行命令
               </a>
             
           </div>
@@ -433,10 +466,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/09/30/SSH远程执行命令/" rel="prev" title>
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -492,17 +521,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -541,7 +561,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -564,22 +584,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#pip-常见命令使用总结"><span class="nav-text">pip 常见命令使用总结</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

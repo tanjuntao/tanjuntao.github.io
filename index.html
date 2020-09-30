@@ -311,6 +311,166 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/pip常见命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/09/30/pip常见命令/" itemprop="url">pip常见命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:19:22+08:00">
+                2020-09-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/09/30/pip常见命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/30/pip常见命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+<p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
+<p>pip 国内的一些镜像：</p>
+<ul>
+<li>清华 tuna（推荐）：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
+<li>中科大 lug（推荐）：<a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
+<li>阿里云：<a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">https://mirrors.aliyun.com/pypi/simple/</a></li>
+<li>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/SSH远程执行命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -330,7 +490,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/09/30/SSH远程执行命令/" itemprop="url">未命名</a></h1>
+                <a class="post-title-link" href="/2020/09/30/SSH远程执行命令/" itemprop="url">SSH远程执行命令</a></h1>
         
 
         <div class="post-meta">
@@ -342,7 +502,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:09:52+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:18:09+08:00">
                 2020-09-30
               </time>
             
@@ -352,6 +512,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -402,144 +584,6 @@
             </a>
           </div>
           <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/pip常见命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/09/30/pip常见命令/" itemprop="url">未命名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-09-30T11:09:32+08:00">
-                2020-09-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/09/30/pip常见命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/09/30/pip常见命令/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="pip-常见命令使用总结"><a href="#pip-常见命令使用总结" class="headerlink" title="pip 常见命令使用总结"></a>pip 常见命令使用总结</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
-<p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
-<p>pip 国内的一些镜像：</p>
-<ul>
-<li>清华 tuna（推荐）：<a href="https://pypi.tuna.tsinghua.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.tuna.tsinghua.edu.cn/simple/</a></li>
-<li>中科大 lug（推荐）：<a href="https://pypi.mirrors.ustc.edu.cn/simple/" target="_blank" rel="noopener">https://pypi.mirrors.ustc.edu.cn/simple/</a></li>
-<li>阿里云：<a href="https://mirrors.aliyun.com/pypi/simple/" target="_blank" rel="noopener">https://mirrors.aliyun.com/pypi/simple/</a></li>
-<li>豆瓣：<a href="http://pypi.douban.com/simple/" target="_blank" rel="noopener">http://pypi.douban.com/simple/</a></li>
-</ul>
-
-          
         
       
     </div>
@@ -1933,7 +1977,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">69</span>
+                  <span class="site-state-item-count">71</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
