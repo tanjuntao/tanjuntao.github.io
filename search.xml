@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux学习记录：rsync使用方法总结]]></title>
+    <url>%2F2020%2F10%2F26%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Arsync%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下 rsync 命令的常见使用方法。 1. Introductionrsync，全称是 remote sync，字面意思是做远程同步的，但是 rsync 能做的不只是远程同步，还能做： 文件拷贝； 系统备份； 远程文件传输； 等。rsync 完全能够替代常见的 cp / mv/ scp (secure copy) 等文件拷贝、移动和远程传输等命令。 rsync 最大的的用途是可以做增量备份，即 rsync 在第一次执行备份时，是全量备份（将所有的文件都备份），后面再重新备份时，只会备份哪些修改过的文件。 rsync 命令支持的参数非常多，下面就每一种参数的具体使用情景，做详细的说明。 2. Usagersync 命令的语法如下： 1rsync [options] [source] [target] 其中： options 表示各种可选参数，是下面要详细介绍的； source 表示原文件或者原目录，可以是本地的，也可以是远程的； target 表示目标目录，可以是本地的，也可以是远程的。 下面详细介绍各种参数的使用方法。 2.1 -r 参数Linux 中的 -r 参数基本都是 recursively 的意思，也就是递归，一般是面向目录，例如 cp 命令中的 -r 参数，rm 命令中的 -r 参数。 注意，-r 参数虽然能够递归的对一个目录进行拷贝，或者传输，**但是，其只传递文件内容，不传输文件的一些属性信息，如修改时间，文件所有者，文件权限等。比方说，当你使用 rsync 传递文件从一个地方到另一个地方之后，文件的所有者不再是原来的所有者，而变成了你。（即文件所有者信息不回被传递） 解释了这么多，来看几个使用 rsync 复制文件、传输文件的例子。 拷贝文件到一个本地目标目录 1rsync source.txt ~/target/ 需要强调的是，如果目标目录不存在，rsync 会自动创建该目录。 拷贝目录到一个本地目标目录 假设 test1 目录下面有两个文件 a.txt 和 b.txt，现在想将 test1 目录拷贝到 test2 目录下，形成 test2/test1 这种结构，可以这么做： 1rsync -r test1 test2/ 拷贝完，我们看看 test2 的内容： 12tanjuntao@mbp:~$ ls test2test1 但是，如果我们在 test1 后面加上 /，结果就不一样了： 1rsync -r test1/ test2/ 结果： 1234tanjuntao@mbp:~$ rsync -r test1/ test2/tanjuntao@mbp:~$ cd test2tanjuntao@mbp:~/test2$ lsa.txt b.txt test1 也就是说： 源目录带有 /，将拷贝其子文件和子目录，该目录本身不会出现在目标目录； 源目录不带 /，将拷贝源目录本身。 目标目录带 / 或者不带 / ，均不影响。 2.2 -a 参数前面说了，-r 参数不会将 modified time ，owner，permition 等属性拷贝到目标文件，那如果想要保持这些信息呢？那就用 -a 参数！ 实际上，如果是用 rsync 做文件备份，基本只会用 -a 参数，而不会使用 -r 参数。 -a 参数可以在拷贝单个文件时用，也可以在拷贝目录时用。拷贝目录时，使用 -a 就不需要再用 -r 了。 拷贝单个文件 1rsync -a source.txt ~/target/ 拷贝一个目录 1rsync -a test1 test2/ 上面的拷贝会形成 test2/test1 的目录结构。如果不想拷贝该目录本身，可以在 test1 后面加上 / : 1rsync -a test1/ test2/ 2.3 -v 参数在 Linux 中，-v 在很多情况下，表示 verbose，也就是在命令执行过程中会输出很多信息。在 rsync 命令中，-v 会将拷贝的整个过程打印在屏幕上。 12345678tanjuntao@mbp:~$ rsync -av test1/ test2building file list ... done./a.txtb.txtsent 196 bytes received 70 bytes 532.00 bytes/sectotal size is 0 speedup is 0.00 2.4 -z 参数在 Linux 中，-z 参数一般表示压缩的意思（想想 tar 命令中的 z 参数表示用 gzip 压缩和解压缩）。 使用这个参数，rsync 会首先将需要拷贝或传输的数据压缩，到了 destination，进行解压缩，整个过程中用户不需要手动做压缩和解压，rsync 全帮用户做好了，这样就能减少需要传输的文件大小。 1tanjuntao@mbp:~$ rsync -az test1/ test2/ 2.5 --progress 或者 -P (大写) 参数使用这个参数，可以将文件拷贝或者传输的过程给显示出来，看下面例子的执行结果就知道了： 123456789101112131415161718192021222324tanjuntao@mbp:~$ rsync -a --progress pytorch-cifar test2/building file list ...64 files to considerpytorch-cifar/pytorch-cifar/LICENSE 1065 100% 0.00kB/s 0:00:00 (xfer#1, to-check=62/64)pytorch-cifar/README.md 1324 100% 1.26MB/s 0:00:00 (xfer#2, to-check=61/64)pytorch-cifar/main.py 4518 100% 4.31MB/s 0:00:00 (xfer#3, to-check=60/64)pytorch-cifar/utils.py 3446 100% 3.29MB/s 0:00:00 (xfer#4, to-check=59/64)pytorch-cifar/.git/pytorch-cifar/.git/HEAD 23 100% 11.23kB/s 0:00:00 (xfer#5, to-check=57/64)pytorch-cifar/.git/config 311 100% 151.86kB/s 0:00:00 (xfer#6, to-check=56/64)pytorch-cifar/.git/description 73 100% 35.64kB/s 0:00:00 (xfer#7, to-check=55/64)pytorch-cifar/.git/index 1818 100% 887.70kB/s 0:00:00 (xfer#8, to-check=54/64)pytorch-cifar/.git/packed-refs 321 100% 104.49kB/s 0:00:00 (xfer#9, to-check=53/64)# &lt;后面省略...&gt; 2.6 -e 参数-e 参数后面接 ssh 表示我现在想要在本地和远程服务器之间，通过 ssh 协议来相互传输文件。 将本地文件传递到远程 1rsync -a -e ssh source.txt &lt;username&gt;@&lt;hostname&gt; 将本地目录传递到远程 1rsync -a -e ssh test1/ &lt;username&gt;@&lt;hostname&gt; 同样的，将远程文件或者目录拉取到本地，只需要将 [source] 和 [target] 参数调换一下位置即可。 有时候 ssh 为了安全起见，不是使用默认的 22 端口，改成了， 例如 1213 端口（为了安全起见防止攻击），这时候还想使用 rsync 在本地和远程之间传输文件，也不难。 将本地文件传输到服务器 1rsync -a -e 'ssh -p 1213' source.txt &lt;username&gt;@&lt;hostname&gt; 将服务器目录拉取到本地 1rsync -a -e 'ssh -p 1213' test2 . # 将 test2 目录拉取到当前目录，形成 ./test2/ 的目录结构 2.7 其它rsync 其实还有很多其他的参数： --include : 包含指定文件； --exclude：不包含指定类型文件或目录； --dry-run：模拟 rsync 的执行，看看执行后会发生什么，但实际上 rsync 并没有执行； --delete：在做备份时使用。如果我们的目标目录只想做源目录的一个镜像，即目标目录中不包含源目录中没有的文件，这时候，在使用 rsync 时带上 --delete 参数，就可以将目标目录中，那些不在源目录中的文件删除掉。 3. 增量备份rsync 最强大的功能就是做增量备份了，即第一次执行备份时，是做全量备份，后面再执行 rsync 做备份时，就是做增量备份了。 我们可以使用 crontab 来帮助我们做定时备份。 首先 crontab -e 来新建一个例行性工作： 会自动调用 vim 编辑器打开 crontab 文件，接着在里面按照 crontab 的时间格式，写入一行，例如下面的： 100 00 * * * rsync -avz /home/tanjuntao/Documents /media/tanjuntao/WestData/backups/ 上面的命令，就会每天在 00:00 时刻，将我的 Documents 文件夹备份到外接的硬盘 WestData 的 backups 文件夹中。 4. Referencesrsync 的具体使用细节，可以参考前三篇文章；rsync 用来备份系统，可以参考阮一峰文章中的增量备份一节，和引用列表最后那一篇文章。 【阮一峰】rsync 用法教程 Rsync (Remote Sync): 10 Practical Examples of Rsync Command in Linux How to Sync Files/Directories Using Rsync with Non-standard SSH Port How to Back Up Your Linux System]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>ssh</tag>
+        <tag>rsync</tag>
+        <tag>备份</tag>
+        <tag>同步</tag>
+        <tag>增量备份</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[pip常见命令]]></title>
     <url>%2F2020%2F09%2F30%2Fpip%E5%B8%B8%E8%A7%81%E5%91%BD%E4%BB%A4%2F</url>
     <content type="text"><![CDATA[12345678910111213141516171819202122232425262728293031323334# 查看 pip3 版本pip3 --version# 查看帮助信息pip3 --help# 查找软件包pip3 search &lt;package_name&gt;# 查看已经安装的软件包pip3 list# 显示软件包当前版本以及最新版本pip3 list --outdated --format columns# 显示某个软件包的信息pip3 show &lt;package_name&gt;# 导出已经安装的软件包列表pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt# 接着想要在另外一台机器上或者另外一个环境下面安装pip3 install -r requirements.txt# 安装软件pip3 install &lt;package_name&gt;# 安装特定版本的软件包pip3 install requests==2.6.0# 升级某个特定软件包pip3 install upgrade &lt;package_name&gt;# 临时更换安装源pip3 install -i &lt;URL&gt; &lt;package_name&gt; # e.g., pip install -i http://mirrors.aliyun.com/pypi/simple/ numpy# 卸载软件包pip3 uninstall &lt;package_name&gt; 完整的文档地址：https://pip.pypa.io/en/stable/ pip 国内的一些镜像： 清华 tuna（推荐）：https://pypi.tuna.tsinghua.edu.cn/simple/ 中科大 lug（推荐）：https://pypi.mirrors.ustc.edu.cn/simple/ 阿里云：https://mirrors.aliyun.com/pypi/simple/ 豆瓣：http://pypi.douban.com/simple/]]></content>
@@ -58,8 +74,8 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>搜索</tag>
+        <tag>Linux</tag>
         <tag>grep</tag>
         <tag>正则表达式</tag>
       </tags>
@@ -267,8 +283,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>ssh</tag>
         <tag>配置</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
@@ -317,8 +333,8 @@
         <category>配置</category>
       </categories>
       <tags>
-        <tag>配置</tag>
         <tag>hexo</tag>
+        <tag>配置</tag>
         <tag>index_generator</tag>
         <tag>archive_generator</tag>
         <tag>tag_generator</tag>
