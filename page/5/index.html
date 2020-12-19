@@ -311,6 +311,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/02/安装jupyter-notebook和修改字体/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/02/安装jupyter-notebook和修改字体/" itemprop="url">安装jupyter notebook和修改字体</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-02T11:09:11+08:00">
+                2019-07-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/07/02/安装jupyter-notebook和修改字体/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/02/安装jupyter-notebook和修改字体/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="安装-jupyter-notebook"><a href="#安装-jupyter-notebook" class="headerlink" title="安装 jupyter notebook"></a>安装 jupyter notebook</h2><p>jupyter notebook 有两种方式安装：一种是通过 Anaconda，Anaconda里面已经集成了jupyter notebook；另一种是通过<code>pip install</code>安装，本文中我采用的是第二种安装方法。</p>
+<p>我Windows系统中只安装了Python3，因此控制台中输入<code>python</code>就指向Python3，如果系统中Python2和Python3共存，那么在控制台中可能需要输入<code>python3</code>，因为官方建议在Python3下面安装jupyter notebook。</p>
+<p>在控制台中输入下面命令安装jupyter notebook:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python -m pip install --upgrade pip</span><br><span class="line">python -m pip install jupyter</span><br></pre></td></tr></table></figure></p>
+<p>安装需要花一定时间，等成功之后，在控制台输入:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook</span><br></pre></td></tr></table></figure></p>
+<p>启动jupyter notebook。然后选择一个目录，点击<code>new</code>就可以新建Python文件了。</p>
+<h2 id="配置-jupyter-notebook-主题和字体"><a href="#配置-jupyter-notebook-主题和字体" class="headerlink" title="配置 jupyter notebook 主题和字体"></a>配置 jupyter notebook 主题和字体</h2><p>这里首先需要安装一个第三方包<a href="https://github.com/dunovank/jupyter-themes" target="_blank" rel="noopener">jupyter-themes</a>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jupyterthemes</span><br></pre></td></tr></table></figure></p>
+<p>github仓库中有每个参数（包括主题、字体、字体大小等）的详细介绍和如何配置，如果有需要可以耐心研究研究。</p>
+<p>下面这个配置可以比较好的满足需求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jt -t oceans16 -f fira -fs 13 -cellw 90% -ofs 11 -dfs 11 -T</span><br></pre></td></tr></table></figure></p>
+<p>直接在控制台中输入上述命令，接着重新启动jupyter notebook就可以更新设置了。</p>
+<p>最后的效果是这样的：</p>
+<p><img src="/2019/07/02/安装jupyter-notebook和修改字体/效果.png" alt="配置效果"></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://blog.csdn.net/qq_30565883/article/details/79444750" target="_blank" rel="noopener">https://blog.csdn.net/qq_30565883/article/details/79444750</a></li>
+<li><a href="https://jupyter.org/install.html" target="_blank" rel="noopener">https://jupyter.org/install.html</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/04/如何删除github仓库中某个文件或者文件夹/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1558,143 +1702,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/28/解决hexo中发布文章后图片无法显示的问题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/28/解决hexo中发布文章后图片无法显示的问题/" itemprop="url">解决hexo中发布文章后图片无法显示的问题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-28T10:02:13+08:00">
-                2019-04-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/04/28/解决hexo中发布文章后图片无法显示的问题/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/28/解决hexo中发布文章后图片无法显示的问题/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-问题描述"><a href="#1-问题描述" class="headerlink" title="1. 问题描述"></a>1. 问题描述</h2><p>默认情况下，在 hexo 中新建一篇<code>markdown博文</code>，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。</p>
-<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2. 解决方法"></a>2. 解决方法</h2><p>首先找到博客根目录下面的<code>_config.yml</code>文件，修改<code>post_assrt_folder</code>的值为<code>true</code>.</p>
-<p>接着 git bash 切换到博客根目录下面，安装第三方插件<code>hexo-assrt-image</code><br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-asset-image --save</span><br></pre></td></tr></table></figure></p>
-<p>接着<code>hexo new &quot;文章名&quot;</code> 新建一篇文章，会发现<code>source/_posts/</code>目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后<code>hexo g</code> -&gt; <code>hexo d</code>，就可以正常的查看这些图片了。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://blog.csdn.net/qq_38148394/article/details/79997971" target="_blank" rel="noopener">https://blog.csdn.net/qq_38148394/article/details/79997971</a></li>
-<li><a href="https://www.jianshu.com/p/3db6a61d3782" target="_blank" rel="noopener">https://www.jianshu.com/p/3db6a61d3782</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1747,7 +1754,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">61</span>
+                  <span class="site-state-item-count">62</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1769,7 +1776,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-count">78</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
