@@ -22,9 +22,9 @@
       </categories>
       <tags>
         <tag>python</tag>
+        <tag>linux</tag>
         <tag>jupyter</tag>
         <tag>远程连接</tag>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -35,15 +35,15 @@
         <category>Linux</category>
       </categories>
       <tags>
-        <tag>ssh</tag>
-        <tag>linux</tag>
         <tag>scp</tag>
+        <tag>linux</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[Linux学习记录：打包及压缩命令使用方法总结]]></title>
     <url>%2F2020%2F10%2F27%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A%E6%89%93%E5%8C%85%E5%8F%8A%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[1. 概览在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 tar，以及如何将其与压缩命令同时使用。 Linux 下面的压缩命令主要有下面几个： zip，对应压缩文件格式：.zip gzip，对应压缩文件格式：.gz bzip2，对应压缩文件格式：.bz2 xz，对应压缩文件格式：.xz 打包命令： tar，对应压缩文件格式：.tar 如果和 gzip 一块使用：.tar.gz 或者 .tgz 如果和 bzip2 一块使用：.tar.bz2 如果和 xz 一块使用：.tar.xz 所谓打包，就是将一个文件、或者一堆文件打包成一个单一文件的过程。 这里还需要说明一个术语：压缩率。其计算公式是：（压缩后文件体积） / （压缩前文件体积）。 还有一点是：gzip bzip2 xz 这几个命令都只能对但一个文件做压缩，不能压缩一个目录，压缩目录需要通过 tar 配合这几个压缩命令来处理，或者使用 zip 命令 zip 命令能提供的功能和 tar 非常类似，更详细的使用方法使用 tldr zip &amp; tldr unzip 来查看。 2. 使用方法2.1 gzip 命令gzip 会就地压缩，也就是源文件会被压缩文件替代。 压缩 1gzip &lt;file_name&gt; 执行完上述命令，会在当前目录下生成 file_name.gz 文件。 压缩命令有个比较有用的参数： -v : 可以显示压缩后的压缩率 1gzip -v &lt;file_name&gt; 解压缩 1gzip -d &lt;file_name&gt;.gz 或者 1gunzip &lt;file_name&gt;.gz 会在当前目录下生成 &lt;file_name&gt; ，源压缩文件不在了。 2.2 bzip2 命令默认情况下，bzip2 命令也是就地压缩，压缩后源文件将会被替代。 使用方法和 gzip 基本一样，但是能提供更好的压缩率，当然，付出的代价就是压缩时间更长。 压缩 1bzip2 &lt;file_name&gt; 或者引入 -v 参数查看压缩率： 1bzip2 -v &lt;file_name&gt; 将在当前目录下生成 &lt;file_name&gt;.bz2 文件。 解压缩 1bzip2 -d &lt;file_name&gt;.bz2 或者 1bunzip2 &lt;file_name&gt;.bz2 2.3 xz 命令默认情况下，xz 命令也是就地压缩，原始文件将被覆盖。 使用方法和前面提到的 gzip bzip2 类似，参数也几乎是一样的。 压缩 1xz &lt;file_name&gt; 或者加上 -v 参数查看压缩率： 1xz -v &lt;file_name&gt; 压缩完后，会在当前目录下生成 &lt;file_name&gt;.xz 文件。 这时可以使用 -l 参数，来查看压缩前后的文件对比信息： 1xz -l &lt;file_name&gt;.xz 举个例子如下： 1234tanjuntao@mbp:~/Downloads$ xz -l ppt模板.pptx.xzStrms Blocks Compressed Uncompressed Ratio Check Filename 1 1 124.7 KiB 135.5 KiB 0.920 CRC64 ppt模板.pptx.xztanjuntao@mbp:~/Downloads$ 解压缩 1xz -d &lt;file_name&gt;.xz 注意，在 xz 命令这里，没有 xunz 这种命令哦。 2.4 zip 命令zip 命令和前面的 gzip bzip2 xz 不一样，它压缩后不会覆盖原有的文件。 压缩单个文件 1zip &lt;compresed&gt;.zip &lt;file_name&gt; 或者加入 -v 参数，可以查看压缩率： 1zip -v &lt;compresed&gt;.zip &lt;file_name&gt; 执行上述命令，将会在当前目录下新生成 &lt;compresed&gt;.zip 文件，原有的 &lt;file_name&gt; 将继续保留。 压缩多个文件 1zip &lt;compresed&gt;.zip a.txt b.txt c.txt 会将 a.txt, b.txt, c.txt 同时压缩到 compresed.zip 文件中。 压缩目录： 1zip -r dir.zip &lt;dir_name&gt; 解压缩 1unzip &lt;compresed&gt;.zip 如果这个 .zip 文件是从多个单一文件通过 zip 命令压缩来的，那么执行 unzip 将会倾倒里面所有的文件到当前文件夹； 如果这个 .zip 文件是从某个目录通过 zip -r 压缩来的，那么执行 unzip 将会在当前目录下生成一个 compresed 名字的目录，目录里面的所有文件不会被倾倒在当前目录。 2.5 tar 命令tar 命令的参数可以说是 Linux 上面最复杂且最不容易记忆的几个之一了，完整的 tar 命令的使用方法可以足够写另外一篇文章。在这里，我主要将介绍 tar 命令最核心的参数。 先解释下 tar 的作用：tar 是打包命令，也就是将一系列文件，或者某个文件夹，打包成单一文件。如果配合前面介绍的 3 种压缩命令 gzip bzip2 xz （不包含 zip ），那么其可以完成 打包+压缩 的功能。 tar 执行完后，原有文件或者目录将保留。 下面先介绍 tar 最常用的参数： -c : create 的意思，创建 tar 文件； -t : 查看 tar 文件； -x : 解打包或者解压缩； -z : 用 gzip 来压缩； -j : 用 bzip2 来压缩； -J : 用 xz 来压缩； -f : 后面接需要生成的文件名； -v : verbose 的意思，显示打包压缩或者解打包解压缩过程中的详细信息； -C : 后面接某个目录，将文件加压缩到该特定目录下（默认是解压缩在当前目录） 只打包文件不压缩 打包单个或多个文件： 1tar -cv -f target.tar a.txt b.txt c.txt d.txt 打包单个目录或者多个目录： 1tar -cv -f target.tar dir1 dir2 dir3 同时打包文件和目录： 1tar -cv -f target.tar dir1 dir2 a.txt b.txt c.txt 打包同时用 gzip 压缩 1tar -cvz -f target.tar.gz dir1 dir2 a.txt 打包同时使用 bzip2 压缩 1tar -cvj -f target.tar.bz dir1 dir2 a.txt 打包同时使用 xz 压缩 1tar -cvJ -f target.tar.xz dir1 dir2 a.txt 查看 1tar -tvz -f target.tar.gz 或者 1tar -tvJ -f target.tar.xz 解包和解压缩 1tar -xvz -f target.tar.gz 上述命令将会在当前目录下解压缩，也就是 target.tar.gz 里面的文件会解压缩到当前目录下。 如果要解压缩到指定目录怎么做呢？ 使用 -C 参数： 1tar -xvz -f target.tar.gz -C ~/test 上述命令，会将 target.tar.gz 里面的所有文件解压到 ~/test 目录下。 总结下：tar 命令可以将任意的文件和目录打包成一个单一文件，解压缩时，默认是将 tar ball 里面的所有文件倾倒在当前目录，如果需要倾倒到其它目录，使用 -C 参数。]]></content>
       <categories>
         <category>Linux</category>
       </categories>
@@ -132,9 +132,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>搜索</tag>
         <tag>grep</tag>
         <tag>正则表达式</tag>
+        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -146,8 +146,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>find</tag>
         <tag>grep</tag>
+        <tag>find</tag>
         <tag>wc</tag>
       </tags>
   </entry>
@@ -237,8 +237,8 @@
         <category>杂</category>
       </categories>
       <tags>
-        <tag>Google</tag>
         <tag>搜索</tag>
+        <tag>Google</tag>
         <tag>高级搜索</tag>
         <tag>size</tag>
         <tag>intitle</tag>
@@ -299,9 +299,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
+        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
-        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +313,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>chmod</tag>
+        <tag>权限</tag>
         <tag>777</tag>
       </tags>
   </entry>

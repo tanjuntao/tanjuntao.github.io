@@ -413,21 +413,16 @@
 
       
         
-          
-            <h2 id="PyCharm-优化"><a href="#PyCharm-优化" class="headerlink" title="PyCharm 优化"></a>PyCharm 优化</h2><h3 id="1-将代码竖直线调整到-80-个字符的位置"><a href="#1-将代码竖直线调整到-80-个字符的位置" class="headerlink" title="1. 将代码竖直线调整到 80 个字符的位置"></a>1. 将代码竖直线调整到 80 个字符的位置</h3><p>良好的 python 代码，每行代码最好不超过 80 个字符，但是 PyCharm 中默认情况下，代码超长的竖直线并不在 80 个字符的位置，我们需要手动修改。</p>
+          <h2 id="PyCharm-优化"><a href="#PyCharm-优化" class="headerlink" title="PyCharm 优化"></a>PyCharm 优化</h2><h3 id="1-将代码竖直线调整到-80-个字符的位置"><a href="#1-将代码竖直线调整到-80-个字符的位置" class="headerlink" title="1. 将代码竖直线调整到 80 个字符的位置"></a>1. 将代码竖直线调整到 80 个字符的位置</h3><p>良好的 python 代码，每行代码最好不超过 80 个字符，但是 PyCharm 中默认情况下，代码超长的竖直线并不在 80 个字符的位置，我们需要手动修改。</p>
 <p>分两步，首先需要确保这条竖直线的代码长度提示功能是正常打开的：</p>
 <p><img src="/2021/01/11/PyCharm配置优化/1.png" alt></p>
-<p>接着需要将每行代码长度修改成 80 字符：</p>
-<p><img src="/2021/01/11/PyCharm配置优化/2.png" alt></p>
-<h3 id="2-关闭掉恼人的-typo-提示"><a href="#2-关闭掉恼人的-typo-提示" class="headerlink" title="2. 关闭掉恼人的 typo 提示"></a>2. 关闭掉恼人的 typo 提示</h3><p>PyCharm 中默认情况下，会对自己不认识的单词加上波浪线提示，该词可能是一个 typo，但是实际编码时，谁会给变量名起全名啊，所以这个功能也需要关闭。</p>
-<p>参考下图关闭步骤：只需要将 typo 对应的 checkbox 取消勾选就可以了：</p>
-<p><img src="/2021/01/11/PyCharm配置优化/3.png" alt></p>
-<h3 id="3-关闭掉恼人的-PEP8-代码格式提示"><a href="#3-关闭掉恼人的-PEP8-代码格式提示" class="headerlink" title="3. 关闭掉恼人的 PEP8 代码格式提示"></a>3. 关闭掉恼人的 PEP8 代码格式提示</h3><p>PyCharm 中默认情况下将 PEP8 代码风格提示开启，这就导致了几百行代码写下来，满屏都是下划线….非常影响代码阅读。这里 Python 代码风格建议参考 <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="noopener">Google’s Python Style Guid</a> 。</p>
-<p>找到 <code>Preference -&gt; Editor -&gt; Inspections -&gt; Python</code>，然后将下面两个 PEP8 对应的 CheckBox 取消勾选：</p>
-<p><img src="/2021/01/11/PyCharm配置优化/4.png" alt></p>
-<p>至此：就可以在 Pycharm 中愉快的编码了。</p>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/11/PyCharm配置优化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -892,9 +887,34 @@
 
       
         
-          
-            
-          
+          <h3 id="1-概览"><a href="#1-概览" class="headerlink" title="1. 概览"></a>1. 概览</h3><p>在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 <code>tar</code>，以及如何将其与压缩命令同时使用。</p>
+<p>Linux 下面的压缩命令主要有下面几个：</p>
+<ul>
+<li><code>zip</code>，对应压缩文件格式：<code>.zip</code></li>
+<li><code>gzip</code>，对应压缩文件格式：<code>.gz</code></li>
+<li><code>bzip2</code>，对应压缩文件格式：<code>.bz2</code></li>
+<li><code>xz</code>，对应压缩文件格式：<code>.xz</code></li>
+</ul>
+<p>打包命令：</p>
+<ul>
+<li><code>tar</code>，对应压缩文件格式：<code>.tar</code><ul>
+<li>如果和 <code>gzip</code> 一块使用：<code>.tar.gz</code> 或者 <code>.tgz</code></li>
+<li>如果和 <code>bzip2</code> 一块使用：<code>.tar.bz2</code></li>
+<li>如果和 <code>xz</code> 一块使用：<code>.tar.xz</code></li>
+</ul>
+</li>
+</ul>
+<p>所谓打包，就是将一个文件、或者一堆文件打包成一个单一文件的过程。</p>
+<p>这里还需要说明一个术语：<strong>压缩率</strong>。其计算公式是：<strong>（压缩后文件体积）  / （压缩前文件体积）</strong>。</p>
+<p>还有一点是：<strong><code>gzip</code> <code>bzip2</code> <code>xz</code> 这几个命令都只能对但一个文件做压缩，不能压缩一个目录，压缩目录需要通过 <code>tar</code> 配合这几个压缩命令来处理，或者使用 <code>zip</code> 命令</strong></p>
+<p><strong><code>zip</code> 命令能提供的功能和 <code>tar</code> 非常类似，更详细的使用方法使用 <code>tldr zip</code> &amp; <code>tldr unzip</code> 来查看</strong>。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1209,7 +1229,7 @@
       
         
           
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 pip3 版本</span></span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助信息</span></span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查找软件包</span></span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看已经安装的软件包</span></span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示软件包当前版本以及最新版本</span></span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示某个软件包的信息</span></span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 导出已经安装的软件包列表</span></span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 接着想要在另外一台机器上或者另外一个环境下面安装</span></span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装软件</span></span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装特定版本的软件包</span></span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 升级某个特定软件包</span></span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 临时更换安装源</span></span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span><span class="bash"> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载软件包</span></span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
 <p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
 <p>pip 国内的一些镜像：</p>
 <ul>

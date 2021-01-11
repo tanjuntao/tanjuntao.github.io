@@ -79,15 +79,18 @@
 
 
 
+<meta name="description" content="1. 概览在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 tar，以及如何将其与压缩命令同时使用。 Linux 下面的压缩命令主要有下面几个：  zip，对应压缩文件格式：.zip gzip，对应压缩文件格式：.gz bzip2，对应压缩文件格式：.bz2 xz，对应压缩文件格式：.xz  打包命令：  tar，">
 <meta name="keywords" content="zip,gzip,tar,bz2,xz,打包,压缩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习记录：打包及压缩命令使用方法总结">
 <meta property="og:url" content="http://yoursite.com/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/index.html">
 <meta property="og:site_name" content="个人博客">
+<meta property="og:description" content="1. 概览在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 tar，以及如何将其与压缩命令同时使用。 Linux 下面的压缩命令主要有下面几个：  zip，对应压缩文件格式：.zip gzip，对应压缩文件格式：.gz bzip2，对应压缩文件格式：.bz2 xz，对应压缩文件格式：.xz  打包命令：  tar，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-01-11T06:31:01.758Z">
+<meta property="og:updated_time" content="2021-01-11T06:34:36.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习记录：打包及压缩命令使用方法总结">
+<meta name="twitter:description" content="1. 概览在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 tar，以及如何将其与压缩命令同时使用。 Linux 下面的压缩命令主要有下面几个：  zip，对应压缩文件格式：.zip gzip，对应压缩文件格式：.gz bzip2，对应压缩文件格式：.bz2 xz，对应压缩文件格式：.xz  打包命令：  tar，">
 
 
 
@@ -411,7 +414,125 @@
       
 
       
-        
+        <h3 id="1-概览"><a href="#1-概览" class="headerlink" title="1. 概览"></a>1. 概览</h3><p>在这篇文章中，我将总结 Linux 系统下面常见的几种压缩工具，包括它们的压缩命令、解压缩命令、特殊参数等，同时，我还将介绍打包命令 <code>tar</code>，以及如何将其与压缩命令同时使用。</p>
+<p>Linux 下面的压缩命令主要有下面几个：</p>
+<ul>
+<li><code>zip</code>，对应压缩文件格式：<code>.zip</code></li>
+<li><code>gzip</code>，对应压缩文件格式：<code>.gz</code></li>
+<li><code>bzip2</code>，对应压缩文件格式：<code>.bz2</code></li>
+<li><code>xz</code>，对应压缩文件格式：<code>.xz</code></li>
+</ul>
+<p>打包命令：</p>
+<ul>
+<li><code>tar</code>，对应压缩文件格式：<code>.tar</code><ul>
+<li>如果和 <code>gzip</code> 一块使用：<code>.tar.gz</code> 或者 <code>.tgz</code></li>
+<li>如果和 <code>bzip2</code> 一块使用：<code>.tar.bz2</code></li>
+<li>如果和 <code>xz</code> 一块使用：<code>.tar.xz</code></li>
+</ul>
+</li>
+</ul>
+<p>所谓打包，就是将一个文件、或者一堆文件打包成一个单一文件的过程。</p>
+<p>这里还需要说明一个术语：<strong>压缩率</strong>。其计算公式是：<strong>（压缩后文件体积）  / （压缩前文件体积）</strong>。</p>
+<p>还有一点是：<strong><code>gzip</code> <code>bzip2</code> <code>xz</code> 这几个命令都只能对但一个文件做压缩，不能压缩一个目录，压缩目录需要通过 <code>tar</code> 配合这几个压缩命令来处理，或者使用 <code>zip</code> 命令</strong></p>
+<p><strong><code>zip</code> 命令能提供的功能和 <code>tar</code> 非常类似，更详细的使用方法使用 <code>tldr zip</code> &amp; <code>tldr unzip</code> 来查看</strong>。</p>
+<a id="more"></a>
+<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2. 使用方法"></a>2. 使用方法</h3><h4 id="2-1-gzip-命令"><a href="#2-1-gzip-命令" class="headerlink" title="2.1 gzip 命令"></a>2.1 <code>gzip</code> 命令</h4><p><code>gzip</code> 会就地压缩，也就是源文件会被压缩文件替代。</p>
+<p><strong>压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>执行完上述命令，会在当前目录下生成 <code>file_name.gz</code> 文件。</p>
+<p>压缩命令有个比较有用的参数：</p>
+<ul>
+<li><code>-v</code> : 可以显示压缩后的压缩率</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -v &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>解压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -d &lt;file_name&gt;.gz</span><br></pre></td></tr></table></figure>
+<p>或者 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gunzip &lt;file_name&gt;.gz</span><br></pre></td></tr></table></figure>
+<p>会在当前目录下生成 <code>&lt;file_name&gt;</code> ，源压缩文件不在了。</p>
+<h4 id="2-2-bzip2-命令"><a href="#2-2-bzip2-命令" class="headerlink" title="2.2 bzip2 命令"></a>2.2 <code>bzip2</code> 命令</h4><p>默认情况下，<code>bzip2</code> 命令也是就地压缩，压缩后源文件将会被替代。</p>
+<p>使用方法和 <code>gzip</code> 基本一样，但是能提供更好的压缩率，当然，付出的代价就是压缩时间更长。</p>
+<p><strong>压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>或者引入 <code>-v</code> 参数查看压缩率：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 -v &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>将在当前目录下生成 <code>&lt;file_name&gt;.bz2</code> 文件。</p>
+<p><strong>解压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bzip2 -d &lt;file_name&gt;.bz2</span><br></pre></td></tr></table></figure>
+<p>或者 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bunzip2 &lt;file_name&gt;.bz2</span><br></pre></td></tr></table></figure>
+<h4 id="2-3-xz-命令"><a href="#2-3-xz-命令" class="headerlink" title="2.3 xz 命令"></a>2.3 <code>xz</code> 命令</h4><p>默认情况下，<code>xz</code> 命令也是就地压缩，原始文件将被覆盖。</p>
+<p>使用方法和前面提到的 <code>gzip</code> <code>bzip2</code> 类似，参数也几乎是一样的。</p>
+<p><strong>压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xz &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>或者加上 <code>-v</code> 参数查看压缩率：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xz -v &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>压缩完后，会在当前目录下生成 <code>&lt;file_name&gt;.xz</code> 文件。</p>
+<p>这时可以使用 <code>-l</code> 参数，来查看压缩前后的文件对比信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xz -l &lt;file_name&gt;.xz</span><br></pre></td></tr></table></figure>
+<p>举个例子如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tanjuntao@mbp:~/Downloads$ xz -l ppt模板.pptx.xz</span><br><span class="line">Strms  Blocks   Compressed Uncompressed  Ratio  Check   Filename</span><br><span class="line">    1       1    124.7 KiB    135.5 KiB  0.920  CRC64   ppt模板.pptx.xz</span><br><span class="line">tanjuntao@mbp:~/Downloads$</span><br></pre></td></tr></table></figure>
+<p><strong>解压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xz -d &lt;file_name&gt;.xz</span><br></pre></td></tr></table></figure>
+<p>注意，在 <code>xz</code> 命令这里，没有 <code>xunz</code> 这种命令哦。</p>
+<h4 id="2-4-zip-命令"><a href="#2-4-zip-命令" class="headerlink" title="2.4 zip 命令"></a>2.4 <code>zip</code> 命令</h4><p><code>zip</code> 命令和前面的 <code>gzip</code> <code>bzip2</code> <code>xz</code> 不一样，它压缩后不会覆盖原有的文件。</p>
+<p><strong>压缩单个文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip &lt;compresed&gt;.zip &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>或者加入 <code>-v</code> 参数，可以查看压缩率：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -v &lt;compresed&gt;.zip &lt;file_name&gt;</span><br></pre></td></tr></table></figure>
+<p>执行上述命令，将会在当前目录下新生成 <code>&lt;compresed&gt;.zip</code> 文件，原有的 <code>&lt;file_name&gt;</code> 将继续保留。</p>
+<p><strong>压缩多个文件</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip &lt;compresed&gt;.zip a.txt b.txt c.txt</span><br></pre></td></tr></table></figure>
+<p>会将 a.txt, b.txt, c.txt 同时压缩到 compresed.zip 文件中。</p>
+<p><strong>压缩目录</strong>：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">zip -r dir.zip &lt;dir_name&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>解压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip &lt;compresed&gt;.zip</span><br></pre></td></tr></table></figure>
+<ul>
+<li>如果这个 <code>.zip</code> 文件是从多个单一文件通过 <code>zip</code> 命令压缩来的，那么执行 <code>unzip</code> 将会倾倒里面所有的文件到当前文件夹；</li>
+<li>如果这个 <code>.zip</code> 文件是从某个目录通过 <code>zip -r</code> 压缩来的，那么执行 <code>unzip</code> 将会在当前目录下生成一个 <code>compresed</code> 名字的目录，目录里面的所有文件不会被倾倒在当前目录。</li>
+</ul>
+<h4 id="2-5-tar-命令"><a href="#2-5-tar-命令" class="headerlink" title="2.5 tar 命令"></a>2.5 <code>tar</code> 命令</h4><p><code>tar</code> 命令的参数可以说是 Linux 上面最复杂且最不容易记忆的几个之一了，完整的 <code>tar</code> 命令的使用方法可以足够写另外一篇文章。在这里，我主要将介绍 <code>tar</code> 命令最核心的参数。</p>
+<p>先解释下 <code>tar</code> 的作用：<code>tar</code> 是打包命令，也就是将一系列文件，或者某个文件夹，打包成单一文件。如果配合前面介绍的 3 种压缩命令 <code>gzip</code> <code>bzip2</code> <code>xz</code> （不包含 <code>zip</code> ），那么其可以完成 <strong>打包+压缩</strong> 的功能。</p>
+<p><code>tar</code> 执行完后，原有文件或者目录将保留。</p>
+<p>下面先介绍 <code>tar</code> 最常用的参数：</p>
+<ul>
+<li><code>-c</code> : create 的意思，创建 tar 文件；</li>
+<li><code>-t</code> : 查看 tar 文件；</li>
+<li><code>-x</code> : 解打包或者解压缩；</li>
+<li><code>-z</code> : 用 <code>gzip</code> 来压缩；</li>
+<li><code>-j</code> : 用 <code>bzip2</code> 来压缩；</li>
+<li><code>-J</code> : 用 <code>xz</code> 来压缩；</li>
+<li><code>-f</code> : 后面接需要生成的文件名；</li>
+<li><code>-v</code> : verbose 的意思，显示打包压缩或者解打包解压缩过程中的详细信息；</li>
+<li><code>-C</code> : 后面接某个目录，将文件加压缩到该特定目录下（默认是解压缩在当前目录）</li>
+</ul>
+<p><strong>只打包文件不压缩</strong></p>
+<p>打包单个或多个文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cv -f target.tar a.txt b.txt c.txt d.txt</span><br></pre></td></tr></table></figure>
+<p>打包单个目录或者多个目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cv -f target.tar dir1 dir2 dir3</span><br></pre></td></tr></table></figure>
+<p>同时打包文件和目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cv -f target.tar dir1 dir2 a.txt b.txt c.txt</span><br></pre></td></tr></table></figure>
+<p><strong>打包同时用 <code>gzip</code> 压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvz -f target.tar.gz dir1 dir2 a.txt</span><br></pre></td></tr></table></figure>
+<p><strong>打包同时使用 <code>bzip2</code> 压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvj -f target.tar.bz dir1 dir2 a.txt</span><br></pre></td></tr></table></figure>
+<p><strong>打包同时使用 <code>xz</code> 压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -cvJ -f target.tar.xz dir1 dir2 a.txt</span><br></pre></td></tr></table></figure>
+<p><strong>查看</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -tvz -f target.tar.gz</span><br></pre></td></tr></table></figure>
+<p>或者</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -tvJ -f target.tar.xz</span><br></pre></td></tr></table></figure>
+<p><strong>解包和解压缩</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvz -f target.tar.gz</span><br></pre></td></tr></table></figure>
+<p>上述命令将会在当前目录下解压缩，也就是 <code>target.tar.gz</code> 里面的文件会解压缩到当前目录下。</p>
+<p>如果要解压缩到指定目录怎么做呢？</p>
+<p>使用 <code>-C</code> 参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xvz -f target.tar.gz -C ~/test</span><br></pre></td></tr></table></figure>
+<p>上述命令，会将 <code>target.tar.gz</code> 里面的所有文件解压到 <code>~/test</code> 目录下。</p>
+<p><strong>总结下：<code>tar</code> 命令可以将任意的文件和目录打包成一个单一文件，解压缩时，默认是将 tar ball 里面的所有文件倾倒在当前目录，如果需要倾倒到其它目录，使用 <code>-C</code> 参数。</strong></p>
+
       
     </div>
     
@@ -521,8 +642,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -584,6 +714,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概览"><span class="nav-text">1. 概览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-使用方法"><span class="nav-text">2. 使用方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1-gzip-命令"><span class="nav-text">2.1 gzip 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2-bzip2-命令"><span class="nav-text">2.2 bzip2 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-3-xz-命令"><span class="nav-text">2.3 xz 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-4-zip-命令"><span class="nav-text">2.4 zip 命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-5-tar-命令"><span class="nav-text">2.5 tar 命令</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
