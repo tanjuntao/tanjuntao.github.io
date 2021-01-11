@@ -421,7 +421,7 @@
 <a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;user_name&gt;@&lt;host_name&gt; '&lt;your command&gt;'</span><br></pre></td></tr></table></figure>
 <p>例如，我想看远程主机上面 HOME 目录有什么文件，那么可以：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 注意，如果命令需要带参数，那么整个命令串一定要用单引号括起来</span><br><span class="line">ssh user@202.38.79.55 'ls ~'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 注意，如果命令需要带参数，那么整个命令串一定要用单引号括起来</span></span><br><span class="line">ssh user@202.38.79.55 'ls ~'</span><br></pre></td></tr></table></figure>
 <h4 id="t-参数"><a href="#t-参数" class="headerlink" title="-t 参数"></a><code>-t</code> 参数</h4><p>有时候我们执行的命令需要和用户进行一定的交互，例如使用 <code>sudo</code> 的命令一定需要用户输入密码，这种情况如果仍然像上面那样来提交命令会出错，我们需要加入 <code>-t</code> 参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -t user@202.38.79.55 'sudo apt update'</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -t user@202.38.79.55 'htop'</span><br></pre></td></tr></table></figure>
@@ -472,8 +472,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2020/09/30/pip常见命令/" rel="prev" title="pip常见命令">
-                pip常见命令 <i class="fa fa-chevron-right"></i>
+              <a href="/2020/09/30/pip相关用法/" rel="prev" title="pip相关用法">
+                pip相关用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -557,7 +557,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
