@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/SSH/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/ssh/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/SSH/">
+  <link rel="canonical" href="http://yoursite.com/tags/ssh/">
 
 
 
 
 
-  <title>标签: SSH | 个人博客</title>
+  <title>标签: ssh | 个人博客</title>
   
 
 
@@ -303,7 +303,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>SSH<small>标签</small>
+        <h1>ssh<small>标签</small>
         </h1>
       </div>
 
@@ -315,17 +315,69 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2020/09/30/SSH远程执行命令/" itemprop="url">
+            <a class="post-title-link" href="/2020/12/19/Linux-学习记录：scp-命令的几种用法/" itemprop="url">
               
-                <span itemprop="name">SSH远程执行命令</span>
+                <span itemprop="name">Linux 学习记录：scp 命令的几种用法</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2020-09-30T11:18:09+08:00" content="2020-09-30">
-          09-30
+        <time class="post-time" itemprop="dateCreated" datetime="2020-12-19T13:00:51+08:00" content="2020-12-19">
+          12-19
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/10/26/Linux学习记录：rsync使用方法总结/" itemprop="url">
+              
+                <span itemprop="name">Linux学习记录：rsync使用方法总结</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-10-26T19:31:01+08:00" content="2020-10-26">
+          10-26
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/03/06/ssh-config-配置文件/" itemprop="url">
+              
+                <span itemprop="name">ssh config 配置文件</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-03-06T10:43:41+08:00" content="2020-03-06">
+          03-06
         </time>
       </div>
 
@@ -923,75 +975,6 @@
                 searchResultList += result.item;
               })
               searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-             searchResultList += "</ul>";
               resultContent.innerHTML = searchResultList;
             }
           }

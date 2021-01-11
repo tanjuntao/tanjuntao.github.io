@@ -21,8 +21,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>python</tag>
+        <tag>linux</tag>
         <tag>jupyter</tag>
         <tag>远程连接</tag>
       </tags>
@@ -299,9 +299,9 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>权限</tag>
         <tag>SUID</tag>
         <tag>SGID</tag>
+        <tag>权限</tag>
       </tags>
   </entry>
   <entry>
@@ -313,8 +313,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>chmod</tag>
         <tag>权限</tag>
+        <tag>chmod</tag>
         <tag>777</tag>
       </tags>
   </entry>
@@ -340,8 +340,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>ssh</tag>
         <tag>配置</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
