@@ -311,6 +311,169 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/PyCharm配置优化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/11/PyCharm配置优化/" itemprop="url">PyCharm配置优化</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-11T14:20:58+08:00">
+                2021-01-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/11/PyCharm配置优化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/01/11/PyCharm配置优化/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="PyCharm-优化"><a href="#PyCharm-优化" class="headerlink" title="PyCharm 优化"></a>PyCharm 优化</h2><h3 id="1-将代码竖直线调整到-80-个字符的位置"><a href="#1-将代码竖直线调整到-80-个字符的位置" class="headerlink" title="1. 将代码竖直线调整到 80 个字符的位置"></a>1. 将代码竖直线调整到 80 个字符的位置</h3><p>良好的 python 代码，每行代码最好不超过 80 个字符，但是 PyCharm 中默认情况下，代码超长的竖直线并不在 80 个字符的位置，我们需要手动修改。</p>
+<p>分两步，首先需要确保这条竖直线的代码长度提示功能是正常打开的：</p>
+<p><img src="/2021/01/11/PyCharm配置优化/1.png" alt></p>
+<p>接着需要将每行代码长度修改成 80 字符：</p>
+<p><img src="/2021/01/11/PyCharm配置优化/2.png" alt></p>
+<h3 id="2-关闭掉恼人的-typo-提示"><a href="#2-关闭掉恼人的-typo-提示" class="headerlink" title="2. 关闭掉恼人的 typo 提示"></a>2. 关闭掉恼人的 typo 提示</h3><p>PyCharm 中默认情况下，会对自己不认识的单词加上波浪线提示，该词可能是一个 typo，但是实际编码时，谁会给变量名起全名啊，所以这个功能也需要关闭。</p>
+<p>参考下图关闭步骤：只需要将 typo 对应的 checkbox 取消勾选就可以了：</p>
+<p><img src="/2021/01/11/PyCharm配置优化/3.png" alt></p>
+<h3 id="3-关闭掉恼人的-PEP8-代码格式提示"><a href="#3-关闭掉恼人的-PEP8-代码格式提示" class="headerlink" title="3. 关闭掉恼人的 PEP8 代码格式提示"></a>3. 关闭掉恼人的 PEP8 代码格式提示</h3><p>PyCharm 中默认情况下将 PEP8 代码风格提示开启，这就导致了几百行代码写下来，满屏都是下划线….非常影响代码阅读。这里 Python 代码风格建议参考 <a href="https://google.github.io/styleguide/pyguide.html" target="_blank" rel="noopener">Google’s Python Style Guid</a> 。</p>
+<p>找到 <code>Preference -&gt; Editor -&gt; Inspections -&gt; Python</code>，然后将下面两个 PEP8 对应的 CheckBox 取消勾选：</p>
+<p><img src="/2021/01/11/PyCharm配置优化/4.png" alt></p>
+<p>至此：就可以在 Pycharm 中愉快的编码了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/19/远程使用-jupyter-notebook/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -421,6 +584,317 @@
             </a>
           </div>
           <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/12/19/Linux-学习记录：scp-命令的几种用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/12/19/Linux-学习记录：scp-命令的几种用法/" itemprop="url">Linux 学习记录：scp 命令的几种用法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-12-19T13:00:51+08:00">
+                2020-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/12/19/Linux-学习记录：scp-命令的几种用法/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/12/19/Linux-学习记录：scp-命令的几种用法/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章总结下 <code>scp</code> 命令几种常见的使用方法，方便自己查找。</p>
+<h2 id="1-scp-命令介绍"><a href="#1-scp-命令介绍" class="headerlink" title="1. scp 命令介绍"></a>1. <code>scp</code> 命令介绍</h2><p><code>scp</code> 其实是一个 SSH 客户端工具，全称是 <code>secure copy</code>，其主要用途是做本机和远程服务器之间的文件拷贝，底层使用的是 ssh 协议，因此在跨主机之间拷贝文件时，具有安全性保障。</p>
+<h2 id="2-常见使用方法"><a href="#2-常见使用方法" class="headerlink" title="2. 常见使用方法"></a>2. 常见使用方法</h2><h3 id="2-1-从服务器下载单个文件"><a href="#2-1-从服务器下载单个文件" class="headerlink" title="2.1 从服务器下载单个文件"></a>2.1 从服务器下载单个文件</h3><p>首先在本地切换到想要保存服务器文件的目录，然后执行下列命令:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/hello.txt .</span><br></pre></td></tr></table></figure>
+<p>注意：命令最后有一个 <code>.</code>，表示本机当前目录的意思。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/12/19/Linux-学习记录：scp-命令的几种用法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/" itemprop="url">Linux学习记录：打包及压缩命令使用方法总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-10-27T16:47:21+08:00">
+                2020-10-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/10/27/Linux学习记录：打包及压缩命令使用方法总结/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
         
       
     </div>
@@ -735,7 +1209,7 @@
       
         
           
-            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+            <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 pip3 版本</span></span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助信息</span></span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查找软件包</span></span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看已经安装的软件包</span></span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示软件包当前版本以及最新版本</span></span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示某个软件包的信息</span></span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 导出已经安装的软件包列表</span></span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 接着想要在另外一台机器上或者另外一个环境下面安装</span></span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装软件</span></span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装特定版本的软件包</span></span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 升级某个特定软件包</span></span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 临时更换安装源</span></span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span><span class="bash"> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载软件包</span></span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
 <p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
 <p>pip 国内的一些镜像：</p>
 <ul>
@@ -1421,484 +1895,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/26/Linux-学习记录：统计文件和目录的个数/" itemprop="url">Linux 学习记录：统计文件和目录的个数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-26T10:04:44+08:00">
-                2020-05-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/26/Linux-学习记录：统计文件和目录的个数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/26/Linux-学习记录：统计文件和目录的个数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇文章总结下 Linux 下如何统计某个目录下面总共有多少个文件或文件夹。</p>
-<h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h3><p>平时在 Linux 下工作，我们可能经常会碰到这种场景，即需要统计某个目录下总共有多少个文件，或者多少个子文件夹。这时候，熟练的使用一些命令将会有助于你开展工作。</p>
-<p>注：<strong>下问的命令需要有足够权限执行，否则碰到有些文件不能读取（权限不足）的情况，将会造成统计出错。</strong></p>
-<h3 id="2-使用-ls-和-wc-命令"><a href="#2-使用-ls-和-wc-命令" class="headerlink" title="2. 使用 ls 和 wc 命令"></a>2. 使用 <code>ls</code> 和 <code>wc</code> 命令</h3><p><code>ls</code> 命令有一个参数是 <code>-l</code> ，表示列举出文件的详细信息：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/26/Linux-学习记录：统计文件和目录的个数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/25/Linux-学习记录：jq-处理-json/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/25/Linux-学习记录：jq-处理-json/" itemprop="url">Linux 学习记录：jq 处理 json</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-25T10:16:18+08:00">
-                2020-05-25
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/25/Linux-学习记录：jq-处理-json/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/25/Linux-学习记录：jq-处理-json/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇文章总结下 Linux 下如何在 shell 中利用 <code>jq</code> 处理 json 数据。</p>
-<h3 id="1-背景"><a href="#1-背景" class="headerlink" title="1. 背景"></a>1. 背景</h3><p>最近项目上需要利用政府数据做些分析，但是深圳市政府提供的 API，请求的数据都是分页的，通过 <code>curl</code> 每次只能请求一部分数据，但是我们的应用需要利用所有的数据，所以得将每次请求的 <em>分片数据</em>  整合起来。</p>
-<p>又因为 API 返回的数据是 json 格式的，所以得需要在 shell 中处理 json。</p>
-<p>于是想起了之前在 Github 上遇到的项目：<a href="https://github.com/jlevy/the-art-of-command-line/blob/master/README-zh.md" target="_blank" rel="noopener">the art of command line</a>，里面介绍到了一个工具 <code>jq</code>，专门用来在 shell 里面处理 json 数据。于是专门学习了下其使用方法，在这篇文章中作个总结。</p>
-<h3 id="2-jq-的使用方法"><a href="#2-jq-的使用方法" class="headerlink" title="2. jq 的使用方法"></a>2. <code>jq</code> 的使用方法</h3><h4 id="2-1-准备工作"><a href="#2-1-准备工作" class="headerlink" title="2.1 准备工作"></a>2.1 准备工作</h4>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/25/Linux-学习记录：jq-处理-json/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/23/Linux-学习记录：su-和-sudo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/23/Linux-学习记录：su-和-sudo/" itemprop="url">Linux 学习记录：su 和 sudo</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-23T18:14:52+08:00">
-                2020-05-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/23/Linux-学习记录：su-和-sudo/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/23/Linux-学习记录：su-和-sudo/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>之前一直对 <code>su</code> 和 <code>sudo</code> 这两个命令犯迷糊，最近专门搜了这方面的资料，总算是把两者的关系以及用法搞清楚了，这篇文章来系统总结一下。</p>
-<h3 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1. 准备工作"></a>1. 准备工作</h3><p>因为本篇博客中涉及到用户切换，所以我需要提前准备好几个测试用户，方便后续切换。</p>
-<p>Linux 中新建用户的命令是 <code>useradd</code> ，一般系统中这个命令对应的路径都在 <code>PATH</code> 环境变量里，如果直接输入 <code>useradd</code> 不管用的话，就用绝对路径名的方式：<code>/usr/sbin/useradd</code> 。</p>
-<p><code>useradd</code> 新建用户命令只有 root 用户才能执行，我们先从普通用户 ubuntu 切换到 root 用户（如何切换后文会介绍）：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/23/Linux-学习记录：su-和-sudo/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1951,7 +1947,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1973,7 +1969,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2017,7 +2013,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

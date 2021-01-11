@@ -311,6 +311,543 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/Linux-学习记录-find-命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/27/Linux-学习记录-find-命令/" itemprop="url">Linux 学习记录: find 命令</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T17:21:01+08:00">
+                2020-02-27
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/27/Linux-学习记录-find-命令/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/Linux-学习记录-find-命令/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><code>find</code> 命令算是平时使用频率较高的一个命令了，因为经常需要搜索相关的文件，熟悉它的常见使用方法，对工作是很有帮助的。这篇文章来总结下如何用好 <code>find</code> 命令。</p>
+<h4 id="1-根据文件名查找"><a href="#1-根据文件名查找" class="headerlink" title="1. 根据文件名查找"></a>1. 根据文件名查找</h4><p><code>find</code> 最常见的使用方法就是根据文件名来进行查找了。</p>
+<p>查找当前目录 <code>.</code> 下文件名为 <code>hello.txt</code> 的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name "hello.txt"</span><br></pre></td></tr></table></figure>
+<p>查找当前目录 <code>.</code> 下文件后缀名为 <code>.py</code> 的文件（使用通配符 <code>*</code>）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name "*.py"</span><br></pre></td></tr></table></figure>
+<p>那如果加个否定，查找当前目录下文件后缀名不是 <code>.py</code> 的文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . ! -name "*.py"</span><br></pre></td></tr></table></figure>
+<p>忽略文件大小写，查找当前目录 <code>.</code> 下文件名中包含 <code>test</code> 的普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -iname "*test*"  </span><br><span class="line"><span class="meta">#</span> 1. 忽略大小写的查找方法是使用参数 -iname，不是用 find -type f -i -name "*test*"</span><br><span class="line"><span class="meta">#</span> 2. -type f 意思是查找普通文件，后面会解释</span><br></pre></td></tr></table></figure>
+<h4 id="2-根据文件类型查找"><a href="#2-根据文件类型查找" class="headerlink" title="2. 根据文件类型查找"></a>2. 根据文件类型查找</h4><p>如果需要查找指定类型的文件，需要跟 <code>-type</code> 参数。</p>
+<p><code>type</code> 参数的主要取值有（不包括全部）：</p>
+<ul>
+<li><code>-f</code> : 普通文件；</li>
+<li><code>-d</code> : 目录；</li>
+<li><code>-l</code> : 连接文件；</li>
+<li><code>-s</code> : socket 类型文件。</li>
+</ul>
+<p>查找当前目录下以 <code>test</code> 打头的目录：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -name "test*"</span><br></pre></td></tr></table></figure>
+<h4 id="3-根据文件大小查找"><a href="#3-根据文件大小查找" class="headerlink" title="3. 根据文件大小查找"></a>3. 根据文件大小查找</h4><p>如果需要利用文件大小来做筛选，可以跟 <code>-size</code> 参数。</p>
+<p><code>-size</code> 参数的单位主要有（不包括全部）：</p>
+<ul>
+<li><code>-c</code> : 字节 Byte；</li>
+<li><code>-k</code> : 千字节，KB；</li>
+<li><code>-M</code> : 兆字节，MB;</li>
+<li><code>-G</code> :  GB。</li>
+</ul>
+<p>此外，还有加号 <code>+</code> 和减号 <code>-</code> 有大小含义：</p>
+<ul>
+<li><code>+50M</code> : 表示大于 50M 的文件；</li>
+<li><code>-50M</code> : 表示小于 50M 的文件；</li>
+<li><code>50M</code> : 表示大小刚好是 50M 的文件。</li>
+</ul>
+<p>查找当前目录下大于 100M 的普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -size +100M</span><br></pre></td></tr></table></figure>
+<h4 id="4-根据时间查找"><a href="#4-根据时间查找" class="headerlink" title="4. 根据时间查找"></a>4. 根据时间查找</h4><p><code>find</code> 命令后面可跟的时间参数主要有 3 个，单位都是 “天”：</p>
+<ul>
+<li><code>-mtime</code> : modified time，表示<code>修改时间</code>；</li>
+<li><code>-atime</code> : accessed time，表示<code>访问时间</code>；</li>
+<li><code>-ctime</code> : changed time，表示 <code>修改时间</code>。</li>
+</ul>
+<p>同 <code>-size</code> 参数一样，时间参数同样可以配合加号 <code>+</code> 和 减号 <code>-</code> 一起使用：</p>
+<ul>
+<li><code>+n</code> : 表示 n 天之前的，不包括 n 天本身；</li>
+<li><code>-n</code> : 表示 n 天以内的，包含 n 天本身；</li>
+<li><code>n</code> : 表示 n 天当天。</li>
+</ul>
+<p>举个例子，我们需要找出当前目录下超过 10 天的没有被访问过的普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -atime +10</span><br></pre></td></tr></table></figure>
+<p>同样，找出当前目录下 5 天之内被修改的普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -mtime -5</span><br></pre></td></tr></table></figure>
+<h4 id="5-根据文件所有者和权限查找"><a href="#5-根据文件所有者和权限查找" class="headerlink" title="5. 根据文件所有者和权限查找"></a>5. 根据文件所有者和权限查找</h4><p>需要使用 <code>-user</code> 和 <code>-perm</code> 参数。</p>
+<p>例如，找出 <code>/</code> 目录下文件拥有者是 <code>ubuntu</code> 的所有普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -type f -user ubuntu</span><br></pre></td></tr></table></figure>
+<p>找出当前目录下所有权限为 <code>655</code> 的普通文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -perm 655</span><br></pre></td></tr></table></figure>
+<h4 id="6-限制查找深度"><a href="#6-限制查找深度" class="headerlink" title="6. 限制查找深度"></a>6. 限制查找深度</h4><p>可以使用 <code>-maxdepth</code> 和 <code>-mindepth</code> 两个参数来控制查找的深度，因为默认情况下，<code>find</code> 命令会查找其后所跟的目录及其所有子目录。</p>
+<p>如果只查找当前目录本身，不深入其子目录查找，可以设置 <code>-maxdepth 1</code> :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -maxdepth 1 -name "*.py"</span><br></pre></td></tr></table></figure>
+<p>如果需要查找当前目录的子目录中所包含的 <code>.py</code> 文件，可以加上 <code>-mindepth 2</code> 参数：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mindepth 2 -maxdepth 2 -name "*.py"</span><br></pre></td></tr></table></figure>
+<p>*注：这两个参数不要同 <code>-type</code> 参数一同使用（尝试后发现不行）</p>
+<h4 id="7-查找完执行额外的动作"><a href="#7-查找完执行额外的动作" class="headerlink" title="7. 查找完执行额外的动作"></a>7. 查找完执行额外的动作</h4><p>默认情况下 <code>find</code> 命令查找结束后，会将结果输出到屏幕上。如果我们想要对所有查找到的结果做一些处理，可以使用 <code>-exec</code> 参数。</p>
+<p>拿一个例子说明。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /usr/bin /usr/sbin -perm 644 -exec ls -l &#123;&#125; \;</span><br></pre></td></tr></table></figure>
+<p>有 3 个需要注意的地方：</p>
+<ul>
+<li><code>-exec</code> : 跟在 <code>find</code> 命令的最后，表示执行额外的动作；</li>
+<li><code>{}</code> :  表示 <code>find</code>命令找到的所有内容；</li>
+<li><code>\;</code> : 表示额外动作的结束。</li>
+</ul>
+<p>另一个例子：将当前目录下超过 10 天未被访问的文件移动到 <code>./expired</code> 目录下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -atime +10 -exec mv &#123;&#125; ./expired \;</span><br></pre></td></tr></table></figure>
+<p>最后一个例子，批量修改文件权限：将当前目录下权限为 <code>644</code> 的普通文件，权限修改为 <code>655</code> :</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -perm 644 -exec chmod &#123;&#125; 655 \;</span><br></pre></td></tr></table></figure>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
+<li><p>《鸟哥的 Linux 私房菜》6.5 节《指令与文件的搜寻》</p>
+</li>
+<li><p><a href="https://www.cnblogs.com/chyingp/p/linux-command-find.html" target="_blank" rel="noopener">https://www.cnblogs.com/chyingp/p/linux-command-find.html</a></p>
+</li>
+<li><p><a href="http://einverne.github.io/post/2018/02/find-command.html" target="_blank" rel="noopener">http://einverne.github.io/post/2018/02/find-command.html</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/yanlaifan/article/details/52797155" target="_blank" rel="noopener">https://blog.csdn.net/yanlaifan/article/details/52797155</a></p>
+</li>
+<li><p><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></p>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/" itemprop="url">matlab里面利用classify函数做多类别线性判别分析</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-11T10:57:10+08:00">
+                2019-12-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="url">论文阅读笔记：A survey on Adversarial Machine Learning</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-24T21:30:17+08:00">
+                2019-11-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>这篇简短的综述论文主要介绍了什么是<code>Adversarial Machine Learning</code>，列出了<code>AML</code>的几种常见分类。</p>
+<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Definition of adversarial machine learning</p>
+<blockquote>
+<p>machine learning in the presence of an adversary.</p>
+</blockquote>
+<p>All kinds of attacks can be categorized in three main types:</p>
+<ol>
+<li><strong>poisoning attacks</strong>: trying to poison the training of test dat</li>
+<li><strong>detection attacks</strong>: with the objective of evading detection </li>
+<li><strong>model extraction attacks</strong>: with the objective of replicating the model</li>
+</ol>
+<p>当然，这三种分类方法只是作何自己做的一个分类，实际上还可以有不同的分类方法，需要做的就是理解每一种分分类的划分依据是什么就可以了，不需要刻意去记住有那几种分类。</p>
+<p>当然，还有一种分类是将攻击者和防御者建模成一个<strong>博弈问题</strong>。</p>
+<blockquote>
+<p>It is worth to mention another much different aspect of research in adversarial machine learning which models the model-attacker worlds as a game and defines different moves for each side of the game.<br>By such definition, a <code>min-max algorithm</code> can be used to determine best moves for each side and fide possible <strong>equilibriums</strong> of the game.</p>
+</blockquote>
+<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><p>这一小节列举出了目前在<code>AML</code>领域中几种常见的攻击方法。</p>
+<p><strong>A. Model Extraction Attacks</strong></p>
+<p>这种攻击方法一般在<code>machine learning as a service</code>的场景中。即云服务商只会给用户提供一个查询的API接口，但是每次查询是需要收费的。</p>
+<p>这时候攻击者就希望能不能找到一个和目标模型表现近似的模型，从而避免向云服务商付费。</p>
+<p>这种攻击可以大致分为下面3类：</p>
+<ol>
+<li>eqution-solving model extraction attacks<br>在逻辑回归等简单模型中适用，原理主要是解方程组。</li>
+<li>path finding attacks<br>一般用在决策树模型中。</li>
+<li>membership queries attacks<br>判定一个给定的数据点事会否在原始数据集中。</li>
+</ol>
+<p><strong>B. Adversarial Examples</strong></p>
+<p>这个不需要过多解释了，现在的文章实在是太多了。</p>
+<p>需要介绍的是在论文[1]中，作者提出了既能够欺骗人眼也能够欺骗机器的对抗样本。</p>
+<p>对抗样本目前最需要解决的问题是防御问题，尤其时针对迁移性攻击的防御。</p>
+<p><strong>C. Data Poisoning Attacks</strong></p>
+<p>这种攻击适用于攻击者不能直接接触到训练数据，但训练过程是<code>online training</code> or <code>adaptive training</code>，即训练过程中需要不断加入新的训练数据。</p>
+<p>这种攻击在SVM中很容易成功，因为<strong>svm做分类最主要就是support vectors在起作用</strong>。</p>
+<p><strong>D. Model Evasion Attacks</strong></p>
+<p>这种攻击和对抗样本攻击很像，是在模型做inference阶段的攻击。但是因为做<code>spam detection</code> or <code>malware detection</code>在机器学习中很重要，所以这种攻击就被单独拎出来了。</p>
+<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
+<li>这篇文章中没有介绍道data inversion attack，即能够推导出原始训练数据近似的攻击。</li>
+<li>AML的防御还是一个需要不断深入研究的领域。</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] Elsayed, G.F., Shankar, S., Cheung, B.Papernot, N., Kurakin, A., Goodfellow, I. and Sohl-Dickstein, J., 2018. Adversarial Examples that Fool both Human and Computer Vision. arXiv preprint arXiv:1802.08195</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/23/论文阅读笔记：Federated-Learning-Challenges-Methods-and-Future-Directions/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1263,468 +1800,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" itemprop="url">论文阅读笔记：Intriguing Properties of Neural Network</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T10:00:30+08:00">
-                2019-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对抗样本（adversarial examples）的开山之作。</p>
-<p>文中主要提到了神经网络两个比较奇怪的性质：</p>
-<ol>
-<li>神经网络中携带语义信息的不是某单个神经元，而是整个网络所表示的空间。</li>
-<li>给样本添加一些轻微的扰动，会导致神经网络模型错误分类，这些样本就称为对抗样本。</li>
-</ol>
-<p>这里对第一个性质做简单的说明。</p>
-<p>首先，作者们通过观察某个隐层中某个特定神经元对什么样的输入图片会产生最大的激活值，以此来确定这个神经元对什么样的特征是最敏感的，从而确定这个神经元包含什么样的语义信息。这个想法是可行的并且前面（2014年之前）已经有这方面的研究了。实验结果就发现：单个神经元确实能够表示某种语义信息。接着作者们又做了另外一个实验：选择隐层所表示的空间中的一个随机方向（就是基向量的随机线性组合，是隐层中单个神经元所无法表示的方向），然后用同样的方法使其激活值最大。实验结果发现，同单个神经元一样，这个随机的方向也能表示某种确切的语义信息，从而说明了这个随机方向也可以表示某种特征。</p>
-<p>所以最后得到的结论就是：<strong>神经网络某个隐藏层中携带语义信息的并不是单个神经元，而是这个隐层所表示的整个空间。</strong></p>
-<p>文中提出来的几个假设：</p>
-<blockquote>
-<ol>
-<li>it is assumend that is possible for the output unit to assign non-significant(and, presumaby, non-epsilon)probabilities to regions of the input space that contain no training examples in their vicinity.</li>
-<li>the adversarial examples represent low-probability(high-dimensional)”pockets” in the manifold, which are hard to efficiently find by simply randomly sampling the input around a given example.</li>
-</ol>
-</blockquote>
-<p>那么作者们是如何找到对抗样本的呢？</p>
-<p>寻找对抗样本的过程，其实是一个不断优化的过程：一方面我们希望添加的扰动尽可能小，因为如果是较大的扰动，任何state-of-the-art的模型都会错误分类，就算是人眼也可能识别不了，这和对抗样本问题的研究初衷不一样，我们想知道的是为什么神经网络在面对这些人眼不可分辨的图片时，会给出巨大的错误结果。另一方面，我们希望对抗样本能被错误分类到另一个其它类别，从损失函数的角度看，就是想让其越大越好，于是作者们给出了下面的优化目标函数：</p>
-<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/1.png" alt></p>
-<p>其中<code>x</code>是原始图片，<code>r</code>是添加的扰动，<code>f</code>是分类器，<code>l</code>是目标类别（同<code>x</code>正确的类别不同）。我们希望<code>r</code>越小越好，同时使对抗样本<code>x + r</code>被错误分类到一个指定类别<code>l</code>下，同时还需要生成的<code>x + r</code>的值在<code>[0,1]</code>之间（保证是一张合法的图片）。</p>
-<p>直接解这个问题不容易，因此作者转换了一种思路，从损失函数的角度找最优的<code>r</code>:</p>
-<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/2.png" alt></p>
-<p>简单看看损失函数：一方面我们需要<code>r</code>的某种范式越小越好，另一方面我们希望<code>loss(x+r, l)</code>越小越好，因为这样表明<code>x+r</code>分类成类别<code>l</code>的概率越大。所以我们的目标是最小化上述公式，用到的方法是<strong>box-constrained L-BFGS</strong>.</p>
-<p>最后，作者们通过实验发现了几个重要的现象：</p>
-<ul>
-<li>对于论文中提到的所有网络结构（non-convolutional network, AlexNet, QuocNet），都能用上述方法生成对抗样本；</li>
-<li>对抗样本具有跨模型的泛化能力：在A模型上产生的对抗样本，有很大一部分在B模型（和A模型结构相同，超参数不同）上也有效（也能是B模型错误分类）</li>
-<li>对抗样本具有跨数据集的泛化能力：在D1数据集训练得到的模型上产生的对抗样本，在D2数据集训练得到的模型上也有效，D1和D2属于不同的子集，两个模型是结构完全不同的模型。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/09/统计学习方法：感知机/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/09/统计学习方法：感知机/" itemprop="url">统计学习方法：感知机</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-09T17:11:09+08:00">
-                2019-07-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/09/统计学习方法：感知机/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/09/统计学习方法：感知机/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><em>注：代码和运行结果都是从jupyter notebook中导出的</em></p>
-<p>导入所需要的第三方库<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.datasets <span class="keyword">import</span> load_iris</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br></pre></td></tr></table></figure></p>
-<p>导入数据（iris数据集是sklearn中自带的数据集）<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># load data</span></span><br><span class="line">iris = load_iris()</span><br><span class="line">df = pd.DataFrame(iris.data, columns=iris.feature_names)</span><br><span class="line">df[<span class="string">'label'</span>] = iris.target</span><br><span class="line">df.columns = [<span class="string">'sepal length'</span>, <span class="string">'sepal width'</span>, <span class="string">'petal length'</span>, <span class="string">'petal width'</span>, <span class="string">'label'</span>]</span><br><span class="line">df.label.value_counts()</span><br></pre></td></tr></table></figure></p>
-<pre><code>2    50
-1    50
-0    50
-Name: label, dtype: int64
-</code></pre><p>选取两个特征<code>sepal length</code>和<code>sepal width</code>，绘制散点图<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">plt.scatter(df[:<span class="number">50</span>][<span class="string">'sepal length'</span>], df[:<span class="number">50</span>][<span class="string">'sepal width'</span>], label=<span class="string">'0'</span>)</span><br><span class="line">plt.scatter(df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal length'</span>], df[<span class="number">50</span>:<span class="number">100</span>][<span class="string">'sepal width'</span>], label=<span class="string">'1'</span>)</span><br><span class="line">plt.xlabel(<span class="string">'sepal length'</span>)</span><br><span class="line">plt.ylabel(<span class="string">'sepal width'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1b17e936160&gt;
-</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_2_1.png" alt="png"></p>
-<p>数据处理：将pandas类型数据转换为<code>np.array</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">data = np.array(df.iloc[:<span class="number">100</span>, [<span class="number">0</span>, <span class="number">1</span>, <span class="number">-1</span>]])</span><br><span class="line">X, y = data[:, :<span class="number">-1</span>], data[:, <span class="number">-1</span>]</span><br><span class="line">y = np.array([<span class="number">1</span> <span class="keyword">if</span> i == <span class="number">1.</span> <span class="keyword">else</span> <span class="number">-1</span> <span class="keyword">for</span> i <span class="keyword">in</span> y])</span><br></pre></td></tr></table></figure></p>
-<p>定义模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Model</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.w = np.ones(len(data[<span class="number">0</span>])<span class="number">-1</span>, dtype=np.float32)</span><br><span class="line">        self.b = <span class="number">0</span></span><br><span class="line">        self.l_rate = <span class="number">0.1</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">linear_func</span><span class="params">(self, w, b, x)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> np.dot(x, w) + b</span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fit</span><span class="params">(self, X_train, y_train)</span>:</span></span><br><span class="line">        finished = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">while</span> <span class="keyword">not</span> finished:</span><br><span class="line">            wrong_count = <span class="number">0</span></span><br><span class="line">            <span class="keyword">for</span> d <span class="keyword">in</span> range(len(X_train)):</span><br><span class="line">                <span class="keyword">if</span> y_train[d] * self.linear_func(self.w, self.b, X_train[d]) &lt;= <span class="number">0</span>:</span><br><span class="line">                    self.w = self.w + self.l_rate * y_train[d] * X_train[d]</span><br><span class="line">                    self.b = self.b + self.l_rate * y_train[d]</span><br><span class="line">                    wrong_count += <span class="number">1</span></span><br><span class="line">            <span class="keyword">if</span> wrong_count == <span class="number">0</span>:</span><br><span class="line">                finished = <span class="literal">True</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"perceptron model"</span></span><br></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">perceptron = Model()</span><br><span class="line">perceptron.fit(X, y)</span><br><span class="line">print(perceptron.w)</span><br><span class="line">print(perceptron.b)</span><br></pre></td></tr></table></figure>
-<pre><code>[  7.8 -10. ]
--12.099999999999973
-</code></pre><p>使用自己训练的模型做二分类<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.linspace(<span class="number">4</span>, <span class="number">7</span>, <span class="number">10</span>)</span><br><span class="line">y_ = -(perceptron.w[<span class="number">0</span>] * x_points + perceptron.b) / perceptron.w[<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1b17ecb4d68&gt;
-</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_6_1.png" alt="png"></p>
-<p>使用sklearn中自带的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.linear_model <span class="keyword">import</span> Perceptron</span><br><span class="line">clf = Perceptron(fit_intercept=<span class="literal">False</span>, max_iter=<span class="number">1000</span>, shuffle=<span class="literal">False</span>)</span><br><span class="line">clf.fit(X, y)</span><br><span class="line"></span><br><span class="line">print(clf.coef_)</span><br><span class="line">print(clf.intercept_)</span><br></pre></td></tr></table></figure></p>
-<pre><code>[[  74.6 -127.2]]
-[0.]
-
-
-c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: FutureWarning: max_iter and tol parameters have been added in Perceptron in 0.19. If max_iter is set but tol is left unset, the default value for tol in 0.19 and 0.20 will be None (which is equivalent to -infinity, so it has no effect) but will change in 0.21 to 1e-3. Specify tol to silence this warning.
-  FutureWarning)
-</code></pre><p>绘制sklearn训练得到的感知机模型<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x_points = np.arange(<span class="number">4</span>, <span class="number">8</span>)</span><br><span class="line">y_ = -(clf.coef_[<span class="number">0</span>][<span class="number">0</span>] * x_points + clf.intercept_) / clf.coef_[<span class="number">0</span>][<span class="number">1</span>]</span><br><span class="line">plt.plot(x_points, y_)</span><br><span class="line"></span><br><span class="line">plt.plot(data[:<span class="number">50</span>, <span class="number">0</span>], data[:<span class="number">50</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'blue'</span>, label=<span class="string">'0'</span>)</span><br><span class="line">plt.plot(data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">0</span>], data[<span class="number">50</span>:<span class="number">100</span>, <span class="number">1</span>], <span class="string">'bo'</span>, color=<span class="string">'orange'</span>, label=<span class="string">'1'</span>)</span><br><span class="line">plt.legend()</span><br></pre></td></tr></table></figure></p>
-<pre><code>&lt;matplotlib.legend.Legend at 0x1b17f046278&gt;
-</code></pre><p><img src="/2019/07/09/统计学习方法：感知机/output_8_1.png" alt="png"></p>
-<p>C:\Python36\Lib\site-packages\sklearn\datasets\data</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/05/python中如何批量修改文件后缀名/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="url">python中如何批量修改文件后缀名</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-05T10:02:02+08:00">
-                2019-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/05/python中如何批量修改文件后缀名/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/05/python中如何批量修改文件后缀名/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>win10中的锁屏壁纸着实好看，想着能不能在本机中找到壁纸存放的目录，于是网上搜了一下，还真有。</p>
-<p>壁纸文件存放的目录是<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\18856\AppData\Local\Packages\MicrosoftWindowsContentDeliveryManager_cw5n1h2txyewy\LocalState\Assets</span><br></pre></td></tr></table></figure></p>
-<p>上面<code>18856</code>是我电脑上的账户名，只需要修改为你自己的账户名即可，其它的所有分级目录都相同。</p>
-<p>切换到噶目录下后，发现所有文件都没有后缀名，不能直接用图片查看器打开，需要一个个修改后缀名为<code>.jpg</code>格式，但是手工是在是太麻烦，因此想着用Python批量修改。</p>
-<h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>用<code>os.path</code>里面几个常用的API可以实现需求。</p>
-<p><strong>代码</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">path_input = sys.argv[<span class="number">1</span>]</span><br><span class="line">ext_input = sys.argv[<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">components = path_input.split(<span class="string">'\\'</span>)</span><br><span class="line">path_new = <span class="string">''</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将原始单斜杠'\'转为双斜杠'\\'</span></span><br><span class="line"><span class="keyword">for</span> idx, item <span class="keyword">in</span> enumerate(components):</span><br><span class="line">    <span class="keyword">if</span> idx != (len(components) - <span class="number">1</span>):</span><br><span class="line">        path_new += item + <span class="string">'\\\\'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        path_new += item</span><br><span class="line"></span><br><span class="line"><span class="comment"># print(path_new)</span></span><br><span class="line"></span><br><span class="line">files = os.listdir(path_new)</span><br><span class="line"><span class="keyword">for</span> file <span class="keyword">in</span> files:</span><br><span class="line">	<span class="comment"># 分隔文件名和后缀名</span></span><br><span class="line">    fullname = os.path.splitext(file)</span><br><span class="line">    newname = fullname[<span class="number">0</span>] + ext_input</span><br><span class="line">    os.rename(path_new + <span class="string">'\\\\'</span> + file, path_new + <span class="string">'\\\\'</span> + newname)</span><br></pre></td></tr></table></figure></p>
-<p><strong>运行</strong><br>从命令行中运行，需要附带两个参数：</p>
-<ol>
-<li>原文件所在的目录，将windows中文件资源管理器上的路径拷贝过来；</li>
-<li>目标后缀名，如<code>.jpg</code></li>
-</ol>
-<p><strong>运行示例</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python batch_rename.py C:\Users\18856\AppData\Local\Packages\Microsoft.Windows.ContentDeliveryManager_cw5n1h2txyewy\LocalState\As</span><br><span class="line">sets .jpg</span><br></pre></td></tr></table></figure></p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
-<li><a href="https://www.runoob.com/python/att-string-split.html" target="_blank" rel="noopener">https://www.runoob.com/python/att-string-split.html</a></li>
-<li><a href="https://www.cnblogs.com/wuxie1989/p/5623435.html" target="_blank" rel="noopener">https://www.cnblogs.com/wuxie1989/p/5623435.html</a></li>
-<li><a href="https://blog.csdn.net/weixin_40449300/article/details/83184928" target="_blank" rel="noopener">https://blog.csdn.net/weixin_40449300/article/details/83184928</a></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1777,7 +1852,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1799,7 +1874,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1843,7 +1918,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

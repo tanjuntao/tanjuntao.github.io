@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PyCharm配置优化]]></title>
+    <url>%2F2021%2F01%2F11%2FPyCharm%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%2F</url>
+    <content type="text"><![CDATA[PyCharm 优化1. 将代码竖直线调整到 80 个字符的位置良好的 python 代码，每行代码最好不超过 80 个字符，但是 PyCharm 中默认情况下，代码超长的竖直线并不在 80 个字符的位置，我们需要手动修改。 分两步，首先需要确保这条竖直线的代码长度提示功能是正常打开的： 接着需要将每行代码长度修改成 80 字符： 2. 关闭掉恼人的 typo 提示PyCharm 中默认情况下，会对自己不认识的单词加上波浪线提示，该词可能是一个 typo，但是实际编码时，谁会给变量名起全名啊，所以这个功能也需要关闭。 参考下图关闭步骤：只需要将 typo 对应的 checkbox 取消勾选就可以了： 3. 关闭掉恼人的 PEP8 代码格式提示PyCharm 中默认情况下将 PEP8 代码风格提示开启，这就导致了几百行代码写下来，满屏都是下划线….非常影响代码阅读。这里 Python 代码风格建议参考 Google’s Python Style Guid 。 找到 Preference -&gt; Editor -&gt; Inspections -&gt; Python，然后将下面两个 PEP8 对应的 CheckBox 取消勾选： 至此：就可以在 Pycharm 中愉快的编码了。]]></content>
+      <categories>
+        <category>Python</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+        <tag>PyCharm</tag>
+        <tag>配置</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[远程使用 jupyter notebook]]></title>
     <url>%2F2020%2F12%2F19%2F%E8%BF%9C%E7%A8%8B%E4%BD%BF%E7%94%A8-jupyter-notebook%2F</url>
     <content type="text"><![CDATA[这篇文章记录下如何远程使用 jupyter notebook。 首先在服务器上，激活自己的 Python 虚拟环境： 1source /raid/workspace/tanjuntao/py35env/bin/activate 如果没有安装 jupyter 这个包的话，需要首先安装： 1pip install jupyter 安装成功后，接着启动 jupyter notebook 这个服务： 1jupyter notebook --no-browser --port=8080 这里面的端口可以任意指定，只要不和系统进程的端口冲突即可。 启动之后，会有一串输出提示信息： 12345678910(py35env) (base) user@1-scw4750:/raid/workspace/tanjuntao$ jupyter notebook --no-browser --port=8080[W 18:48:29.706 NotebookApp] Collisions detected in /home/user/.jupyter/jupyter_notebook_config.py and /home/user/.jupyter/jupyter_notebook_config.json config files. /home/user/.jupyter/jupyter_notebook_config.json has higher priority: &#123; "NotebookApp": &#123; "password": "'sha1:c2a505dd0ed4:b62adc94acff946e3efa595a4a6e1d7b35cd6716' ignored, using 'sha1:2b1858591aaf:43b0123a99a39ee6a38e329a336b48092c9776f8'" &#125; &#125;[I 18:48:29.895 NotebookApp] Serving notebooks from local directory: /raid/workspace/tanjuntao[I 18:48:29.895 NotebookApp] The Jupyter Notebook is running at:[I 18:48:29.895 NotebookApp] http://s1.linkeservers.ml:8080/[I 18:48:29.895 NotebookApp] Use Control-C to stop this server and shut down all kernels (twice to skip confirmation). 从第 9 行中我们可以知道，我们的服务已经成功启动起来了，地址是：s1.linkeservers.ml，端口是 8080。 如果端口 8080 被其它进程占用的话，那么 jupyter notebook 会自动分配下一个端口，也就是 8081 。 接着，我们在自己本地的浏览器上，直接打开刚才的地址：http://s1.linkeservers.ml:8080/，这时候会弹出一个登录窗口，如果你记得密码，直接登录就好了；如果忘了密码，就需要重新设置。 重设密码也很简单，在服务器上，先 ctrl + c 关闭 jupyter notebook 服务，接着输入： 1jupyter notebook password 这时候会提示输入新密码，输入完之后再输一遍进行确认，jupyter notebook 的登录密码就被重置了。 接着我们重新启动 jupyter notebook 服务，在浏览器中输入刚才重置后的密码，就可以使用远程的 jupyter noteboook 了。 有两点需要注意的： 在浏览器中打开的 jupyter notebook 目录，和在服务器上启动 jupyter notebook 时的目录一致。也就是说，当前在服务器上所处的目录，会在浏览器中以 jupyter notebook 的方式打开； 可以同时在多个端口启动当前的 jupyter notebook : 我们可以在多个终端会话下启动 jupyter notebook，每次使用不同的 --port 参数。这样的话，如果我有多个工程项目，在不同的目录下，我就可以先切换到各个工程所在目录，然后在该目录下去启动 jupyter notebook，然后在浏览器上打开不同的端口，就可以同时编辑不同的工程项目了。 启动完服务之后，如何关闭该端口的服务呢？有两种方式： 直接在服务器终端下 ctrl + c 关闭服务； 在浏览器打开的 jupyter notebook 页面下，点击 quit 按钮即可。 References Jupyter Notebook修改登陆密码]]></content>
@@ -12,6 +25,36 @@
         <tag>jupyter</tag>
         <tag>远程连接</tag>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux 学习记录：scp 命令的几种用法]]></title>
+    <url>%2F2020%2F12%2F19%2FLinux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Ascp-%E5%91%BD%E4%BB%A4%E7%9A%84%E5%87%A0%E7%A7%8D%E7%94%A8%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[这篇文章总结下 scp 命令几种常见的使用方法，方便自己查找。 1. scp 命令介绍scp 其实是一个 SSH 客户端工具，全称是 secure copy，其主要用途是做本机和远程服务器之间的文件拷贝，底层使用的是 ssh 协议，因此在跨主机之间拷贝文件时，具有安全性保障。 2. 常见使用方法2.1 从服务器下载单个文件首先在本地切换到想要保存服务器文件的目录，然后执行下列命令: 1scp &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/hello.txt . 注意：命令最后有一个 .，表示本机当前目录的意思。 2.2 从服务器下载整个文件夹首先在本地切换到想要保存服务器文件夹的目录，然后执行下列命令: 1scp -r &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir . 唯一的区别是多了一个 -r 参数，表示递归下载，也就是下载一个文件夹。 2.3 上传单个文件到服务器切换到本机需要上传的文件所在的文件夹下，然后执行下列命令： 1scp Test.txt &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir 2.4 上传整个文件夹到服务器同样道理，上传文件夹需要加入 -r 参数 : 1scp -r LocalDir &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir 2.5 一次性上传多个文件有时候需要将本地好几个文件一次性上传到服务器上，而不想多次执行单个上传文件的命令，可以这么做： 1scp a.txt b.txt c.txt &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir 即：将多个文件一个个列出来即可。 2.6 从服务器一次性下载多个文件反过来，有时候也想要从服务器上一次性下载多个文件到本地，这种情况语法稍微特殊一点： 1scp &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir/\&#123;a.txt, b.txt, c.txt\&#125; . 服务器上的多个文件，需要放入到 {} 中，并且以逗号分隔开来，同时 {} 需要用反斜杠进行转义。 2.7 如果 ssh 服务不是使用默认的 22 的端口有时候为了安全性考虑，服务器上的 sshd 服务不是在默认的 22 端口启动的，而是换了一个不容易猜测的端口，比方说 2323，这时候就需要在 scp 命令中引入一个指定端口的参数：-P （大写）参数。 前面的六种情况，都必须加入 -P 参数才能正常执行。以从本地传输多个文件到服务器为例，也就是 2.5 中的例子，现在命令需要修改为： 1scp -P 2323 a.txt, b.txt &lt;username&gt;@&lt;hostname&gt;:/datapool/workspace/tanjuntao/TestDir -P 参数必须紧跟在 scp 的后面。 3. 注意事项scp 命令也是可以利用到本地的 SSH 配置文件 ~/.ssh/config 的，也就是可以用服务器别名来替代 &lt;username&gt;@&lt;hostname&gt;。 比方说，如果 &lt;username&gt;@&lt;hostname&gt; 这台服务器在 config 文件中有个 jump 的别名，那么，上面的 2.7 就可以变成下面这样： 1scp -P 2323 a.txt, b.txt jump:/datapool/workspace/tanjuntao/TestDir 一下子方便了很多。]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>ssh</tag>
+        <tag>linux</tag>
+        <tag>scp</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Linux学习记录：打包及压缩命令使用方法总结]]></title>
+    <url>%2F2020%2F10%2F27%2FLinux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9A%E6%89%93%E5%8C%85%E5%8F%8A%E5%8E%8B%E7%BC%A9%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>zip</tag>
+        <tag>gzip</tag>
+        <tag>tar</tag>
+        <tag>bz2</tag>
+        <tag>xz</tag>
+        <tag>打包</tag>
+        <tag>压缩</tag>
       </tags>
   </entry>
   <entry>
@@ -347,8 +390,8 @@
         <category>配置</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
         <tag>配置</tag>
+        <tag>hexo</tag>
         <tag>index_generator</tag>
         <tag>archive_generator</tag>
         <tag>tag_generator</tag>

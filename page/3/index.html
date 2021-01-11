@@ -311,6 +311,500 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/14/Linux学习记录：输入输出重定向与管道/" itemprop="url">Linux学习记录：输入输出重定向与管道</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-14T15:47:23+08:00">
+                2020-03-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/14/Linux学习记录：输入输出重定向与管道/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/14/Linux学习记录：输入输出重定向与管道/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章来总结下 Linux 中的输入输出重定向功能，以及如何使用管道命令。</p>
+<h4 id="1-背景需求"><a href="#1-背景需求" class="headerlink" title="1. 背景需求"></a>1. 背景需求</h4><p>有时候我们使用<code>find</code> 命令查找文件或目录时，会碰到 <code>Permission denied</code> 这样的错误输出信息。但是这些错误信息并不是我们想要的，我们只需要那些符合查询条件的输出，这种情况下该怎么办呢？输入输出重定向可以帮我们将错误信息和正确信息区分开来。</p>
+<h4 id="2-输入输出重定向"><a href="#2-输入输出重定向" class="headerlink" title="2. 输入输出重定向"></a>2. 输入输出重定向</h4><p>Linux 中的输入输出分为下面 3 种：</p>
+<ul>
+<li>标准输入（standard input）：简称为 <code>stdin</code>，用数字 <code>0</code> 来做标记，一般用 <em>键盘</em> 作为我们的标准输入；</li>
+<li>标准输出（standard output）：简称为 <code>stdout</code>，用数字 <code>1</code> 来做标记，一般用 <em>屏幕</em> 作为我们的标准输出；</li>
+<li>标准错误输出（standard error output）：简称为 <code>stderr</code>，用数字 <code>2</code> 来标记，一般也用 <em>屏幕</em> 作为标准输出。</li>
+</ul>
+<p>举几个例子：</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/14/Linux学习记录：输入输出重定向与管道/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/" itemprop="url">Linux学习记录：SUID 和 SGID 等特殊权限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-08T11:59:32+08:00">
+                2020-03-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h3><p>在上一篇文章 <a href="https://tanjuntao.github.io/2020/03/07/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9Achmod-%E4%BF%AE%E6%94%B9%E6%9D%83%E9%99%90/" target="_blank" rel="noopener">Linux学习记录：chmod 修改权限</a> 中，我们已经介绍了 Linux 中是如何控制文件以及目录的权限的。</p>
+<p>这篇文章中我们再来介绍几种特殊的权限，即 <code>SUID</code> 、<code>SGID</code> 和 <code>SBIT</code>。</p>
+<h3 id="2-相关背景"><a href="#2-相关背景" class="headerlink" title="2. 相关背景"></a>2. 相关背景</h3><p>从前面的介绍我们已经知道，使用 <code>ll</code> 命令来查看文件或者目录权限时，第一列一共有 10 个字符长度，我们从右往左编号，即 <code>9876543210</code>，其中：</p>
+<ul>
+<li><code>9</code> 共 1 位表示标识位：标识当前的文件类型。如 <code>d</code> 表示目录，<code>-</code> 表示普通文件；</li>
+<li><code>876</code> 共 3 位表示 <code>属主</code> 的权限；</li>
+<li><code>543</code> 共 3 位表示 <code>组用户</code> 的权限；</li>
+<li><code>210</code> 共 3 位表示 <code>其他用户</code> 的权限。</li>
+</ul>
+<p>如果一个文件 <code>test.txt</code> 的权限为 <code>-rwxrwxrwx</code>，用二进制表示为 <code>111-111-111</code>，用八进制表示则为 <code>777</code>，所以我们经常会看到这种：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 777 test.txt</span><br></pre></td></tr></table></figure>
+<p>意思就是 <code>属主</code> 、<code>组用户</code>、<code>其他用户</code> 都能 read/write/execute 该文件。</p>
+<p>其实 Linux 还有 3 个比特位来表示 <code>SUID</code> 、<code>SGID</code> 和 <code>SBIT</code> 等特殊权限。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/08/Linux学习记录：SUID-和-SGID-等特殊权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/07/Linux学习记录：chmod-修改权限/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/03/07/Linux学习记录：chmod-修改权限/" itemprop="url">Linux学习记录：chmod 修改权限</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-07T10:29:53+08:00">
+                2020-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/03/07/Linux学习记录：chmod-修改权限/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/03/07/Linux学习记录：chmod-修改权限/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>这篇文章记录下 Linux 中如何使用 <code>chmod</code> 命令修改文件以及目录的权限，也就是<code>读/写/执行</code> 的权限。</p>
+<h3 id="1-背景需求"><a href="#1-背景需求" class="headerlink" title="1. 背景需求"></a>1. 背景需求</h3><p>有时候我们使用 <code>scp</code> 向服务器传输文件时，会提示说 <code>permission denied</code> 。这是因为我们对于需要上传到的目标目录没有 <strong>写</strong> 权限。此时需要修改目标目录的读写权限，使其对于所有用户都可写（当然这种做法不推荐），这样我们才能将文件传输上去。</p>
+<p>另外一次经历，是之前需要将自己在 windows 中的 <code>rsa keys</code> 传到另外一台 Linux 机器上，这样能实现 <code>rsa keys</code> 的复用，也方便自己在另一台 Linux 机器上能正常向 github 提交代码。</p>
+<p>但是，当我们使用 <code>cp</code> 命令将 windows 上的 <code>id_rsa</code> 和 <code>id_rsa.pub</code> 直接拷贝到 <code>~/.ssh</code> 目录下，然后使用 ssh 时，会提示说 <code>私钥的安全性不够，很容易被访问到</code>。这时候就需要修改私钥文件和公钥文件的权限，以满足要求。</p>
+<p>具体需要执行下面两条语句：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 id_rsa</span><br><span class="line">chmod 644 id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>这两条命令有什么含义，继续往后看。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/03/07/Linux学习记录：chmod-修改权限/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/06/利用-alias-自定义一个删除备份命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1428,543 +1922,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/Linux-学习记录-find-命令/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/02/27/Linux-学习记录-find-命令/" itemprop="url">Linux 学习记录: find 命令</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-27T17:21:01+08:00">
-                2020-02-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/02/27/Linux-学习记录-find-命令/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/27/Linux-学习记录-find-命令/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><code>find</code> 命令算是平时使用频率较高的一个命令了，因为经常需要搜索相关的文件，熟悉它的常见使用方法，对工作是很有帮助的。这篇文章来总结下如何用好 <code>find</code> 命令。</p>
-<h4 id="1-根据文件名查找"><a href="#1-根据文件名查找" class="headerlink" title="1. 根据文件名查找"></a>1. 根据文件名查找</h4><p><code>find</code> 最常见的使用方法就是根据文件名来进行查找了。</p>
-<p>查找当前目录 <code>.</code> 下文件名为 <code>hello.txt</code> 的文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name "hello.txt"</span><br></pre></td></tr></table></figure>
-<p>查找当前目录 <code>.</code> 下文件后缀名为 <code>.py</code> 的文件（使用通配符 <code>*</code>）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name "*.py"</span><br></pre></td></tr></table></figure>
-<p>那如果加个否定，查找当前目录下文件后缀名不是 <code>.py</code> 的文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . ! -name "*.py"</span><br></pre></td></tr></table></figure>
-<p>忽略文件大小写，查找当前目录 <code>.</code> 下文件名中包含 <code>test</code> 的普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -iname "*test*"  </span><br><span class="line"><span class="meta">#</span> 1. 忽略大小写的查找方法是使用参数 -iname，不是用 find -type f -i -name "*test*"</span><br><span class="line"><span class="meta">#</span> 2. -type f 意思是查找普通文件，后面会解释</span><br></pre></td></tr></table></figure>
-<h4 id="2-根据文件类型查找"><a href="#2-根据文件类型查找" class="headerlink" title="2. 根据文件类型查找"></a>2. 根据文件类型查找</h4><p>如果需要查找指定类型的文件，需要跟 <code>-type</code> 参数。</p>
-<p><code>type</code> 参数的主要取值有（不包括全部）：</p>
-<ul>
-<li><code>-f</code> : 普通文件；</li>
-<li><code>-d</code> : 目录；</li>
-<li><code>-l</code> : 连接文件；</li>
-<li><code>-s</code> : socket 类型文件。</li>
-</ul>
-<p>查找当前目录下以 <code>test</code> 打头的目录：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type d -name "test*"</span><br></pre></td></tr></table></figure>
-<h4 id="3-根据文件大小查找"><a href="#3-根据文件大小查找" class="headerlink" title="3. 根据文件大小查找"></a>3. 根据文件大小查找</h4><p>如果需要利用文件大小来做筛选，可以跟 <code>-size</code> 参数。</p>
-<p><code>-size</code> 参数的单位主要有（不包括全部）：</p>
-<ul>
-<li><code>-c</code> : 字节 Byte；</li>
-<li><code>-k</code> : 千字节，KB；</li>
-<li><code>-M</code> : 兆字节，MB;</li>
-<li><code>-G</code> :  GB。</li>
-</ul>
-<p>此外，还有加号 <code>+</code> 和减号 <code>-</code> 有大小含义：</p>
-<ul>
-<li><code>+50M</code> : 表示大于 50M 的文件；</li>
-<li><code>-50M</code> : 表示小于 50M 的文件；</li>
-<li><code>50M</code> : 表示大小刚好是 50M 的文件。</li>
-</ul>
-<p>查找当前目录下大于 100M 的普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -size +100M</span><br></pre></td></tr></table></figure>
-<h4 id="4-根据时间查找"><a href="#4-根据时间查找" class="headerlink" title="4. 根据时间查找"></a>4. 根据时间查找</h4><p><code>find</code> 命令后面可跟的时间参数主要有 3 个，单位都是 “天”：</p>
-<ul>
-<li><code>-mtime</code> : modified time，表示<code>修改时间</code>；</li>
-<li><code>-atime</code> : accessed time，表示<code>访问时间</code>；</li>
-<li><code>-ctime</code> : changed time，表示 <code>修改时间</code>。</li>
-</ul>
-<p>同 <code>-size</code> 参数一样，时间参数同样可以配合加号 <code>+</code> 和 减号 <code>-</code> 一起使用：</p>
-<ul>
-<li><code>+n</code> : 表示 n 天之前的，不包括 n 天本身；</li>
-<li><code>-n</code> : 表示 n 天以内的，包含 n 天本身；</li>
-<li><code>n</code> : 表示 n 天当天。</li>
-</ul>
-<p>举个例子，我们需要找出当前目录下超过 10 天的没有被访问过的普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -atime +10</span><br></pre></td></tr></table></figure>
-<p>同样，找出当前目录下 5 天之内被修改的普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -mtime -5</span><br></pre></td></tr></table></figure>
-<h4 id="5-根据文件所有者和权限查找"><a href="#5-根据文件所有者和权限查找" class="headerlink" title="5. 根据文件所有者和权限查找"></a>5. 根据文件所有者和权限查找</h4><p>需要使用 <code>-user</code> 和 <code>-perm</code> 参数。</p>
-<p>例如，找出 <code>/</code> 目录下文件拥有者是 <code>ubuntu</code> 的所有普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -type f -user ubuntu</span><br></pre></td></tr></table></figure>
-<p>找出当前目录下所有权限为 <code>655</code> 的普通文件：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -perm 655</span><br></pre></td></tr></table></figure>
-<h4 id="6-限制查找深度"><a href="#6-限制查找深度" class="headerlink" title="6. 限制查找深度"></a>6. 限制查找深度</h4><p>可以使用 <code>-maxdepth</code> 和 <code>-mindepth</code> 两个参数来控制查找的深度，因为默认情况下，<code>find</code> 命令会查找其后所跟的目录及其所有子目录。</p>
-<p>如果只查找当前目录本身，不深入其子目录查找，可以设置 <code>-maxdepth 1</code> :</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -maxdepth 1 -name "*.py"</span><br></pre></td></tr></table></figure>
-<p>如果需要查找当前目录的子目录中所包含的 <code>.py</code> 文件，可以加上 <code>-mindepth 2</code> 参数：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mindepth 2 -maxdepth 2 -name "*.py"</span><br></pre></td></tr></table></figure>
-<p>*注：这两个参数不要同 <code>-type</code> 参数一同使用（尝试后发现不行）</p>
-<h4 id="7-查找完执行额外的动作"><a href="#7-查找完执行额外的动作" class="headerlink" title="7. 查找完执行额外的动作"></a>7. 查找完执行额外的动作</h4><p>默认情况下 <code>find</code> 命令查找结束后，会将结果输出到屏幕上。如果我们想要对所有查找到的结果做一些处理，可以使用 <code>-exec</code> 参数。</p>
-<p>拿一个例子说明。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find /usr/bin /usr/sbin -perm 644 -exec ls -l &#123;&#125; \;</span><br></pre></td></tr></table></figure>
-<p>有 3 个需要注意的地方：</p>
-<ul>
-<li><code>-exec</code> : 跟在 <code>find</code> 命令的最后，表示执行额外的动作；</li>
-<li><code>{}</code> :  表示 <code>find</code>命令找到的所有内容；</li>
-<li><code>\;</code> : 表示额外动作的结束。</li>
-</ul>
-<p>另一个例子：将当前目录下超过 10 天未被访问的文件移动到 <code>./expired</code> 目录下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -atime +10 -exec mv &#123;&#125; ./expired \;</span><br></pre></td></tr></table></figure>
-<p>最后一个例子，批量修改文件权限：将当前目录下权限为 <code>644</code> 的普通文件，权限修改为 <code>655</code> :</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -perm 644 -exec chmod &#123;&#125; 655 \;</span><br></pre></td></tr></table></figure>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><ul>
-<li><p>《鸟哥的 Linux 私房菜》6.5 节《指令与文件的搜寻》</p>
-</li>
-<li><p><a href="https://www.cnblogs.com/chyingp/p/linux-command-find.html" target="_blank" rel="noopener">https://www.cnblogs.com/chyingp/p/linux-command-find.html</a></p>
-</li>
-<li><p><a href="http://einverne.github.io/post/2018/02/find-command.html" target="_blank" rel="noopener">http://einverne.github.io/post/2018/02/find-command.html</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/yanlaifan/article/details/52797155" target="_blank" rel="noopener">https://blog.csdn.net/yanlaifan/article/details/52797155</a></p>
-</li>
-<li><p><a href="https://blog.csdn.net/wzzfeitian/article/details/40985549" target="_blank" rel="noopener">https://blog.csdn.net/wzzfeitian/article/details/40985549</a></p>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/" itemprop="url">matlab里面利用classify函数做多类别线性判别分析</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-11T10:57:10+08:00">
-                2019-12-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/12/11/matlab里面利用classify函数做多类别线性判别分析/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="url">论文阅读笔记：A survey on Adversarial Machine Learning</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-24T21:30:17+08:00">
-                2019-11-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/11/24/论文阅读笔记：A-survey-on-Adversarial-Machine-Learning/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>这篇简短的综述论文主要介绍了什么是<code>Adversarial Machine Learning</code>，列出了<code>AML</code>的几种常见分类。</p>
-<h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Definition of adversarial machine learning</p>
-<blockquote>
-<p>machine learning in the presence of an adversary.</p>
-</blockquote>
-<p>All kinds of attacks can be categorized in three main types:</p>
-<ol>
-<li><strong>poisoning attacks</strong>: trying to poison the training of test dat</li>
-<li><strong>detection attacks</strong>: with the objective of evading detection </li>
-<li><strong>model extraction attacks</strong>: with the objective of replicating the model</li>
-</ol>
-<p>当然，这三种分类方法只是作何自己做的一个分类，实际上还可以有不同的分类方法，需要做的就是理解每一种分分类的划分依据是什么就可以了，不需要刻意去记住有那几种分类。</p>
-<p>当然，还有一种分类是将攻击者和防御者建模成一个<strong>博弈问题</strong>。</p>
-<blockquote>
-<p>It is worth to mention another much different aspect of research in adversarial machine learning which models the model-attacker worlds as a game and defines different moves for each side of the game.<br>By such definition, a <code>min-max algorithm</code> can be used to determine best moves for each side and fide possible <strong>equilibriums</strong> of the game.</p>
-</blockquote>
-<h3 id="Taxonomy"><a href="#Taxonomy" class="headerlink" title="Taxonomy"></a>Taxonomy</h3><p>这一小节列举出了目前在<code>AML</code>领域中几种常见的攻击方法。</p>
-<p><strong>A. Model Extraction Attacks</strong></p>
-<p>这种攻击方法一般在<code>machine learning as a service</code>的场景中。即云服务商只会给用户提供一个查询的API接口，但是每次查询是需要收费的。</p>
-<p>这时候攻击者就希望能不能找到一个和目标模型表现近似的模型，从而避免向云服务商付费。</p>
-<p>这种攻击可以大致分为下面3类：</p>
-<ol>
-<li>eqution-solving model extraction attacks<br>在逻辑回归等简单模型中适用，原理主要是解方程组。</li>
-<li>path finding attacks<br>一般用在决策树模型中。</li>
-<li>membership queries attacks<br>判定一个给定的数据点事会否在原始数据集中。</li>
-</ol>
-<p><strong>B. Adversarial Examples</strong></p>
-<p>这个不需要过多解释了，现在的文章实在是太多了。</p>
-<p>需要介绍的是在论文[1]中，作者提出了既能够欺骗人眼也能够欺骗机器的对抗样本。</p>
-<p>对抗样本目前最需要解决的问题是防御问题，尤其时针对迁移性攻击的防御。</p>
-<p><strong>C. Data Poisoning Attacks</strong></p>
-<p>这种攻击适用于攻击者不能直接接触到训练数据，但训练过程是<code>online training</code> or <code>adaptive training</code>，即训练过程中需要不断加入新的训练数据。</p>
-<p>这种攻击在SVM中很容易成功，因为<strong>svm做分类最主要就是support vectors在起作用</strong>。</p>
-<p><strong>D. Model Evasion Attacks</strong></p>
-<p>这种攻击和对抗样本攻击很像，是在模型做inference阶段的攻击。但是因为做<code>spam detection</code> or <code>malware detection</code>在机器学习中很重要，所以这种攻击就被单独拎出来了。</p>
-<h3 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h3><ul>
-<li>这篇文章中没有介绍道data inversion attack，即能够推导出原始训练数据近似的攻击。</li>
-<li>AML的防御还是一个需要不断深入研究的领域。</li>
-</ul>
-<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><p>[1] Elsayed, G.F., Shankar, S., Cheung, B.Papernot, N., Kurakin, A., Goodfellow, I. and Sohl-Dickstein, J., 2018. Adversarial Examples that Fool both Human and Computer Vision. arXiv preprint arXiv:1802.08195</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2017,7 +1974,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">62</span>
+                  <span class="site-state-item-count">65</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2039,7 +1996,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">78</span>
+                  <span class="site-state-item-count">88</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2083,7 +2040,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
