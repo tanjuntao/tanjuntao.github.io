@@ -81,7 +81,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="个人博客">
-<meta property="og:url" content="http://yoursite.com/tags/Python/index.html">
+<meta property="og:url" content="http://yoursite.com/tags/python/index.html">
 <meta property="og:site_name" content="个人博客">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -115,13 +115,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/Python/">
+  <link rel="canonical" href="http://yoursite.com/tags/python/">
 
 
 
 
 
-  <title>标签: Python | 个人博客</title>
+  <title>标签: python | 个人博客</title>
   
 
 
@@ -303,7 +303,7 @@
 
     <div id="posts" class="posts-collapse">
       <div class="collection-title">
-        <h1>Python<small>标签</small>
+        <h1>python<small>标签</small>
         </h1>
       </div>
 
@@ -315,17 +315,95 @@
 
       <h2 class="post-title">
         
-            <a class="post-title-link" href="/2021/01/11/PyCharm配置优化/" itemprop="url">
+            <a class="post-title-link" href="/2020/12/19/远程使用-jupyter-notebook/" itemprop="url">
               
-                <span itemprop="name">PyCharm配置优化</span>
+                <span itemprop="name">远程使用 jupyter notebook</span>
               
             </a>
         
       </h2>
 
       <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2021-01-11T14:20:58+08:00" content="2021-01-11">
-          01-11
+        <time class="post-time" itemprop="dateCreated" datetime="2020-12-19T14:18:17+08:00" content="2020-12-19">
+          12-19
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/09/30/pip相关用法/" itemprop="url">
+              
+                <span itemprop="name">pip相关用法</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-09-30T11:19:22+08:00" content="2020-09-30">
+          09-30
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2020/05/02/Python-print-函数常见用法总结/" itemprop="url">
+              
+                <span itemprop="name">Python print() 函数常见用法总结</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2020-05-02T12:29:23+08:00" content="2020-05-02">
+          05-02
+        </time>
+      </div>
+
+    </header>
+  </article>
+
+
+      
+        
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      <h2 class="post-title">
+        
+            <a class="post-title-link" href="/2019/05/01/一些Python语法/" itemprop="url">
+              
+                <span itemprop="name">一些Python语法</span>
+              
+            </a>
+        
+      </h2>
+
+      <div class="post-meta">
+        <time class="post-time" itemprop="dateCreated" datetime="2019-05-01T10:57:34+08:00" content="2019-05-01">
+          05-01
         </time>
       </div>
 
@@ -387,7 +465,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -398,7 +476,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -409,7 +487,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -911,87 +989,6 @@
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-
-  
-
-  
-
-  
-
-</body>
-</html>
-sultRight.searchTextCount) {
                   return resultRight.searchTextCount - resultLeft.searchTextCount;
                 } else if (resultLeft.hitCount !== resultRight.hitCount) {
                   return resultRight.hitCount - resultLeft.hitCount;

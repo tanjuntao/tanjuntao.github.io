@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[使用.gitignore来忽略一些不想提交的文件]]></title>
+    <url>%2F2021%2F01%2F17%2F%E4%BD%BF%E7%94%A8-gitignore%E6%9D%A5%E5%BF%BD%E7%95%A5%E4%B8%80%E4%BA%9B%E4%B8%8D%E6%83%B3%E6%8F%90%E4%BA%A4%E7%9A%84%E6%96%87%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[1. 日常开发现状我们平时在使用 git 来管理项目代码时，经常使用的 一条命令是： 1git add . 表示将当前 workspace（工作区）的所有修改添加到 stage（暂存区）。 这条命令使用起来非常方便，因为我们不需要将待添加到 stage 的文件一个个列出来。但是它也有一个不好的地方，就是当前 workspace 里面的所有文件，包括自动生成的文件、配置文件、编辑器产生的文件、操作系统生成的文件、二进制文件等，通通都被添加到 stage，后面随着 git commit 被添加到 repository（仓库）。 但是这些文件和我们的 source code（源代码）丝毫没有关系，我们不关心它们的变动。所以我们想要有某种机制，能够不跟踪这些文件的变化。 .gitignore 文件就是帮我们实现这个的。 2. 使用方法2.1 不想跟踪的文件不在仓库里首先考虑第一种场景，我们项目刚刚开始，还没有做 commit，或者说过往的所有 commit 里，没有将那些我们不想要跟踪的文件提交到 repository。 这种情况比较处理比较简单：在项目的根目录下面，添加一个 .gitignore 文件，这样后面我们 git add 的时候，就不会将 .gitignore 中定义的文件类型、目录类型，添加到 stage，也就不会添加到 repository。 .gitignore 文件的每一行表示一种文件类型，或者一种目录类型，常见写法有如下几种，参考这里 1234567891011121314151617# ignore all .a files*.a# but do track lib.a, even though you're ignoring .a files above!lib.a# only ignore the TODO file in the current directory, not subdir/TODO/TODO# ignore all files in any directory named buildbuild/# ignore doc/notes.txt, but not doc/server/arch.txtdoc/*.txt# ignore all .pdf files in the doc/ directory and any of its subdirectoriesdoc/**/*.pdf 还有一个非常使用的网站可以帮我们生成 .gitignore 文件模板，而不需要我们手动去一行一行编写。 地址：https://www.gitignore.io/ 举个例子，我们的项目是用 Python 编写的，在 macOS 平台测试的，使用的编辑器是 vscode，IDE 是 pycharm，那么我们就可以在输入框中依次输入 Python macOS vscode Pycharm 几个关键字，这个网站就会自动生成一个 .gitignore 文件模块，我们直接使用就行了。 如果项目中还有一些文件或者目录不想让 git 跟踪的，也可以在 .gitignore 里面继续添加规则。 2.2 不想跟踪的文件已经提交到仓库里这种情况其实在实际开发中更常见一点，就是我们之前的某次 commit 已经将某种类型的文件或者目录提交到本地的 repository 中了，但是现在我们发现，我们并不想让 git 来跟踪这类文件。 这时候，通过在项目根目录下添加 .gitignore 文件的方式并不管用，因为我们添加 .gitignore 之后，接着 git add ，还是会跟踪这些不想跟踪的类型文件。 如果不想跟踪的只有某几个文件，可以这么办。首先将所有的已经做的改动提交一次 commit，直到我们使用 git status 的结果是 working tree clean。 然后在命令行中输入： 1git rm --cached &lt;file_name1&gt; &lt;file_name2&gt; 接着再: 1git add . 这时候，因为有 .gitignore 的缘故，我们的 &lt;file_name1&gt;, &lt;file_name2&gt; 就不会被添加到 stage 了，最后我们再: 1git commit -m "your commit message" 就可以将当前修改提交到 repository 里面了，repository 中不会包含 &lt;file_name1&gt; 和 &lt;file_name2&gt; 。 如果不想跟踪的文件是某种类型的文件，非常多，没办法一一罗列，那么可以用一种比较暴力的方式。 首先，和之前一样，保证当前的 working tree clearn ，这样不会让自己丢失掉任何已经在 workspace 中做过的修改。然后在命令行中执行： 1git rm -r --cached . 上面命令的作用是将 repository 中的所有文件全部删除。 接着再执行： 1git add . 由于有 .gitignore 文件，不想提交的文件类型不会被提交到 stage 中。 最后我们再: 1git commit -m "your commit message" 这样就完成任务了！ 3. References Untrack files already added to git repository based on .gitignore Ignoring files]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>.gitingnore</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PyCharm配置优化]]></title>
     <url>%2F2021%2F01%2F11%2FPyCharm%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%2F</url>
     <content type="text"><![CDATA[PyCharm 优化1. 将代码竖直线调整到 80 个字符的位置良好的 python 代码，每行代码最好不超过 80 个字符，但是 PyCharm 中默认情况下，代码超长的竖直线并不在 80 个字符的位置，我们需要手动修改。 分两步，首先需要确保这条竖直线的代码长度提示功能是正常打开的： 接着需要将每行代码长度修改成 80 字符： 2. 关闭掉恼人的 typo 提示PyCharm 中默认情况下，会对自己不认识的单词加上波浪线提示，该词可能是一个 typo，但是实际编码时，谁会给变量名起全名啊，所以这个功能也需要关闭。 参考下图关闭步骤：只需要将 typo 对应的 checkbox 取消勾选就可以了： 3. 关闭掉恼人的 PEP8 代码格式提示PyCharm 中默认情况下将 PEP8 代码风格提示开启，这就导致了几百行代码写下来，满屏都是下划线….非常影响代码阅读。这里 Python 代码风格建议参考 Google’s Python Style Guid 。 找到 Preference -&gt; Editor -&gt; Inspections -&gt; Python，然后将下面两个 PEP8 对应的 CheckBox 取消勾选： 至此：就可以在 Pycharm 中愉快的编码了。]]></content>
@@ -21,8 +33,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>python</tag>
         <tag>linux</tag>
+        <tag>python</tag>
         <tag>jupyter</tag>
         <tag>远程连接</tag>
       </tags>
@@ -82,8 +94,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>python</tag>
         <tag>pip</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -340,8 +352,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>配置</tag>
         <tag>ssh</tag>
+        <tag>配置</tag>
       </tags>
   </entry>
   <entry>
@@ -590,6 +602,15 @@
     <title><![CDATA[使用 Github Pages + Hexo 搭建一个个人博客]]></title>
     <url>%2F2019%2F04%2F02%2F%E4%BD%BF%E7%94%A8-Github-Pages-Hexo-%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[前言其实在很早之前，曾使用 WordPress 搭建过一个个人博客。当时也是满满的激情，想模仿大佬们学着写技术博客。但是后来由于忙着追求GPA，加上自身懒惰自控力不行，博客就基本放弃更新了。 但是现在已经过上了研究生生活，每天有大把的时间可以由自己来支配，同时接触的东西也越来越多：做项目需要实时的学习一些技术和技巧，需要不断总结下来；各种学术报告会，听完之后需要回去再认真揣摩消化，变成自己的东西，这也需要总结下来。虽然之前也零零散散的做了一些笔记，但是组织松散不方便查找，遂考虑重新开通个人博客，将平常生活中的所学所思都记录下来，做技术和科研的积淀，争取能够厚积薄发！ 开始搭建 1. 前期准备 安装node.js：因为hexo是一个基于node.js开发的静态博客框架，其运行必须要有node.js环境支持 安装git：要往 github 提交代码，就必须先在本地安装好 git 客户端 在 github 上面新建一个仓库，名称设为你的github账户名.github.io 上面软件的安装应该没有大问题，去官网下载一路 next 基本就可以了。需要注意的是，如果之前没有用过 git 提交代码到 github，那么第一次安装 git 之后还需要做些 SSH Key 的设置，这里不打算赘述这个步骤。 2. 安装hexo打开 git bash，直接输入下面这条命令：1npm install -g hexo-cli 安装可能需要几分钟，耐心等待，不出意外的话，能够成功安装 hexo 3. 构建本地目录在本地文件系统中，任意找一个目录作为网站文件的存放目录，比如在 D盘 新建一个目录blog，作为网站所有文件存放的根目录。 在 git bash 中进入这个目录12cd d:cd blog/ 下载安装 hexo 博客系统所需要的各种文件1npm install 安装过程可能比较慢，且没有进度条提示。安装完之后，在blog目录下面会产生很多新的目录，简单解释一下几个常用目录和文件的含义及作用 themes：存放所有的博客主题，hexo 默认安装的主题是 landscape source: 存放所有的 markdown 源文件。所有新建的博文(post) 都存放在source/_posts/ 这个目录下面。如果后面新建了其它页面，比如关于，归档，标签等，那么在source目录下面将会新产生about, achieve, tag等目录。 public：这个目录中存放所有的网页文件，html,css, javascirpt等等。简单说，hexo 会将我们编写的 markdown 文件解析成 html 文件，同时配套生成一些 css 样式文件，进而保护 markdown 源文件不被其他人获取。 _config.yml：全局的配置文件，可以配置网站 标题, 子标题 等 4. 启动前面安装步骤顺利完成之后，就可以在本地启动 hexo 了。 1npm server # 或者是 npm s, 效果等价 这时会提示说在localhost:4000端口可以访问刚刚建立的博客，正常情况下，如果4000端口没有被占用的话，那么就可以正常访问到博客，会有一篇默认的Hello World的博文。如果4000端口被占用了，具体的表现就是网站打不开，那么可以尝试更换一个启动端口，具体命令可以自行搜索。 5. 部署到 Github Page在部署到 github page之前，需要在本地修改一些配置。 首先打开_config.yml，搜索deploy字段，修改为如下格式：123456# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:tanjuntao/tanjuntao.github.io.git branch: master 其中第二个repo字段的值，需要改为你在 github 上面那个网站项目对应的 SSH 值，也不打算截图介绍这个 SSH 值是怎么获取到的了。需要注意的是每个:后面需要紧跟一个空格，否则会出错！ 接着，在 git bash 中执行下面的命令：1npm install hexo-deployer-git --save 执行这条命令可能会出错，解决办法是 npm + flush刷新一下缓存, 具体的命令记不清楚。 最后就可以 deploy 到远程的 github 上面了。 1hexo deploy # 或者 hexo d, 效果是一样的 这时候，就可以看到 github 仓库里面生成了很多文件，但是找不到 source 文件夹，这就是前面介绍到的，保护了源文件。 要通过github账户名.github.io方式访问网站，还需要在项目仓库中的setting中设置中找到github page，设置一下后，才能够访问到。 6. 使用后面当需要新建一篇博文时，只需要做下面三个步骤，非常方便！1234hexo new &quot;博文标题&quot;hexo generate # hexo ghexo server # hexo s, 启动本地服务，可在本地中预览效果，这步可选hexo deploy # hexo d 7. 修改主题hexo 中默认使用的主题是landscape,但最为流行的一个主题叫next，打算安装next主题的可以接着往下看。 首先切换到博客更目录下面，也就是前面的blog/目录，执行下面命令：1git clone https://github.com/iissnan/hexo-theme-next themes/next 可能需要一段时间才能完成。 接着打开跟目录下面的_config.yml文件，修改theme字段的值为next就可以了。 如果后期打算更换其它主题，只需要修改这个theme的值就可以了，同样非常方便！ next主题默认的样式还是没有符合我的要求：左边有一个导航栏，且有关于 分类 标签 这些选项，我们还需要进一步对主题进行设置。 在/theme/next/目录中找到_config.yml文件，同样是一个设置文件，只不过仅仅是next这个主题的设置文件。 搜索Scheme，修改其值为Pisces或者Gemini，因为只有这两个 scheme 能显示左右侧边栏。 12345# Schemes# scheme: Muse# scheme: Mist# scheme: Piscesscheme: Gemini 接着搜索sidebar，参考下列注释进行设置：12345678910111213141516sidebar:# Sidebar Position - 侧栏位置（只对Pisces | Gemini两种风格有效） position: left //靠左放置 #position: right //靠右放置# Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效） #display: post //默认行为，在文章页面（拥有目录列表）时显示 display: always //在所有页面中都显示 #display: hide //在所有页面中都隐藏（可以手动展开） #display: remove //完全移除 offset: 12 //文章间距（只对Pisces | Gemini两种风格有效） b2t: false //返回顶部按钮（只对Pisces | Gemini两种风格有效） scrollpercent: true //返回顶部按钮的百分比 其它一些设置，包括头像，新页面，评论系统等，可以参见Hexo的Next主题详细配置 这篇文章，非常详细！ 8.其它关于使用 hexo deploy时，如何附带像git commit那样的message，只需要如下命令即可：1hexo deploy --message &quot;提交的信息内容&quot; 非常方便！ 9.注意事项 不要修改使用hexo new命令生成的文章标题 在编辑hexo new生成的 markdown 文件时，不要动手修改title的值，否则会导致这篇post无法显示在网站上！ 10. 如何配置 NexT 主题可以参考下面链接： NexT 官方提供的主题配置 hexo 的 NexT 主题详细配置 这篇文章就先到这里啦~ 主要参考 https://segmentfault.com/q/1010000007139908 https://www.jianshu.com/p/3a05351a37dc https://www.jianshu.com/p/40e4349a0cc7]]></content>
+      <categories>
+        <category>配置</category>
+      </categories>
+      <tags>
+        <tag>配置</tag>
+        <tag>hexo</tag>
+        <tag>NeXT</tag>
+        <tag>github-page</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[测试博文]]></title>

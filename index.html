@@ -311,6 +311,167 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/17/使用-gitignore来忽略一些不想提交的文件/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/17/使用-gitignore来忽略一些不想提交的文件/" itemprop="url">使用.gitignore来忽略一些不想提交的文件</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-01-17T14:03:04+08:00">
+                2021-01-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/Git/" itemprop="url" rel="index">
+                    <span itemprop="name">Git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2021/01/17/使用-gitignore来忽略一些不想提交的文件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/01/17/使用-gitignore来忽略一些不想提交的文件/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="1-日常开发现状"><a href="#1-日常开发现状" class="headerlink" title="1. 日常开发现状"></a>1. 日常开发现状</h2><p>我们平时在使用 git 来管理项目代码时，经常使用的 一条命令是：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+<p>表示将当前 workspace（工作区）的所有修改添加到 stage（暂存区）。</p>
+<p>这条命令使用起来非常方便，因为我们不需要将待添加到 stage 的文件一个个列出来。但是它也有一个不好的地方，就是当前 workspace 里面的所有文件，包括自动生成的文件、配置文件、编辑器产生的文件、操作系统生成的文件、二进制文件等，通通都被添加到 stage，后面随着 <code>git commit</code> 被添加到 repository（仓库）。</p>
+<p>但是这些文件和我们的 source code（源代码）丝毫没有关系，我们不关心它们的变动。所以我们想要有某种机制，能够不跟踪这些文件的变化。</p>
+<p><code>.gitignore</code> 文件就是帮我们实现这个的。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2021/01/17/使用-gitignore来忽略一些不想提交的文件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/01/11/PyCharm配置优化/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1237,7 +1398,7 @@
       
         
           
-            <h2 id="1-pip-常见命令"><a href="#1-pip-常见命令" class="headerlink" title="1. pip 常见命令"></a>1. pip 常见命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看 pip3 版本</span></span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助信息</span></span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查找软件包</span></span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看已经安装的软件包</span></span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示软件包当前版本以及最新版本</span></span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示某个软件包的信息</span></span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 导出已经安装的软件包列表</span></span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 接着想要在另外一台机器上或者另外一个环境下面安装</span></span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装软件</span></span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装特定版本的软件包</span></span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 升级某个特定软件包</span></span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 临时更换安装源</span></span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span><span class="bash"> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 卸载软件包</span></span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
+            <h2 id="1-pip-常见命令"><a href="#1-pip-常见命令" class="headerlink" title="1. pip 常见命令"></a>1. pip 常见命令</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 查看 pip3 版本</span><br><span class="line">pip3 --version</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看帮助信息</span><br><span class="line">pip3 --help</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查找软件包</span><br><span class="line">pip3 search &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 查看已经安装的软件包</span><br><span class="line">pip3 list</span><br><span class="line"><span class="meta">#</span> 显示软件包当前版本以及最新版本</span><br><span class="line">pip3 list --outdated --format columns</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 显示某个软件包的信息</span><br><span class="line">pip3 show &lt;package_name&gt;</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 导出已经安装的软件包列表</span><br><span class="line">pip3 freeze &gt; requirements.txt # txt 文件的命名随意，一般命名为 requierements.txt</span><br><span class="line"><span class="meta">#</span> 接着想要在另外一台机器上或者另外一个环境下面安装</span><br><span class="line">pip3 install -r requirements.txt</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 安装软件</span><br><span class="line">pip3 install &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 安装特定版本的软件包</span><br><span class="line">pip3 install requests==2.6.0</span><br><span class="line"><span class="meta">#</span> 升级某个特定软件包</span><br><span class="line">pip3 install upgrade &lt;package_name&gt;</span><br><span class="line"><span class="meta">#</span> 临时更换安装源</span><br><span class="line">pip3 install -i &lt;URL&gt; &lt;package_name&gt; </span><br><span class="line"><span class="meta">#</span> e.g., pip install -i  http://mirrors.aliyun.com/pypi/simple/ numpy</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> 卸载软件包</span><br><span class="line">pip3 uninstall &lt;package_name&gt;</span><br></pre></td></tr></table></figure>
 <p>完整的文档地址：<a href="https://pip.pypa.io/en/stable/" target="_blank" rel="noopener">https://pip.pypa.io/en/stable/</a></p>
 <h2 id="2-pip-如何指定某个安装源"><a href="#2-pip-如何指定某个安装源" class="headerlink" title="2. pip 如何指定某个安装源"></a>2. pip 如何指定某个安装源</h2><p>正常情况下，比如需要安装 <code>numpy</code>，用的命令是:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install numpy</span><br></pre></td></tr></table></figure>
@@ -1793,170 +1954,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/29/Linux-学习记录：grep-命令使用方法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/29/Linux-学习记录：grep-命令使用方法/" itemprop="url">Linux 学习记录：grep 命令使用方法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-29T10:33:05+08:00">
-                2020-05-29
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categoriesN/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2020/05/29/Linux-学习记录：grep-命令使用方法/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/29/Linux-学习记录：grep-命令使用方法/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这篇文章总结下 <code>grep</code> 命令的常用方法。</p>
-<h3 id="1-需求背景"><a href="#1-需求背景" class="headerlink" title="1. 需求背景"></a>1. 需求背景</h3><p>平时在使用 Linux 过程中，总会遇到需要<strong>搜索</strong>某个字符串的场景：</p>
-<ul>
-<li>搜索某个字符串是否出现在指定文件中；</li>
-<li>利用管道重定向，搜索 <code>ls</code> 、<code>cat</code> 等命令的输出中是否包含某个字符串；</li>
-<li>递归搜索某个工程目录下的所有文件中，是否包含某个字符串。</li>
-</ul>
-<p><code>grep</code> 无疑是很好用且功能强大的工具之一。</p>
-<h3 id="2-使用方法"><a href="#2-使用方法" class="headerlink" title="2. 使用方法"></a>2. 使用方法</h3><p><code>grep</code> 的搜索是按行进行的，即：每次扫描一行，如果该行中包含指定的字符串，那么该行会被输出。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/29/Linux-学习记录：grep-命令使用方法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2009,7 +2006,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">65</span>
+                  <span class="site-state-item-count">66</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2020,7 +2017,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2031,7 +2028,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">88</span>
+                  <span class="site-state-item-count">92</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
