@@ -33,8 +33,8 @@
         <category>Python</category>
       </categories>
       <tags>
-        <tag>linux</tag>
         <tag>python</tag>
+        <tag>linux</tag>
         <tag>jupyter</tag>
         <tag>远程连接</tag>
       </tags>
@@ -94,8 +94,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>pip</tag>
         <tag>python</tag>
+        <tag>pip</tag>
       </tags>
   </entry>
   <entry>
@@ -143,10 +143,10 @@
         <category>Linux</category>
       </categories>
       <tags>
+        <tag>搜索</tag>
         <tag>Linux</tag>
         <tag>grep</tag>
         <tag>正则表达式</tag>
-        <tag>搜索</tag>
       </tags>
   </entry>
   <entry>
@@ -158,8 +158,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>grep</tag>
         <tag>find</tag>
+        <tag>grep</tag>
         <tag>wc</tag>
       </tags>
   </entry>
@@ -249,8 +249,8 @@
         <category>杂</category>
       </categories>
       <tags>
-        <tag>搜索</tag>
         <tag>Google</tag>
+        <tag>搜索</tag>
         <tag>高级搜索</tag>
         <tag>size</tag>
         <tag>intitle</tag>
@@ -352,8 +352,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>ssh</tag>
         <tag>配置</tag>
+        <tag>ssh</tag>
       </tags>
   </entry>
   <entry>
