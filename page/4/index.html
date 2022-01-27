@@ -311,6 +311,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jun Tao">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/" itemprop="url">hexo 中如何控制首页/归档页/tag页中显示的文章数</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-02-28T15:08:36+08:00">
+                2020-02-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categoriesN/配置/" itemprop="url" rel="index">
+                    <span itemprop="name">配置</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>因为此刻是在回忆之前所做的一些配置，所以修改之前的配置，具体值是多少，现在已经记不起来了，但还能记得清做了哪些实际修改。</p>
+<h3 id="1-需求背景"><a href="#1-需求背景" class="headerlink" title="1. 需求背景"></a>1. 需求背景</h3><p>hexo 默认情况下，在 <code>archive页</code> 、<code>tag页</code> 是有分页的，也就是一个页面下只能显示有限篇文章，如果需要继续浏览其他的文章，就得进入下一个分页查看，有时候这对我们来说非常不方便，因为我们可能并不需要做分页，只希望一个页面下就能展示所有的文章。但是 hexo 中还没有地方能够做这个配置，需要单独装 <code>插件</code> 才可以。</p>
+<p><code>首页</code> 在默认情况下，也是多少篇文章就会分页，具体是多少已经不记得了，但是 <code>首页</code> 显示的文章数是可以在配置文件中设置的。</p>
+<p>下面具体来介绍下该怎么设置每种页面下，显示的文章数。</p>
+<h3 id="2-具体实现"><a href="#2-具体实现" class="headerlink" title="2. 具体实现"></a>2. 具体实现</h3><h4 id="2-1-配置文件"><a href="#2-1-配置文件" class="headerlink" title="2.1 配置文件"></a>2.1 配置文件</h4><p>hexo 中的配置文件分为两种（我们用 <code>./</code> 来表示博客系统的根目录）：</p>
+<ul>
+<li><code>系统配置文件</code>：在 <code>./_config.yml</code> 下，是用来对整个 hexo 博客系统进行配置的，如 <code>博客title</code> 、<code>博客author</code> 等等；</li>
+<li><code>主题配置文件</code>：我装的主题是 <code>NexT</code>，相应的主题文件就在 <code>./themes/next/_config.yml</code> 下面，是用来对该主题进行配置的，如 <code>导航栏</code> 、<code>页脚样式</code> 等等。</li>
+</ul>
+<p><strong>我们的配置全程只需要用到 <code>系统配置文件</code>。</strong></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2020/02/28/hexo-中如何控制首页-归档页-tag页中显示的文章数/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/27/如何在-Windows-Terminal-中使用指定软件打开文件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1691,146 +1856,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jun Tao">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" itemprop="url">论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T20:26:04+08:00">
-                2019-07-27
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>寻找对抗样本的过程就是最优化下面的目标函数：</p>
-<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png" alt></p>
-<p>其中<code>k</code>表示分类器，<code>r</code>表示添加的扰动，<code>delta</code>文中表示的含义是分类器在<code>x</code>这个样本点处的<code>robustness</code>，其实就是扰动的<code>L-2 norm</code>。</p>
-<p>分类器在整个数据集上的<code>robustness</code>计算公式如下：</p>
-<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png" alt></p>
-<p>从公式中可以看出，如果添加的扰动越小，计算到的<code>ro</code>值就越小，相应的根据文中的定义，分类器的<code>robustness</code>就越好。</p>
-<p>本文中的主要贡献：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1883,7 +1908,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1949,7 +1974,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

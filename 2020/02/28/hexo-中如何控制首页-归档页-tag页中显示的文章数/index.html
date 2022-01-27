@@ -430,7 +430,7 @@
 <p>要修改 <code>archive页</code> 和 <code>tag页</code> 显示的文章数量，我们需要安装两个插件，前提是电脑上已经提前装好了 <code>npm</code>，下面命令可以在任意目录下面执行：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-archive --save</span><br><span class="line">npm install hexo-generator-tag --save</span><br></pre></td></tr></table></figure>
 <p>安装完之后，我们需要在刚才的 <code>index_generator</code> 下面添加两个字段，具体如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line"><span class="meta">  #</span> 0表示不分页，全部显示</span><br><span class="line">  per_page: 0  </span><br><span class="line"> </span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 0</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">archive_generator:</span><br><span class="line"><span class="meta">  #</span><span class="bash"> 0表示不分页，全部显示</span></span><br><span class="line">  per_page: 0  </span><br><span class="line"> </span><br><span class="line">tag_generator:</span><br><span class="line">  per_page: 0</span><br></pre></td></tr></table></figure>
 <p>同样，<code>per_page</code> 用于控制页面显示多少篇文章。<code>0</code> 表示不分页，所有文章全部显示。</p>
 <h3 id="3-References"><a href="#3-References" class="headerlink" title="3. References"></a>3. References</h3><ol>
 <li><a href="https://gaomf.cn/2016/03/03/Hexo%E5%8D%9A%E5%AE%A2%E4%BF%AE%E6%94%B9Archive%E9%A1%B5%E9%9D%A2%E6%98%BE%E7%A4%BA%E6%96%87%E7%AB%A0%E6%95%B0%E9%87%8F/" target="_blank" rel="noopener">Hexo博客修改Archive页面显示文章数量</a></li>
@@ -571,7 +571,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">66</span>
+                  <span class="site-state-item-count">67</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +653,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
