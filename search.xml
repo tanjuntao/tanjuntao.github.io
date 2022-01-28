@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[macbook 上的测试博文]]></title>
     <url>%2F2022%2F01%2F28%2Fmacbook-%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%8D%9A%E6%96%87%2F</url>
-    <content type="text"><![CDATA[这是一篇在 MacBook 上面的测试博客，为了验证 hexo 是否迁移成功。]]></content>
+    <content type="text"><![CDATA[这是一篇在 MacBook 上面的测试博客，为了验证 hexo 是否迁移成功。 这里测试下公式编辑是否可用。 inline equations: $a^2 + b^2 = c^2$ block equations: $$a^2 + b^2 = c^2$$ finished。]]></content>
       <tags>
         <tag>macbook, test</tag>
       </tags>
