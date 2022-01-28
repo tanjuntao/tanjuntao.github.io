@@ -83,7 +83,7 @@
 <meta name="keywords" content="Linux,SSH">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SSH远程执行命令">
-<meta property="og:url" content="http://yoursite.com/2020/09/30/SSH远程执行命令/index.html">
+<meta property="og:url" content="http://tanjuntao.github.io/2020/09/30/SSH远程执行命令/index.html">
 <meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="这篇文章中记录下如何使用 SSH 来远程执行命令。 1. 背景传统的 SSH（Secure SHell）的使用方法一般是：首先利用 SSH 登录到远程主机，然后在远程主机上执行相关命令。 但是有时候我们可能有这种需求：我只是想看下远程主机上的某个文件是否存在，或者查看远程主机的某种工作状态，我们只是想看下这种信息，并不想先登录然后执行命令完再退出这种繁琐的操作。SSH 是支持在本地直接将命令提交给">
 <meta property="og:locale" content="zh-Hans">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/09/30/SSH远程执行命令/">
+  <link rel="canonical" href="http://tanjuntao.github.io/2020/09/30/SSH远程执行命令/">
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/09/30/SSH远程执行命令/">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2020/09/30/SSH远程执行命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juntao Tan">
@@ -435,7 +435,7 @@
 <a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh &lt;user_name&gt;@&lt;host_name&gt; '&lt;your command&gt;'</span><br></pre></td></tr></table></figure>
 <p>例如，我想看远程主机上面 HOME 目录有什么文件，那么可以：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> 注意，如果命令需要带参数，那么整个命令串一定要用单引号括起来</span><br><span class="line">ssh user@202.38.79.55 'ls ~'</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 注意，如果命令需要带参数，那么整个命令串一定要用单引号括起来</span></span><br><span class="line">ssh user@202.38.79.55 'ls ~'</span><br></pre></td></tr></table></figure>
 <h4 id="t-参数"><a href="#t-参数" class="headerlink" title="-t 参数"></a><code>-t</code> 参数</h4><p>有时候我们执行的命令需要和用户进行一定的交互，例如使用 <code>sudo</code> 的命令一定需要用户输入密码，这种情况如果仍然像上面那样来提交命令会出错，我们需要加入 <code>-t</code> 参数：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -t user@202.38.79.55 'sudo apt update'</span><br></pre></td></tr></table></figure>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -t user@202.38.79.55 'htop'</span><br></pre></td></tr></table></figure>
@@ -493,7 +493,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/09/30/SSH远程执行命令/" title="SSH远程执行命令">http://yoursite.com/2020/09/30/SSH远程执行命令/</a>
+    <a href="http://tanjuntao.github.io/2020/09/30/SSH远程执行命令/" title="SSH远程执行命令">http://tanjuntao.github.io/2020/09/30/SSH远程执行命令/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>

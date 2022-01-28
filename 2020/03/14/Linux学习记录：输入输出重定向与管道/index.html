@@ -83,7 +83,7 @@
 <meta name="keywords" content="Linux,标准输入,标准输出,管道,重定向">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习记录：输入输出重定向与管道">
-<meta property="og:url" content="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/index.html">
+<meta property="og:url" content="http://tanjuntao.github.io/2020/03/14/Linux学习记录：输入输出重定向与管道/index.html">
 <meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="这篇文章来总结下 Linux 中的输入输出重定向功能，以及如何使用管道命令。 1. 背景需求有时候我们使用find 命令查找文件或目录时，会碰到 Permission denied 这样的错误输出信息。但是这些错误信息并不是我们想要的，我们只需要那些符合查询条件的输出，这种情况下该怎么办呢？输入输出重定向可以帮我们将错误信息和正确信息区分开来。 2. 输入输出重定向Linux 中的输入输出分为下面">
 <meta property="og:locale" content="zh-Hans">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/">
+  <link rel="canonical" href="http://tanjuntao.github.io/2020/03/14/Linux学习记录：输入输出重定向与管道/">
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2020/03/14/Linux学习记录：输入输出重定向与管道/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juntao Tan">
@@ -456,7 +456,7 @@
 <li><code>2&gt;&gt;</code> : 以追加的方式重定向标准错误输出，后面跟某个文件名，表示将错误信息输出到该文件中，但不会覆盖原有内容，而是追加在文件尾部。</li>
 </ul>
 <p>讲了那么多还是觉得有点抽象，下面来看几个具体的例子。</p>
-<p>之前的文章  <a href="https://tanjuntao.github.io/2020/03/06/ssh-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/" target="_blank" rel="noopener">ssh config 配置文件 </a>中我们介绍了如何添加 <code>isa_key.pub</code> 到 <code>authorized_keys</code> 中，就用到了标准输出重定向，而且是以追加到文件尾部的方式添加的：</p>
+<p>之前的文章  <a href="https://tanjuntao.github.io/2020/03/06/ssh-config-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6/">ssh config 配置文件 </a>中我们介绍了如何添加 <code>isa_key.pub</code> 到 <code>authorized_keys</code> 中，就用到了标准输出重定向，而且是以追加到文件尾部的方式添加的：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat isa_key.pub &gt;&gt; .ssh/authorized_keys</span><br></pre></td></tr></table></figure>
 <p>另一个例子。</p>
 <p>我们使用 <code>find</code> 命令在 <code>/home</code> 目录下查找后缀名是 <code>.c</code> 的文件，我们想将查询到的结果保存到文件 <code>result.txt</code> 中，可以这么做：</p>
@@ -549,7 +549,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/" title="Linux学习记录：输入输出重定向与管道">http://yoursite.com/2020/03/14/Linux学习记录：输入输出重定向与管道/</a>
+    <a href="http://tanjuntao.github.io/2020/03/14/Linux学习记录：输入输出重定向与管道/" title="Linux学习记录：输入输出重定向与管道">http://tanjuntao.github.io/2020/03/14/Linux学习记录：输入输出重定向与管道/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>

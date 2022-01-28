@@ -82,29 +82,29 @@
 <meta name="description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">
-<meta property="og:url" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/index.html">
+<meta property="og:url" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/index.html">
 <meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/3.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/4.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/5.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/6.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/7.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/8.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/9.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/10.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/11.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/12.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/13.png">
-<meta property="og:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/14.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/3.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/4.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/5.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/6.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/7.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/8.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/9.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/10.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/11.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/12.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/13.png">
+<meta property="og:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/14.png">
 <meta property="og:updated_time" content="2019-07-29T07:55:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">
 <meta name="twitter:description" content="寻找对抗样本的过程就是最优化下面的目标函数：  其中k表示分类器，r表示添加的扰动，delta文中表示的含义是分类器在x这个样本点处的robustness，其实就是扰动的L-2 norm。 分类器在整个数据集上的robustness计算公式如下：  从公式中可以看出，如果添加的扰动越小，计算到的ro值就越小，相应的根据文中的定义，分类器的robustness就越好。 本文中的主要贡献：">
-<meta name="twitter:image" content="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
+<meta name="twitter:image" content="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png">
 
 
 
@@ -134,7 +134,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
+  <link rel="canonical" href="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
 
 
 
@@ -299,7 +299,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juntao Tan">
@@ -547,7 +547,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" title="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">http://yoursite.com/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/</a>
+    <a href="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" title="论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks">http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>

@@ -83,7 +83,7 @@
 <meta name="keywords" content="Linux,find,grep,wc">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习记录：统计文件和目录的个数">
-<meta property="og:url" content="http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/index.html">
+<meta property="og:url" content="http://tanjuntao.github.io/2020/05/26/Linux-学习记录：统计文件和目录的个数/index.html">
 <meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="这篇文章总结下 Linux 下如何统计某个目录下面总共有多少个文件或文件夹。 1. 背景平时在 Linux 下工作，我们可能经常会碰到这种场景，即需要统计某个目录下总共有多少个文件，或者多少个子文件夹。这时候，熟练的使用一些命令将会有助于你开展工作。 注：下问的命令需要有足够权限执行，否则碰到有些文件不能读取（权限不足）的情况，将会造成统计出错。 2. 使用 ls 和 wc 命令ls 命令有一个参">
 <meta property="og:locale" content="zh-Hans">
@@ -120,7 +120,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/">
+  <link rel="canonical" href="http://tanjuntao.github.io/2020/05/26/Linux-学习记录：统计文件和目录的个数/">
 
 
 
@@ -285,7 +285,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2020/05/26/Linux-学习记录：统计文件和目录的个数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juntao Tan">
@@ -434,7 +434,7 @@
 <h3 id="2-使用-ls-和-wc-命令"><a href="#2-使用-ls-和-wc-命令" class="headerlink" title="2. 使用 ls 和 wc 命令"></a>2. 使用 <code>ls</code> 和 <code>wc</code> 命令</h3><p><code>ls</code> 命令有一个参数是 <code>-l</code> ，表示列举出文件的详细信息：</p>
 <a id="more"></a>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ ls -l</span><br><span class="line">total 1825244</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu 237412642 Mar 31 11:47 3-24.mp4</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu 242636679 Mar 24 11:41 3-31.mp4</span><br><span class="line">-rw-rw-r-- 1 ubuntu ubuntu  64569543 Apr 14 10:16 4-14-1.mp4</span><br></pre></td></tr></table></figure>
-<p>注意输出行的第一个字段，以 <code>-rw-rw-r--</code> 为例。从左往右数第一位，表示 <em>文件类型</em> ，后面每 3 位是一组，分别表示  <code>属主</code>、<code>组用户</code>、<code>其它用户</code> 的权限，可以参考之前的博文：<a href="https://tanjuntao.github.io/2020/03/08/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9ASUID-%E5%92%8C-SGID-%E7%AD%89%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/" target="_blank" rel="noopener">Linux学习记录：SUID 和 SGID 等特殊权限</a> </p>
+<p>注意输出行的第一个字段，以 <code>-rw-rw-r--</code> 为例。从左往右数第一位，表示 <em>文件类型</em> ，后面每 3 位是一组，分别表示  <code>属主</code>、<code>组用户</code>、<code>其它用户</code> 的权限，可以参考之前的博文：<a href="https://tanjuntao.github.io/2020/03/08/Linux%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%EF%BC%9ASUID-%E5%92%8C-SGID-%E7%AD%89%E7%89%B9%E6%AE%8A%E6%9D%83%E9%99%90/">Linux学习记录：SUID 和 SGID 等特殊权限</a> </p>
 <p>下面解释下第一位（表示文件类型）的含义：</p>
 <ul>
 <li><code>-</code> : 表示普通文件；</li>
@@ -464,7 +464,7 @@
 <p>④ 统计一个文件夹下有多少个文件夹，包括子文件夹</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR | grep "^d" | wc -l</span><br></pre></td></tr></table></figure>
-<h3 id="3-使用-find-命令和-wc-命令"><a href="#3-使用-find-命令和-wc-命令" class="headerlink" title="3. 使用 find 命令和 wc 命令"></a>3. 使用 <code>find</code> 命令和 <code>wc</code> 命令</h3><p>当然，要递归遍历所有的子文件夹的话，<code>find</code> 命令也是一个不错的选择，因为 <code>find</code> 在默认情况下（不加 <code>-maxdepth</code> 参数），是会遍历所有的子文件夹的。<code>find</code> 的使用方法可以参考之前的文章：<a href="https://tanjuntao.github.io/2020/02/27/Linux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-find-%E5%91%BD%E4%BB%A4/" target="_blank" rel="noopener">Linux 学习记录: find 命令</a></p>
+<h3 id="3-使用-find-命令和-wc-命令"><a href="#3-使用-find-命令和-wc-命令" class="headerlink" title="3. 使用 find 命令和 wc 命令"></a>3. 使用 <code>find</code> 命令和 <code>wc</code> 命令</h3><p>当然，要递归遍历所有的子文件夹的话，<code>find</code> 命令也是一个不错的选择，因为 <code>find</code> 在默认情况下（不加 <code>-maxdepth</code> 参数），是会遍历所有的子文件夹的。<code>find</code> 的使用方法可以参考之前的文章：<a href="https://tanjuntao.github.io/2020/02/27/Linux-%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95-find-%E5%91%BD%E4%BB%A4/">Linux 学习记录: find 命令</a></p>
 <p>下面来看使用方法。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -type f | wc -l</span><br></pre></td></tr></table></figure>
 <p>上述命令会遍历当前文件夹及其子文件夹，统计所有文件类型为 <code>f</code> （普通文件）的个数。</p>
@@ -530,7 +530,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/" title="Linux 学习记录：统计文件和目录的个数">http://yoursite.com/2020/05/26/Linux-学习记录：统计文件和目录的个数/</a>
+    <a href="http://tanjuntao.github.io/2020/05/26/Linux-学习记录：统计文件和目录的个数/" title="Linux 学习记录：统计文件和目录的个数">http://tanjuntao.github.io/2020/05/26/Linux-学习记录：统计文件和目录的个数/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
