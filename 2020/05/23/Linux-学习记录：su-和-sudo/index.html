@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux 学习记录：su 和 sudo">
 <meta property="og:url" content="http://yoursite.com/2020/05/23/Linux-学习记录：su-和-sudo/index.html">
-<meta property="og:site_name" content="个人博客">
+<meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="之前一直对 su 和 sudo 这两个命令犯迷糊，最近专门搜了这方面的资料，总算是把两者的关系以及用法搞清楚了，这篇文章来系统总结一下。 1. 准备工作因为本篇博客中涉及到用户切换，所以我需要提前准备好几个测试用户，方便后续切换。 Linux 中新建用户的命令是 useradd ，一般系统中这个命令对应的路径都在 PATH 环境变量里，如果直接输入 useradd 不管用的话，就用绝对路径名的方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-05-24T04:13:37.708Z">
+<meta property="og:updated_time" content="2020-05-24T04:13:38.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux 学习记录：su 和 sudo">
 <meta name="twitter:description" content="之前一直对 su 和 sudo 这两个命令犯迷糊，最近专门搜了这方面的资料，总算是把两者的关系以及用法搞清楚了，这篇文章来系统总结一下。 1. 准备工作因为本篇博客中涉及到用户切换，所以我需要提前准备好几个测试用户，方便后续切换。 Linux 中新建用户的命令是 useradd ，一般系统中这个命令对应的路径都在 PATH 环境变量里，如果直接输入 useradd 不管用的话，就用绝对路径名的方式">
@@ -126,7 +126,7 @@
 
 
 
-  <title>Linux 学习记录：su 和 sudo | 个人博客</title>
+  <title>Linux 学习记录：su 和 sudo | Juntao Tan的个人博客</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">个人博客</span>
+        <span class="site-title">Juntao Tan的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -324,7 +324,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
+      <meta itemprop="name" content="Juntao Tan的个人博客">
     </span>
 
     
@@ -439,10 +439,10 @@
 </ul>
 <p>光解释会比较抽象，我们看一个例子就比较容易理解了。</p>
 <p>我们首先从 ubuntu 用户以 <code>non-login-shell</code> 的方式切换到 root 用户，比较两种用户状态下环境变量中 <code>PWD</code> 的值（<code>su</code> 命令不跟任何 &lt;user_name&gt; ，默认切换到 root 用户）：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ env | grep ubuntu</span><br><span class="line">USER=ubuntu</span><br><span class="line">PWD=/home/ubuntu                                         # 是 /home/ubuntu</span><br><span class="line">HOME=/home/ubuntu</span><br><span class="line"><span class="meta">#</span><span class="bash"> 省略......</span></span><br><span class="line">ubuntu@VM-0-14-ubuntu:~$ su                              # non-login-shell 方式</span><br><span class="line">Password:                                                # 输入 root 用户登录密码</span><br><span class="line">root@VM-0-14-ubuntu:/home/ubuntu# env | grep ubuntu</span><br><span class="line">PWD=/home/ubuntu                                         # 可以发现还是 /home/ubuntu</span><br><span class="line">root@VM-0-14-ubuntu:/home/ubuntu#</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ env | grep ubuntu</span><br><span class="line">USER=ubuntu</span><br><span class="line">PWD=/home/ubuntu                                         # 是 /home/ubuntu</span><br><span class="line">HOME=/home/ubuntu</span><br><span class="line"><span class="meta">#</span> 省略......</span><br><span class="line">ubuntu@VM-0-14-ubuntu:~$ su                              # non-login-shell 方式</span><br><span class="line">Password:                                                # 输入 root 用户登录密码</span><br><span class="line">root@VM-0-14-ubuntu:/home/ubuntu# env | grep ubuntu</span><br><span class="line">PWD=/home/ubuntu                                         # 可以发现还是 /home/ubuntu</span><br><span class="line">root@VM-0-14-ubuntu:/home/ubuntu#</span><br></pre></td></tr></table></figure>
 <p>我们的确是切换到 root 用户了，但是 shell 环境中的变量并没有改变，还是用之前 ubuntu 用户的环境变量。</p>
 <p>接着我们从 ubuntu 用户以 <code>login-shell</code> 的方式切换到 root 用户，同样比较两种用户转台下环境变量中 <code>PWD</code> 的值：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ env | grep ubuntu</span><br><span class="line">USER=ubuntu</span><br><span class="line">PWD=/home/ubuntu                               # 是 /home/ubuntu</span><br><span class="line">HOME=/home/ubuntu</span><br><span class="line"><span class="meta">#</span><span class="bash"> 省略.......</span></span><br><span class="line">ubuntu@VM-0-14-ubuntu:~$ su -                  # 是 login-shell 方式</span><br><span class="line">Password:</span><br><span class="line">root@VM-0-14-ubuntu:~# env | grep root</span><br><span class="line">USER=root</span><br><span class="line">PWD=/root                                      # 已经变成 /root 了</span><br><span class="line">HOME=/root</span><br><span class="line">MAIL=/var/mail/root</span><br><span class="line">LOGNAME=root</span><br><span class="line">root@VM-0-14-ubuntu:~#</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ env | grep ubuntu</span><br><span class="line">USER=ubuntu</span><br><span class="line">PWD=/home/ubuntu                               # 是 /home/ubuntu</span><br><span class="line">HOME=/home/ubuntu</span><br><span class="line"><span class="meta">#</span> 省略.......</span><br><span class="line">ubuntu@VM-0-14-ubuntu:~$ su -                  # 是 login-shell 方式</span><br><span class="line">Password:</span><br><span class="line">root@VM-0-14-ubuntu:~# env | grep root</span><br><span class="line">USER=root</span><br><span class="line">PWD=/root                                      # 已经变成 /root 了</span><br><span class="line">HOME=/root</span><br><span class="line">MAIL=/var/mail/root</span><br><span class="line">LOGNAME=root</span><br><span class="line">root@VM-0-14-ubuntu:~#</span><br></pre></td></tr></table></figure>
 <p>可以看到用 <code>login-shell</code> 的方式切换用户的话，shell 中的环境变量也跟着改变了。</p>
 <p><strong>总结</strong>：具体使用哪种方式切换用户看个人需求：</p>
 <ul>
@@ -452,7 +452,7 @@
 <h4 id="2-2-切换到指定用户"><a href="#2-2-切换到指定用户" class="headerlink" title="2.2 切换到指定用户"></a>2.2 切换到指定用户</h4><p>前面已经介绍了，如果 <code>su</code> 命令后面不跟任何 &lt;user_name&gt;，那么默认是切换到 root 用户：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su -</span><br><span class="line">Password:                                       # root 用户的密码</span><br><span class="line">root@VM-0-14-ubuntu:/home/ubuntu#</span><br></pre></td></tr></table></figure>
 <p>因为我们在 <code>1. 准备工作</code> 部分已经新建了一个 test_user 用户，并且我们也知道 test_user 用户的登录密码（root 用户设置的），我们就能从 ubuntu 用户切换到 test_user 用户：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:                                       # test_user 用户的密码</span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:                                       # test_user 用户的密码</span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
 <h3 id="2-3-c-参数"><a href="#2-3-c-参数" class="headerlink" title="2.3 -c 参数"></a>2.3 <code>-c</code> 参数</h3><p>前面的方法中，我们都是先切换到另一个用户（root 或者 test_user），在哪个用户的状态下执行命令，最后输入 <code>exit</code> 返回当前 ubuntu 用户。</p>
 <p>还有一种方式是：不需要先切换用户再执行命令，可以直接在当前用户下，以另一个用户的方式执行命令，执行结束后就返回当前用户。这就得用到 <code>-c</code> 参数。</p>
 <p>具体使用方法是：</p>
@@ -482,7 +482,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
 <p>这个命令和 <code>sudo su -</code> 效果一致，也是切换到 root 用户，也是需要提供当前用户（ubuntu 用户）的登录密码。</p>
 <p>我们现在切换到 test_user 用户，尝试显示 <code>/etc/shadow</code> 文件的内容：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:                                       # test_user 的密码</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo cat /etc/shadow</span></span><br><span class="line">[sudo] password for test_user:                  # test_user 的密码</span><br><span class="line">test_user is not in the sudoers file.  This incident will be reported.</span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:                                       # test_user 的密码</span><br><span class="line"><span class="meta">$</span> sudo cat /etc/shadow</span><br><span class="line">[sudo] password for test_user:                  # test_user 的密码</span><br><span class="line">test_user is not in the sudoers file.  This incident will be reported.</span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
 <p>我们会看到倒数第二行中的错误提示信息，我们无法查看 <code>/etc/shadow</code> 的内容，这是为什么？为什么 ubuntu 可以使用 <code>sudo</code> 但是 test_user 不行呢？</p>
 <p>这就涉及到 <code>sudo</code> 的工作原理了。</p>
 <h4 id="3-2-sudo-工作原理"><a href="#3-2-sudo-工作原理" class="headerlink" title="3.2 sudo 工作原理"></a>3.2 <code>sudo</code> 工作原理</h4><p>一个用户能否使用 <code>sudo</code> 命令，取决于 <code>/etc/sudoers</code> 文件的设置。</p>
@@ -493,7 +493,7 @@
 <p>输入（root 用户）：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root@VM-0-14-ubuntu:~# visudo</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> User privilege specification</span></span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Members of the admin group may gain root privileges</span></span><br><span class="line"><span class="meta">%</span><span class="bash">admin ALL=(ALL) ALL</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> Allow members of group sudo to execute any <span class="built_in">command</span></span></span><br><span class="line"><span class="meta">%</span><span class="bash">sudo   ALL=(ALL:ALL) ALL</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> See sudoers(5) <span class="keyword">for</span> more information on <span class="string">"#include"</span> directives:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">includedir /etc/sudoers.d</span></span><br><span class="line">ubuntu  ALL=(ALL:ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span> User privilege specification</span><br><span class="line">root    ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Members of the admin group may gain root privileges</span><br><span class="line"><span class="meta">%</span>admin ALL=(ALL) ALL</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> Allow members of group sudo to execute any command</span><br><span class="line"><span class="meta">%</span>sudo   ALL=(ALL:ALL) ALL</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span> See sudoers(5) for more information on "#include" directives:</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span>includedir /etc/sudoers.d</span><br><span class="line">ubuntu  ALL=(ALL:ALL) NOPASSWD: ALL</span><br></pre></td></tr></table></figure>
 <p>解释下每一行的格式：</p>
 <ul>
 <li>第一个表示用户名，如 <code>root</code> 、<code>ubuntu</code> 等；</li>
@@ -506,7 +506,7 @@
 <p>接下来，我们尝试将 test_user 添加到 <code>/etc/sudoers</code> 文件中，使 test_user 也能使用 <code>sudo</code> 命令。我们在最后一行添加：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">test_user  ALL=(ALL:ALL)  ALL       # test_user 使用 sudo 需要提供 test_user 的密码</span><br></pre></td></tr></table></figure>
 <p>接下来我们再在 test_user 账户下执行 <code>sudo</code> ：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:</span><br><span class="line"><span class="meta">$</span><span class="bash"> tail -n 3 /etc/shadow</span></span><br><span class="line">tail: cannot open '/etc/shadow' for reading: Permission denied</span><br><span class="line"><span class="meta">$</span><span class="bash"> sudo tail -n 3 /etc/shadow                   <span class="comment"># 加上 sudo</span></span></span><br><span class="line">ntp:*:17752:0:99999:7:::</span><br><span class="line">mysql:!:18376:0:99999:7:::</span><br><span class="line">test_user:$6$.ZY1lj4m$ii0x9CG8h.JHlh6zKbfBXRuolJmIDBHAd5eqhvW7lbUQXTRS//89jcuTzRilKqRkP8YbYW4VPxmTVHWRLYNGS/:18406:0:99999:7:::</span><br><span class="line"><span class="meta">$</span><span class="bash"></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ubuntu@VM-0-14-ubuntu:~$ su - test_user</span><br><span class="line">Password:</span><br><span class="line"><span class="meta">$</span> tail -n 3 /etc/shadow</span><br><span class="line">tail: cannot open '/etc/shadow' for reading: Permission denied</span><br><span class="line"><span class="meta">$</span> sudo tail -n 3 /etc/shadow                   # 加上 sudo</span><br><span class="line">ntp:*:17752:0:99999:7:::</span><br><span class="line">mysql:!:18376:0:99999:7:::</span><br><span class="line">test_user:$6$.ZY1lj4m$ii0x9CG8h.JHlh6zKbfBXRuolJmIDBHAd5eqhvW7lbUQXTRS//89jcuTzRilKqRkP8YbYW4VPxmTVHWRLYNGS/:18406:0:99999:7:::</span><br><span class="line"><span class="meta">$</span></span><br></pre></td></tr></table></figure>
 <p>可以看到，现在已经可以使用 <code>sudo</code> 了。</p>
 <h3 id="3-2-思考"><a href="#3-2-思考" class="headerlink" title="3.2 思考"></a>3.2 思考</h3><p>我们已经看到了，如果一个用户在 <code>/etc/sudoers</code> 文件中，那么它就具有 <code>sudo</code> 权限，就能通过 <code>sudo su -</code> 或者 <code>sudo -i</code> 等命令切换到 root 用户了，那这时这个用户就变成 root 用户了，那这不对系统造成很大的威胁吗？</p>
 <p>实际上的确是这样的。所以如果在编辑 <code>/etc/sudoers</code> 文件赋予某种用户 <code>sudo</code> 权限时，必须要确定该用户是<strong>可信任</strong>的，不会对系统造成恶意破坏，否则将所有 root 权限都赋予该用户将会有非常大的危险。</p>
@@ -678,7 +678,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

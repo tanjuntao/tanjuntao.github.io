@@ -84,10 +84,10 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux学习记录：rsync使用方法总结">
 <meta property="og:url" content="http://yoursite.com/2020/10/26/Linux学习记录：rsync使用方法总结/index.html">
-<meta property="og:site_name" content="个人博客">
+<meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="这篇文章总结下 rsync 命令的常见使用方法。 1. Introductionrsync，全称是 remote sync，字面意思是做远程同步的，但是 rsync 能做的不只是远程同步，还能做：  文件拷贝； 系统备份； 远程文件传输；  等。rsync 完全能够替代常见的 cp / mv/ scp (secure copy) 等文件拷贝、移动和远程传输等命令。 rsync 最大的的用途是可以做">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-10-26T11:32:57.301Z">
+<meta property="og:updated_time" content="2020-10-26T11:32:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux学习记录：rsync使用方法总结">
 <meta name="twitter:description" content="这篇文章总结下 rsync 命令的常见使用方法。 1. Introductionrsync，全称是 remote sync，字面意思是做远程同步的，但是 rsync 能做的不只是远程同步，还能做：  文件拷贝； 系统备份； 远程文件传输；  等。rsync 完全能够替代常见的 cp / mv/ scp (secure copy) 等文件拷贝、移动和远程传输等命令。 rsync 最大的的用途是可以做">
@@ -126,7 +126,7 @@
 
 
 
-  <title>Linux学习记录：rsync使用方法总结 | 个人博客</title>
+  <title>Linux学习记录：rsync使用方法总结 | Juntao Tan的个人博客</title>
   
 
 
@@ -156,7 +156,7 @@
     <div class="custom-logo-site-title">
       <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">个人博客</span>
+        <span class="site-title">Juntao Tan的个人博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -324,7 +324,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="个人博客">
+      <meta itemprop="name" content="Juntao Tan的个人博客">
     </span>
 
     
@@ -478,7 +478,7 @@
 <p>使用这个参数，<code>rsync</code> 会首先将需要拷贝或传输的数据压缩，到了 destination，进行解压缩，整个过程中用户不需要手动做压缩和解压，<code>rsync</code> 全帮用户做好了，这样就能减少需要传输的文件大小。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tanjuntao@mbp:~$ rsync -az test1/ test2/</span><br></pre></td></tr></table></figure>
 <h4 id="2-5-progress-或者-P-大写-参数"><a href="#2-5-progress-或者-P-大写-参数" class="headerlink" title="2.5 --progress 或者 -P (大写) 参数"></a>2.5 <code>--progress</code> 或者 <code>-P</code> (大写) 参数</h4><p>使用这个参数，可以将文件拷贝或者传输的过程给显示出来，看下面例子的执行结果就知道了：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">tanjuntao@mbp:~$ rsync -a --progress pytorch-cifar test2/</span><br><span class="line">building file list ...</span><br><span class="line">64 files to consider</span><br><span class="line">pytorch-cifar/</span><br><span class="line">pytorch-cifar/LICENSE</span><br><span class="line">        1065 100%    0.00kB/s    0:00:00 (xfer#1, to-check=62/64)</span><br><span class="line">pytorch-cifar/README.md</span><br><span class="line">        1324 100%    1.26MB/s    0:00:00 (xfer#2, to-check=61/64)</span><br><span class="line">pytorch-cifar/main.py</span><br><span class="line">        4518 100%    4.31MB/s    0:00:00 (xfer#3, to-check=60/64)</span><br><span class="line">pytorch-cifar/utils.py</span><br><span class="line">        3446 100%    3.29MB/s    0:00:00 (xfer#4, to-check=59/64)</span><br><span class="line">pytorch-cifar/.git/</span><br><span class="line">pytorch-cifar/.git/HEAD</span><br><span class="line">          23 100%   11.23kB/s    0:00:00 (xfer#5, to-check=57/64)</span><br><span class="line">pytorch-cifar/.git/config</span><br><span class="line">         311 100%  151.86kB/s    0:00:00 (xfer#6, to-check=56/64)</span><br><span class="line">pytorch-cifar/.git/description</span><br><span class="line">          73 100%   35.64kB/s    0:00:00 (xfer#7, to-check=55/64)</span><br><span class="line">pytorch-cifar/.git/index</span><br><span class="line">        1818 100%  887.70kB/s    0:00:00 (xfer#8, to-check=54/64)</span><br><span class="line">pytorch-cifar/.git/packed-refs</span><br><span class="line">         321 100%  104.49kB/s    0:00:00 (xfer#9, to-check=53/64)</span><br><span class="line"><span class="meta">#</span><span class="bash"> &lt;后面省略...&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">tanjuntao@mbp:~$ rsync -a --progress pytorch-cifar test2/</span><br><span class="line">building file list ...</span><br><span class="line">64 files to consider</span><br><span class="line">pytorch-cifar/</span><br><span class="line">pytorch-cifar/LICENSE</span><br><span class="line">        1065 100%    0.00kB/s    0:00:00 (xfer#1, to-check=62/64)</span><br><span class="line">pytorch-cifar/README.md</span><br><span class="line">        1324 100%    1.26MB/s    0:00:00 (xfer#2, to-check=61/64)</span><br><span class="line">pytorch-cifar/main.py</span><br><span class="line">        4518 100%    4.31MB/s    0:00:00 (xfer#3, to-check=60/64)</span><br><span class="line">pytorch-cifar/utils.py</span><br><span class="line">        3446 100%    3.29MB/s    0:00:00 (xfer#4, to-check=59/64)</span><br><span class="line">pytorch-cifar/.git/</span><br><span class="line">pytorch-cifar/.git/HEAD</span><br><span class="line">          23 100%   11.23kB/s    0:00:00 (xfer#5, to-check=57/64)</span><br><span class="line">pytorch-cifar/.git/config</span><br><span class="line">         311 100%  151.86kB/s    0:00:00 (xfer#6, to-check=56/64)</span><br><span class="line">pytorch-cifar/.git/description</span><br><span class="line">          73 100%   35.64kB/s    0:00:00 (xfer#7, to-check=55/64)</span><br><span class="line">pytorch-cifar/.git/index</span><br><span class="line">        1818 100%  887.70kB/s    0:00:00 (xfer#8, to-check=54/64)</span><br><span class="line">pytorch-cifar/.git/packed-refs</span><br><span class="line">         321 100%  104.49kB/s    0:00:00 (xfer#9, to-check=53/64)</span><br><span class="line"><span class="meta">#</span> &lt;后面省略...&gt;</span><br></pre></td></tr></table></figure>
 <h4 id="2-6-e-参数"><a href="#2-6-e-参数" class="headerlink" title="2.6 -e 参数"></a>2.6 <code>-e</code> 参数</h4><p><code>-e</code> 参数后面接 <code>ssh</code> 表示我现在想要在本地和远程服务器之间，通过 ssh 协议来相互传输文件。</p>
 <ol>
 <li>将本地文件传递到远程</li>
@@ -675,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">92</span>
+                  <span class="site-state-item-count">93</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[2022-1-27测试博文]]></title>
-    <url>%2F2022%2F01%2F27%2F2022-1-27%E6%B5%8B%E8%AF%95%E5%8D%9A%E6%96%87%2F</url>
-    <content type="text"><![CDATA[这是一篇测试文章。 插入图片]]></content>
+    <title><![CDATA[macbook 上的测试博文]]></title>
+    <url>%2F2022%2F01%2F28%2Fmacbook-%E4%B8%8A%E7%9A%84%E6%B5%8B%E8%AF%95%E5%8D%9A%E6%96%87%2F</url>
+    <content type="text"><![CDATA[这是一篇在 MacBook 上面的测试博客，为了验证 hexo 是否迁移成功。]]></content>
+      <tags>
+        <tag>macbook, test</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[使用.gitignore来忽略一些不想提交的文件]]></title>
@@ -163,8 +166,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>grep</tag>
         <tag>find</tag>
+        <tag>grep</tag>
         <tag>wc</tag>
       </tags>
   </entry>
