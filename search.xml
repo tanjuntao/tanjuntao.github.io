@@ -228,10 +228,10 @@
         <category>Python</category>
       </categories>
       <tags>
+        <tag>重定向</tag>
         <tag>python</tag>
         <tag>print</tag>
         <tag>f-string</tag>
-        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
@@ -304,10 +304,10 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>重定向</tag>
         <tag>标准输入</tag>
         <tag>标准输出</tag>
         <tag>管道</tag>
+        <tag>重定向</tag>
       </tags>
   </entry>
   <entry>
