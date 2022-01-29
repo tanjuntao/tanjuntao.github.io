@@ -81,14 +81,14 @@
 
 <meta name="description" content="记录一些重要的技术点，方便自己查阅，也希望能够帮助到大家。">
 <meta property="og:type" content="website">
-<meta property="og:title" content="分类">
+<meta property="og:title" content="categories">
 <meta property="og:url" content="http://tanjuntao.github.io/categories/index.html">
 <meta property="og:site_name" content="Juntao Tan的个人博客">
 <meta property="og:description" content="记录一些重要的技术点，方便自己查阅，也希望能够帮助到大家。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-02-28T06:08:46.000Z">
+<meta property="og:updated_time" content="2022-01-29T03:44:34.237Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="分类">
+<meta name="twitter:title" content="categories">
 <meta name="twitter:description" content="记录一些重要的技术点，方便自己查阅，也希望能够帮助到大家。">
 
 
@@ -125,7 +125,7 @@
 
 
 
-  <title>分类 | Juntao Tan的个人博客</title>
+  <title>categories | Juntao Tan的个人博客</title>
   
 
 
@@ -277,7 +277,7 @@
     <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
+	<h1 class="post-title" itemprop="name headline">categories</h1>
 
 
 
@@ -1037,13 +1037,13 @@
       var articles = db.collection('articles')
 
       //https://hexo.io/zh-tw/docs/variables.html
-      var isPost = '分类'.length > 0
+      var isPost = 'categories'.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
       var isTag = ''.length > 0
 
       if (isPost) { //is article page
-        var title = '分类'
+        var title = 'categories'
         var doc = articles.doc(title)
 
         getCount(doc, true).then(appendCountTo($('.post-meta')))
