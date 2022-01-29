@@ -1059,7 +1059,7 @@
       var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
-      var isTag = ''.length > 0
+      var isTag = 'linux'.length > 0
 
       if (isPost) { //is article page
         var title = ''
@@ -1127,7 +1127,7 @@
 
 </body>
 </html>
-            slicesOfContent.sort(function (sliceLeft, sliceRight) {
+       slicesOfContent.sort(function (sliceLeft, sliceRight) {
                     if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
                       return sliceRight.searchTextCount - sliceLeft.searchTextCount;
                     } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
@@ -1323,7 +1323,7 @@
       var isPost = ''.length > 0
       var isArchive = '' === 'true'
       var isCategory = ''.length > 0
-      var isTag = ''.length > 0
+      var isTag = 'Linux'.length > 0
 
       if (isPost) { //is article page
         var title = ''
