@@ -284,532 +284,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Juntao Tan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juntao Tan的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/" itemprop="url">论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-27T20:26:04+08:00">
-                2019-07-27
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-29T15:55:14+08:00">
-                2019-07-29
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  2.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>寻找对抗样本的过程就是最优化下面的目标函数：</p>
-<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/1.png" alt></p>
-<p>其中<code>k</code>表示分类器，<code>r</code>表示添加的扰动，<code>delta</code>文中表示的含义是分类器在<code>x</code>这个样本点处的<code>robustness</code>，其实就是扰动的<code>L-2 norm</code>。</p>
-<p>分类器在整个数据集上的<code>robustness</code>计算公式如下：</p>
-<p><img src="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/2.png" alt></p>
-<p>从公式中可以看出，如果添加的扰动越小，计算到的<code>ro</code>值就越小，相应的根据文中的定义，分类器的<code>robustness</code>就越好。</p>
-<p>本文中的主要贡献：<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/07/27/论文阅读笔记：DeepFool-a-simple-and-accurate-method-to-fool-neural-networks/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Juntao Tan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juntao Tan的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/15/论文阅读笔记：Explaining-and-Harnessing-Adversarial-Examples/" itemprop="url">论文阅读笔记：Explaining and Harnessing Adversarial Examples</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-15T17:00:32+08:00">
-                2019-07-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-15T17:00:34+08:00">
-                2019-07-15
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Juntao Tan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/header.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Juntao Tan的个人博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/" itemprop="url">论文阅读笔记：Intriguing Properties of Neural Network</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-10T10:00:30+08:00">
-                2019-07-10
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于&#58;</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2019-07-15T10:41:02+08:00">
-                2019-07-15
-              </time>
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1.1k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>对抗样本（adversarial examples）的开山之作。</p>
-<p>文中主要提到了神经网络两个比较奇怪的性质：</p>
-<ol>
-<li>神经网络中携带语义信息的不是某单个神经元，而是整个网络所表示的空间。</li>
-<li>给样本添加一些轻微的扰动，会导致神经网络模型错误分类，这些样本就称为对抗样本。</li>
-</ol>
-<p>这里对第一个性质做简单的说明。</p>
-<p>首先，作者们通过观察某个隐层中某个特定神经元对什么样的输入图片会产生最大的激活值，以此来确定这个神经元对什么样的特征是最敏感的，从而确定这个神经元包含什么样的语义信息。这个想法是可行的并且前面（2014年之前）已经有这方面的研究了。实验结果就发现：单个神经元确实能够表示某种语义信息。接着作者们又做了另外一个实验：选择隐层所表示的空间中的一个随机方向（就是基向量的随机线性组合，是隐层中单个神经元所无法表示的方向），然后用同样的方法使其激活值最大。实验结果发现，同单个神经元一样，这个随机的方向也能表示某种确切的语义信息，从而说明了这个随机方向也可以表示某种特征。</p>
-<p>所以最后得到的结论就是：<strong>神经网络某个隐藏层中携带语义信息的并不是单个神经元，而是这个隐层所表示的整个空间。</strong></p>
-<p>文中提出来的几个假设：</p>
-<blockquote>
-<ol>
-<li>it is assumend that is possible for the output unit to assign non-significant(and, presumaby, non-epsilon)probabilities to regions of the input space that contain no training examples in their vicinity.</li>
-<li>the adversarial examples represent low-probability(high-dimensional)”pockets” in the manifold, which are hard to efficiently find by simply randomly sampling the input around a given example.</li>
-</ol>
-</blockquote>
-<p>那么作者们是如何找到对抗样本的呢？</p>
-<p>寻找对抗样本的过程，其实是一个不断优化的过程：一方面我们希望添加的扰动尽可能小，因为如果是较大的扰动，任何state-of-the-art的模型都会错误分类，就算是人眼也可能识别不了，这和对抗样本问题的研究初衷不一样，我们想知道的是为什么神经网络在面对这些人眼不可分辨的图片时，会给出巨大的错误结果。另一方面，我们希望对抗样本能被错误分类到另一个其它类别，从损失函数的角度看，就是想让其越大越好，于是作者们给出了下面的优化目标函数：</p>
-<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/1.png" alt></p>
-<p>其中<code>x</code>是原始图片，<code>r</code>是添加的扰动，<code>f</code>是分类器，<code>l</code>是目标类别（同<code>x</code>正确的类别不同）。我们希望<code>r</code>越小越好，同时使对抗样本<code>x + r</code>被错误分类到一个指定类别<code>l</code>下，同时还需要生成的<code>x + r</code>的值在<code>[0,1]</code>之间（保证是一张合法的图片）。</p>
-<p>直接解这个问题不容易，因此作者转换了一种思路，从损失函数的角度找最优的<code>r</code>:</p>
-<p><img src="/2019/07/10/论文阅读笔记：Intriguing-Properties-of-Neural-Network/2.png" alt></p>
-<p>简单看看损失函数：一方面我们需要<code>r</code>的某种范式越小越好，另一方面我们希望<code>loss(x+r, l)</code>越小越好，因为这样表明<code>x+r</code>分类成类别<code>l</code>的概率越大。所以我们的目标是最小化上述公式，用到的方法是<strong>box-constrained L-BFGS</strong>.</p>
-<p>最后，作者们通过实验发现了几个重要的现象：</p>
-<ul>
-<li>对于论文中提到的所有网络结构（non-convolutional network, AlexNet, QuocNet），都能用上述方法生成对抗样本；</li>
-<li>对抗样本具有跨模型的泛化能力：在A模型上产生的对抗样本，有很大一部分在B模型（和A模型结构相同，超参数不同）上也有效（也能是B模型错误分类）</li>
-<li>对抗样本具有跨数据集的泛化能力：在D1数据集训练得到的模型上产生的对抗样本，在D2数据集训练得到的模型上也有效，D1和D2属于不同的子集，两个模型是结构完全不同的模型。</li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/07/09/统计学习方法：感知机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1876,7 +1350,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/05/04/佛祖-py/">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/05/04/写出pythonic的代码/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Juntao Tan">
@@ -1895,7 +1369,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/04/佛祖-py/" itemprop="url">佛祖.py</a></h1>
+                <a class="post-title-link" href="/2019/05/04/写出pythonic的代码/" itemprop="url">写出pythonic的代码</a></h1>
         
 
         <div class="post-meta">
@@ -1907,7 +1381,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T08:07:59+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-04T08:03:10+08:00">
                 2019-05-04
               </time>
             
@@ -1923,7 +1397,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <span class="post-meta-item-text">更新于&#58;</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2019-05-04T08:13:56+08:00">
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-04T08:27:18+08:00">
                 2019-05-04
               </time>
             
@@ -1951,7 +1425,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  195
+                  149
                 </span>
               
 
@@ -1990,9 +1464,531 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
       
         
           
-            <p>皮一下哈哈…</p>
-<p>代码<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"                            _ooOoo_  "</span>)</span><br><span class="line">print(<span class="string">"                           o8888888o  "</span>)</span><br><span class="line">print(<span class="string">"                           88  .  88  "</span>)</span><br><span class="line">print(<span class="string">"                           (| -_- |)  "</span>)</span><br><span class="line">print(<span class="string">"                            O\\ = /O  "</span>)</span><br><span class="line">print(<span class="string">"                        ____/`---'\\____  "</span>)</span><br><span class="line">print(<span class="string">"                      .   ' \\| |// `.  "</span>)</span><br><span class="line">print(<span class="string">"                       / \\||| : |||// \\  "</span>)</span><br><span class="line">print(<span class="string">"                     / _||||| -:- |||||- \\  "</span>)</span><br><span class="line">print(<span class="string">"                       | | \\\\\\ - /// | |  "</span>)</span><br><span class="line">print(<span class="string">"                     | \\_| ''\\---/'' | |  "</span>)</span><br><span class="line">print(<span class="string">"                      \\ .-\\__ `-` ___/-. /  "</span>)</span><br><span class="line">print(<span class="string">"                   ___`. .' /--.--\\ `. . __  "</span>)</span><br><span class="line">print(<span class="string">"                ."</span><span class="string">" '&lt; `.___\\_&lt;|&gt;_/___.' &gt;'"</span><span class="string">".  "</span>)</span><br><span class="line">print(<span class="string">"               | | : `- \\`.;`\\ _ /`;.`/ - ` : | |  "</span>)</span><br><span class="line">print(<span class="string">"                 \\ \\ `-. \\_ __\\ /__ _/ .-` / /  "</span>)</span><br><span class="line">print(<span class="string">"         ======`-.____`-.___\\_____/___.-`____.-'======  "</span>)</span><br><span class="line">print(<span class="string">"                            `=---='  "</span>)</span><br><span class="line">print(<span class="string">"  "</span>)</span><br><span class="line">print(<span class="string">"         .............................................  "</span>)</span><br><span class="line">print(<span class="string">"                  佛祖镇楼                  BUG辟易  "</span>)</span><br><span class="line">print(<span class="string">"          佛曰:  "</span>)</span><br><span class="line">print(<span class="string">"                  写字楼里写字间，写字间里程序员；  "</span>)</span><br><span class="line">print(<span class="string">"                  程序人员写程序，又拿程序换酒钱。  "</span>)</span><br><span class="line">print(<span class="string">"                  酒醒只在网上坐，酒醉还来网下眠；  "</span>)</span><br><span class="line">print(<span class="string">"                  酒醉酒醒日复日，网上网下年复年。  "</span>)</span><br><span class="line">print(<span class="string">"                  但愿老死电脑间，不愿鞠躬老板前；  "</span>)</span><br><span class="line">print(<span class="string">"                  奔驰宝马贵者趣，公交自行程序员。  "</span>)</span><br><span class="line">print(<span class="string">"                  别人笑我忒疯癫，我笑自己命太贱；  "</span>)</span><br><span class="line">print(<span class="string">"                  不见满街漂亮妹，哪个归得程序员？"</span>)</span><br></pre></td></tr></table></figure></p>
-<p>打印效果：<br><img src="/2019/05/04/佛祖-py/1.png" alt><br><img src="/2019/05/04/佛祖-py/2.png" width="536"></p>
+            <h2 id="列表遍历"><a href="#列表遍历" class="headerlink" title="列表遍历"></a>列表遍历</h2><p>Pythonic<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">names = [<span class="string">'juntao'</span>, <span class="string">'xiaojun'</span>, <span class="string">'mingming'</span>, <span class="string">'haohao'</span>]</span><br><span class="line"><span class="comment"># 查找名字列表中带有字母'm'的名字</span></span><br><span class="line">m_name = [name <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> <span class="string">'m'</span> <span class="keyword">in</span> name]</span><br><span class="line">print(m_name)</span><br></pre></td></tr></table></figure></p>
+<p>不要用循环写！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">m_name = []</span><br><span class="line"><span class="keyword">for</span> name <span class="keyword">in</span> names:</span><br><span class="line">    <span class="keyword">if</span> <span class="string">'m'</span> <span class="keyword">in</span> name:</span><br><span class="line">        m_name.append(name)</span><br><span class="line">print(m_name)</span><br></pre></td></tr></table></figure></p>
+<h2 id="字典遍历"><a href="#字典遍历" class="headerlink" title="字典遍历"></a>字典遍历</h2><p>Pythonic<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">exam_detail = &#123;<span class="string">'juntao'</span>: <span class="number">44</span>, <span class="string">'xiaojun'</span>: <span class="number">88</span>, <span class="string">'mingming'</span>: <span class="number">99</span>, <span class="string">'haohao'</span>: <span class="number">22</span>&#125;</span><br><span class="line"><span class="comment"># 找出及格的学生及其分数</span></span><br><span class="line">score_greater_than_60 = &#123;k: v <span class="keyword">for</span> k, v <span class="keyword">in</span> exam_detail.items() <span class="keyword">if</span> v &gt;= <span class="number">60</span>&#125;</span><br><span class="line">print(score_greater_than_60)</span><br></pre></td></tr></table></figure></p>
+<p>不要这样写！<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">score_greater_than_60 = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> k, v <span class="keyword">in</span> exam_detail.items():</span><br><span class="line">    <span class="keyword">if</span> v &gt;= <span class="number">60</span>:</span><br><span class="line">        score_greater_than_60[k] = v</span><br><span class="line">print(score_greater_than_60)</span><br></pre></td></tr></table></figure></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li>一些 pythonic 的代码实例：<a href="https://github.com/mikeckennedy/write-pythonic-code-demos" target="_blank" rel="noopener">https://github.com/mikeckennedy/write-pythonic-code-demos</a></li>
+<li><a href="https://blog.csdn.net/g8433373/article/details/80709116" target="_blank" rel="noopener">https://blog.csdn.net/g8433373/article/details/80709116</a></li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/05/01/一些Python语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juntao Tan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Juntao Tan的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/01/一些Python语法/" itemprop="url">一些Python语法</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-01T10:57:34+08:00">
+                2019-05-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-05-04T20:32:22+08:00">
+                2019-05-04
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  600
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="关键字-global"><a href="#关键字-global" class="headerlink" title="关键字 global"></a>关键字 <code>global</code></h2><p><code>global</code>关键字主要目的是为了在函数中使用全局变量。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">count = <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">modify_count</span><span class="params">()</span>:</span></span><br><span class="line">    temp_count = <span class="number">20</span></span><br><span class="line">    print(<span class="string">'local variable: '</span>, temp_count)</span><br><span class="line">    <span class="keyword">global</span> count</span><br><span class="line">    print(<span class="string">'global variable: '</span>, count)</span><br><span class="line">    count = <span class="number">100</span></span><br><span class="line">    print(<span class="string">'after modified: '</span>, count)</span><br><span class="line">    <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'before modify_count(): '</span>, count)</span><br><span class="line">modify_count()</span><br><span class="line">print(<span class="string">'after modify_count(): '</span>, count)</span><br></pre></td></tr></table></figure></p>
+<p>输入结果：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">before modify_count():  10</span><br><span class="line">local variable:  20</span><br><span class="line">global variable:  10</span><br><span class="line">after modified:  100</span><br><span class="line">after modify_count():  100</span><br><span class="line"></span><br><span class="line">Process finished with exit code 0</span><br></pre></td></tr></table></figure></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/05/01/一些Python语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/04/30/pycharm在需要输入命令行参数时如何调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juntao Tan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Juntao Tan的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/30/pycharm在需要输入命令行参数时如何调试/" itemprop="url">pycharm在需要输入命令行参数时如何调试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T10:32:00+08:00">
+                2019-04-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-30T10:44:06+08:00">
+                2019-04-30
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  227
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="1-前言"><a href="#1-前言" class="headerlink" title="1. 前言"></a>1. 前言</h2><p>在 pycharm 中进行调试，一般的做法是：先设置断点，然后开始调试程序。调试过程中选择<code>step over</code>, <code>step into</code>, <code>step out</code>, <code>resume program</code>等操作。</p>
+<p>但是当程序需要从命令行中读取参数时，该怎么调试呢？</p>
+<p>如果和之前一样，设置断点，然后开始调试，但在这种做法下，程序没有从命令行中获取到参数；如果在 pycharm 的 <code>teminal</code>中输入 <code>python xxx.py -x xx -y yy -z zz</code>，这种做法会直接运行完程序，无法在断点处停下来。</p>
+<h2 id="2-解决方法"><a href="#2-解决方法" class="headerlink" title="2. 解决方法"></a>2. 解决方法</h2><p>在 pycharm 中选择 <code>Run</code> -&gt; <code>edit configurations</code>，然后在<code>parameters</code>中填入需要设置的命令行参数，这时候不需要输入<code>python xxx.py</code>。点击<code>apply</code>然后<code>OK</code>。</p>
+<p><img src="/2019/04/30/pycharm在需要输入命令行参数时如何调试/1.png" alt></p>
+<p><img src="/2019/04/30/pycharm在需要输入命令行参数时如何调试/2.png" alt></p>
+<p>然后在代码中就可以直接 <code>debug</code> 了，会在断点处停下来。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><ul>
+<li><a href="https://blog.csdn.net/wishchin/article/details/78560725" target="_blank" rel="noopener">https://blog.csdn.net/wishchin/article/details/78560725</a> </li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tanjuntao.github.io/2019/04/29/pycharm调试/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Juntao Tan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/header.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Juntao Tan的个人博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/29/pycharm调试/" itemprop="url">pycharm调试</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-29T08:09:28+08:00">
+                2019-04-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于&#58;</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-04-29T08:21:34+08:00">
+                2019-04-29
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  81
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>pycharm中调试功能按钮说明列表</p>
+<p><strong>竖排</strong></p>
+<p><img src="/2019/04/29/pycharm调试/1.png" alt></p>
+<ul>
+<li><code>Resume Program(F9)</code>: 运行到下一个断点。</li>
+</ul>
+<p><strong>横排</strong></p>
+<p><img src="/2019/04/29/pycharm调试/2.jpg" alt></p>
+<ul>
+<li><code>step into(F7)</code>和<code>step into my code(Shift+Alt+F7</code>之间的区别：前者会进入到一些系统函数内容，后者只会进入自己定义的函数内部。</li>
+</ul>
+<p>参考文章</p>
+<ul>
+<li><a href="https://mp.weixin.qq.com/s?src=11&amp;timestamp=1556496966&amp;ver=1575&amp;signature=eiBK728JRESOP-0TVthbEh8MsNdngaiQSl-Piq2yPI2a9Y2kzAoP3pZWhmoFYSw7z3KYfGvPtxl48dYqjwyjkfZNLPdvkh-lZ6KL8yP-iMnYvDhpcnFu576RXcZszlbh&amp;new=1" target="_blank" rel="noopener">pycharm调试功能</a></li>
+</ul>
 
           
         
@@ -2032,7 +2028,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/4/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><span class="page-number current">5</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/6/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2080,7 +2076,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">67</span>
+                  <span class="site-state-item-count">60</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2091,7 +2087,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2102,7 +2098,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">93</span>
+                  <span class="site-state-item-count">87</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -2188,7 +2184,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">51.4k</span>
+    <span title="Site words total count">50.9k</span>
   
 </div>
 
@@ -2764,7 +2760,7 @@ c:\python36\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: F
       else if (!isArchive && !isCategory && !isTag) { //is index page
         var titles = [] //array to titles
 
-        var postsstr = 'titles.push("论文阅读笔记：DeepFool: a simple and accurate method to fool neural networks");titles.push("论文阅读笔记：Explaining and Harnessing Adversarial Examples");titles.push("论文阅读笔记：Intriguing Properties of Neural Network");titles.push("统计学习方法：感知机");titles.push("python中如何批量修改文件后缀名");titles.push("安装jupyter notebook和修改字体");titles.push("如何删除github仓库中某个文件或者文件夹");titles.push("HelloWorld of Keras");titles.push("李学龙老师在2017届本科生毕业典礼上的讲话");titles.push("佛祖.py");' //if you have a better way to get titles of posts, please change it
+        var postsstr = 'titles.push("统计学习方法：感知机");titles.push("python中如何批量修改文件后缀名");titles.push("安装jupyter notebook和修改字体");titles.push("如何删除github仓库中某个文件或者文件夹");titles.push("HelloWorld of Keras");titles.push("李学龙老师在2017届本科生毕业典礼上的讲话");titles.push("写出pythonic的代码");titles.push("一些Python语法");titles.push("pycharm在需要输入命令行参数时如何调试");titles.push("pycharm调试");' //if you have a better way to get titles of posts, please change it
         eval(postsstr)
 
         var promises = titles.map(function (title) {

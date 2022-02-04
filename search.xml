@@ -102,8 +102,8 @@
       </categories>
       <tags>
         <tag>Linux</tag>
-        <tag>python</tag>
         <tag>pip</tag>
+        <tag>python</tag>
       </tags>
   </entry>
   <entry>
@@ -221,20 +221,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Python print() 函数常见用法总结]]></title>
-    <url>%2F2020%2F05%2F02%2FPython-print-%E5%87%BD%E6%95%B0%E5%B8%B8%E8%A7%81%E7%94%A8%E6%B3%95%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[参考下面这篇文章，写的非常非常好，非常全面。 https://realpython.com/python-print/#toc]]></content>
-      <categories>
-        <category>Python</category>
-      </categories>
-      <tags>
-        <tag>重定向</tag>
-        <tag>python</tag>
-        <tag>print</tag>
-        <tag>f-string</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[P/NP/NP-Complete/NP-Hard 问题的理解]]></title>
     <url>%2F2020%2F04%2F30%2FP-NP-NP-Complete-NP-Hard-%E9%97%AE%E9%A2%98%E7%9A%84%E7%90%86%E8%A7%A3%2F</url>
     <content type="text"><![CDATA[几种问题的定义如下： 问题类型 多项式时间可解 多项式时间可验证解的正确性 P YES YES NP uncertain YES NP-Complete uncertain YES NP-Hard uncertain or NO YES or NO 咋一看觉得 NP 问题和 NP-Complete 问题是一样的，两者的共同点都是： 依据目前的研究进展，还无法断定这两类问题能否在多项式时间内可解； 都可以在多项式时间内验证一个解是否正确。 其实，从集合的角度看，NP-Complete 类问题是 NP 类问题的一个子集，即：所有 NP-Complete 的问题都是 NP 问题，但不是所有的 NP 问题都是 NP-Complete 的。 NP-Complete 问题的完整定义是：所有的 NP 类问题都可以在 多项式时间 内 归约 到这个问题，那么这个问题就是 NP-Complete 的。 ======待续====== 下面一张 韦恩图 表示了上面几种问题之间的关系： 注意 YouTube 视频下面一个搞笑的段子 一定需要说明清楚：NP 问题面对的都是 decision problems，但是 NP-Hard 问题面对的可能不是简单的 decision problems，所以说 NP-hard 问题一般会更难。 只要 NPC 中的任何一个问题被解决了，那么所有的 NP 问题都将在多项式时间内解决掉。 NP 问题是包含 P 类问题的。 NP 问题中还要一些问题，不知道它们能不能在多项式时间内得到 solution，但是 NP 问题一定能在多项式时间内去 verify 这个 solution 是不是正确的。]]></content>
@@ -265,20 +251,6 @@
         <tag>intext</tag>
         <tag>通配符</tag>
         <tag>搜索引擎</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[摩斯电码与布莱叶盲文]]></title>
-    <url>%2F2020%2F04%2F06%2F%E6%91%A9%E6%96%AF%E7%94%B5%E7%A0%81%E4%B8%8E%E5%B8%83%E8%8E%B1%E5%8F%B6%E7%9B%B2%E6%96%87%2F</url>
-    <content type="text"></content>
-      <categories>
-        <category>计算机</category>
-      </categories>
-      <tags>
-        <tag>摩斯电码</tag>
-        <tag>布莱叶盲文</tag>
-        <tag>编码的奥秘</tag>
-        <tag>编码</tag>
       </tags>
   </entry>
   <entry>
@@ -444,11 +416,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[matlab里面利用classify函数做多类别线性判别分析]]></title>
-    <url>%2F2019%2F12%2F11%2Fmatlab%E9%87%8C%E9%9D%A2%E5%88%A9%E7%94%A8classify%E5%87%BD%E6%95%B0%E5%81%9A%E5%A4%9A%E7%B1%BB%E5%88%AB%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90%2F</url>
-    <content type="text"></content>
-  </entry>
-  <entry>
     <title><![CDATA[论文阅读笔记：A survey on Adversarial Machine Learning]]></title>
     <url>%2F2019%2F11%2F24%2F%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E7%AC%94%E8%AE%B0%EF%BC%9AA-survey-on-Adversarial-Machine-Learning%2F</url>
     <content type="text"><![CDATA[这篇简短的综述论文主要介绍了什么是Adversarial Machine Learning，列出了AML的几种常见分类。 IntroductionDefinition of adversarial machine learning machine learning in the presence of an adversary. All kinds of attacks can be categorized in three main types: poisoning attacks: trying to poison the training of test dat detection attacks: with the objective of evading detection model extraction attacks: with the objective of replicating the model 当然，这三种分类方法只是作何自己做的一个分类，实际上还可以有不同的分类方法，需要做的就是理解每一种分分类的划分依据是什么就可以了，不需要刻意去记住有那几种分类。 当然，还有一种分类是将攻击者和防御者建模成一个博弈问题。 It is worth to mention another much different aspect of research in adversarial machine learning which models the model-attacker worlds as a game and defines different moves for each side of the game.By such definition, a min-max algorithm can be used to determine best moves for each side and fide possible equilibriums of the game. Taxonomy这一小节列举出了目前在AML领域中几种常见的攻击方法。 A. Model Extraction Attacks 这种攻击方法一般在machine learning as a service的场景中。即云服务商只会给用户提供一个查询的API接口，但是每次查询是需要收费的。 这时候攻击者就希望能不能找到一个和目标模型表现近似的模型，从而避免向云服务商付费。 这种攻击可以大致分为下面3类： eqution-solving model extraction attacks在逻辑回归等简单模型中适用，原理主要是解方程组。 path finding attacks一般用在决策树模型中。 membership queries attacks判定一个给定的数据点事会否在原始数据集中。 B. Adversarial Examples 这个不需要过多解释了，现在的文章实在是太多了。 需要介绍的是在论文[1]中，作者提出了既能够欺骗人眼也能够欺骗机器的对抗样本。 对抗样本目前最需要解决的问题是防御问题，尤其时针对迁移性攻击的防御。 C. Data Poisoning Attacks 这种攻击适用于攻击者不能直接接触到训练数据，但训练过程是online training or adaptive training，即训练过程中需要不断加入新的训练数据。 这种攻击在SVM中很容易成功，因为svm做分类最主要就是support vectors在起作用。 D. Model Evasion Attacks 这种攻击和对抗样本攻击很像，是在模型做inference阶段的攻击。但是因为做spam detection or malware detection在机器学习中很重要，所以这种攻击就被单独拎出来了。 Conclusion 这篇文章中没有介绍道data inversion attack，即能够推导出原始训练数据近似的攻击。 AML的防御还是一个需要不断深入研究的领域。 参考[1] Elsayed, G.F., Shankar, S., Cheung, B.Papernot, N., Kurakin, A., Goodfellow, I. and Sohl-Dickstein, J., 2018. Adversarial Examples that Fool both Human and Computer Vision. arXiv preprint arXiv:1802.08195]]></content>
@@ -529,11 +496,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[佛祖.py]]></title>
-    <url>%2F2019%2F05%2F04%2F%E4%BD%9B%E7%A5%96-py%2F</url>
-    <content type="text"><![CDATA[皮一下哈哈… 代码123456789101112131415161718192021222324252627282930print(" _ooOoo_ ")print(" o8888888o ")print(" 88 . 88 ")print(" (| -_- |) ")print(" O\\ = /O ")print(" ____/`---'\\____ ")print(" . ' \\| |// `. ")print(" / \\||| : |||// \\ ")print(" / _||||| -:- |||||- \\ ")print(" | | \\\\\\ - /// | | ")print(" | \\_| ''\\---/'' | | ")print(" \\ .-\\__ `-` ___/-. / ")print(" ___`. .' /--.--\\ `. . __ ")print(" ."" '&lt; `.___\\_&lt;|&gt;_/___.' &gt;'"". ")print(" | | : `- \\`.;`\\ _ /`;.`/ - ` : | | ")print(" \\ \\ `-. \\_ __\\ /__ _/ .-` / / ")print(" ======`-.____`-.___\\_____/___.-`____.-'====== ")print(" `=---=' ")print(" ")print(" ............................................. ")print(" 佛祖镇楼 BUG辟易 ")print(" 佛曰: ")print(" 写字楼里写字间，写字间里程序员； ")print(" 程序人员写程序，又拿程序换酒钱。 ")print(" 酒醒只在网上坐，酒醉还来网下眠； ")print(" 酒醉酒醒日复日，网上网下年复年。 ")print(" 但愿老死电脑间，不愿鞠躬老板前； ")print(" 奔驰宝马贵者趣，公交自行程序员。 ")print(" 别人笑我忒疯癫，我笑自己命太贱； ")print(" 不见满街漂亮妹，哪个归得程序员？") 打印效果：]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[写出pythonic的代码]]></title>
     <url>%2F2019%2F05%2F04%2F%E5%86%99%E5%87%BApythonic%E7%9A%84%E4%BB%A3%E7%A0%81%2F</url>
     <content type="text"><![CDATA[列表遍历Pythonic1234names = ['juntao', 'xiaojun', 'mingming', 'haohao']# 查找名字列表中带有字母'm'的名字m_name = [name for name in names if 'm' in name]print(m_name) 不要用循环写！12345m_name = []for name in names: if 'm' in name: m_name.append(name)print(m_name) 字典遍历Pythonic1234exam_detail = &#123;'juntao': 44, 'xiaojun': 88, 'mingming': 99, 'haohao': 22&#125;# 找出及格的学生及其分数score_greater_than_60 = &#123;k: v for k, v in exam_detail.items() if v &gt;= 60&#125;print(score_greater_than_60) 不要这样写！12345score_greater_than_60 = &#123;&#125;for k, v in exam_detail.items(): if v &gt;= 60: score_greater_than_60[k] = vprint(score_greater_than_60) 参考文章 一些 pythonic 的代码实例：https://github.com/mikeckennedy/write-pythonic-code-demos https://blog.csdn.net/g8433373/article/details/80709116]]></content>
@@ -567,11 +529,6 @@
     <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-asset-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
   </entry>
   <entry>
-    <title><![CDATA[解决pycharm在同目录下import，pycharm会报错，但实际可以正常运行的错误]]></title>
-    <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3pycharm%E5%9C%A8%E5%90%8C%E7%9B%AE%E5%BD%95%E4%B8%8Bimport%EF%BC%8Cpycharm%E4%BC%9A%E6%8A%A5%E9%94%99%EF%BC%8C%E4%BD%86%E5%AE%9E%E9%99%85%E5%8F%AF%E4%BB%A5%E6%AD%A3%E5%B8%B8%E8%BF%90%E8%A1%8C%E7%9A%84%E9%94%99%E8%AF%AF%2F</url>
-    <content type="text"><![CDATA[1. 问题描述假如我们的目录结构是这样： 项目名称是HelloWorld，在项目主目录下面新建一个文件夹test_dir，接着在HelloWorld/test_dir目录下面新建两个文件: HelloWorld/test_dir/hello1.py和HelloWorld/test_dir/hello2.py。 hello1.py中插入如下代码：1234import hello2 as h2print(h2.hello_world())print(h2.nihao()) hello2.py中插入如下代码：12345def nihao(): return 'nihao'def hello_world(): return 'hello world' 此时，会发现在hello1.py中一直红线提示No module named hello2： 但是如果我们运行hello.py发现是能够正常输出结果的。 2. 解决方法在左侧工程目录树中，选中test_dir，右键，然后选择 Mark directory as，再选择source root，然后就会发现先前的红线错误提示已经没有了。 3. More…如果我们是在当前工程主目录下面新建两个文件HelloWorld/hello1.py和HelloWorld/hello2.py，两个.py文件的代码内容和之前一样，这时候却又不会出现No module named hello2这种错误了。 参考文章 https://www.zhihu.com/question/52880389/answer/134369870]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[论论文笔记: Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning]]></title>
     <url>%2F2019%2F04%2F18%2F%E8%AE%BA%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-Manipulating-Machine-Learning-Poisoning-Attacks-and-Countermeasures-for-Regression-Learning%2F</url>
     <content type="text"><![CDATA[这篇文章发表于 2018 年，是第一篇针对线性回归模型提出投毒攻击方法的论文，实验证明：这种gradient-based的攻击方法效果很好；同时这篇文章里面也提出了一种防御方法：TRIM，实验结果也证明其防御效果很好。 主要贡献 第一篇针对linear regression进行poisoning attack的论文，之前的论文都是针对classification的模型 改造了一个原本针对分类问题进行投毒攻击的模型，将其应用在回归问题中，将攻击结果作为一个baseline 提出了一种基于数据集统计特征的攻击方法，只需要掌握有限的信息即可完成攻击 提出了防御算法TRIM,能够抵御众多的攻击，效果比传统的robust statistic好 方法Linear Regression Model传统的线性回归模型：$$\mathcal{L}\left(\mathcal{D}{\mathrm{tr}}, \boldsymbol{\theta}\right)=\underbrace{\frac{1}{n} \sum{i=1}^{n}\left(f\left(\boldsymbol{x}{i}, \boldsymbol{\theta}\right)-y{i}\right)^{2}}{\operatorname{MSE}\left(\mathcal{D}{\text { tr }}, \boldsymbol{\theta}\right)}+\lambda \Omega(\boldsymbol{w})$$ 根据$\Omega(w)$的不同，linear regression 可以分为下面4种 类型 $\Omega(w)$ Ordinary Least Square(OLS) $\Omega(w) = 0$ Ridge $\Omega(\boldsymbol{w})=\frac{1}{2}\ \boldsymbol{w}\ _{2}^{2}$ LASSO $\Omega(\boldsymbol{w}) = \ {w}_1\ $ Elastic-Net Regression $\Omega(w) = \rho\ w_1\ + (1-\rho)\frac{1}{2}\ w_2^2\ $ Adversarial Model这里定义敌手模型。 敌手模型主要是用来对潜在用户进行分析建模，例如：假设攻击者掌握了多少知识、攻击者的目标是什么、攻击者的攻击策略是什么等。具体的可以从下面4个维度来对潜在的攻击者进行建模： 维度 描述 Adversary Goal 一般包含两种:availability attack &amp; integrity attack.前者主要目的是使整个模型的可用性降低，后者主要是使模型在针对特定样本做 inference 时，准确率降低 Adversary Knowledge 一般包含两种：white-box &amp; black-box. 对于前者，假设攻击者知晓：traning data &amp; learning algorithm &amp; loss function &amp; model parameters；对于后者，假设攻击者只知晓：learning algorithm &amp; loss function。但是这篇文章中，作者通过产生替代数据，同样可以得到 model parameters. Adversary Capability 攻击者的能力，一般定义为其能往数据集中插入多少 poisoning samples. $n:original \ samples$, $p :poisoning \ samples$, $N = n + p:\ total \ smaples$, 定义poisoning rate $\alpha = p/n$ Adversary Strategy $\begin{array}{rl}{\arg \max {\mathcal{D}{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}{p}^{\star} \in \arg \min {\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}$ 攻击者的目标主要是优化上面的目标函数：即如何插入 poisoning samples 来使得在 $D’$上的 loss 值最大. 攻击方法攻击者的目标函数：$$\begin{array}{rl}{\arg \max {\mathcal{D}{p}}} &amp; {\mathcal{W}\left(\mathcal{D}^{\prime}, \boldsymbol{\theta}{p}^{\star}\right)} \ {\text { s.t. }} &amp; {\boldsymbol{\theta}{p}^{\star} \in \arg \min {\boldsymbol{\theta}} \mathcal{L}\left(\mathcal{D}{\mathrm{tr}} \cup \mathcal{D}_{p}, \boldsymbol{\theta}\right)}\end{array}$$ 注： 目标函数 $W$一般用 validation set 上面的 loss 来表示。loss 越大，表名攻击效果越好。对于 linear regression, loss function = Mean Square Error(MSE) 那么该插入什么样的 poisoning sample 才能使目标函数 $W$ 的值最大呢？ 答案是：考虑梯度，考虑$W$对$D_p$的梯度。有了这个梯度，我们就能使用gradient ascent方法来更新$D_p$，直到最后$W$收敛，我们可以得到最佳的$D_p$. 但是这个优化问题是一个Bi-level问题，即约束条件本身也是一个优化问题，解决这种问题通常情况下是NP-hard.因为$x_c$和$W$并不是显示相关，而是通过$\theta$间接相关，因此作者通过chain rule来计算所需要的梯度 $\nabla_{\boldsymbol{x}_{c}} \mathcal{W}$: $$\nabla_{\boldsymbol{x}{c}} \mathcal{W}=\nabla{\boldsymbol{x}{c}} \boldsymbol{\theta}\left(\boldsymbol{x}{c}\right)^{\top} \cdot \nabla_{\boldsymbol{\theta}} \mathcal{W}$$ 注：$x_c$表示 poisoning sample 的 features 1. 首先求解公式的第二项 $\nabla_{\theta} \mathcal{W}$ 第二项比较好计算，因为在线性回归问题中，目标函数表示的是在 validation set 上计算到的 loss： $$\mathcal{W}{\mathrm{val}}\left(\mathcal{D}{\mathrm{val}}, \boldsymbol{\theta}\right)=\frac{1}{m} \sum_{j=1}^{m}\left(f\left(\boldsymbol{x}{j}^{\prime}, \boldsymbol{\theta}\right)-y{j}^{\prime}\right)^{2}$$ 对这个函数求对$\theta$的偏导：$$\nabla_{\boldsymbol{\theta}} \mathcal{W}{\mathrm{val}}=\left[ \begin{array}{c}{\nabla{\boldsymbol{w}} \mathcal{W}{\mathrm{val}}} \ {\nabla{b} \mathcal{W}{\mathrm{val}}}\end{array}\right]=\left[ \begin{array}{c}{\frac{2}{m} \sum{j=1}^{m}\left(f\left(\boldsymbol{x}{j}\right)-y{j}\right) \boldsymbol{x}{j}} \ {\frac{2}{m} \sum{j=1}^{m}\left(f\left(\boldsymbol{x}{j}\right)-y{j}\right)}\end{array}\right]$$ 至此，公式第二项偏导数计算完毕，下面计算第一项。 2. 求解公式第二项 $\nabla_{\boldsymbol{x}{c}} \boldsymbol{\theta}\left(\boldsymbol{x}{c}\right)^{\top}$ 防御方法实验结果]]></content>
@@ -602,11 +559,6 @@
     <content type="text"><![CDATA[激活方法 下载安装激活工具：链接: https://pan.baidu.com/s/1C3KqB4m7dnm9t2uKoDARHw 提取码: 9r4h Windows 10 中可能会提示说下载的文件中包含病毒，导致下载不成功。这时候只需要在Windows defender中找到刚才那条阻止记录，并将其设置为允许，重新下载文件，就可以下载成功了。 接下来执行压缩包里面的.exe文件，安装到最后，Windows defender又提示说检测到病毒xxx不能执行，安装失败之类的，这时候需要在windows安全中心，选择管理设置，然后关闭实时保护，然后以管理员方式运行压缩包里面的.bat文件，再重新安装刚才那个.exe文件，这时候就可以成功安装了，安装完之后再开启实时保护。 启动软件，点击红色按钮，在打开 office 中的账户，发现已经激活成功了，简直神器！ 参考文章 https://blog.csdn.net/weixin_40941966/article/details/80872533]]></content>
   </entry>
   <entry>
-    <title><![CDATA[Python3: ModuleNotFoundError: No module named 'PIL']]></title>
-    <url>%2F2019%2F04%2F02%2FPython3-ModuleNotFoundError-No-module-named-PIL%2F</url>
-    <content type="text"><![CDATA[问题使用matplotlib.pyplot模块调用绘图函数时，出现以上错误。 解决方法在控制台中输入如下命令1pip install pillow 即可解决问题]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[使用 Github Pages + Hexo 搭建一个个人博客]]></title>
     <url>%2F2019%2F04%2F02%2F%E4%BD%BF%E7%94%A8-Github-Pages-Hexo-%E6%90%AD%E5%BB%BA%E4%B8%80%E4%B8%AA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[前言其实在很早之前，曾使用 WordPress 搭建过一个个人博客。当时也是满满的激情，想模仿大佬们学着写技术博客。但是后来由于忙着追求GPA，加上自身懒惰自控力不行，博客就基本放弃更新了。 但是现在已经过上了研究生生活，每天有大把的时间可以由自己来支配，同时接触的东西也越来越多：做项目需要实时的学习一些技术和技巧，需要不断总结下来；各种学术报告会，听完之后需要回去再认真揣摩消化，变成自己的东西，这也需要总结下来。虽然之前也零零散散的做了一些笔记，但是组织松散不方便查找，遂考虑重新开通个人博客，将平常生活中的所学所思都记录下来，做技术和科研的积淀，争取能够厚积薄发！ 开始搭建 1. 前期准备 安装node.js：因为hexo是一个基于node.js开发的静态博客框架，其运行必须要有node.js环境支持 安装git：要往 github 提交代码，就必须先在本地安装好 git 客户端 在 github 上面新建一个仓库，名称设为你的github账户名.github.io 上面软件的安装应该没有大问题，去官网下载一路 next 基本就可以了。需要注意的是，如果之前没有用过 git 提交代码到 github，那么第一次安装 git 之后还需要做些 SSH Key 的设置，这里不打算赘述这个步骤。 2. 安装hexo打开 git bash，直接输入下面这条命令：1npm install -g hexo-cli 安装可能需要几分钟，耐心等待，不出意外的话，能够成功安装 hexo 3. 构建本地目录在本地文件系统中，任意找一个目录作为网站文件的存放目录，比如在 D盘 新建一个目录blog，作为网站所有文件存放的根目录。 在 git bash 中进入这个目录12cd d:cd blog/ 下载安装 hexo 博客系统所需要的各种文件1npm install 安装过程可能比较慢，且没有进度条提示。安装完之后，在blog目录下面会产生很多新的目录，简单解释一下几个常用目录和文件的含义及作用 themes：存放所有的博客主题，hexo 默认安装的主题是 landscape source: 存放所有的 markdown 源文件。所有新建的博文(post) 都存放在source/_posts/ 这个目录下面。如果后面新建了其它页面，比如关于，归档，标签等，那么在source目录下面将会新产生about, achieve, tag等目录。 public：这个目录中存放所有的网页文件，html,css, javascirpt等等。简单说，hexo 会将我们编写的 markdown 文件解析成 html 文件，同时配套生成一些 css 样式文件，进而保护 markdown 源文件不被其他人获取。 _config.yml：全局的配置文件，可以配置网站 标题, 子标题 等 4. 启动前面安装步骤顺利完成之后，就可以在本地启动 hexo 了。 1npm server # 或者是 npm s, 效果等价 这时会提示说在localhost:4000端口可以访问刚刚建立的博客，正常情况下，如果4000端口没有被占用的话，那么就可以正常访问到博客，会有一篇默认的Hello World的博文。如果4000端口被占用了，具体的表现就是网站打不开，那么可以尝试更换一个启动端口，具体命令可以自行搜索。 5. 部署到 Github Page在部署到 github page之前，需要在本地修改一些配置。 首先打开_config.yml，搜索deploy字段，修改为如下格式：123456# Deployment## Docs: https://hexo.io/docs/deployment.htmldeploy: type: git repo: git@github.com:tanjuntao/tanjuntao.github.io.git branch: master 其中第二个repo字段的值，需要改为你在 github 上面那个网站项目对应的 SSH 值，也不打算截图介绍这个 SSH 值是怎么获取到的了。需要注意的是每个:后面需要紧跟一个空格，否则会出错！ 接着，在 git bash 中执行下面的命令：1npm install hexo-deployer-git --save 执行这条命令可能会出错，解决办法是 npm + flush刷新一下缓存, 具体的命令记不清楚。 最后就可以 deploy 到远程的 github 上面了。 1hexo deploy # 或者 hexo d, 效果是一样的 这时候，就可以看到 github 仓库里面生成了很多文件，但是找不到 source 文件夹，这就是前面介绍到的，保护了源文件。 要通过github账户名.github.io方式访问网站，还需要在项目仓库中的setting中设置中找到github page，设置一下后，才能够访问到。 6. 使用后面当需要新建一篇博文时，只需要做下面三个步骤，非常方便！1234hexo new &quot;博文标题&quot;hexo generate # hexo ghexo server # hexo s, 启动本地服务，可在本地中预览效果，这步可选hexo deploy # hexo d 7. 修改主题hexo 中默认使用的主题是landscape,但最为流行的一个主题叫next，打算安装next主题的可以接着往下看。 首先切换到博客更目录下面，也就是前面的blog/目录，执行下面命令：1git clone https://github.com/iissnan/hexo-theme-next themes/next 可能需要一段时间才能完成。 接着打开跟目录下面的_config.yml文件，修改theme字段的值为next就可以了。 如果后期打算更换其它主题，只需要修改这个theme的值就可以了，同样非常方便！ next主题默认的样式还是没有符合我的要求：左边有一个导航栏，且有关于 分类 标签 这些选项，我们还需要进一步对主题进行设置。 在/theme/next/目录中找到_config.yml文件，同样是一个设置文件，只不过仅仅是next这个主题的设置文件。 搜索Scheme，修改其值为Pisces或者Gemini，因为只有这两个 scheme 能显示左右侧边栏。 12345# Schemes# scheme: Muse# scheme: Mist# scheme: Piscesscheme: Gemini 接着搜索sidebar，参考下列注释进行设置：12345678910111213141516sidebar:# Sidebar Position - 侧栏位置（只对Pisces | Gemini两种风格有效） position: left //靠左放置 #position: right //靠右放置# Sidebar Display - 侧栏显示时机（只对Muse | Mist两种风格有效） #display: post //默认行为，在文章页面（拥有目录列表）时显示 display: always //在所有页面中都显示 #display: hide //在所有页面中都隐藏（可以手动展开） #display: remove //完全移除 offset: 12 //文章间距（只对Pisces | Gemini两种风格有效） b2t: false //返回顶部按钮（只对Pisces | Gemini两种风格有效） scrollpercent: true //返回顶部按钮的百分比 其它一些设置，包括头像，新页面，评论系统等，可以参见Hexo的Next主题详细配置 这篇文章，非常详细！ 8.其它关于使用 hexo deploy时，如何附带像git commit那样的message，只需要如下命令即可：1hexo deploy --message &quot;提交的信息内容&quot; 非常方便！ 9.注意事项 不要修改使用hexo new命令生成的文章标题 在编辑hexo new生成的 markdown 文件时，不要动手修改title的值，否则会导致这篇post无法显示在网站上！ 10. 如何配置 NexT 主题可以参考下面链接： NexT 官方提供的主题配置 hexo 的 NexT 主题详细配置 这篇文章就先到这里啦~ 主要参考 https://segmentfault.com/q/1010000007139908 https://www.jianshu.com/p/3a05351a37dc https://www.jianshu.com/p/40e4349a0cc7]]></content>
@@ -619,11 +571,6 @@
         <tag>NeXT</tag>
         <tag>github-page</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[测试博文]]></title>
-    <url>%2F2019%2F04%2F01%2F%E6%B5%8B%E8%AF%95%E5%8D%9A%E6%96%87%2F</url>
-    <content type="text"><![CDATA[二级标题：测试markdown语法的支持情况 有序列表 有序列表 无序列表 无序列表 这里是引用内容 123import tensorflow as tfimport numpy as npprint('hello world') 这是行内代码，这是加粗，这是斜体]]></content>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
