@@ -526,7 +526,7 @@
   <entry>
     <title><![CDATA[解决hexo中发布文章后图片无法显示的问题]]></title>
     <url>%2F2019%2F04%2F28%2F%E8%A7%A3%E5%86%B3hexo%E4%B8%AD%E5%8F%91%E5%B8%83%E6%96%87%E7%AB%A0%E5%90%8E%E5%9B%BE%E7%89%87%E6%97%A0%E6%B3%95%E6%98%BE%E7%A4%BA%E7%9A%84%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_assrt_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-assrt-image1npm install hexo-asset-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
+    <content type="text"><![CDATA[1. 问题描述默认情况下，在 hexo 中新建一篇markdown博文，在文章中插入本地图片，再部署到 github 上面，是无法显示这些图片的。 2. 解决方法首先找到博客根目录下面的_config.yml文件，修改post_asset_folder的值为true. 接着 git bash 切换到博客根目录下面，安装第三方插件hexo-asset-image1npm install hexo-asset-image --save 接着hexo new &quot;文章名&quot; 新建一篇文章，会发现source/_posts/目录下面会生成一个和 markdown 文件同名的文件夹。再将当前这篇文章中需要插入的图片放到这个文件夹中，再到 markdown 中引用该文件夹中的图片，最后hexo g -&gt; hexo d，就可以正常的查看这些图片了。 参考文章 https://blog.csdn.net/qq_38148394/article/details/79997971 https://www.jianshu.com/p/3db6a61d3782]]></content>
   </entry>
   <entry>
     <title><![CDATA[论论文笔记: Manipulating Machine Learning: Poisoning Attacks and Countermeasures for Regression Learning]]></title>
